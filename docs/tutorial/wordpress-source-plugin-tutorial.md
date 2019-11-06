@@ -2,21 +2,31 @@
 title: "WordPress Source Plugin Tutorial"
 ---
 
-## How to create a site with data pulled from WordPress
+## 워드프레스로부터 데이터를 가져와서 사이트를 만드는 방법
 
-### What this tutorial covers:
+### 이번 튜토리알이 다루는 점들:
+
+이번 튜토리알에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위해서 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리알에서 만들 것과 유사한 예제 사이트의 소스코드를 보여줍니다. 이번 튜토리알의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/), 에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
 
 In this tutorial, you will install the `gatsby-source-wordpress` plugin in order to pull blog and image data from a WordPress install into your Gatsby site and render that data. This [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) shows you the source code for an example site similar to what you’re going to be building in this tutorial, although it’s missing the cool images you’ll be adding in the next part of this tutorial, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/). :D
 
-#### But do you prefer GraphQL?
+#### GraphQL을 선호한다면? But do you prefer GraphQL?
+
+GraphQL을 사용하는 것을 선호한다면, 워드프레스의 default 와 custom 데이터를 간단히 공개하는 [wp-graphql](https://github.com/wp-graphql/wp-graphql) 플러그인이 있습니다.
 
 If you prefer using GraphQL, there's a [wp-graphql](https://github.com/wp-graphql/wp-graphql) plugin to easily expose both default and custom data in WordPress.
 
+WP-API 에 의해 지원되는 것과 동일한 인증 스키마가 wp-graphql 에서 지원되며, [gatsby-source-graphql](/packages/gatsby-source-graphql/) 플러그인과 함께 사용될 수 있습니다.
+
 The same authentication schemes supported by the WP-API are supported in wp-graphql, which can be used with the [gatsby-source-graphql](/packages/gatsby-source-graphql/) plugin.
 
-## Why go through this tutorial?
+## 왜 이 튜토리알을 살펴봐야할까요? Why go through this tutorial?
+
+각각의 source 플러그인이 작동하는 방법은 각각 다를 수 있지만, 여러분이 앞으로 만들게될 거의 대부분의 Gtasby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리알을 살펴볼 가치가 있습니다. 이번 튜토리알에서 여러분은 Gtasby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
 
 While each source plugin may operate differently from others, it’s worth going through this tutorial because you will almost definitely be using a source plugin in most Gatsby sites you build. This tutorial will walk you through the basics of connecting your Gatsby site to a CMS, pulling in data, and using React to render that data in beautiful ways on your site.
+
+만약 여러분이 사용할 수 있는 플러그인을 보고 싶다면, [Gatsby plugin library](/plugins/?=source) 에서 “source” 로 검색 해보세요.
 
 If you’d like to look at the growing number of source plugins available to you, search for “source” in the [Gatsby plugin library](/plugins/?=source).
 
