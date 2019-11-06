@@ -1,5 +1,5 @@
 ---
-title: Recipes
+title: 레시피
 tableOfContentsDepth: 2
 ---
 
@@ -29,13 +29,13 @@ A live example may not be possible depending on the nature of the recipe, in whi
 See [docs templates](/docs/docs-templates/) in the contributing docs for more help.
 -->
 
-Craving a happy medium between [full-length tutorials](/tutorial/) and crawling the [docs](/docs/)? Here's a cookbook of guiding recipes on how to build things, Gatsby style.
+[튜토리얼](/tutorial/)과 [문서](/docs) 사이의 무언가를 원하시나요? 여기 Gatsby 스타일의 무언가를 만들 수 있도록 가이드 해주는 레시피가 있습니다.
 
-## 1. Pages and Layouts
+## 1. Pages 와 Layouts
 
-### Project structure
+### 프로젝트 구조
 
-Inside a Gatsby project, you may see some or all of the following folders and files:
+Gatsby 프로젝트에서, 아래와 같은 폴더와 파일들을 볼 수 있을 겁니다.
 
 ```
 |-- /.cache
@@ -52,12 +52,13 @@ Inside a Gatsby project, you may see some or all of the following folders and fi
 |-- gatsby-browser.js
 ```
 
-Some notable files and their definitions:
+몇가지 중요한 파일들과 그 설명입니다:
 
-- `gatsby-config.js` — configure options for a Gatsby site, with metadata for project title, description, plugins, etc.
+- `gatsby-config.js` — 프로젝트 제목, 설명, 플러그들을 위한 메타데이터와 Gatsby 사이트의 옵션을 구성합니다.
+- `gatsby-node.js` — 빌드 과정에 영향을 주는 Gatsby의 Node.js API 들의 기본 설정을 커스터마이징하고 확장합니다.
 - `gatsby-node.js` — implement Gatsby’s Node.js APIs to customize and extend default settings affecting the build process
-- `gatsby-browser.js` — customize and extend default settings affecting the browser, using Gatsby’s browser APIs
-- `gatsby-ssr.js` — use Gatsby’s server-side rendering APIs to customize default settings affecting server-side rendering
+- `gatsby-browser.js` — 브라우저에 영향을 주는 Gatsby의 browser API 들의 기본 설정을 커스터마이징하고 확장합니다.
+- `gatsby-ssr.js` — 서버 사이드 렌더링에 영향을 주는 Gatsby의 server-side rendering API 들의 기본 설정을 커스터마이징하고 확장합니다.
 
 #### Additional resources
 
