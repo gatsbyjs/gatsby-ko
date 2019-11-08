@@ -149,7 +149,7 @@ This next query will pull in a sorted list of the blog posts:
 
 ## 블로그 포스트들을 `index.js`에 출력하기 Rendering the blog posts to `index.js`
 
-이제 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리를 작성했으니, 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 목록을 보여주겠습니다. 여러분의 `index.js` 는 다음과 같아야 합니다. 
+이제 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리를 작성했으니, 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 목록을 보여주겠습니다. 여러분의 `index.js` 는 다음과 같아야 합니다.
 
 Now that you've created GraphQL queries that pull in the data you want, you'll use that second query to create a list of sorted blogpost titles on your site's homepage. Here is what your `index.js` should look like:
 
@@ -201,6 +201,8 @@ Save these changes and look at localhost:8000 to see your new homepage with a li
 
 ![WordPress home after query](/images/wordpress-source-plugin-home.jpg)
 
+> **NOTE:** 미래의 에디터들에게: 블로그 포스트를 각각의 페이지로 불러오는 예제가 있었으면 도움이 될거 같습니다. 그리고 최종 결과물의 스크린샷을 추가하면 도움이 될거 같아요.
+
 > **NOTE:** to future editors: it would be useful to also have examples of how to load blog posts to their own individual pages. And helpful to insert a screenshot of the final result here
 
 ## 각각의 블로그 포스트 페이지를 만들고 링크를 걸어봅니다.Create pages for each blog post and link to them
@@ -225,7 +227,11 @@ If you haven't already, please read through [Part 7](/tutorial/part-seven/) of t
 
 ### 각각의 블로그 포스트를 위한 페이지 작성. Creating pages for each blog post.
 
+튜토리알의 파트 7에서, 페이지 생성의 첫번째 단계는 markdown 파일을 위한 slug를 만드는 것입니다. 여러분은 Markdown 파일을 사용하지 않고 워드프레스를 사용하기 때문에, API 호출로부터 Wordpress source로 반환되는 slug를 사용할 수 있습니다. 여러분은 slug를 이미 가지고 있기 때문에 slug 생성 부분은 건너 뛸 수 있습니다.
+
 In Part 7 of the tutorial, the first step in creating pages is creating slugs for the markdown files. Since you are using WordPress and not Markdown files, you can grab the slugs that get returned from your API call to the WordPress source. You can skip creating slugs, since you already have them.
+
+프로젝트 최상단에 있는 `gatsby-node.js` 파일(몇개의 주석을 제외하고는 비어있어야 합니다.)에 다음의 것을 축가하세요:
 
 Open up your `gatsby-node.js` file in the root of your project (it should be blank except for some comments) and add the following:
 
@@ -253,9 +259,13 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
+다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 당신의 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다.
+
 Next, stop and restart the `gatsby develop` environment. As you watch the terminal you should see two Post objects log to the terminal:
 
 ![Two posts logged to the terminal](/images/wordpress-source-plugin-log.jpg)
+
+훌륭해요! 튜토리알 파트 7에서 설명했다시피, 
 
 Excellent! As explained in Part 7 of the tutorial, this `createPages` export is one of the Gatsby "workhorses" and allows us to create your blog posts (or pages, or custom post types, etc.) from your WordPress install.
 
@@ -391,6 +401,8 @@ And that's it! When you wrap the title in the `Link` component and reference the
 
 ![Final product with links from the home page to the blog posts](/images/wordpress-source-plugin-home-to-post-links.gif)
 
-### Wrapping up.
+### 마무리 Wrapping up.
+
+여러분은 동일한 절차를 페이지, 커스텀 포스트 타입, 커스텀 필드, 텍사노미 및 WordPress가 알고 있는 모든 유연하고 재미있는 컨텐츠를 호출하거나 생성하는데 적용할 수 있습니다. 이는 여러분이 원하는 만큼 쉬울수도 복잡할 수 있으니, 탐험하고 즐기세요!
 
 You can apply the same procedure to calling and creating pages, custom post types, custom fields, taxonomies, and all the fun and flexible content WordPress is known for. This can be as simple or as complex as you would like it to be, so explore and have fun with it!
