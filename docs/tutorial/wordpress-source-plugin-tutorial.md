@@ -51,13 +51,12 @@ npm install --save gatsby-source-wordpress
 
 `gatsby-config.js`에 다음 코드를 사용하여 `gatsby-source-wordpress` 플러그인을 추가해주세요. 이 역시 [demo site’s source code](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-wordpress/gatsby-config.js)에서 찾을 수 있습니다.
 
-
 Add the `gatsby-source-wordpress` plugin to `gatsby-config.js` using the following code, which you can also find in the [demo site’s source code](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-wordpress/gatsby-config.js).
 
 ```js:title=gatsby-config.js
 module.exports = {
   siteMetadata: {
-    title: "Gatsby WordPress Tutorial",
+    title: "Gatsby WordPress Tutorial"
   },
   plugins: [
     // https://public-api.wordpress.com/wp/v2/sites/gatsbyjsexamplewordpress.wordpress.com/pages/
@@ -83,12 +82,12 @@ module.exports = {
         hostingWPCOM: false,
         // If useACF is true, then the source plugin will try to import the WordPress ACF Plugin contents.
         // This feature is untested for sites hosted on WordPress.com
-        useACF: true,
-      },
-    },
+        useACF: true
+      }
+    }
     // highlight-end
-  ],
-}
+  ]
+};
 ```
 
 ### Wordpress로부터 데이터를 가져오기 위한 GraphQL 쿼리 작성 Creating GraphQL queries that pull data from WordPress
@@ -154,10 +153,10 @@ This next query will pull in a sorted list of the blog posts:
 Now that you've created GraphQL queries that pull in the data you want, you'll use that second query to create a list of sorted blogpost titles on your site's homepage. Here is what your `index.js` should look like:
 
 ```jsx:title=src/pages/index.js
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 export default ({ data }) => {
   //highlight-line
@@ -175,8 +174,8 @@ export default ({ data }) => {
       ))}
       //highlight-end
     </Layout>
-  )
-}
+  );
+};
 
 //highlight-start
 export const pageQuery = graphql`
@@ -191,7 +190,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 //highlight-end
 ```
 
@@ -218,8 +217,8 @@ To do this, you need to:
 1. 각각의 블로그 포스트를 위한 페이지들을 만들기
 2. index 페이지에 있는 제목과 블로그 포스트 페이지를 연결하기
 
-1. Create pages for each blog post
-2. Link up the title on the index page with the post page.
+3. Create pages for each blog post
+4. Link up the title on the index page with the post page.
 
 만약 기초 튜토리알 [Part 7](/tutorial/part-seven/)을 아직 읽지 않았다면, Wordpress 대신에 Markdown으로 위 프로세스의 컨셉과 예제를 살펴보니 되도록 읽어주세요.
 
@@ -236,10 +235,10 @@ In Part 7 of the tutorial, the first step in creating pages is creating slugs fo
 Open up your `gatsby-node.js` file in the root of your project (it should be blank except for some comments) and add the following:
 
 ```js:title=gatsby-node.js
-const path = require(`path`)
+const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   return graphql(`
     {
       allWordpressPost(sort: { fields: [date] }) {
@@ -254,9 +253,9 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    console.log(JSON.stringify(result, null, 4))
-  })
-}
+    console.log(JSON.stringify(result, null, 4));
+  });
+};
 ```
 
 다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 당신의 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다.
@@ -265,7 +264,7 @@ Next, stop and restart the `gatsby develop` environment. As you watch the termin
 
 ![Two posts logged to the terminal](/images/wordpress-source-plugin-log.jpg)
 
-훌륭해요! 튜토리알 파트 7에서 설명했다시피, 
+훌륭해요! 튜토리알 파트 7에서 설명했다시피,
 
 Excellent! As explained in Part 7 of the tutorial, this `createPages` export is one of the Gatsby "workhorses" and allows us to create your blog posts (or pages, or custom post types, etc.) from your WordPress install.
 
@@ -274,13 +273,13 @@ Before you can create the blog posts, however, you need to specify a template to
 In your `src` directory, create a directory called `templates` and in the newly created `templates` folder, create a filed named `blog-post.js`. In that new file, paste the following:
 
 ```jsx:title=src/tempates/blog-post.js
-import React from "react"
-import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import React from "react";
+import Layout from "../components/layout";
+import { graphql } from "gatsby";
 
 export default ({ data }) => {
-  const post = data.allWordpressPost.edges[0].node
-  console.log(post)
+  const post = data.allWordpressPost.edges[0].node;
+  console.log(post);
   return (
     <Layout>
       <div>
@@ -288,8 +287,8 @@ export default ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </Layout>
-  )
-}
+  );
+};
 export const query = graphql`
   query($slug: String!) {
     allWordpressPost(filter: { slug: { eq: $slug } }) {
@@ -301,7 +300,7 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 ```
 
 What is this file doing? After importing your dependencies, it constructs the layout of the post with JSX. It wraps everything in the `Layout` component, so the style is the same throughout the site. Then, it simply adds the post title and the post content. You can add anything you want and can query for here (e.g. feature image, post meta, custom fields, etc.).
@@ -309,10 +308,10 @@ What is this file doing? After importing your dependencies, it constructs the la
 Below that, you can see the GraphQL query calling the specific post based on the `$slug`. This variable is passed to the `blog-post.js` template when the page is created in `gatsby-node.js`. To accomplish this, add the following code to the `gatsby-node.js` file:
 
 ```js:title=gatsby-node.js
-const path = require(`path`)
+const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
   return graphql(`
     {
       allWordpressPost(sort: { fields: [date] }) {
@@ -335,32 +334,40 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           // This is the $slug variable
           // passed to blog-post.js
-          slug: node.slug,
-        },
-      })
-    })
+          slug: node.slug
+        }
+      });
+    });
     //highlight-end
-  })
-}
+  });
+};
 ```
+
+`gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, [http://localhost:8000/asdf](http://localhost:8001/asdf)같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
 
 You will need to stop and start your environment again using `gatsby develop`. When you do, you will not see a change on the index page of the site, but if you navigate to a 404 page, like [http://localhost:8000/asdf](http://localhost:8001/asdf), you should see the two sample posts created and be able to click on them to go to the sample posts:
 
 ![Sample post links](/images/wordpress-source-plugin-sample-post-links.gif)
 
+하지만 누구도 블로그 글을 찾기위해 404 페이지로 가고 싶어하지 않아요! 그러니 홈페이지에서 링크를 걸어봅시다.
+
 But nobody likes to go to a 404 page to find a blog post! So, let's link these up from the home page.
 
-### Linking to posts from the homepage.
+### 홈페이지에서 포스트로 링크걸기. Linking to posts from the homepage.
+
+`index.js` 페이지에 이미 여러분의 구조와 쿼리를 완료했기에, `Link` 컴포넌트를 사용해서 타이틀을 감싸기만 하면 모든 준비가 완료됩니다.
 
 Since you already have your structure and query done for the `index.js` page, all you need to do is use the `Link` component to wrap your titles and you should be good to go.
+
+`index.js` 파일을 열고 다음의 내용을 추가하세요:
 
 Open up your `index.js` file and add the following:
 
 ```jsx:title=src/pages/index.js
-import React from "react"
-import { Link, graphql } from "gatsby" //highlight-line
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import React from "react";
+import { Link, graphql } from "gatsby"; //highlight-line
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 export default ({ data }) => {
   return (
@@ -379,8 +386,8 @@ export default ({ data }) => {
         </div>
       ))}
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query {
@@ -394,8 +401,10 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 ```
+
+이게 전부입니다~ `Link` 컴포넌트로 타이틀을 감싸고 포스트의 slug 를 참조하면, Gatsby가 마법과도 같이 link를 추가하고, 미리 로딩하고, 완전 빠르게 페이지 간의 전환을 만들어줍니다:
 
 And that's it! When you wrap the title in the `Link` component and reference the slug of the post, Gatsby will add some magic to the link, preload it, and make the transition between pages incredibly fast:
 
