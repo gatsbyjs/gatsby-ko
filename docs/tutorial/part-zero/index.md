@@ -81,7 +81,7 @@ _**참고**: Gatsby를 설치하고 처음 실행하게 되면 Gatsby 명령어�
 이제 여러분은 Gatsby CLI를 이용해 여러분의 첫번째 Gatsby 사이트를 만들 준비가 되었습니다. 이를 이용해 특정 종류의 사이트들을 더 빠르게 만들기 위해 “스타터”(몇 가지 기본 설정과 함께 부분적으로 만들어진 사이트)들을 다운로드 할 수 있습니다. 이 튜토리얼에서는 Gatsby 사이트의 기본이 되는 요소들이 포함되어 있는 “Hello World” 스타터를 이용할 것입니다.
 
 1.  터미널을 실행하세요.
-2.  `gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world`를 실행하세요. (\_노트: 여러분의 다운로드 속도에 따라 소요 시간이 상이할 수 있습니다. 설명을 위해서 녹화된 아래의 gif 역시 실제 설치 시간보다 짧게 녹화된 것입니다_).
+2.  `gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world`를 실행하세요. (\_노트: 여러분의 다운로드 속도에 따라 소요 시간이 상이할 수 있습니다. 설명을 위해서 녹화된 아래의 gif 역시 실제 설치 시간보다 짧게 녹화된 것입니다\_).
 3.  `cd hello-world`를 실행하세요.
 4.  `gatsby develop`를 실행하세요.
 
@@ -98,7 +98,7 @@ gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world
 
 - `new` 는 새 Gatsby 프로젝트를 만들기 위한 커맨드입니다.
 - 여기서 `hello-world`는 임의의 제목입니다 — 아무거나 쓰셔도 상관없습니다. CLI는 “hello-world”라는 폴더 안에 여러분의 새 사이트의 코드들을 넣을 것입니다.
-- 마지막 GitHub 주소 부분은 여러분이 설치에 사용하고 있는 스타터의 특정 주소를 가리키고 있습니다.
+- 마지막 GitHub 주소 부분은 여러분이 설치에 사용하고 있는 스타터의 저장소 주소를 가리키고 있습니다.
 
 ```shell
 cd hello-world
