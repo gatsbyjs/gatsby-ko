@@ -14,25 +14,25 @@ title: 빠른 시작
 **주의**: 이 영상에서는 npm 패키지를 설치 없이 실행해주는 도구인 `npx`를 사용합니다. `npx gatsby new`
 명령은 gatsby-cli를 설치한 후 `gatsby new` 명령을 실행하는 것과 동일합니다.
 
-### Gatsby CLI 설치.
+### Gatsby CLI 설치
 
 ```shell
 npm install -g gatsby-cli
 ```
 
-### 새로운 프로젝트 생성.
+### 새로운 프로젝트 생성
 
 ```shell
 gatsby new gatsby-site
 ```
 
-### 프로젝트 디렉토리로 이동.
+### 프로젝트 디렉토리로 이동
 
 ```shell
 cd gatsby-site
 ```
 
-### 개발 서버 실행.
+### 개발 서버 실행
 
 ```shell
 gatsby develop
@@ -42,7 +42,7 @@ Gatsby는 기본 설정으로 `localhost:8000`을 통해 접근할 수 있는 ho
 
 `src/pages` 안의 자바스크립트 파일을 수정해 보세요. 변경 사항은 브라우저에서 실시간으로 갱신될 것입니다.
 
-### production 빌드 생성.
+### production 빌드 생성
 
 ```shell
 gatsby build
@@ -50,7 +50,7 @@ gatsby build
 
 Gatsby는 정적 HTML 및 경로별 JavaScript 코드 번들을 생성하며 사이트에 최적화된 production 빌드를 수행합니다.
 
-### 로컬 환경에서 production 빌드 후 테스트.
+### 로컬 환경에서 production 빌드 후 테스트
 
 ```shell
 gatsby serve
