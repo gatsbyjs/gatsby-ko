@@ -60,26 +60,29 @@ Gatsby 프로젝트에서, 아래와 같은 폴더와 파일들을 볼 수 있�
 - `gatsby-browser.js` — 브라우저에 영향을 주는 Gatsby의 browser API 들의 기본 설정을 커스터마이징하고 확장합니다.
 - `gatsby-ssr.js` — 서버 사이드 렌더링에 영향을 주는 Gatsby의 server-side rendering API 들의 기본 설정을 커스터마이징하고 확장합니다.
 
-#### Additional resources
+#### 추가 정보
 
 - For a tour of all the common folders and files, read the docs on [Gatsby's Project Structure](/docs/gatsby-project-structure/)
+- 일반 폴더들과 파일들에 대해 알아보려면, [Gatsby의 프로젝트 구조](/docs/gatsby-project-structure/) 문서를 읽으세요.
 - For common commands, check out the [Gatsby CLI docs](/docs/gatsby-cli)
+- 일반 명령어들을 알아보려면, [Gatsby CLI 문서](/docs/gatsby-cli)를 확인하세요.
 - Check out the [Gatsby Cheat Sheet](/docs/cheat-sheet/) for downloadable info at a glance
+- 한눈에 보기 좋은 다운로드 가능한 [Gatsby 치트 시트](/docs/cheat-sheet/)를 확인하세요.
 
-### Creating pages automatically
+### 페이지들을 자동으로 생성하기
 
-Gatsby core automatically turns React components in `src/pages` into pages with URLs.
-For example, components at `src/pages/index.js` and `src/pages/about.js` would automatically create pages from those filenames for the site's index page (`/`) and `/about`.
+Gatsby 코어는 `src/pages` 내부의 React 컴포넌트들을 URL이 있는 페이지들로 자동으로 바꿉니다.
+예를 들어, `src/pages/index.js`와 `src/pages/about.js` 의 컴포넌트들은 파일 이름들로부터 사이트의 index 페이지와 `/about` 페이지를 자동으로 생성합니다.
 
-#### Prerequisites
+#### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby site](/docs/quick-start) 프로젝트
+- [Gatsby CLI](/docs/gatsby-cli) 의 설치상태
 
-#### Directions
+#### 지시사항
 
-1. Create a directory for `src/pages` if your site doesn't already have one.
-2. Add a component file to the pages directory:
+1. 프로젝트에 `src/pages` 디렉토리가 없다면 생성해 주세요.
+2. pages 디렉토리에 컴포넌토 파일을 추가해 주세요:
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -94,12 +97,12 @@ const AboutPage = () => (
 export default AboutPage
 ```
 
-3. Run `gatsby develop` to start the development server.
-4. Visit your new page in the browser: `http://localhost:8000/about`
+3. 개발 서버를 실행시키기 위해 `gatsby develop` 명령을 실행하세요.
+4. 브라우저로 새 페이지에 방문하세요: `http://localhost:8000/about`
 
-#### Additional resources
+#### 추가 정보
 
-- [Creating and modifying pages](/docs/creating-and-modifying-pages/)
+- [페이지 생성 및 수정](/docs/creating-and-modifying-pages/)
 
 ### Linking between pages
 
