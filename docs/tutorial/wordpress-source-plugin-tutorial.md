@@ -6,35 +6,23 @@ title: "WordPress Source Plugin Tutorial"
 
 ### 이번 튜토리알이 다루는 점들:
 
-이번 튜토리알에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위해서 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리알에서 만들 것과 유사한 예제 사이트의 소스코드를 보여줍니다. 이번 튜토리알의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/), 에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
+이번 튜토리알에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위한 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리알에서 만들 것과 유사한 예제 사이트의 소스 코드를 보여줍니다. 이번 튜토리알의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/), 에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
 
-In this tutorial, you will install the `gatsby-source-wordpress` plugin in order to pull blog and image data from a WordPress install into your Gatsby site and render that data. This [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) shows you the source code for an example site similar to what you’re going to be building in this tutorial, although it’s missing the cool images you’ll be adding in the next part of this tutorial, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/). :D
+#### GraphQL을 선호한다면?
 
-#### GraphQL을 선호한다면? But do you prefer GraphQL?
+GraphQL을 사용하는 것을 선호하는 분을 위한, 워드프레스의 default 와 custom 데이터를 간단히 공개하는 [wp-graphql](https://github.com/wp-graphql/wp-graphql) 플러그인이 있습니다.
 
-GraphQL을 사용하는 것을 선호한다면, 워드프레스의 default 와 custom 데이터를 간단히 공개하는 [wp-graphql](https://github.com/wp-graphql/wp-graphql) 플러그인이 있습니다.
+WP-API에 의해 지원되는 것과 동일한 인증 스키마가 wp-graphql에서 지원되며, [gatsby-source-graphql](/packages/gatsby-source-graphql/) 플러그인과 함께 사용될 수 있습니다.
 
-If you prefer using GraphQL, there's a [wp-graphql](https://github.com/wp-graphql/wp-graphql) plugin to easily expose both default and custom data in WordPress.
+## 왜 이 튜토리알을 살펴봐야할까요?
 
-WP-API 에 의해 지원되는 것과 동일한 인증 스키마가 wp-graphql 에서 지원되며, [gatsby-source-graphql](/packages/gatsby-source-graphql/) 플러그인과 함께 사용될 수 있습니다.
-
-The same authentication schemes supported by the WP-API are supported in wp-graphql, which can be used with the [gatsby-source-graphql](/packages/gatsby-source-graphql/) plugin.
-
-## 왜 이 튜토리알을 살펴봐야할까요? Why go through this tutorial?
-
-각각의 source 플러그인이 작동하는 방법은 각각 다를 수 있지만, 여러분이 앞으로 만들게될 거의 대부분의 Gtasby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리알을 살펴볼 가치가 있습니다. 이번 튜토리알에서 여러분은 Gtasby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
-
-While each source plugin may operate differently from others, it’s worth going through this tutorial because you will almost definitely be using a source plugin in most Gatsby sites you build. This tutorial will walk you through the basics of connecting your Gatsby site to a CMS, pulling in data, and using React to render that data in beautiful ways on your site.
+각각의 source 플러그인이 작동하는 방법은 다를 수 있지만, 여러분이 앞으로 만들게 될 거의 대부분의 Gtasby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리알을 살펴볼 가치가 있습니다. 이번 튜토리알에서 여러분은 Gtasby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
 
 계속 추가되고 있는 사용가능한 source 플러그인을 보고 싶다면, [Gatsby plugin library](/plugins/?=source) 에서 “source” 로 검색 해보세요.
 
-If you’d like to look at the growing number of source plugins available to you, search for “source” in the [Gatsby plugin library](/plugins/?=source).
+### `gatsby-source-wordpress` 플러그인을 사용한 사이트 제작
 
-### `gatsby-source-wordpress` 플러그인을 사용한 사이트 제작 Creating a site with the `gatsby-source-wordpress` plugin
-
-Gatsby 프로젝트를 만들고 방금 만든 프로젝트 디렉토리로 이동하세요.
-
-Create a new Gatsby project and change directories into the new project you just created:
+Gatsby 프로젝트를 만들고 방금 만든 프로젝트 디렉토리로 이동하세요:
 
 ```shell
  gatsby new wordpress-tutorial-site
@@ -43,15 +31,11 @@ cd wordpress-tutorial-site
 
 `gatsby-source-wordpress` 플러그인을 설치하세요. 이번 튜토리알에 포함되어있지 않은 이 플러그인의 특징과 GraphQL 쿼리 예제에 대한 추가적인 정보가 보고 싶다면 [`gatsby-source-wordpress` plugin’s README file](/packages/gatsby-source-wordpress/?=wordpress)를 봐주세요.
 
-Install the `gatsby-source-wordpress` plugin. For extra reading on the plugin’s features and examples of GraphQL queries not included in this tutorial, see the [`gatsby-source-wordpress` plugin’s README file](/packages/gatsby-source-wordpress/?=wordpress).
-
 ```shell
 npm install --save gatsby-source-wordpress
 ```
 
 `gatsby-config.js`에 다음 코드를 사용하여 `gatsby-source-wordpress` 플러그인을 추가해주세요. 이 역시 [demo site’s source code](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-wordpress/gatsby-config.js)에서 찾을 수 있습니다.
-
-Add the `gatsby-source-wordpress` plugin to `gatsby-config.js` using the following code, which you can also find in the [demo site’s source code](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-wordpress/gatsby-config.js).
 
 ```js:title=gatsby-config.js
 module.exports = {
@@ -90,27 +74,19 @@ module.exports = {
 };
 ```
 
-### Wordpress로부터 데이터를 가져오기 위한 GraphQL 쿼리 작성 Creating GraphQL queries that pull data from WordPress
+### Wordpress로부터 데이터를 가져오기 위한 GraphQL 쿼리 작성
 
 이제 여러분은 Wordpress 사이트로부터 데이터를 가져오기 위한 GraphQL 쿼리를 작성할 준비가 되었습니다. 여러분은 블로그 포스트들의 제목과 작성일, 그리고 블로그 포스트 컨텐츠를 가져올 쿼리를 작성할 거에요.
 
-Now you are ready to create a GraphQL query to pull in some data from the WordPress site. You will create a query that pulls in the title of the blog posts, date they were posted, and blogpost content.
-
 실행:
-
-Run:
 
 ```shell
 gatsby develop
 ```
 
-여러분의 브라우저에, 사이트를 보기위해 localhost:8000 에 접속하시고, GraphQL 쿼리를 작성할 수 있는 localhost:8000/\_\_\_graphql 도 접속하세요.
+브라우저 상에서 localhost:8000 에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 localhost:8000/\_\_\_graphql 도 접속하세요.
 
-In your browser, open localhost:8000 to see your site, and open localhost:8000/\_\_\_graphql so that you can create your GraphQL queries.
-
-연습삼아 다음 쿼리를 GraphQL explorer에 작성해보세요. 이 첫번째 쿼리는 Wordpress로부터 블로그 포스트 본문을 가져올 것입니다.
-
-As an exercise, try re-creating the following queries in your GraphiQL explorer. This first query will pull in the blogpost content from WordPress:
+연습삼아 다음 쿼리를 GraphQL explorer에 작성해보세요. 이 첫번째 쿼리는 Wordpress로부터 블로그 포스트 컨텐츠를 가져올 것입니다.
 
 ```graphql
 query {
@@ -128,9 +104,7 @@ query {
 }
 ```
 
-다음 쿼리는 정렬된 블로그 블로그 포스트들을 가져올 것입니다.
-
-This next query will pull in a sorted list of the blog posts:
+다음 쿼리는 정렬된 블로그 포스트를 가져올 것입니다.
 
 ```graphql
 {
@@ -146,11 +120,9 @@ This next query will pull in a sorted list of the blog posts:
 }
 ```
 
-## 블로그 포스트들을 `index.js`에 출력하기 Rendering the blog posts to `index.js`
+## 블로그 포스트들을 `index.js`에 출력하기
 
-이제 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리를 작성했으니, 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 목록을 보여주겠습니다. 여러분의 `index.js` 는 다음과 같아야 합니다.
-
-Now that you've created GraphQL queries that pull in the data you want, you'll use that second query to create a list of sorted blogpost titles on your site's homepage. Here is what your `index.js` should look like:
+이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. 여러분의 `index.js` 는 다음과 같아야 합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react";
@@ -194,45 +166,28 @@ export const pageQuery = graphql`
 //highlight-end
 ```
 
-바꾼 것들을 저장하고 localhost:8000 으로 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
-
-Save these changes and look at localhost:8000 to see your new homepage with a list of sorted blog posts!
+바꾼 것들을 저장하고 localhost:8000 에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
 
 ![WordPress home after query](/images/wordpress-source-plugin-home.jpg)
 
-> **NOTE:** 미래의 에디터들에게: 블로그 포스트를 각각의 페이지로 불러오는 예제가 있었으면 도움이 될거 같습니다. 그리고 최종 결과물의 스크린샷을 추가하면 도움이 될거 같아요.
+> **NOTE:** 미래의 에디터들에게: 블로그 포스트를 각각의 페이지로 불러오는 예제가 있었으면 도움이 될거 같습니다. 그리고 최종 결과물의 스크린샷을 추가하면 도움이 될거 같습니다.
 
-> **NOTE:** to future editors: it would be useful to also have examples of how to load blog posts to their own individual pages. And helpful to insert a screenshot of the final result here
-
-## 각각의 블로그 포스트 페이지를 만들고 링크를 걸어봅니다.Create pages for each blog post and link to them
+## 각각의 블로그 포스트 페이지를 만들고 링크를 걸어봅시다.
 
 블로그 포스트 글과 요약이 포함된 index 페이지도 대단합니다만, 각각의 블로그 포스트를 위한 페이지들도 만들고 `index.js` 파일에서 그 페이지들로 연결시켜줘야합니다.
 
-An index page with a post title and excerpt is great, but you should also build pages out for each of the blog posts, and link to them from your `index.js` file.
-
-이를 위해, 여러분은 다음의 것을 해야합니다:
-
-To do this, you need to:
+이를 위해, 다음과 같은 것이 필요합니다:
 
 1. 각각의 블로그 포스트를 위한 페이지들을 만들기
 2. index 페이지에 있는 제목과 블로그 포스트 페이지를 연결하기
 
-3. Create pages for each blog post
-4. Link up the title on the index page with the post page.
-
 만약 기초 튜토리알 [Part 7](/tutorial/part-seven/)을 아직 읽지 않았다면, Wordpress 대신에 Markdown으로 위 프로세스의 컨셉과 예제를 살펴보니 되도록 읽어주세요.
 
-If you haven't already, please read through [Part 7](/tutorial/part-seven/) of the foundational tutorial, as it goes through the concept and examples of this process with Markdown instead of WordPress.
-
-### 각각의 블로그 포스트를 위한 페이지 작성. Creating pages for each blog post.
+### 각각의 블로그 포스트를 위한 페이지 작성.
 
 튜토리알의 파트 7에서, 페이지 생성의 첫번째 단계는 markdown 파일을 위한 slug를 만드는 것입니다. 여러분은 Markdown 파일을 사용하지 않고 워드프레스를 사용하기 때문에, API 호출로부터 Wordpress source로 반환되는 slug를 사용할 수 있습니다. 여러분은 slug를 이미 가지고 있기 때문에 slug 생성 부분은 건너 뛸 수 있습니다.
 
-In Part 7 of the tutorial, the first step in creating pages is creating slugs for the markdown files. Since you are using WordPress and not Markdown files, you can grab the slugs that get returned from your API call to the WordPress source. You can skip creating slugs, since you already have them.
-
-프로젝트 최상단에 있는 `gatsby-node.js` 파일(몇개의 주석을 제외하고는 비어있어야 합니다.)에 다음의 것을 축가하세요:
-
-Open up your `gatsby-node.js` file in the root of your project (it should be blank except for some comments) and add the following:
+프로젝트 최상단에 있는 `gatsby-node.js` 파일(몇개의 주석을 제외하고는 비어있어야 합니다.)에 다음의 것을 추가하세요:
 
 ```js:title=gatsby-node.js
 const path = require(`path`);
@@ -258,19 +213,15 @@ exports.createPages = ({ graphql, actions }) => {
 };
 ```
 
-다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 당신의 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다.
-
-Next, stop and restart the `gatsby develop` environment. As you watch the terminal you should see two Post objects log to the terminal:
+다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다:
 
 ![Two posts logged to the terminal](/images/wordpress-source-plugin-log.jpg)
 
-훌륭해요! 튜토리알 파트 7에서 설명했다시피,
+훌륭합니다! 튜토리알 파트 7에서 설명했다시피, `createPages` export가 Gatsby의 "일꾼" 중의 하나이고, 워드프레스로부터 블로그 포스트(또는 페이지, 커스텀 포스트 타입, 기타등등)를 만들게 해줍니다.
 
-Excellent! As explained in Part 7 of the tutorial, this `createPages` export is one of the Gatsby "workhorses" and allows us to create your blog posts (or pages, or custom post types, etc.) from your WordPress install.
+하지만 블로그 포스트를 만들기전에, 페이지를 만들기 위한 템플릿을 지정해야합니다.
 
-Before you can create the blog posts, however, you need to specify a template to build the pages.
-
-In your `src` directory, create a directory called `templates` and in the newly created `templates` folder, create a filed named `blog-post.js`. In that new file, paste the following:
+`src` 디렉토리안에, `templates` 디렉토리를 만들고, 그 안에 `blog-post.js` 파일을 만드세요. 그 파일에 다음 내용을 붙여넣기하세요:
 
 ```jsx:title=src/tempates/blog-post.js
 import React from "react";
@@ -303,6 +254,7 @@ export const query = graphql`
 `;
 ```
 
+이 파일이 하는 일이 무엇일가요? 의존성을
 What is this file doing? After importing your dependencies, it constructs the layout of the post with JSX. It wraps everything in the `Layout` component, so the style is the same throughout the site. Then, it simply adds the post title and the post content. You can add anything you want and can query for here (e.g. feature image, post meta, custom fields, etc.).
 
 Below that, you can see the GraphQL query calling the specific post based on the `$slug`. This variable is passed to the `blog-post.js` template when the page is created in `gatsby-node.js`. To accomplish this, add the following code to the `gatsby-node.js` file:
