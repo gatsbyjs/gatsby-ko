@@ -8,19 +8,19 @@ tableOfContentsDepth: 2
 ## Task to accomplish.
 1-2 sentences about it. The more concise and focused, the better!
 
-### Prerequisites
+### 사전 준비
 - System/version requirements
 - Everything necessary to set up the task
 - Including setting up accounts at other sites, like Netlify
 - See [docs templates](/docs/docs-templates/) for formatting tips
 
-### Directions
+### 지시 사항
 Step-by-step directions. Each step should be repeatable and to-the-point. Anything not critical to the task should be omitted.
 
 #### Live example (optional)
 A live example may not be possible depending on the nature of the recipe, in which case it is fine to omit.
 
-### Additional resources
+### 추가 정보
 - Tutorials
 - Docs pages
 - Plugin READMEs
@@ -104,19 +104,20 @@ export default AboutPage
 
 - [페이지 생성 및 수정](/docs/creating-and-modifying-pages/)
 
-### Linking between pages
+### 페이지 간 연결하기
 
-Routing in Gatsby relies on the `<Link />` component.
+Gatsby 에서 라우팅은 `<Link />` 컴포넌트에 의존합니다.
 
-#### Prerequisites
+#### 사전 준비
 
-- A Gatsby site with two page components: `index.js` and `contact.js`
-- The Gatsby `<Link />` component
-- The [Gatsby CLI](/docs/gatsby-cli/) to run `gatsby develop`
+- `index.js` 와 `contact.js` 라는 두 페이지 컴포넌트가 있는 Gatsby 사이트
+- Gatsby `<Link />` 컴포넌트
+- `gatsby develop`을 실행하기 위한 [Gatsby CLI](/docs/gatsby-cli/)
 
-#### Directions
 
-1. Open the index page component (`src/pages/index.js`), import the `<Link />` component from Gatsby, add a `<Link />` component above the header, and give it a `to` property with the value of `"/contact/"` for the pathname:
+#### 지시 사항
+
+1. index 페이지 컴포넌트(`src/pages/index.js`)를 열고, Gatsby 로부터 `<Link />` 컴포넌트를 임포트 한 다음, 헤더 위에 `<Link />` 컴포넌트를 추가하고, `to` 프로퍼티에 `"/contact/"` 라는 경로명을 지정해줍니다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -130,21 +131,21 @@ export default () => (
 )
 ```
 
-2. Run `gatsby develop` and navigate to the index page. You should have a link that takes you to the contact page when clicked!
+2. `gatsby develop`을 실행하고 index 페이지로 이동하세요. 클릭시 contact 페이지로 연결되는 링크가 있어야 합니다!
 
-> **Note**: Gatsby's `<Link />` component is a wrapper around [`@reach/router`'s Link component](https://reach.tech/router/api/Link). For more information about Gatsby's `<Link />` component, consult the [API reference for `<Link />`](/docs/gatsby-link/).
+> **주의**: Gatsby의 `<Link />` 컴포넌트는 [`@reach/router`의 Link 컴포넌트](https://reach.tech/router/api/Link)를 감싸는 래퍼 입니다. Gatsby의 `<Link />` 컴포넌트에 대한 자세한 정보는 [`<Link />` API 레퍼런스](/docs/gatsby-link/) 문서를 참고하세요.
 
-### Creating a layout component
+### layout 컴포넌트 생성하기
 
-It's common to wrap pages with a React layout component, which makes it possible to share markup, styles, and functionality across multiple pages.
+React layout 컴포넌트로 페이지들을 감싸는 것이 일반적이므로 여러 페이지 간 마크업, 스타일 및 기능을 공유 할 수 있습니다.
 
-#### Prerequisites
+#### 사전 준비
 
-- A Gatsby Site
+- Gatsby 사이트
 
-#### Directions
+#### 지시 사항
 
-1. Create a layout component in `src/components`, where child components will be passed in as props:
+1. `src/components` 안에 자식 컴포넌트를 props로 전달받는 layout 컴포넌트를 생성합니다:
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -156,7 +157,7 @@ export default ({ children }) => (
 )
 ```
 
-2. Import and use the layout component in a page:
+2. 페이지에서 layout 컴포넌트를 임포트하여 사용합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -170,23 +171,23 @@ export default () => (
 )
 ```
 
-#### Additional resources
+#### 추가 정보
 
-- Create a layout component in [tutorial part three](/tutorial/part-three/#your-first-layout-component)
-- Styling with [Layout Components](/docs/layout-components/)
+- [튜토리얼 파트3](/tutorial/part-three/#your-first-layout-component)에서 layout 컴포넌트를 생성하세요
+- [Layout 컴포넌트](/docs/layout-components/) 스타일링
 
-### Creating pages programmatically with createPage
+### createPage를 사용하여 프로그래밍 방식으로 여러 페이지 생성하기
 
-You can create pages programmatically in the `gatsby-node.js` file with helper methods Gatsby provides.
+Gatsby가 제공하는 헬퍼 메소드를 사용하여 `gatsby-node.js` 파일에서 프로그래밍 방식으로 페이지를 생성할 수 있습니다.
 
-#### Prerequisites
+#### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
-- A `gatsby-node.js` file
+- [Gatsby 사이트](/docs/quick-start)
+- `gatsby-node.js` 파일
 
-#### Directions
+#### 지시 사항
 
-1. In `gatsby-node.js`, add an export for `createPages`
+1. `gatsby-node.js` 파일 안에, `createPages` 추가하고 내보냅니다(export).
 
 ```javascript:title=gatsby-node.js
 // highlight-start
@@ -196,7 +197,7 @@ exports.createPages = ({ actions }) => {
 // highlight-end
 ```
 
-2. Destructure the `createPage` action from the available actions so it can be called by itself, and add or get data
+2. 사용 가능한 actions 로 부터 `createPage` 액션을 뽑아내어 자체적으로 호출하고, 데이터를 추가하거나 가져올 수 있습니다.
 
 ```javascript:title=gatsby-node.js
 exports.createPages = ({ actions }) => {
@@ -217,7 +218,7 @@ exports.createPages = ({ actions }) => {
 }
 ```
 
-3. Loop through the data in `gatsby-node.js` and provide the path, template, and context (data that will be passed in the props' pageContext) to `createPage` for each invocation
+3. `gatsby-node.js`의 데이터로 반복하고 매 반복 단계에서 `createPage`에 경로, 템플릿 및 컨텍스트 (props안의 pageContext로 전달 될 데이터)를 제공하세요.
 
 ```javascript:title=gatsby-node.js
 exports.createPages = ({ actions }) => {
@@ -245,7 +246,7 @@ exports.createPages = ({ actions }) => {
 }
 ```
 
-4. Create a React component to serve as the template for your page that was used in `createPage`
+4. `createPage`에 제공된 페이지의 템플릿으로 사용할 React 컴포넌트를 생성하세요.
 
 ```jsx:title=src/templates/dog-template.js
 import React from "react"
@@ -257,13 +258,13 @@ export default ({ pageContext: { dog } }) => (
 )
 ```
 
-5. Run `gatsby develop` and navigate to the path of one of the pages you created (like at `http://localhost:8000/Fido`) to see the data you passed it displayed on the page
+5. `gatsby develop`을 실행하고 생성된 페이지 중 하나(예: `http://localhost:8000/Fido`)로 이동하여 페이지에 표시되는 데이터를 확인하세요.
 
-#### Additional resources
+#### 추가 정보
 
-- Tutorial section on [programmatically creating pages from data](/tutorial/part-seven/)
-- Reference guide on [using Gatsby without GraphQL](/docs/using-gatsby-without-graphql/)
-- [Example repo](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-createPage) for this recipe
+- [데이터로부터 프로그래밍 방식으로 여러 페이지 생성하기](/tutorial/part-seven/)에 대한 튜토리얼 섹션
+- [GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/) 레퍼런스 가이드
+- 이 레시피의 [예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-createPage)
 
 ## 2. Styling with CSS
 
@@ -271,12 +272,12 @@ There are so many ways to add styles to your website; Gatsby supports almost eve
 
 ### Using global CSS files without a Layout component
 
-#### Prerequisites
+#### 사전 준비
 
 - An existing [Gatsby site](/docs/quick-start/) with an index page component
 - A `gatsby-browser.js` file
 
-#### Directions
+#### 지시 사항
 
 1. Create a global CSS file as `src/styles/global.css` and paste the following into the file:
 
@@ -302,17 +303,17 @@ import "./src/styles/global.css"
 
 > **Note:** This approach is not the best fit if you are using CSS-in-JS for styling your site, in which case a layout page with all the shared components should be used. This is covered in the next recipe.
 
-#### Additional resources
+#### 추가 정보
 
 - More on [adding global styles without a layout component](/docs/global-css/#adding-global-styles-without-a-layout-component)
 
 ### Using global styles in a layout component
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start/) with an index page component
 
-#### Directions
+#### 지시 사항
 
 You can add global styles to a [shared layout component](/tutorial/part-three/#your-first-layout-component). This component is used for things that are common throughout the site, like a header or footer.
 
@@ -346,19 +347,19 @@ import Layout from "../components/layout"
 export default () => <Layout>Hello world!</Layout>
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - [Standard Styling with Global CSS Files](/docs/global-css/)
 - [More about layout components](/tutorial/part-three)
 
 ### Using Styled Components
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start/) with an index page component
 - [gatsby-plugin-styled-components, styled-components, and babel-plugin-styled-components](/packages/gatsby-plugin-styled-components/) installed in `package.json`
 
-#### Directions
+#### 지시 사항
 
 1. Inside your `gatsby-config.js` file add `gatsby-plugin-styled-components`
 
@@ -424,18 +425,18 @@ export default () => (
 
 4. Run `gatsby develop` to see the changes
 
-#### Additional resources
+#### 추가 정보
 
 - [More on Using Styled Components](/docs/styled-components/)
 - [Egghead lesson](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
 
 ### Using CSS Modules
 
-#### Prerequisites
+#### 사전 준비
 
 - An existing [Gatsby site](/docs/quick-start/) with an index page component
 
-#### Directions
+#### 지시 사항
 
 1. Create a CSS module as `src/pages/index.module.css` and paste the following into the module:
 
@@ -467,7 +468,7 @@ export default () => (
 **Note:**
 Notice that the file extension is `.module.css` instead of `.css`, which tells Gatsby that this is a CSS module.
 
-#### Additional resources
+#### 추가 정보
 
 - More on [Using CSS Modules](/tutorial/part-two/#css-modules)
 - [Live example on Using CSS modules](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-css-modules)
@@ -480,11 +481,11 @@ Sass has 2 syntaxes. The most commonly used syntax is "SCSS", and is a superset 
 
 Sass will compile .scss and .sass files to .css files for you, so you can write your stylesheets with more advanced features.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start/).
 
-#### Directions
+#### 지시 사항
 
 1. Install the Gatsby plugin [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) and `node-sass`.
 
@@ -524,7 +525,7 @@ import "./styles.sass"
 
 _Note: You can use Sass/SCSS files as modules too, like mentioned in the previous recipe about CSS modules, with the difference that instead of .css the extensions have to be .scss or .sass_
 
-#### Additional resources
+#### 추가 정보
 
 - [Difference between .sass and .scss](https://responsivedesign.is/articles/difference-between-sass-and-scss/)
 - [Sass guide from the official Sass website](https://sass-lang.com/guide)
@@ -532,12 +533,12 @@ _Note: You can use Sass/SCSS files as modules too, like mentioned in the previou
 
 ### Adding a Local Font
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start/)
 - A font file: `.woff2`, `.ttf`, etc.
 
-#### Directions
+#### 지시 사항
 
 1. Copy a font file into your Gatsby project, such as `src/fonts/fontname.woff2`.
 
@@ -566,7 +567,7 @@ By targeting the HTML `body` element, your font will apply to most text on the p
 
 If fonts are not updating following steps above, make sure to replace the existing font-family in relevant CSS.
 
-#### Additional resources
+#### 추가 정보
 
 - More on [importing assets into files](/docs/importing-assets-into-files/)
 
@@ -574,11 +575,11 @@ If fonts are not updating following steps above, make sure to replace the existi
 
 [Emotion](https://emotion.sh) is a powerful CSS-in-JS library that supports both inline CSS styles and styled components. You can use each styling feature individually or together in the same file.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start)
 
-#### Directions
+#### 지시 사항
 
 1. Install the [Gatsby Emotion plugin](/packages/gatsby-plugin-emotion/) and Emotion packages.
 
@@ -637,7 +638,7 @@ export default () => (
 )
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - [Using Emotion in Gatsby](/docs/emotion/)
 - [Emotion website](https://emotion.sh)
@@ -647,13 +648,13 @@ export default () => (
 
 Hosting your own [Google Fonts](https://fonts.google.com/) locally within a project means they won't have to be fetched over the network when your site loads, increasing your site's speed index by up to ~300 milliseconds on desktop and 1+ seconds on 3G. It's also recommended to limit custom font usage to only the essential for performance.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start)
 - The [Gatsby CLI](/docs/gatsby-cli/) installed
 - Choosing a font package from [the typefaces project](https://github.com/KyleAMathews/typefaces)
 
-#### Directions
+#### 지시 사항
 
 1. Run `npm install --save typeface-your-chosen-font`, replacing `your-chosen-font` with the name of the font you want to install from [the typefaces project](https://github.com/KyleAMathews/typefaces).
 
@@ -675,7 +676,7 @@ body {
 
 _NOTE: So for the above example, the relevant CSS declaration would be `font-family: 'Source Sans Pro';`_
 
-#### Additional resources
+#### 추가 정보
 
 - [Typography.js](/docs/typography-js/) - Another option for using Google fonts on a Gatsby site
 - [The Typefaces Project Docs](https://github.com/KyleAMathews/typefaces/blob/master/README.md)
@@ -687,11 +688,11 @@ _NOTE: So for the above example, the relevant CSS declaration would be `font-fam
 
 ### Using a starter
 
-#### Prerequisites
+#### 사전 준비
 
 - The [Gatsby CLI](/docs/gatsby-cli) installed
 
-#### Directions
+#### 지시 사항
 
 1. Find the starter you'd like to use. (_The [Starter Library](/starters/?v=2) is a good place to look!_)
 
@@ -710,7 +711,7 @@ cd {your-project-name}
 gatsby develop
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - Follow a [more detailed guide](/docs/starters/) on using Gatsby starters.
 - Learn how to use the [Gatsby CLI](/docs/gatsby-cli) tool to use starters in [tutorial part one](/tutorial/part-one/#using-gatsby-starters)
@@ -727,11 +728,11 @@ A Gatsby theme abstracts Gatsby configuration (shared functionality, data sourci
 
 Creating a site based on a starter that configures a theme follows the same process as creating a site based on a starter that **doesn't** configure a theme. In this example you can use the [starter for creating a new site that uses the official Gatsby blog theme](https://github.com/gatsbyjs/gatsby-starter-blog-theme).
 
-#### Prerequisites
+#### 사전 준비
 
 - The [Gatsby CLI](/docs/gatsby-cli) installed
 
-#### Directions
+#### 지시 사항
 
 1. Generate a new site based on the blog theme starter:
 
@@ -746,7 +747,7 @@ cd {your-project-name}
 gatsby develop
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - Learn how to use an existing Gatsby theme in the [shorter conceptual guide](/docs/themes/using-a-gatsby-theme) or the more detailed [step-by-step tutorial](/tutorial/using-a-theme).
 
@@ -757,13 +758,13 @@ gatsby develop
   lessonTitle="Use the Gatsby Theme Workspace Starter to Begin Building a New Theme"
 />
 
-#### Prerequisites
+#### 사전 준비
 
 - The [Gatsby CLI](/docs/gatsby-cli) installed
 
 * [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) installed
 
-#### Directions
+#### 지시 사항
 
 1. Generate a new theme workspace using the [Gatsby theme workspace starter](https://github.com/gatsbyjs/gatsby-starter-theme-workspace):
 
@@ -777,7 +778,7 @@ gatsby new {your-project-name} https://github.com/gatsbyjs/gatsby-starter-theme-
 yarn workspace example develop
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - Follow a [more detailed guide](/docs/themes/building-themes/) on using the Gatsby theme workspace starter.
 - Learn how to build your own theme in the [Gatsby Theme Authoring video course on Egghead](https://egghead.io/courses/gatsby-theme-authoring), or in the [video course's complementary written tutorial companion](/tutorial/building-a-theme).
@@ -792,7 +793,7 @@ Gatsby's [GraphQL data layer](/docs/querying-with-graphql/) uses nodes to model 
 
 This recipe shows you how to add custom data using `createNode()`.
 
-#### Directions
+#### 지시 사항
 
 1. In `gatsby-node.js` use `sourceNodes()` and `actions.createNode()` to create and export nodes to be able to query the data.
 
@@ -836,7 +837,7 @@ query MyPokemonQuery {
 }
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - Walk through an example using the `gatsby-source-filesystem` plugin in [tutorial part five](/tutorial/part-five/#source-plugins)
 - Search available source plugins in the [Gatsby library](/plugins/?=source)
@@ -849,7 +850,7 @@ You can source Markdown data and use Gatsby's [`createPages` API](/docs/actions/
 
 This recipe shows how to create pages from Markdown files on your local filesystem using Gatsby's GraphQL data layer.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start) with a `gatsby-config.js` file
 - The [Gatsby CLI](/docs/gatsby-cli) installed
@@ -857,7 +858,7 @@ This recipe shows how to create pages from Markdown files on your local filesyst
 - The [gatsby-transformer-remark plugin](/packages/gatsby-transformer-remark) installed
 - A `gatsby-node.js` file
 
-#### Directions
+#### 지시 사항
 
 1. In `gatsby-config.js`, configure `gatsby-transformer-remark` along with `gatsby-source-filesystem` to pull in Markdown files from a source folder. This would be in addition to any previous `gatsby-source-filesystem` entries, such as for images:
 
@@ -981,7 +982,7 @@ export const pageQuery = graphql`
 
 6. Run `gatsby develop` to restart the development server. View your post in the browser: `http://localhost:8000/my-first-post`
 
-#### Additional resources
+#### 추가 정보
 
 - [Tutorial: Programmatically create pages from data](/tutorial/part-seven/)
 - [Creating and modifying pages](/docs/creating-and-modifying-pages/)
@@ -995,13 +996,13 @@ You don't have to use the GraphQL data layer to include data in pages, [though t
 
 In this recipe, you'll create dynamic pages from data fetched from the [PokéAPI’s REST endpoints](https://www.pokeapi.co/). The [full example](https://github.com/jlengstorf/gatsby-with-unstructured-data/) can be found on GitHub.
 
-#### Prerequisites
+#### 사전 준비
 
 - A Gatsby Site with a `gatsby-node.js` file
 - The [Gatsby CLI](/docs/gatsby-cli) installed
 - The [axios](https://www.npmjs.com/package/axios) package installed through npm
 
-#### Directions
+#### 지시 사항
 
 1. In `gatsby-node.js`, add the JavaScript code to fetch data from the PokéAPI and programmatically create an index page:
 
@@ -1052,7 +1053,7 @@ export default ({ pageContext: { allPokemon } }) => (
 3. Run `gatsby develop` to fetch the data, build pages, and start the development server.
 4. View your homepage in a browser: `http://localhost:8000`
 
-#### Additional resources
+#### 추가 정보
 
 - [Full Pokemon data repo](https://github.com/jlengstorf/gatsby-with-unstructured-data/)
 - More on using unstructured data in [Using Gatsby without GraphQL](/docs/using-gatsby-without-graphql/)
@@ -1060,13 +1061,13 @@ export default ({ pageContext: { allPokemon } }) => (
 
 ### Sourcing content from Drupal
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start)
 - A [Drupal](http://drupal.org) site
 - The [JSON:API module](https://www.drupal.org/project/jsonapi) installed and enabled on the Drupal site
 
-#### Directions
+#### 지시 사항
 
 1. Install the `gatsby-source-drupal` plugin.
 
@@ -1150,7 +1151,7 @@ export const query = graphql`
 
 5. With the development server running, you can view the new page by visiting `http://localhost:8000/drupal`.
 
-#### Additional Resources
+#### 추가 정보
 
 - [Using Decoupled Drupal with Gatsby](/blog/2018-08-13-using-decoupled-drupal-with-gatsby/)
 - [More on sourcing from Drupal](/docs/sourcing-from-drupal)
@@ -1162,7 +1163,7 @@ export const query = graphql`
 
 You can use the `graphql` tag to query data in the pages of your Gatsby site. This gives you access to anything included in Gatsby's data layer, such as site metadata, source plugins, images, and more.
 
-#### Directions
+#### 지시 사항
 
 1. Import `graphql` from `gatsby`.
 
@@ -1202,7 +1203,7 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - [GraphQL and Gatsby](/docs/graphql/): understanding the expected shape of your data
 - [More on querying data in pages with GraphQL](/docs/page-query/)
@@ -1212,7 +1213,7 @@ export default IndexPage
 
 `StaticQuery` is a component for retrieving data from Gatsby's data layer in [non-page components](/docs/static-query/), such as a header, navigation, or any other child component.
 
-#### Directions
+#### 지시 사항
 
 1. The `StaticQuery` Component requires two render props: `query` and `render`.
 
@@ -1253,12 +1254,12 @@ Since Gatsby v2.1.0, you can use the `useStaticQuery` hook to query data with a 
 
 The `useStaticQuery` hook takes a GraphQL query and returns the requested data. It can be stored in a variable and used later in your JSX templates.
 
-#### Prerequisites
+#### 사전 준비
 
 - You'll need React and ReactDOM 16.8.0 or later (keeping Gatsby updated handles this)
 - Recommended reading: the [Rules of React Hooks](https://reactjs.org/docs/hooks-rules.html)
 
-#### Directions
+#### 지시 사항
 
 1. Import `useStaticQuery` and `graphql` from `gatsby` in order to use the hook query the data.
 
@@ -1293,7 +1294,7 @@ const NonPageComponent = () => {
 export default NonPageComponent
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - [More on Static Query for querying data in components](/docs/static-query/)
 - [The difference between a static query and a page query](/docs/static-query/#how-staticquery-differs-from-page-query)
@@ -1306,11 +1307,11 @@ When querying for data with GraphQL, you can limit the number of results returne
 
 To limit data, you'll need a Gatsby site with some nodes in the GraphQL data layer. All sites have some nodes like `allSitePage` and `sitePage` created automatically: more can be added by installing source plugins like `gatsby-source-filesystem` in `gatsby-config.js`.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start/)
 
-#### Directions
+#### 지시 사항
 
 1. Run `gatsby develop` to start the development server.
 2. Open a tab in your browser at: `http://localhost:8000/___graphql`.
@@ -1346,7 +1347,7 @@ To limit data, you'll need a Gatsby site with some nodes in the GraphQL data lay
 
 5. Click the play button in the GraphiQL page and the data in the `edges` field will be limited to the number specified.
 
-#### Additional resources
+#### 추가 정보
 
 - Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
 - [Gatsby GraphQL reference for limiting](/docs/graphql-reference/#limit)
@@ -1365,12 +1366,12 @@ The ordering of your results can be specified with the GraphQL `sort` argument. 
 
 For this recipe, you'll need a Gatsby site with a collection of nodes to sort in the GraphQL data layer. All sites have some nodes like `allSitePage` created automatically: more can be added by installing source plugins.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start)
 - Queryable fields prefixed with `all`, e.g. `allSitePage`
 
-#### Directions
+#### 지시 사항
 
 1. Run `gatsby develop` to start the development server.
 2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
@@ -1407,7 +1408,7 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to sort in
 
 5. Click the play button in the GraphiQL page and the data returned will be sorted ascending by the `path` field.
 
-#### Additional resources
+#### 추가 정보
 
 - [Gatsby GraphQL reference for sorting](/docs/graphql-reference/#sort)
 - Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
@@ -1426,12 +1427,12 @@ Queried results can be filtered down with operators like `eq` (equals), `ne` (no
 
 For this recipe, you'll need a Gatsby site with a collection of nodes to filter in the GraphQL data layer. All sites have some nodes like `allSitePage` created automatically: more can be added by installing source and transformer plugins like `gatsby-source-filesystem` and `gatsby-transformer-remark` in `gatsby-config.js` to produce `allMarkdownRemark`.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start)
 - Queryable fields prefixed with `all`, e.g. `allSitePage` or `allMarkdownRemark`
 
-#### Directions
+#### 지시 사항
 
 1. Run `gatsby develop` to start the development server.
 2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
@@ -1471,7 +1472,7 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to filter 
 
 5. Click the play button in the GraphiQL page. The data that matches the filter parameters should be returned, in this case only sourced Markdown files tagged with a category of 'magical creatures'.
 
-#### Additional resources
+#### 추가 정보
 
 - [Gatsby GraphQL reference for filtering](/docs/graphql-reference/#filter)
 - [Complete list of possible operators](/docs/graphql-reference/#complete-list-of-possible-operators)
@@ -1491,7 +1492,7 @@ You can rename any field in a GraphQL query with an alias.
 
 If you would like to run two queries on the same datasource, you can use an alias to avoid a naming collision with two queries of the same name.
 
-#### Directions
+#### 지시 사항
 
 1. Run `gatsby develop` to start the development server.
 2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
@@ -1527,7 +1528,7 @@ If you would like to run two queries on the same datasource, you can use an alia
 
 5. Click the play button in the GraphiQL page and 2 objects with alias names you provided should be output.
 
-#### Additional resources
+#### 추가 정보
 
 - [Gatsby GraphQL reference for aliasing](/docs/graphql-reference/#aliasing)
 - Live example:
@@ -1545,7 +1546,7 @@ GraphQL fragments are shareable chunks of a query that can be reused.
 
 You might want to use them to share multiple fields between queries or to colocate a component with the data it uses.
 
-#### Directions
+#### 지시 사항
 
 1. Declare a `graphql` template string with a Fragment in it. The fragment should be made up of the keyword `fragment`, a name, the GraphQL type it is associated with (in this case of type `Site`, as demonstrated by `on Site`), and the fields that make up the fragment:
 
@@ -1578,7 +1579,7 @@ export const pageQuery = graphql`
 
 Fragments can be nested inside other fragments, and multiple fragments can be used in the same query.
 
-#### Additional resources
+#### 추가 정보
 
 - [Simple example repo using fragments](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-fragments)
 - [Gatsby GraphQL reference for fragments](/docs/graphql-reference/#fragments)
@@ -1596,12 +1597,12 @@ Images can be imported right into a JavaScript module with webpack. This process
   lessonTitle="Import a Local Image into a Gatsby Component with webpack"
 />
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby Site](/docs/quick-start) with a `.js` file exporting a React component
 - an image (`.jpg`, `.png`, `.gif`, `.svg`, etc.) in the `src` folder
 
-#### Directions
+#### 지시 사항
 
 1. Import your file from its path in the `src` folder:
 
@@ -1626,7 +1627,7 @@ export default () => (
 3. Run `gatsby develop` to start the development server.
 4. View your image in the browser: `http://localhost:8000/`
 
-#### Additional resources
+#### 추가 정보
 
 - [Example repo importing an image with webpack](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-webpack-image)
 - [More on all image techniques in Gatsby](/docs/images-and-files/)
@@ -1642,12 +1643,12 @@ This is an **escape route** for [specific use cases](/docs/static-folder/#when-t
   lessonTitle="Use a local image from the static folder in a Gatsby component"
 />
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby Site](/docs/quick-start) with a `.js` file exporting a React component
 - An image (`.jpg`, `.png`, `.gif`, `.svg`, etc.) in the `static` folder
 
-#### Directions
+#### 지시 사항
 
 1. Ensure that the image is in your `static` folder at the root of the project. Your project structure might look something like this:
 
@@ -1673,7 +1674,7 @@ export default () => (
 3. Run `gatsby develop` to start the development server.
 4. View your image in the browser: `http://localhost:8000/`
 
-#### Additional resources
+#### 추가 정보
 
 - [Example repo referencing an image from the static folder](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-static-image)
 - [Using the Static Folder](/docs/static-folder/)
@@ -1685,12 +1686,12 @@ The `gatsby-image` plugin can relieve much of the pain associated with optimizin
 
 Gatsby will generate optimized resources which can be queried with GraphQL and passed into Gatsby's image component. This takes care of the heavy lifting including creating several image sizes and loading them at the right time.
 
-#### Prerequisites
+#### 사전 준비
 
 - The `gatsby-image`, `gatsby-transformer-sharp`, and `gatsby-plugin-sharp` packages installed and added to the plugins array in `gatsby-config`
 - [Images sourced](/packages/gatsby-image/#install) in your `gatsby-config` using a plugin like `gatsby-source-filesystem`
 
-#### Directions
+#### 지시 사항
 
 1. First, import `Img` from `gatsby-image`, as well as `graphql` and `useStaticQuery` from `gatsby`
 
@@ -1872,7 +1873,7 @@ return (
 
 5. Run `gatsby develop`, to generate images from files in the filesystem (if not done already) and cache them
 
-#### Additional resources
+#### 추가 정보
 
 - [Example repository illustrating these examples](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
 - [Gatsby Image API](/docs/gatsby-image/)
@@ -1886,14 +1887,14 @@ For use cases like a featured image in a blog post, you can _still_ use `gatsby-
 
 To inline images in markdown (using the `![]()` syntax), consider using a plugin like [`gatsby-remark-images`](/packages/gatsby-remark-images/)
 
-#### Prerequisites
+#### 사전 준비
 
 - The `gatsby-image`, `gatsby-transformer-sharp`, and `gatsby-plugin-sharp` packages installed and added to the plugins array in `gatsby-config`
 - [Images sourced](/packages/gatsby-image/#install) in your `gatsby-config` using a plugin like `gatsby-source-filesystem`
 - Markdown files sourced in your `gatsby-config` with image URLs in frontmatter
 - [Pages created](/docs/creating-and-modifying-pages/) from Markdown using [`createPages`](https://www.gatsbyjs.org/docs/node-apis/#createPages)
 
-#### Directions
+#### 지시 사항
 
 1. Verify that the Markdown file has an image URL with a valid path to an image file in your project
 
@@ -1969,7 +1970,7 @@ export const pageQuery = graphql`
 
 4. Run `gatsby develop`, which will generate images for files sourced in the filesystem
 
-#### Additional resources
+#### 추가 정보
 
 - [Example repository using this recipe](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
 - [Featured images with frontmatter](/docs/working-with-images-in-markdown/#featured-images-with-frontmatter-metadata)
@@ -1985,14 +1986,14 @@ Transforming data in Gatsby is plugin-driven. Transformer plugins take data fetc
 
 The `gatsby-transformer-remark` plugin can transform Markdown files to HTML.
 
-#### Prerequisites
+#### 사전 준비
 
 - A Gatsby site with `gatsby-config.js` and an `index.js` page
 - A Markdown file saved in your Gatsby site `src` directory
 - A source plugin installed, such as `gatsby-source-filesystem`
 - The `gatsby-transformer-remark` plugin installed
 
-#### Directions
+#### 지시 사항
 
 1. Add the transformer plugin in your `gatsby-config.js`:
 
@@ -2027,7 +2028,7 @@ export const query = graphql`
 
 3. Restart the development server and open GraphiQL at `http://localhost:8000/___graphql`. Explore the fields available on the `MarkdownRemark` node.
 
-#### Additional resources
+#### 추가 정보
 
 - [Tutorial on transforming Markdown to HTML](/tutorial/part-six/#transformer-plugins) using `gatsby-transformer-remark`
 - Browse available transformer plugins in the [Gatsby plugin library](/plugins/?=transformer)
@@ -2038,12 +2039,12 @@ Showtime. Once you are happy with your site, you are ready to go live with it!
 
 ### Preparing for deployment
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start)
 - The [Gatsby CLI](/docs/gatsby-cli) installed
 
-#### Directions
+#### 지시 사항
 
 1. Stop your development server if it is running (`Ctrl + C` on your command line in most cases)
 
@@ -2075,7 +2076,7 @@ gatsby build --prefix-paths
 gatsby build && gatsby serve
 ```
 
-#### Additional resources
+#### 추가 정보
 
 - Walk through building and deploying an example site in [tutorial part one](/tutorial/part-one/#deploying-a-gatsby-site)
 - Learn about [performance optimization](/docs/performance/)
@@ -2086,13 +2087,13 @@ gatsby build && gatsby serve
 
 Use [`netlify-cli`](https://www.netlify.com/docs/cli/) to deploy your Gatsby application without leaving the command-line interface.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [Gatsby site](/docs/quick-start) with a single component `index.js`
 - The [netlify-cli](https://www.npmjs.com/package/netlify-cli) package installed
 - The [Gatsby CLI](/docs/gatsby-cli) installed
 
-#### Directions
+#### 지시 사항
 
 1. Build your gatsby application using `gatsby build`
 
@@ -2108,7 +2109,7 @@ Use [`netlify-cli`](https://www.netlify.com/docs/cli/) to deploy your Gatsby app
 
 7. Make sure that everything looks fine before deploying to production using `netlify deploy --prod`
 
-#### Additional resources
+#### 추가 정보
 
 - [Hosting on Netlify](/docs/hosting-on-netlify)
 - [gatsby-plugin-netlify](/packages/gatsby-plugin-netlify)
@@ -2117,14 +2118,14 @@ Use [`netlify-cli`](https://www.netlify.com/docs/cli/) to deploy your Gatsby app
 
 Use [Now CLI](https://zeit.co/download) to deploy your Gatsby application without leaving the command-line interface.
 
-#### Prerequisites
+#### 사전 준비
 
 - A [ZEIT Now](https://zeit.co/signup) account
 - A [Gatsby site](/docs/quick-start) with a single component `index.js`
 - [Now CLI](https://zeit.co/download) package installed
 - [Gatsby CLI](/docs/gatsby-cli) installed
 
-#### Directions
+#### 지시 사항
 
 1. Login into Now CLI using `now login`
 
@@ -2132,6 +2133,6 @@ Use [Now CLI](https://zeit.co/download) to deploy your Gatsby application withou
 
 3. Run `now` to deploy it
 
-#### Additional resources
+#### 추가 정보
 
 - [Deploying to ZEIT Now](/docs/deploying-to-zeit-now/)
