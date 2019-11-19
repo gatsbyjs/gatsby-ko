@@ -45,27 +45,27 @@ module.exports = {
   plugins: [
     // https://public-api.wordpress.com/wp/v2/sites/gatsbyjsexamplewordpress.wordpress.com/pages/
     /*
-     * Gatsby's data processing layer begins with “source”
-     * plugins. Here the site sources its data from WordPress.
+     * Gatsby의 데이터 프로세싱 레이어는 “source” 플러그인으로 시작합니다.
+     * 워드프레스로부터 데이터가 오는 것을 명시합니다.
      */
     // highlight-start
     {
       resolve: `gatsby-source-wordpress`,
       options: {
         /*
-         * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
-         * Example : 'dev-gatbsyjswp.pantheonsite.io' or 'www.example-site.com'
+         * 프로토콜과 마지막의 /를 제외한 워드프레스 사이트의 base URL는 필수 항목입니다.
+         * 예 : 'dev-gatbsyjswp.pantheonsite.io' 또는 'www.example-site.com'
          */
         baseUrl: `dev-gatbsyjswp.pantheonsite.io`,
-        // The protocol. This can be http or https.
+        // 프로토콜: http 나 https 입니다.
         protocol: `http`,
-        // Indicates whether the site is hosted on wordpress.com.
-        // If false, then the assumption is made that the site is self hosted.
-        // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
-        // If your site is hosted on wordpress.org, then set this to false.
+        // wordpress.com 에 의해 호스팅 되는 사이트 인지 아닌지 명시.
+        // false 이면, 자체 호스팅되는 사이트라고 판단합니다.
+        // true 이면, 플러그인은 JSON REST API V2 를 사용해서 wordpress.com의 컨텐츠를 가져옵니다.
+        // 만약 여러분의 사이트가 wordpress.org 상에서 호스팅된다면 false로 설정하세요.
         hostingWPCOM: false,
-        // If useACF is true, then the source plugin will try to import the WordPress ACF Plugin contents.
-        // This feature is untested for sites hosted on WordPress.com
+        // useACF가 true이면, source 플러그인은 Wordpress ACF 플러그인 컨텐츠를 가져올것입니다.
+        // 이 기능은 WordPress.com 에서 호스팅되는 사이트는 아직 테스트되지 않았습니다.
         useACF: true
       }
     }
@@ -254,10 +254,10 @@ export const query = graphql`
 `;
 ```
 
-이 파일이 하는 일이 무엇일가요? 의존성을
+이 파일이 하는 일이 무엇일까요? 의존성을 가져온 후, JSX를 이용하여 포스트의 레이아웃을 만듭니다. `Layout` 컴포넌트로 모든 것을 감쌌고요. 그로 인해 사이트는 동일한 스타일을 유지합니다. 그 다음으로 간단히 포스트의 제목과 컨텐츠를 추가했습니다. 여러분은 어떤 것이라도 추가하거나 쿼리를 작성할 수 있습니다. (예를 들어 Featured 이미지, 포스트 메타, 커스텀 필드 등등).
 What is this file doing? After importing your dependencies, it constructs the layout of the post with JSX. It wraps everything in the `Layout` component, so the style is the same throughout the site. Then, it simply adds the post title and the post content. You can add anything you want and can query for here (e.g. feature image, post meta, custom fields, etc.).
 
-Below that, you can see the GraphQL query calling the specific post based on the `$slug`. This variable is passed to the `blog-post.js` template when the page is created in `gatsby-node.js`. To accomplish this, add the following code to the `gatsby-node.js` file:
+그 다음으로 여러분은 `$slug`를 기반으로 특정 포스트를 부르는 GraphQL 쿼리를 볼수 있습니다. 이 변수는 `gatsby-node.js`에 의해 페이지가 생성될 때 `blog-post.js` 템플릿으로 전달 됩니다. 이를 위해, `gatsby-node.js` 파일에 다음의 내용을 추가하세요:
 
 ```js:title=gatsby-node.js
 const path = require(`path`);
@@ -284,8 +284,7 @@ exports.createPages = ({ graphql, actions }) => {
         path: node.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
         context: {
-          // This is the $slug variable
-          // passed to blog-post.js
+          // 이것이 blog-post.js로 전달될 $slug 변수입니다.
           slug: node.slug
         }
       });
@@ -297,23 +296,15 @@ exports.createPages = ({ graphql, actions }) => {
 
 `gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, [http://localhost:8000/asdf](http://localhost:8001/asdf)같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
 
-You will need to stop and start your environment again using `gatsby develop`. When you do, you will not see a change on the index page of the site, but if you navigate to a 404 page, like [http://localhost:8000/asdf](http://localhost:8001/asdf), you should see the two sample posts created and be able to click on them to go to the sample posts:
-
 ![Sample post links](/images/wordpress-source-plugin-sample-post-links.gif)
 
-하지만 누구도 블로그 글을 찾기위해 404 페이지로 가고 싶어하지 않아요! 그러니 홈페이지에서 링크를 걸어봅시다.
+하지만 누구도 블로그 글을 찾기위해 404 페이지로 가고 싶어하지 않잖아요! 그러니 홈페이지에서 링크를 걸어봅시다.
 
-But nobody likes to go to a 404 page to find a blog post! So, let's link these up from the home page.
-
-### 홈페이지에서 포스트로 링크걸기. Linking to posts from the homepage.
+### 홈페이지에서 포스트로 링크걸기.
 
 `index.js` 페이지에 이미 여러분의 구조와 쿼리를 완료했기에, `Link` 컴포넌트를 사용해서 타이틀을 감싸기만 하면 모든 준비가 완료됩니다.
 
-Since you already have your structure and query done for the `index.js` page, all you need to do is use the `Link` component to wrap your titles and you should be good to go.
-
 `index.js` 파일을 열고 다음의 내용을 추가하세요:
-
-Open up your `index.js` file and add the following:
 
 ```jsx:title=src/pages/index.js
 import React from "react";
@@ -358,12 +349,8 @@ export const pageQuery = graphql`
 
 이게 전부입니다~ `Link` 컴포넌트로 타이틀을 감싸고 포스트의 slug 를 참조하면, Gatsby가 마법과도 같이 link를 추가하고, 미리 로딩하고, 완전 빠르게 페이지 간의 전환을 만들어줍니다:
 
-And that's it! When you wrap the title in the `Link` component and reference the slug of the post, Gatsby will add some magic to the link, preload it, and make the transition between pages incredibly fast:
-
 ![Final product with links from the home page to the blog posts](/images/wordpress-source-plugin-home-to-post-links.gif)
 
-### 마무리 Wrapping up.
+### 마무리
 
 여러분은 동일한 절차를 페이지, 커스텀 포스트 타입, 커스텀 필드, 텍사노미 및 WordPress가 알고 있는 모든 유연하고 재미있는 컨텐츠를 호출하거나 생성하는데 적용할 수 있습니다. 이는 여러분이 원하는 만큼 쉬울수도 복잡할 수 있으니, 탐험하고 즐기세요!
-
-You can apply the same procedure to calling and creating pages, custom post types, custom fields, taxonomies, and all the fun and flexible content WordPress is known for. This can be as simple or as complex as you would like it to be, so explore and have fun with it!
