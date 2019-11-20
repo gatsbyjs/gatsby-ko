@@ -266,20 +266,20 @@ export default ({ pageContext: { dog } }) => (
 - [GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/) 레퍼런스 가이드
 - 이 레시피의 [예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-createPage)
 
-## 2. Styling with CSS
+## 2. CSS로 스타일 정의하기
 
-There are so many ways to add styles to your website; Gatsby supports almost every possible option, through official and community plugins.
+웹 사이트에 스타일을 추가하는 방법에는 정말 많은 방법이 있습니다. Gatsby는 공식 및 커뮤니티 플러그인을 통해 거의 모든 옵션을 지원합니다.
 
-### Using global CSS files without a Layout component
+### Layout 컴포넌트 없이 전역 CSS 파일들 사용하기
 
 #### 사전 준비
 
-- An existing [Gatsby site](/docs/quick-start/) with an index page component
-- A `gatsby-browser.js` file
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
+- `gatsby-browser.js` 파일
 
 #### 지시 사항
 
-1. Create a global CSS file as `src/styles/global.css` and paste the following into the file:
+1. `src/styles/global.css` 파일 이름으로 전역 CSS 파일을 생성하고 아래 코드를 붙여 넣습니다.
 
 ```css:title=src/styles/styles/global.css
 html {
@@ -291,37 +291,39 @@ p {
 }
 ```
 
-2. Import the global CSS file in the `gatsby-browser.js` file such as the following:
+2. `gatsby-browser.js` 파일 안에서 아래와 같이 전역 CSS 파일을 임포트 합니다.
 
 ```javascript:gatsby-browser.js
 import "./src/styles/global.css"
 ```
 
-> **Note:** You can also make use of `require('./src/styles/global.css')` to import the global CSS file in your `gatsby-config.js` file.
+> **Note:** `require('./src/styles/global.css')`이런 문법을 사용하여 `gatsby-config.js` 파일 안에서 전역 CSS 파일을 임포트 할 수도 있습니다.
 
-3. Run `gatsby-develop` to observe the global styling being applied across your site.
+3. `gatsby develop`을 실행하여 사이트 곳곳에 적용된 전역 스타일을 확인해주세요.
 
 > **Note:** This approach is not the best fit if you are using CSS-in-JS for styling your site, in which case a layout page with all the shared components should be used. This is covered in the next recipe.
+> **참고:** 이 방법은 CSS-in-JS를 사용하여 스타일을 정의하는 경우 적합하지 않으며 이 경우 모든 공유 컴포넌트가 포함 된 layout 페이지를 사용해야합니다. 이것은 다음 레시피에서 다룹니다.
+
 
 #### 추가 정보
 
-- More on [adding global styles without a layout component](/docs/global-css/#adding-global-styles-without-a-layout-component)
+- [Layout 컴포넌트 없이 전역 스타일 추가하기](/docs/global-css/#adding-global-styles-without-a-layout-component)에 대한 추가 정보
 
-### Using global styles in a layout component
+### Layout 컴포넌트에서 전역 스타일 사용하기
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start/) with an index page component
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
 
 #### 지시 사항
 
-You can add global styles to a [shared layout component](/tutorial/part-three/#your-first-layout-component). This component is used for things that are common throughout the site, like a header or footer.
+[공유 layout 컴포넌트](/tutorial/part-three/#your-first-layout-component)에 전역 스타일을 추가 할 수 있습니다. 이 컴포넌트는 헤더 또는 풋터 글과 같이 사이트 전체의 공통적인 항목에 사용됩니다.
 
-1. If you don't already have one, create a new directory in your site at `/src/components`.
+1. `/src/components` 디렉토리가 없다면 디렉토리를 생성해주세요.
 
-2. Inside the components directory, create two files: `layout.css` and `layout.js`.
+2. components 디렉토리 안에 `layout.css` 와 `layout.js` 두개의 파일을 생성해주세요.
 
-3. Add the following to `layout.css`:
+3. `layout.css`에 다음을 추가해주세요:
 
 ```css:title=/src/components/layout.css
 body {
@@ -329,7 +331,7 @@ body {
 }
 ```
 
-4. Edit `layout.js` to import the CSS file and output layout markup:
+4. `layout.js`를 편집하여 CSS 파일을 임포트하고 layout 마크 업을 내보냅니다:
 
 ```jsx:title=/src/components/layout.js
 import React from "react"
@@ -338,7 +340,7 @@ import "./layout.css"
 export default ({ children }) => <div>{children}</div>
 ```
 
-5. Now edit your site's homepage at `/src/pages/index.js` and use the new layout component:
+5. 이제 사이트의 홈페이지인 `/src/pages/index.js`를 편집하여 새로운 layout 컴포넌트를 사용합니다:
 
 ```jsx:title=/src/pages/index.js
 import React from "react"
@@ -349,19 +351,19 @@ export default () => <Layout>Hello world!</Layout>
 
 #### 추가 정보
 
-- [Standard Styling with Global CSS Files](/docs/global-css/)
-- [More about layout components](/tutorial/part-three)
+- [전역 CSS 파일을 사용한 표준 스타일링](/docs/global-css/)
+- [layout 컴포넌트에 대한 추가 정보](/tutorial/part-three)
 
-### Using Styled Components
+### Styled Components 사용하기
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start/) with an index page component
-- [gatsby-plugin-styled-components, styled-components, and babel-plugin-styled-components](/packages/gatsby-plugin-styled-components/) installed in `package.json`
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
+- `package.json`안에 [gatsby-plugin-styled-components, styled-components, and babel-plugin-styled-components](/packages/gatsby-plugin-styled-components/) 설치
 
 #### 지시 사항
 
-1. Inside your `gatsby-config.js` file add `gatsby-plugin-styled-components`
+1. `gatsby-config.js` 파일 안에서 `gatsby-plugin-styled-components`를 추가하세요.
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -369,11 +371,11 @@ module.exports = {
 }
 ```
 
-2. Open the index page component (`src/pages/index.js`) and import the `styled-components` package
+2. index 페이지 컴포넌트(`src/pages/index.js`)를 열고 `styled-components` 패키지를 임포트 하세요.
 
-3. Style components by creating style blocks for each element type
+3. 각 element 타입에 대한 스타일 블록을 작성하여 컴포넌트를 스타일링 하세요.
 
-4. Apply to the page by including styled components in the JSX
+4. JSX 안에 스타일링된 컴포넌트를 포함시켜 페이지에 적용하세요.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -423,12 +425,12 @@ export default () => (
 )
 ```
 
-4. Run `gatsby develop` to see the changes
+4. `gatsby develop`을 실행하여 변경을 확인하세요.
 
 #### 추가 정보
 
-- [More on Using Styled Components](/docs/styled-components/)
-- [Egghead lesson](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
+- [styled-components 사용에 대한 추가 정보](/docs/styled-components/)
+- [Egghead 수업](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
 
 ### Using CSS Modules
 
