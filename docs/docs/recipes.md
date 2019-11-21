@@ -266,7 +266,7 @@ export default ({ pageContext: { dog } }) => (
 - [GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/) 레퍼런스 가이드
 - 이 레시피의 [예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-createPage)
 
-## 2. CSS로 스타일 정의하기
+## 2. CSS로 스타일링
 
 웹 사이트에 스타일을 추가하는 방법에는 정말 많은 방법이 있습니다. Gatsby는 공식 및 커뮤니티 플러그인을 통해 거의 모든 옵션을 지원합니다.
 
@@ -432,15 +432,15 @@ export default () => (
 - [styled-components 사용에 대한 추가 정보](/docs/styled-components/)
 - [Egghead 수업](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
 
-### Using CSS Modules
+### CSS Modules 사용하기
 
 #### 사전 준비
 
-- An existing [Gatsby site](/docs/quick-start/) with an index page component
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
 
 #### 지시 사항
 
-1. Create a CSS module as `src/pages/index.module.css` and paste the following into the module:
+1. `src/pages/index.module.css` 파일 이름으로 CSS module 을 생성하고 다음을 모두 모듈에 붙여 넣습니다:
 
 ```css:title=src/components/index.module.css
 .feature {
@@ -449,7 +449,7 @@ export default () => (
 }
 ```
 
-2. Import the CSS module as a JSX object `style` in the `index.js` file by modifying the page so it looks like the following:
+2. `index.js` 파일 안에서 CSS module을 `style` 객체로 임포트 하여 다음과 같이 페이지를 수정합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -465,41 +465,46 @@ export default () => (
 // highlight-end
 ```
 
-3. Run `gatsby develop` to see the changes.
+3. `gatsby develop`을 실행하여 변경을 확인하세요.
 
 **Note:**
 Notice that the file extension is `.module.css` instead of `.css`, which tells Gatsby that this is a CSS module.
 
+**주의:**
+파일 확장자가 `.css` 가 아닌 `.module.css`인것에 유의해야 하는데, 이는 Gatsby에게 이것이 CSS module임을 알려줍니다.
+
+
 #### 추가 정보
 
-- More on [Using CSS Modules](/tutorial/part-two/#css-modules)
-- [Live example on Using CSS modules](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-css-modules)
+- [CSS Modules 사용하기](/tutorial/part-two/#css-modules)에 대한 추가 정보
+- [CSS modules 사용하기 라이브 예제](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-css-modules)
 
-### Using Sass/SCSS
+### Sass/SCSS 사용하기
 
-Sass is an extension of CSS that gives you more advanced features like nested rules, variables, mixins, and more.
+Sass는 CSS의 확장으로 중첩 규칙, 변수, 믹스인 등과 같은 고급 기능을 제공합니다.
 
-Sass has 2 syntaxes. The most commonly used syntax is "SCSS", and is a superset of CSS. That means all valid CSS syntax, is valid SCSS syntax. SCSS files use the extension .scss
+Sass에는 2 가지 구문이 있습니다. 가장 일반적으로 사용되는 구문은 "SCSS"이며, CSS의 상위 집합입니다. 즉, 모든 유효한 CSS 구문은 유효한 SCSS 구문입니다. SCSS 파일은 .scss 확장자를 사용합니다.
 
-Sass will compile .scss and .sass files to .css files for you, so you can write your stylesheets with more advanced features.
+Sass는 .scss 및 .sass 파일을 .css 파일로 컴파일하므로, 이런 고급 기능들을 사용하여 스타일 시트를 작성할 수 있습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start/).
+- [Gatsby 사이트](/docs/quick-start/).
 
 #### 지시 사항
 
-1. Install the Gatsby plugin [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) and `node-sass`.
+1. [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) Gatsby 플러그인과 `node-sass` 설치하세요.
 
 `npm install --save node-sass gatsby-plugin-sass`
 
-2. Include the plugin in your `gatsby-config.js` file.
+2. `gatsby-config.js` 파일에 이 플러그인을 추가하세요.
 
 ```javascript:title=gatsby-config.js
 plugins: [`gatsby-plugin-sass`],
 ```
 
 3.  Write your stylesheets as `.sass` or `.scss` files and import them. If you don't know how to import styles, take a look at [Styling with CSS](/docs/recipes/#2-styling-with-css)
+3. 스타일 시트를 `.sass` 또는 `.scss` 파일로 작성하고 임포트 합니다. 스타일을 가져 오는 방법을 모르는 경우 [CSS로 스타일링](/docs/recipes/#2-styling-with-css)을 살펴보세요.
 
 ```css:title=styles.scss
 $font-stack: Helvetica, sans-serif;
@@ -525,13 +530,15 @@ import "./styles.scss"
 import "./styles.sass"
 ```
 
-_Note: You can use Sass/SCSS files as modules too, like mentioned in the previous recipe about CSS modules, with the difference that instead of .css the extensions have to be .scss or .sass_
+_주의: 이전 CSS module 레시피에서 언급했듯이 Sass/SCSS 파일도 module로 사용할 수 있습니다. 차이점은 확장자가 .css가 아닌 .scss 또는 .sass여야합니다._
+
 
 #### 추가 정보
 
-- [Difference between .sass and .scss](https://responsivedesign.is/articles/difference-between-sass-and-scss/)
-- [Sass guide from the official Sass website](https://sass-lang.com/guide)
+- [.sass와 .scss의 차이점](https://responsivedesign.is/articles/difference-between-sass-and-scss/)
+- [공식 Sass 웹사이트의 Sass 가이드](https://sass-lang.com/guide)
 - [A more complete installation tutorial on Sass with some more explanations and more resources](https://www.gatsbyjs.org/docs/sass/)
+- [더 많은 설명과 더 많은 리소스를 제공하는 더 완벽한 Sass 설치 튜토리얼](https://www.gatsbyjs.org/docs/sass/)
 
 ### Adding a Local Font
 
