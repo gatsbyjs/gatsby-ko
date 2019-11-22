@@ -4,9 +4,9 @@ title: "WordPress Source Plugin Tutorial"
 
 ## 워드프레스로부터 데이터를 가져와서 사이트를 만드는 방법
 
-### 이번 튜토리알이 다루는 점들:
+### 이번 튜토리얼이 다루는 점들:
 
-이번 튜토리알에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위한 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리알에서 만들 것과 유사한 예제 사이트의 소스 코드를 보여줍니다. 이번 튜토리알의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/), 에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
+이번 튜토리얼에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위한 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리얼에서 만들 것과 유사한 예제 사이트의 소스 코드를 보여줍니다. 이번 튜토리얼의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/), 에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
 
 #### GraphQL을 선호한다면?
 
@@ -14,9 +14,9 @@ GraphQL을 사용하는 것을 선호하는 분을 위한, 워드프레스의 de
 
 WP-API에 의해 지원되는 것과 동일한 인증 스키마가 wp-graphql에서 지원되며, [gatsby-source-graphql](/packages/gatsby-source-graphql/) 플러그인과 함께 사용될 수 있습니다.
 
-## 왜 이 튜토리알을 살펴봐야할까요?
+## 왜 이 튜토리얼을 살펴봐야할까요?
 
-각각의 source 플러그인이 작동하는 방법은 다를 수 있지만, 여러분이 앞으로 만들게 될 거의 대부분의 Gtasby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리알을 살펴볼 가치가 있습니다. 이번 튜토리알에서 여러분은 Gtasby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
+각각의 source 플러그인이 작동하는 방법은 다를 수 있지만, 여러분이 앞으로 만들게 될 거의 대부분의 Gtasby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리얼을 살펴볼 가치가 있습니다. 이번 튜토리얼에서 여러분은 Gtasby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
 
 계속 추가되고 있는 사용가능한 source 플러그인을 보고 싶다면, [Gatsby plugin library](/plugins/?=source) 에서 “source” 로 검색 해보세요.
 
@@ -29,7 +29,7 @@ Gatsby 프로젝트를 만들고 방금 만든 프로젝트 디렉토리로 이�
 cd wordpress-tutorial-site
 ```
 
-`gatsby-source-wordpress` 플러그인을 설치하세요. 이번 튜토리알에 포함되어있지 않은 이 플러그인의 특징과 GraphQL 쿼리 예제에 대한 추가적인 정보가 보고 싶다면 [`gatsby-source-wordpress` plugin’s README file](/packages/gatsby-source-wordpress/?=wordpress)를 봐주세요.
+`gatsby-source-wordpress` 플러그인을 설치하세요. 이번 튜토리얼에 포함되어있지 않은 이 플러그인의 특징과 GraphQL 쿼리 예제에 대한 추가적인 정보가 보고 싶다면 [`gatsby-source-wordpress` plugin’s README file](/packages/gatsby-source-wordpress/?=wordpress)를 봐주세요.
 
 ```shell
 npm install --save gatsby-source-wordpress
@@ -181,11 +181,11 @@ export const pageQuery = graphql`
 1. 각각의 블로그 포스트를 위한 페이지들을 만들기
 2. index 페이지에 있는 제목과 블로그 포스트 페이지를 연결하기
 
-만약 기초 튜토리알 [Part 7](/tutorial/part-seven/)을 아직 읽지 않았다면, Wordpress 대신에 Markdown으로 위 프로세스의 컨셉과 예제를 살펴보니 되도록 읽어주세요.
+만약 기초 튜토리얼 [Part 7](/tutorial/part-seven/)을 아직 읽지 않았다면, Wordpress 대신에 Markdown으로 위 프로세스의 컨셉과 예제를 살펴보니 되도록 읽어주세요.
 
 ### 각각의 블로그 포스트를 위한 페이지 작성.
 
-튜토리알의 파트 7에서, 페이지 생성의 첫번째 단계는 markdown 파일을 위한 slug를 만드는 것입니다. 여러분은 Markdown 파일을 사용하지 않고 워드프레스를 사용하기 때문에, API 호출로부터 Wordpress source로 반환되는 slug를 사용할 수 있습니다. 여러분은 slug를 이미 가지고 있기 때문에 slug 생성 부분은 건너 뛸 수 있습니다.
+튜토리얼의 파트 7에서, 페이지 생성의 첫번째 단계는 markdown 파일을 위한 slug를 만드는 것입니다. 여러분은 Markdown 파일을 사용하지 않고 워드프레스를 사용하기 때문에, API 호출로부터 Wordpress source로 반환되는 slug를 사용할 수 있습니다. 여러분은 slug를 이미 가지고 있기 때문에 slug 생성 부분은 건너 뛸 수 있습니다.
 
 프로젝트 최상단에 있는 `gatsby-node.js` 파일(몇개의 주석을 제외하고는 비어있어야 합니다.)에 다음의 것을 추가하세요:
 
@@ -217,7 +217,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 ![Two posts logged to the terminal](/images/wordpress-source-plugin-log.jpg)
 
-훌륭합니다! 튜토리알 파트 7에서 설명했다시피, `createPages` export가 Gatsby의 "일꾼" 중의 하나이고, 워드프레스로부터 블로그 포스트(또는 페이지, 커스텀 포스트 타입, 기타등등)를 만들게 해줍니다.
+훌륭합니다! 튜토리얼 파트 7에서 설명했다시피, `createPages` export가 Gatsby의 "일꾼" 중의 하나이고, 워드프레스로부터 블로그 포스트(또는 페이지, 커스텀 포스트 타입, 기타등등)를 만들게 해줍니다.
 
 하지만 블로그 포스트를 만들기전에, 페이지를 만들기 위한 템플릿을 지정해야합니다.
 
