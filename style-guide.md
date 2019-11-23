@@ -94,3 +94,4 @@ Use this section to list how common technical terminology should be translated.
 | CSS Module          | CSS Module    |
 | Starter             | ??            |
 | Library             | 라이브러리       |
+| guide               | 가이드        |
