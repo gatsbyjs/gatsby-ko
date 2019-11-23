@@ -540,22 +540,22 @@ _주의: 이전 CSS module 레시피에서 언급했듯이 Sass/SCSS 파일도 m
 - [A more complete installation tutorial on Sass with some more explanations and more resources](https://www.gatsbyjs.org/docs/sass/)
 - [더 많은 설명과 더 많은 리소스를 제공하는 더 완벽한 Sass 설치 튜토리얼](https://www.gatsbyjs.org/docs/sass/)
 
-### Adding a Local Font
+### 파일로 폰트 추가하기
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start/)
-- A font file: `.woff2`, `.ttf`, etc.
+- [Gatsby 사이트](/docs/quick-start/)
+- `.woff2`, `.ttf` 등의 폰트 파일
 
 #### 지시 사항
 
-1. Copy a font file into your Gatsby project, such as `src/fonts/fontname.woff2`.
+1. 폰트 파일을 Gatsby 프로젝트에 `src/fonts/fontname.woff2`와 같은 경로에 복사하세요.
 
 ```
 src/fonts/fontname.woff2
 ```
 
-2. Import the font asset into a CSS file to bundle it into your Gatsby site:
+2. Gatsby 사이트의 번들로 포함시키기 위해 CSS 파일에서 폰트를 임포트 하세요:
 
 ```css:title=src/css/typography.css
 @font-face {
@@ -564,7 +564,7 @@ src/fonts/fontname.woff2
 }
 ```
 
-**Note:** Make sure the font name is referenced from the relevant CSS, e.g.:
+**주의:** "Font Name" 이 관련 CSS에서 참조되는지 확인하세요. 예:
 
 ```css:title=src/components/layout.css
 body {
@@ -576,27 +576,31 @@ By targeting the HTML `body` element, your font will apply to most text on the p
 
 If fonts are not updating following steps above, make sure to replace the existing font-family in relevant CSS.
 
+HTML `body` 요소를 대상으로하면 글꼴이 페이지의 대부분의 텍스트에 적용됩니다. 추가 CSS는 `button` 또는 `textarea`와 같은 다른 요소를 대상으로 할 수 있습니다.
+
+위의 단계에 따라 폰트가 업데이트되지 않으면 관련 CSS에서 기존 font-family를 교체하십시오.
+
 #### 추가 정보
 
-- More on [importing assets into files](/docs/importing-assets-into-files/)
+- [파일로 에셋 임포트 하기](/docs/importing-assets-into-files/)에 대한 추가 정보
 
-### Using Emotion
+### Emotion 사용하기
 
-[Emotion](https://emotion.sh) is a powerful CSS-in-JS library that supports both inline CSS styles and styled components. You can use each styling feature individually or together in the same file.
+[Emotion](https://emotion.sh)은 인라인 CSS 스타일과 styled components 를 모두 지원하는 강력한 CSS-in-JS 라이브러리입니다. 각 스타일링 기능을 개별적으로 또는 동일한 파일에서 함께 사용할 수 있습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
+- [Gatsby 사이트](/docs/quick-start)
 
 #### 지시 사항
 
-1. Install the [Gatsby Emotion plugin](/packages/gatsby-plugin-emotion/) and Emotion packages.
+1. [Gatsby Emotion 플러그인](/packages/gatsby-plugin-emotion/)과 Emotion 패키지들 설치.
 
 ```shell
 npm install --save gatsby-plugin-emotion @emotion/core @emotion/styled
 ```
 
-2. Add the `gatsby-plugin-emotion` plugin to your `gatsby-config.js` file:
+2. `gatsby-plugin-emotion` 을 `gatsby-config.js` 파일에 추가하세요.
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -604,9 +608,10 @@ module.exports = {
 }
 ```
 
-3. If you don't already have one, create a page in your Gatsby site at `src/pages/emotion-sample.js`.
+3. Gatsby 사이트의 페이지가 아직 없다면 `src/pages/emotion-sample.js`로 페이지를 하나 만드세요.
 
 Import Emotion's `css` core package. You can then use the `css` prop to add [Emotion object styles](https://emotion.sh/docs/object-styles) to any element inside a component:
+Emotion의 `css` core 패키지를 가져옵니다. 그런 다음 `css` prop을 사용하여 컴포넌트 내의 모든 엘리먼트에 [Emotion object styles](https://emotion.sh/docs/object-styles)를 추가 할 수 있습니다.
 
 ```jsx:title=src/pages/emotion-sample.js
 import React from "react"
@@ -626,7 +631,7 @@ export default () => (
 )
 ```
 
-4. To use Emotion's [styled components](https://emotion.sh/docs/styled), import the package and define them using the `styled` function.
+4. Emotion의 [styled components](https://emotion.sh/docs/styled)를 사용하려면 패키지를 임포트하고 `styled` 함수를 사용하여 정의하십시오.
 
 ```jsx:title=src/pages/emotion-sample.js
 import React from "react"
@@ -649,33 +654,34 @@ export default () => (
 
 #### 추가 정보
 
-- [Using Emotion in Gatsby](/docs/emotion/)
-- [Emotion website](https://emotion.sh)
-- [Getting started with Emotion and Gatsby](https://egghead.io/lessons/gatsby-getting-started-with-emotion-and-gatsby)
+- [Gatsby 에서 Emotion 사용하기](/docs/emotion/)
+- [Emotion 웹사이트](https://emotion.sh)
+- [Emotion 과 Gatsby 시작하기](https://egghead.io/lessons/gatsby-getting-started-with-emotion-and-gatsby)
 
-### Using Google Fonts
+### Google Fonts 사용하기
 
-Hosting your own [Google Fonts](https://fonts.google.com/) locally within a project means they won't have to be fetched over the network when your site loads, increasing your site's speed index by up to ~300 milliseconds on desktop and 1+ seconds on 3G. It's also recommended to limit custom font usage to only the essential for performance.
+프로젝트 번들에 자신만의 [Google Fonts](https://fonts.google.com/)를 포함시켜 호스팅하면 사이트가 로드 될 때 네트워크를 통해 추가적으로 가져 오지 않아도되므로 데스크톱에서 최대 300ms, 3G에서 1초 이상 사이트 로딩 속도가 개선됩니다. 성능을 위해 이런 사용자 정의 글꼴 사용은 오직 필수적인 것으로만 제한하는 것이 좋습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
-- The [Gatsby CLI](/docs/gatsby-cli/) installed
-- Choosing a font package from [the typefaces project](https://github.com/KyleAMathews/typefaces)
+- [Gatsby 사이트](/docs/quick-start)
+- [Gatsby CLI](/docs/gatsby-cli/) 설치
+- [typefaces 프로젝트](https://github.com/KyleAMathews/typefaces)에서 폰트 패키지 선택하기
 
 #### 지시 사항
 
-1. Run `npm install --save typeface-your-chosen-font`, replacing `your-chosen-font` with the name of the font you want to install from [the typefaces project](https://github.com/KyleAMathews/typefaces).
+1. `npm install --save typeface-your-chosen-font`에서, `your-chosen-font` 부분을 [typefaces 프로젝트](https://github.com/KyleAMathews/typefaces)에서 찾은 원하는 폰트이름으로 변경하여 실행하세요.
 
-An example to load the popular 'Source Sans Pro' font would be: `npm install --save typeface-source-sans-pro`.
+예를들어 인기있는 'Source Sans Pro' 글꼴을 로드하려면: `npm install --save typeface-source-sans-pro`.
 
-2. Add `import "typeface-your-chosen-font"` to a layout template, page component, or `gatsby-browser.js`.
+2. layout 템플릿, 페이지 컴포넌트 또는 `gatsby-browser.js` 에 `import "typeface-your-chosen-font"` 를 추가하세요.
 
 ```jsx:title=src/components/layout.js
 import "typeface-your-chosen-font"
 ```
 
-3. Once it's imported, you can reference the font name in a CSS stylesheet, CSS Module, or CSS-in-JS.
+3. 임포트 한 후에, CSS stylesheet, CSS Module 또는 CSS-in-JS에서 폰트 이름을 사용 할 수 있습니다.
+
 
 ```css:title=src/components/layout.css
 body {
@@ -683,13 +689,13 @@ body {
 }
 ```
 
-_NOTE: So for the above example, the relevant CSS declaration would be `font-family: 'Source Sans Pro';`_
+_참고: 위의 예에서 관련 CSS 선언은 `font-family: 'Source Sans Pro';` 입니다._
 
 #### 추가 정보
 
-- [Typography.js](/docs/typography-js/) - Another option for using Google fonts on a Gatsby site
-- [The Typefaces Project Docs](https://github.com/KyleAMathews/typefaces/blob/master/README.md)
-- [Live example on Kyle Mathews' blog](https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/)
+- [Typography.js](/docs/typography-js/) - Gatsby 사이트에서 Google 폰트를 사용하는 또 다른 옵션
+- [Typefaces 프로젝트 문서](https://github.com/KyleAMathews/typefaces/blob/master/README.md)
+- [Kyle Mathews의 블로그의 라이브 예제](https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/)
 
 ## 3. Working with starters
 
