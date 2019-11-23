@@ -91,6 +91,6 @@ Use this section to list how common technical terminology should be translated.
 | Query               | 쿼리          |
 | boilerplate         | 보일러 플레이트  |
 | (React)Components   | 컴포넌트       |
-| CSS module          | CSS Module    |
+| CSS Module          | CSS Module    |
 | Starter             | ??            |
 | Library             | 라이브러리       |
