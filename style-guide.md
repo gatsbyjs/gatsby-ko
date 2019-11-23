@@ -93,3 +93,4 @@ Use this section to list how common technical terminology should be translated.
 | (React)Components   | 컴포넌트       |
 | CSS module          | CSS Module    |
 | Starter             | ??            |
+| Library             | 라이브러리       |
