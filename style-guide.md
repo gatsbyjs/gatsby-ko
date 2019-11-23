@@ -96,3 +96,4 @@ Use this section to list how common technical terminology should be translated.
 | Library             | 라이브러리       |
 | guide               | 가이드        |
 | tutorial            | 튜토리얼        |
+| Data sourcing       | 데이터 소싱      |
