@@ -85,10 +85,11 @@ Use this section to list how common technical terminology should be translated.
 
 | Term                | Translation  |
 | ------------------- | ------------ |
+| Gatsby              | Gatsby       |
 | Plugin              | 플러그인       |
 | Theme               | 테마          |
 | Query               | 쿼리          |
 | boilerplate         | 보일러 플레이트  |
 | (React)Components   | 컴포넌트       |
 | CSS module          | CSS Module    |
-| 
+| Starter             | ??            |
