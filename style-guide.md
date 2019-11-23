@@ -95,3 +95,5 @@ Use this section to list how common technical terminology should be translated.
 | Starter             | ??            |
 | Library             | 라이브러리       |
 | guide               | 가이드        |
+| tutorial            | 튜토리얼        |
+[wikipedia]: https://en.wikipedia.org/wiki/Main_Page
