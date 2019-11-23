@@ -695,78 +695,77 @@ _참고: 위의 예에서 관련 CSS 선언은 `font-family: 'Source Sans Pro';`
 
 - [Typography.js](/docs/typography-js/) - Gatsby 사이트에서 Google 폰트를 사용하는 또 다른 옵션
 - [Typefaces 프로젝트 문서](https://github.com/KyleAMathews/typefaces/blob/master/README.md)
-- [Kyle Mathews의 블로그의 라이브 예제](https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/)
+- [Live Kyle Mathews의 블로그의 라이브 예제](https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/)
 
-## 3. Working with starters
+## 3. Starter로 작업하기
+[Starters](/docs/starters/)는 공식적으로 또는 커뮤니티에 의해 유지보수되는 개츠비 사이트의 보일러 플레이트입니다.
 
-[Starters](/docs/starters/) are boilerplate Gatsby sites maintained officially, or by the community.
-
-### Using a starter
+### Starter 사용하기
 
 #### 사전 준비
 
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
 #### 지시 사항
 
-1. Find the starter you'd like to use. (_The [Starter Library](/starters/?v=2) is a good place to look!_)
+1. 사용하고 싶은 starter를 찾으세요. (_[Starter 라이브러리](/starters/?v=2)에서 찾기 좋습니다!_)
 
-2. Generate a new site based on the starter. In the terminal, run:
+2. Starter를 기반으로 새 사이트를 생성하기위해 터미널에서 다음을 실행하세요:
 
 ```shell
-gatsby new {your-project-name} {link-to-starter}
+gatsby new {프로젝트-이름} {starter의-링크}
 ```
 
-> _Don't run the above command as-is -- remember to replace {your-project-name} and {link-to-starter}!_
+> _위의 명령을 그대로 실행하면 안됩니다. {프로젝트-이름}과 {starter의-링크}를 변경해야하는 것을 잊지마세요!_
 
-3. Run your new site:
+3. 새 사이트를 실행하세요:
 
 ```shell
-cd {your-project-name}
+cd {프로젝트-이름}
 gatsby develop
 ```
 
 #### 추가 정보
 
-- Follow a [more detailed guide](/docs/starters/) on using Gatsby starters.
-- Learn how to use the [Gatsby CLI](/docs/gatsby-cli) tool to use starters in [tutorial part one](/tutorial/part-one/#using-gatsby-starters)
-- Browse the [Starter Library](/starters/?v=2)
-- Check out Gatsby's [official default starter](https://github.com/gatsbyjs/gatsby-starter-default)
+- Gatsby starter 사용에 대한 [더 자세한 가이드](/docs/starters/)를 확인하세요.
+- [튜토리얼 파트1](/tutorial/part-one/#using-gatsby-starters)에서 starters 사용을 위한 [Gatsby CLI](/docs/gatsby-cli) 사용법을 습득하세요.
+- [Starter 라이브러리](/starters/?v=2)를 탐색해 보세요.
+- Gatsby의 [공식 기본 starter](https://github.com/gatsbyjs/gatsby-starter-default)를 확인하세요.
 
-## 4. Working with themes
+## 4. 테마 작업하기
 
-A Gatsby theme abstracts Gatsby configuration (shared functionality, data sourcing, design) into an installable package. This means that the configuration and functionality isn’t directly written into your project, but rather versioned, centrally managed, and installed as a dependency. You can seamlessly update a theme, compose themes together, and even swap out one compatible theme for another.
+Gatsby 테마는 Gatsby 구성(공유되는 기능, 데이터 소싱, 디자인)을 설치 가능한 패키지로 추상화합니다. 이는 구성 및 기능이 프로젝트에 직접 작성되지 않고 버전닝, 중앙 관리 되며 종속성으로 설치됨을 의미합니다. 테마를 매끄럽게 업데이트하고, 여러 테마들을 조립하며, 호환되는 테마를 다른 테마로 교체 할 수도 있습니다.
 
-- Read more on [What is a Gatsby Theme?](/docs/themes/what-are-gatsby-themes)
+- [Gatsby 테마는 무엇입니까?](/docs/themes/what-are-gatsby-themes)를 더 읽어보세요.
 
-### Creating a new site using a theme starter
+### 테마 starter를 사용하여 새 사이트 생성하기
 
-Creating a site based on a starter that configures a theme follows the same process as creating a site based on a starter that **doesn't** configure a theme. In this example you can use the [starter for creating a new site that uses the official Gatsby blog theme](https://github.com/gatsbyjs/gatsby-starter-blog-theme).
+테마를 구성하는 스타터를 기반으로 사이트를 작성하는 것은 테마를 **구성하지 않은** 스타터를 기반으로 사이트를 작성하는 것과 동일한 프로세스를 따릅니다. 이 예에서는 [새 사이트를 만들기위한 공식 Gatsby 블로그 starter](https://github.com/gatsbyjs/gatsby-starter-blog-theme)를 사용할 수 있습니다.
 
 #### 사전 준비
 
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
 #### 지시 사항
 
-1. Generate a new site based on the blog theme starter:
+1. 블로그 테마 starter를 기반으로 새 사이트를 생성하세요:
 
 ```shell
-gatsby new {your-project-name} https://github.com/gatsbyjs/gatsby-starter-blog-theme
+gatsby new {프로젝트-이름} https://github.com/gatsbyjs/gatsby-starter-blog-theme
 ```
 
-2. Run your new site:
+2. 새 사이트를 실행하세요:
 
 ```shell
-cd {your-project-name}
+cd {프로젝트-이름}
 gatsby develop
 ```
 
 #### 추가 정보
 
-- Learn how to use an existing Gatsby theme in the [shorter conceptual guide](/docs/themes/using-a-gatsby-theme) or the more detailed [step-by-step tutorial](/tutorial/using-a-theme).
+- [짧은 개념 가이드](/docs/themes/using-a-gatsby-theme) 또는 보다 상세한 [단계별 튜토리얼](/tutorial/using-a-theme)에서 기존 Gatsby 테마를 사용하는 방법에 대해 알아 봅니다.
 
-### Building a new theme
+### 새 테마 만들기
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-use-the-gatsby-theme-workspace-starter-to-begin-building-a-new-theme"
@@ -775,19 +774,19 @@ gatsby develop
 
 #### 사전 준비
 
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
-* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) installed
+* [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) 설치
 
 #### 지시 사항
 
-1. Generate a new theme workspace using the [Gatsby theme workspace starter](https://github.com/gatsbyjs/gatsby-starter-theme-workspace):
+1. [Gatsby 테마 workspace starter](https://github.com/gatsbyjs/gatsby-starter-theme-workspace)를 사용하여 새 테마 workspace를 생성하세요:
 
 ```shell
-gatsby new {your-project-name} https://github.com/gatsbyjs/gatsby-starter-theme-workspace
+gatsby new {프로젝트-이름} https://github.com/gatsbyjs/gatsby-starter-theme-workspace
 ```
 
-2. Run the example site in the workspace:
+2. Workspace 안의 example 사이트를 실행하세요:
 
 ```shell
 yarn workspace example develop
@@ -795,22 +794,22 @@ yarn workspace example develop
 
 #### 추가 정보
 
-- Follow a [more detailed guide](/docs/themes/building-themes/) on using the Gatsby theme workspace starter.
-- Learn how to build your own theme in the [Gatsby Theme Authoring video course on Egghead](https://egghead.io/courses/gatsby-theme-authoring), or in the [video course's complementary written tutorial companion](/tutorial/building-a-theme).
+- Gatsby 테마 workspace starter에 대한 [더 자세한 가이드](/docs/themes/building-themes/)를 확인하세요.
+-[Egghead의 Gatsby 테마 작성 영상 강좌](https://egghead.io/courses/gatsby-theme-authoring) 또는 [영상 강좌를 보완하는 튜토리얼 문서](/tutorial/building-a-theme)에서 자신만의 테마를 만드는 방법을 배웁니다.
 
-## 5. Sourcing data
+## 5. 데이터 소싱하기
 
-Data sourcing in Gatsby is plugin-driven; Source plugins fetch data from their source (e.g. the `gatsby-source-filesystem` plugin fetches data from the file system, the `gatsby-source-wordpress` plugin fetches data from the WordPress API, etc). You can also source the data yourself.
+Gatsby의 데이터 소싱은 플러그인 주도로 이뤄집니다. Source 플러그인은 소스에서 데이터를 가져옵니다. (예: `gatsby-source-filesystem` 플러그인은 파일 시스템에서 데이터를 가져오고 `gatsby-source-wordpress` 플러그인은 WordPress API에서 데이터를 가져옵니다). 직접 데이터를 제공 할 수도 있습니다.
 
-### Adding data to GraphQL
+### GraphQL에 데이터 추가하기
 
-Gatsby's [GraphQL data layer](/docs/querying-with-graphql/) uses nodes to model chunks of data. Gatsby source plugins add source nodes that you can query for, but you can also create source nodes yourself. To add custom data to the GraphQL data layer yourself, Gatsby provides methods you can leverage.
+Gatsby의 [GraphQL 데이터 계층](/docs/querying-with-graphql/)은 노드를 사용하여 데이터 청크를 모델링합니다. Gatsby source plugin은 쿼리 할 수 있는 소스 노드를 추가하지만 직접 소스 노드를 작성할 수도 있습니다. 사용자 정의 데이터를 GraphQL 데이터 레이어에 직접 추가하기 위해 Gatsby는 활용할 수 있는 방법을 제공합니다.
 
-This recipe shows you how to add custom data using `createNode()`.
+이 레시피는`createNode()`를 사용하여 커스텀 데이터를 추가하는 방법을 보여줍니다.
 
 #### 지시 사항
 
-1. In `gatsby-node.js` use `sourceNodes()` and `actions.createNode()` to create and export nodes to be able to query the data.
+1. `gatsby-node.js`에서 `sourceNodes()` 및 `actions.createNode()`를 사용하여 데이터를 쿼리 할 수 있는 노드를 생성하고 내보내세요.
 
 ```javascript:title=gatsby-node.js
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
@@ -834,11 +833,11 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
 }
 ```
 
-2. Run `gatsby develop`.
+2. `gatsby develop`를 실행하세요.
 
-   > _Note: After making changes in `gatsby-node.js` you need to re-run `gatsby develop` for the changes to take effect._
+   > _참고: `gatsby-node.js`를 변경 한 후 변경 사항을 적용하려면 `gatsby develop`을 다시 실행해야합니다._
 
-3. Query the data (in GraphiQL or in your components).
+3. GraphQL 또는 컴포넌트에서 데이터를 쿼리하세요.
 
 ```graphql
 query MyPokemonQuery {
@@ -854,28 +853,27 @@ query MyPokemonQuery {
 
 #### 추가 정보
 
-- Walk through an example using the `gatsby-source-filesystem` plugin in [tutorial part five](/tutorial/part-five/#source-plugins)
-- Search available source plugins in the [Gatsby library](/plugins/?=source)
-- Understand source plugins by building one in the [Pixabay source plugin tutorial](/docs/pixabay-source-plugin-tutorial/)
-- The createNode function [documentation](/docs/actions/#createNode)
+- [튜토리얼 파트5](/tutorial/part-five/#source-plugins)의 `gatsby-source-filesystem` 플러그인을 사용한 예제를 살펴보기
+- [Gatsby 라이브러리](/plugins/?=source)에서 사용 가능한 소스 플러그인을 검색해보기
+-[Pixabay 소스 플러그인 튜토리얼](/docs/pixabay-source-plugin-tutorial/)을 따라해보고 소스 플러그인 이해하기
+- createNode 함수 [문서](/docs/actions/#createNode)
 
-### Sourcing Markdown data for blog posts and pages with GraphQL
+### GraphQL을 사용하여 블로그 게시물 및 페이지를 위한 Markdown 데이터 소싱하기
 
-You can source Markdown data and use Gatsby's [`createPages` API](/docs/actions/#createPage) to create pages dynamically.
-
-This recipe shows how to create pages from Markdown files on your local filesystem using Gatsby's GraphQL data layer.
+Markdown 데이터를 소싱하고 Gatsby의 [`createPages` API](/docs/actions/#createPage)를 사용하여 페이지를 동적으로 만들 수 있습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start) with a `gatsby-config.js` file
-- The [Gatsby CLI](/docs/gatsby-cli) installed
-- The [gatsby-source-filesystem plugin](/packages/gatsby-source-filesystem) installed
-- The [gatsby-transformer-remark plugin](/packages/gatsby-transformer-remark) installed
-- A `gatsby-node.js` file
+- `gatsby-config.js` 파일이 있는 [Gatsby 사이트](/docs/quick-start)
+- [Gatsby CLI](/docs/gatsby-cli) 설치
+- [gatsby-source-filesystem 플러그인](/packages/gatsby-source-filesystem) 설치
+- [gatsby-transformer-remark 플러그인](/packages/gatsby-transformer-remark) 설치
+- `gatsby-node.js` 파일
 
 #### 지시 사항
 
-1. In `gatsby-config.js`, configure `gatsby-transformer-remark` along with `gatsby-source-filesystem` to pull in Markdown files from a source folder. This would be in addition to any previous `gatsby-source-filesystem` entries, such as for images:
+1. `gatsby-config.js`에서, `gatsby-source-filesystem`과 함께 `gatsby-transformer-remark`를 구성하여 소스 폴더로부터 Markdown 파일을 가져 오세요. 이것은 이미지 등을 위해 추가했던 이전 `gatsby-source-filesystem` 항목에 추가됩니다.
+
 
 ```js:title=gatsby-config.js
 module.exports = {
@@ -891,7 +889,7 @@ module.exports = {
   ]
 ```
 
-2. Add a Markdown post to `src/content`, including frontmatter for the title, date, and path, with some initial content for the body of the post:
+2. 제목, 날짜 및 경로 frontmatter 정보를 포함한 Markdown 게시물을 간단한 본문 내용과 함께 `src/content`에 추가해주세요:
 
 ```markdown:title=src/content/my-first-post.md
 ---
@@ -903,7 +901,7 @@ path: /my-first-post
 This is my first Gatsby post written in Markdown!
 ```
 
-3. Start up the development server with `gatsby develop`, navigate to the GraphiQL explorer at `http://localhost:8000/___graphql`, and write a query to get all markdown data:
+3. `gatsby develop`으로 개발 서버를 시작하고 `http://localhost:8000/___graphql`의 GraphiQL 탐색기로 이동한 후 모든 Markdown 데이터를 얻기 위한 쿼리를 작성하세요.
 
 ```graphql
 {
@@ -926,7 +924,7 @@ This is my first Gatsby post written in Markdown!
   height="300"
 />
 
-4. Add the JavaScript code to generate pages from Markdown posts at build time by copying the GraphQL query into `gatsby-node.js` and looping through the results:
+4. GraphQL 쿼리를 `gatsby-node.js`에 복사하고 결과를 순환하여 빌드 시간에 Markdown 게시물로 부터 페이지를 생성하는 JavaScript 코드를 추가하세요:
 
 ```js:title=gatsby-node.js
 const path = require(`path`)
@@ -960,14 +958,14 @@ exports.createPages = async ({ actions, graphql }) => {
 }
 ```
 
-5. Add a post template in `src/templates`, including a GraphQL query for generating pages dynamically from Markdown content at build time:
+5. 빌드 시간에 Markdown 콘텐츠에서 페이지를 동적으로 생성하기 위해 GraphQL 쿼리를 포함하는 post 템플릿을 `src/templates`에 추가하세요:
 
 ```jsx:title=src/templates/post.js
 import React from "react"
 import { graphql } from "gatsby"
 
 export default function Template({ data }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
+  const { markdownRemark } = data // data.markdownRemark에 post data가 들어있음
   const { frontmatter, html } = markdownRemark
   return (
     <div className="blog-post">
@@ -995,31 +993,31 @@ export const pageQuery = graphql`
 `
 ```
 
-6. Run `gatsby develop` to restart the development server. View your post in the browser: `http://localhost:8000/my-first-post`
+6. `gatsby develop`을 실행하여 개발 서버를 재시작하세요. 브라우저에서 게시물을 확인하세요: `http://localhost:8000/my-first-post`
 
 #### 추가 정보
 
-- [Tutorial: Programmatically create pages from data](/tutorial/part-seven/)
-- [Creating and modifying pages](/docs/creating-and-modifying-pages/)
-- [Adding Markdown pages](/docs/adding-markdown-pages/)
-- [Guide to creating pages from data programmatically](/docs/programmatically-create-pages-from-data/)
-- [Example repo](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-sourcing-markdown) for this recipe
+- [튜토리얼: 데이터로부터 프로그램 방식으로 여러 페이지 생성하기](/tutorial/part-seven/)
+- [페이지 생성 및 수정하기](/docs/creating-and-modifying-pages/)
+- [Markdown 페이지 추가하기](/docs/adding-markdown-pages/)
+- [프로그래밍 방식으로 데이터로부터 페이지를 생성하는 안내서](/docs/programmatically-create-pages-from-data/)
+- [이 레시피에 대한 예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-sourcing-markdown)
 
-### Pulling data from an external source and creating pages without GraphQL
+### 외부 소스에서 데이터를 가져 와서 GraphQL없이 페이지 만들기
 
-You don't have to use the GraphQL data layer to include data in pages, [though there are reasons why you should consider GraphQL](/docs/why-gatsby-uses-graphql/). You can use the node `createPages` API to pull unstructured data directly into Gatsby sites rather than through GraphQL and source plugins.
+[GraphQL을 고려해야하는 이유가 있지만](/docs/why-gatsby-uses-graphql/) 페이지에 데이터를 포함하기 위해 꼭 GraphQL 데이터 계층을 사용할 필요는 없습니다. 노드의 `createPages` API를 사용하여 GraphQL 및 소스 플러그인을 통하지 않고 구조화되지 않은 데이터를 개츠비 사이트로 직접 가져올 수 있습니다.
 
-In this recipe, you'll create dynamic pages from data fetched from the [PokéAPI’s REST endpoints](https://www.pokeapi.co/). The [full example](https://github.com/jlengstorf/gatsby-with-unstructured-data/) can be found on GitHub.
+이 레시피에서는 [PokéAPI의 REST 엔드 포인트](https://www.pokeapi.co/)에서 가져온 데이터로 동적 페이지를 생성해볼 것입니다. [전체 예제](https://github.com/jlengstorf/gatsby-with-unstructured-data/)는 GitHub에서 찾을 수 있습니다.
 
 #### 사전 준비
 
-- A Gatsby Site with a `gatsby-node.js` file
-- The [Gatsby CLI](/docs/gatsby-cli) installed
-- The [axios](https://www.npmjs.com/package/axios) package installed through npm
+- `gatsby-node.js` 파일이 있는 Gatsby 사이트
+- [Gatsby CLI](/docs/gatsby-cli) 설치
+- npm 으로부터 [axios](https://www.npmjs.com/package/axios) 패키지 설치
 
 #### 지시 사항
 
-1. In `gatsby-node.js`, add the JavaScript code to fetch data from the PokéAPI and programmatically create an index page:
+1. `gatsby-node.js`안에서, PokéAPI에서 데이터를 가져오고 프로그래밍 방식으로 index 페이지를 생성하는 JavaScript 코드를 추가하세요:
 
 ```js:title=gatsby-node.js
 const axios = require("axios")
@@ -1036,7 +1034,7 @@ const getPokemonData = names =>
 exports.createPages = async ({ actions: { createPage } }) => {
   const allPokemon = await getPokemonData(["pikachu", "charizard", "squirtle"])
 
-  // Create a page that lists Pokémon.
+  // Pokémon들을 나열하는 페이지를 생성합니다.
   createPage({
     path: `/`,
     component: require.resolve("./src/templates/all-pokemon.js"),
@@ -1045,7 +1043,7 @@ exports.createPages = async ({ actions: { createPage } }) => {
 }
 ```
 
-2. Create a template to display Pokémon on the homepage:
+2. 웹페이지에 Pokémon을 표시 할 템플릿을 만듭니다:
 
 ```js:title=src/templates/all-pokemon.js
 import React from "react"
@@ -1065,13 +1063,13 @@ export default ({ pageContext: { allPokemon } }) => (
 )
 ```
 
-3. Run `gatsby develop` to fetch the data, build pages, and start the development server.
-4. View your homepage in a browser: `http://localhost:8000`
+3. 데이터를 가져오고, 페이지를 빌드하고, 개발 서버를 시작하기위해 `gatsby develop`을 실행하세요.
+4. 브라우저에서 웹페이지를 확인하세요: `http://localhost:8000`
 
 #### 추가 정보
 
-- [Full Pokemon data repo](https://github.com/jlengstorf/gatsby-with-unstructured-data/)
-- More on using unstructured data in [Using Gatsby without GraphQL](/docs/using-gatsby-without-graphql/)
+- [전체 Pokemon 데이터 저장소](https://github.com/jlengstorf/gatsby-with-unstructured-data/)
+- [GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/)에서 구조화되지 않은 데이터 사용에 대한 추가정보
 - When and how to [query data with GraphQL](/docs/querying-with-graphql/) for more complex Gatsby sites
 
 ### Sourcing content from Drupal
