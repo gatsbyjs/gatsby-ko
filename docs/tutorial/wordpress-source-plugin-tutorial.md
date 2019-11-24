@@ -16,7 +16,7 @@ WP-API에 의해 지원되는 것과 동일한 인증 스키마가 wp-graphql에
 
 ## 왜 이 튜토리얼을 살펴봐야할까요?
 
-각각의 source 플러그인이 작동하는 방법은 다를 수 있지만, 여러분이 앞으로 만들게 될 거의 대부분의 Gtasby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리얼을 살펴볼 가치가 있습니다. 이번 튜토리얼에서 여러분은 Gtasby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
+각각의 source 플러그인이 작동하는 방법은 다를 수 있지만, 여러분이 앞으로 만들게 될 거의 대부분의 Gatsby 사이트에서 source 플러그인을 사용하게 될 것이기 때문에 이번 튜토리얼을 살펴볼 가치가 있습니다. 이번 튜토리얼에서 여러분은 Gatsby 사이트와 CMS의 기본적인 연결과, 데이터를 가져오고, 그 데이터를 React를 사용해서 여러분의 사이트에 우아한 방법으로 출력할 것입니다.
 
 계속 추가되고 있는 사용가능한 source 플러그인을 보고 싶다면, [Gatsby plugin library](/plugins/?=source) 에서 “source” 로 검색 해보세요.
 
@@ -57,15 +57,15 @@ module.exports = {
          * 예 : 'dev-gatbsyjswp.pantheonsite.io' 또는 'www.example-site.com'
          */
         baseUrl: `dev-gatbsyjswp.pantheonsite.io`,
-        // 프로토콜: http 나 https 입니다.
+        // 프로토콜: http나 https입니다.
         protocol: `http`,
-        // wordpress.com 에 의해 호스팅 되는 사이트 인지 아닌지 명시.
-        // false 이면, 자체 호스팅되는 사이트라고 판단합니다.
-        // true 이면, 플러그인은 JSON REST API V2 를 사용해서 wordpress.com의 컨텐츠를 가져옵니다.
+        // wordpress.com에 의해 호스팅 되는 사이트 인지 아닌지 명시.
+        // false이면, 자체 호스팅되는 사이트라고 판단합니다.
+        // true이면, 플러그인은 JSON REST API V2를 사용해서 wordpress.com의 컨텐츠를 가져옵니다.
         // 만약 여러분의 사이트가 wordpress.org 상에서 호스팅된다면 false로 설정하세요.
         hostingWPCOM: false,
-        // useACF가 true이면, source 플러그인은 Wordpress ACF 플러그인 컨텐츠를 가져올것입니다.
-        // 이 기능은 WordPress.com 에서 호스팅되는 사이트는 아직 테스트되지 않았습니다.
+        // useACF가 true이면, source 플러그인은 Wordpress ACF 플러그인 컨텐츠를 가져올 것입니다.
+        // 이 기능은 WordPress.com에서 호스팅되는 사이트는 아직 테스트되지 않았습니다.
         useACF: true
       }
     }
@@ -84,7 +84,7 @@ module.exports = {
 gatsby develop
 ```
 
-브라우저 상에서 localhost:8000 에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 localhost:8000/\_\_\_graphql 도 접속하세요.
+브라우저 상에서 localhost:8000에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 localhost:8000/\_\_\_graphql로 접속하세요.
 
 연습삼아 다음 쿼리를 GraphQL explorer에 작성해보세요. 이 첫번째 쿼리는 Wordpress로부터 블로그 포스트 컨텐츠를 가져올 것입니다.
 
@@ -122,13 +122,13 @@ query {
 
 ## 블로그 포스트들을 `index.js`에 출력하기
 
-이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. 여러분의 `index.js` 는 다음과 같아야 합니다:
+이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. 여러분의 `index.js`는 다음과 같아야 합니다:
 
 ```jsx:title=src/pages/index.js
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   //highlight-line
@@ -146,8 +146,8 @@ export default ({ data }) => {
       ))}
       //highlight-end
     </Layout>
-  );
-};
+  )
+}
 
 //highlight-start
 export const pageQuery = graphql`
@@ -162,11 +162,11 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 //highlight-end
 ```
 
-바꾼 것들을 저장하고 localhost:8000 에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
+바꾼 것들을 저장하고 localhost:8000에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
 
 ![WordPress home after query](/images/wordpress-source-plugin-home.jpg)
 
@@ -190,10 +190,10 @@ export const pageQuery = graphql`
 프로젝트 최상단에 있는 `gatsby-node.js` 파일(몇개의 주석을 제외하고는 비어있어야 합니다.)에 다음의 것을 추가하세요:
 
 ```js:title=gatsby-node.js
-const path = require(`path`);
+const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   return graphql(`
     {
       allWordpressPost(sort: { fields: [date] }) {
@@ -209,8 +209,8 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `).then(result => {
     console.log(JSON.stringify(result, null, 4));
-  });
-};
+  })
+}
 ```
 
 다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다:
@@ -224,13 +224,13 @@ exports.createPages = ({ graphql, actions }) => {
 `src` 디렉토리안에, `templates` 디렉토리를 만들고, 그 안에 `blog-post.js` 파일을 만드세요. 그 파일에 다음 내용을 붙여넣기하세요:
 
 ```jsx:title=src/tempates/blog-post.js
-import React from "react";
-import Layout from "../components/layout";
-import { graphql } from "gatsby";
+import React from "react"
+import Layout from "../components/layout"
+import { graphql } from "gatsby"
 
 export default ({ data }) => {
-  const post = data.allWordpressPost.edges[0].node;
-  console.log(post);
+  const post = data.allWordpressPost.edges[0].node
+  console.log(post)
   return (
     <Layout>
       <div>
@@ -238,8 +238,8 @@ export default ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </Layout>
-  );
-};
+  )
+}
 export const query = graphql`
   query($slug: String!) {
     allWordpressPost(filter: { slug: { eq: $slug } }) {
@@ -251,19 +251,18 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 ```
 
 이 파일이 하는 일이 무엇일까요? 의존성을 가져온 후, JSX를 이용하여 포스트의 레이아웃을 만듭니다. `Layout` 컴포넌트로 모든 것을 감쌌고요. 그로 인해 사이트는 동일한 스타일을 유지합니다. 그 다음으로 간단히 포스트의 제목과 컨텐츠를 추가했습니다. 여러분은 어떤 것이라도 추가하거나 쿼리를 작성할 수 있습니다. (예를 들어 Featured 이미지, 포스트 메타, 커스텀 필드 등등).
-What is this file doing? After importing your dependencies, it constructs the layout of the post with JSX. It wraps everything in the `Layout` component, so the style is the same throughout the site. Then, it simply adds the post title and the post content. You can add anything you want and can query for here (e.g. feature image, post meta, custom fields, etc.).
 
 그 다음으로 여러분은 `$slug`를 기반으로 특정 포스트를 부르는 GraphQL 쿼리를 볼수 있습니다. 이 변수는 `gatsby-node.js`에 의해 페이지가 생성될 때 `blog-post.js` 템플릿으로 전달 됩니다. 이를 위해, `gatsby-node.js` 파일에 다음의 내용을 추가하세요:
 
 ```js:title=gatsby-node.js
-const path = require(`path`);
+const path = require(`path`)
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   return graphql(`
     {
       allWordpressPost(sort: { fields: [date] }) {
@@ -287,11 +286,11 @@ exports.createPages = ({ graphql, actions }) => {
           // 이것이 blog-post.js로 전달될 $slug 변수입니다.
           slug: node.slug
         }
-      });
+      })
     });
     //highlight-end
-  });
-};
+  })
+}
 ```
 
 `gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, [http://localhost:8000/asdf](http://localhost:8001/asdf)같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
@@ -307,10 +306,10 @@ exports.createPages = ({ graphql, actions }) => {
 `index.js` 파일을 열고 다음의 내용을 추가하세요:
 
 ```jsx:title=src/pages/index.js
-import React from "react";
-import { Link, graphql } from "gatsby"; //highlight-line
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import React from "react"
+import { Link, graphql } from "gatsby" //highlight-line
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 export default ({ data }) => {
   return (
@@ -329,8 +328,8 @@ export default ({ data }) => {
         </div>
       ))}
     </Layout>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query {
@@ -344,10 +343,10 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
 ```
 
-이게 전부입니다~ `Link` 컴포넌트로 타이틀을 감싸고 포스트의 slug 를 참조하면, Gatsby가 마법과도 같이 link를 추가하고, 미리 로딩하고, 완전 빠르게 페이지 간의 전환을 만들어줍니다:
+이게 전부입니다~ `Link` 컴포넌트로 타이틀을 감싸고 포스트의 slug를 참조하면, Gatsby가 마법과도 같이 link를 추가하고, 미리 로딩하고, 완전 빠르게 페이지 간의 전환을 만들어줍니다:
 
 ![Final product with links from the home page to the blog posts](/images/wordpress-source-plugin-home-to-post-links.gif)
 
