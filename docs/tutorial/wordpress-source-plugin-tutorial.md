@@ -6,7 +6,7 @@ title: "WordPress Source Plugin Tutorial"
 
 ### 이번 튜토리얼이 다루는 점들:
 
-이번 튜토리얼에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위한 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리얼에서 만들 것과 유사한 예제 사이트의 소스 코드를 보여줍니다. 이번 튜토리얼의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/), 에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
+이번 튜토리얼에서, 설치된 워드프레스로부터 블로그와 이미지 데이터를 Gatsby 사이트로 가져와서 데이터를 출력하기 위한 `gatsby-source-wordpress` 플러그인을 설치할 것입니다. [Gatsby + WordPress demo site](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-wordpress) 는 이번 튜토리얼에서 만들 것과 유사한 예제 사이트의 소스 코드를 보여줍니다. 이번 튜토리얼의 다음 파트, [Adding Images to a WordPress Site](/tutorial/wordpress-image-tutorial/)에서 다룰 예정인 멋진 이미지들이 빠져있지만이요. :D
 
 #### GraphQL을 선호한다면?
 
