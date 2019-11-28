@@ -71,7 +71,7 @@ module.exports = {
     }
     // highlight-end
   ]
-};
+}
 ```
 
 ### Wordpress로부터 데이터를 가져오기 위한 GraphQL 쿼리 작성
@@ -208,7 +208,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    console.log(JSON.stringify(result, null, 4));
+    console.log(JSON.stringify(result, null, 4))
   })
 }
 ```
@@ -287,7 +287,7 @@ exports.createPages = ({ graphql, actions }) => {
           slug: node.slug
         }
       })
-    });
+    })
     //highlight-end
   })
 }
