@@ -92,8 +92,9 @@ Use this section to list how common technical terminology should be translated.
 | boilerplate         | 보일러 플레이트  |
 | (React)Components   | 컴포넌트       |
 | CSS Module          | CSS Module    |
-| Starter             | ??            |
+| Starter             | 문맥에 따라 스타터 또는 starter |
 | Library             | 라이브러리       |
-| guide               | 가이드        |
+| guide               | 가이드          |
 | tutorial            | 튜토리얼        |
 | Data sourcing       | 데이터 소싱      |
+| source              | 문맥에 따라 source 또는 소스 |
