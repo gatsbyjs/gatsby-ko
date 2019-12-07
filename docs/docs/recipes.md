@@ -1071,24 +1071,25 @@ export default ({ pageContext: { allPokemon } }) => (
 - [전체 Pokemon 데이터 저장소](https://github.com/jlengstorf/gatsby-with-unstructured-data/)
 - [GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/)에서 구조화되지 않은 데이터 사용에 대한 추가정보
 - When and how to [query data with GraphQL](/docs/querying-with-graphql/) for more complex Gatsby sites
+- 더 복잡한 Gatsby 사이트에서 언제 어떻게 [GraphQL로 데이터를 쿼리 해야하나요](/docs/querying-with-graphql/)
 
-### Sourcing content from Drupal
+### Drupal의 콘텐츠 가져오기
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
-- A [Drupal](http://drupal.org) site
-- The [JSON:API module](https://www.drupal.org/project/jsonapi) installed and enabled on the Drupal site
+- [Gatsby 사이트](/docs/quick-start)
+- [Drupal](http://drupal.org) 사이트
+- Drupal 사이트의 [JSON:API module](https://www.drupal.org/project/jsonapi) 설치 및 활성화
 
 #### 지시 사항
 
-1. Install the `gatsby-source-drupal` plugin.
+1. `gatsby-source-drupal` 플러그인을 설치하세요.
 
 ```
 npm install --save gatsby-source-drupal
 ```
 
-2. Edit your `gatsby-config.js` file to enable the plugin and configure it.
+2. `gatsby-config.js` 파일을 수정하여 이 플러그인을 활성화 해주세요.
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -1104,7 +1105,7 @@ module.exports = {
 }
 ```
 
-3. Start the development server with `gatsby develop`, and open the GraphiQL explorer at `http://localhost:8000/___graphql`. Under the Explorer tab, you should see new node types, such as `allBlockBlock` for Drupal blocks, and one for every content type in your Drupal site. For example, if you have a "Page" content type, it will be available as `allNodePage`. To query all "Page" nodes for their title and body, use a query like:
+3. `gatsby develop`으로 개발 서버를 시작하고, `http://localhost:8000/___graphql`에서 GraphiQL 탐색기를 엽니다. 탐색기 탭에서 Drupal 블록들을 위한 `allBlockBlock`과 같은 새로운 노드 타입과 Drupal 사이트의 모든 컨텐츠 타입에 대한 노드가 표시됩니다. 예를 들어, "Page" 컨텐츠 타입이 있으면 `allNodePage`로 사용할 수 있습니다. 모든 "Page" 노드의 제목과 본문을 쿼리하려면 다음과 같은 쿼리를 사용하십시오.
 
 ```graphql
 {
@@ -1121,9 +1122,9 @@ module.exports = {
 }
 ```
 
-4. To use your Drupal data, create a new page in your Gatsby site at `src/pages/drupal.js`. This page will list all Drupal "Page" nodes.
+4. Gatsby 사이트에서 Drupal 데이터를 사용하려면, `src/page/drupal.js`이라는 새 페이지를 만들어주세요. 이 페이지에 모든 Drupal "Page" 노드를 나열할 것입니다.
 
-_**Note:** the exact GraphQL schema will depend on your how Drupal instance is structured._
+_**주의:** 정확한 GraphQL 스키마는 Drupal 인스턴스의 구조에 따라 달라집니다._
 
 ```jsx:title=src/pages/drupal.js
 import React from "react"
@@ -1162,13 +1163,13 @@ export const query = graphql`
 }
 ```
 
-5. With the development server running, you can view the new page by visiting `http://localhost:8000/drupal`.
+5. 실행 중인 개발 서버에서, `http://localhost:8000/drupal`을 방문하여 새 페이지를 볼 수 있습니다.
 
 #### 추가 정보
 
-- [Using Decoupled Drupal with Gatsby](/blog/2018-08-13-using-decoupled-drupal-with-gatsby/)
-- [More on sourcing from Drupal](/docs/sourcing-from-drupal)
-- [Tutorial: Programmatically create pages from data](/tutorial/part-seven/)
+- [독립적인 Drupal과 Gatsby 사용하기](/blog/2018-08-13-using-decoupled-drupal-with-gatsby/)
+- [Drupal로부터 가져오기에 대한 자세한 내용](/docs/sourcing-from-drupal)
+- [튜토리얼: 데이터로부터 프로그램 방식으로 여러 페이지 생성하기](/tutorial/part-seven/)
 
 ## 6. Querying data
 
