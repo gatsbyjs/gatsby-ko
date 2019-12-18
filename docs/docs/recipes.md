@@ -1171,21 +1171,21 @@ export const query = graphql`
 - [Drupal로부터 가져오기에 대한 자세한 내용](/docs/sourcing-from-drupal)
 - [튜토리얼: 데이터로부터 프로그램 방식으로 여러 페이지 생성하기](/tutorial/part-seven/)
 
-## 6. Querying data
+## 6. 데이터 쿼리하기
 
-### Querying data with a Page Query
+### 페이지 쿼리로 데이터 쿼리하기
 
-You can use the `graphql` tag to query data in the pages of your Gatsby site. This gives you access to anything included in Gatsby's data layer, such as site metadata, source plugins, images, and more.
+`graphql` 태그를 사용하여 Gatsby 사이트의 페이지에서 데이터를 쿼리 할 수 있습니다. 이를 통해 사이트 메타 데이터, 소스 플러그인, 이미지 등 Gatsby의 데이터 계층에 포함 된 모든 항목에 접근 할 수 있습니다.
 
 #### 지시 사항
 
-1. Import `graphql` from `gatsby`.
+1. `gatsby`로부터 `graphql`을 임포트 하세요.
 
-2. Export a constant named `query` and set its value to be a `graphql` template with the query between two backticks.
+2. 역따옴표를 사용하여 쿼리가있는 `graphql` 템플릿을 작성하고 `query`라는 상수 이름으로 export 하세요.
 
-3. Pass in `data` as a prop to the component.
+3. 컴포넌트에 `data`를 prop으로 전달하세요.
 
-4. The `data` variable holds the queried data and can be referenced in JSX to output HTML.
+4. `data` 변수는 쿼리의 결과를 가지고 있으며 JSX에서 참조되어 HTML을 생산할 수 있습니다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -1219,9 +1219,9 @@ export default IndexPage
 
 #### 추가 정보
 
-- [GraphQL and Gatsby](/docs/graphql/): understanding the expected shape of your data
-- [More on querying data in pages with GraphQL](/docs/page-query/)
-- [MDN on Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) like the ones used in GraphQL
+- [GraphQL과 Gatsby](/docs/graphql/): 데이터의 예상 형태 이해하기
+- [GraphQL로 페이지에서 데이터 쿼리하기에 대한 추가 정보](/docs/page-query/)
+- GraphQL에서 사용했던 [Tagged Template Literals에 대한 MDN문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 ### Querying data with the StaticQuery Component
 
