@@ -1223,13 +1223,13 @@ export default IndexPage
 - [GraphQL로 페이지에서 데이터 쿼리하기에 대한 추가 정보](/docs/page-query/)
 - GraphQL에서 사용했던 [Tagged Template Literals에 대한 MDN문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
-### Querying data with the StaticQuery Component
+### StaticQuery 컴포넌트를 사용하여 데이터 쿼리하기
 
-`StaticQuery` is a component for retrieving data from Gatsby's data layer in [non-page components](/docs/static-query/), such as a header, navigation, or any other child component.
+`StaticQuery`는 헤더, 내비게이션 또는 기타 자식 컴포넌트와 같은 [페이지가 아닌 컴포넌트](/docs/static-query/)에서 Gatsby의 데이터 계층으로부터 데이터를 가져오기위한 컴포넌트입니다.
 
 #### 지시 사항
 
-1. The `StaticQuery` Component requires two render props: `query` and `render`.
+1. `StaticQuery` 컴포넌트에는 두 개의 필수 props인 `query`와 `render`가 필요합니다.
 
 ```jsx:title=src/components/NonPageComponent.js
 import React from "react"
@@ -1260,26 +1260,28 @@ const NonPageComponent = () => (
 export default NonPageComponent
 ```
 
-2. You can now use this component as you would [any other component](/docs/building-with-components#non-page-components) by importing it into a larger page of JSX components and HTML markup.
+2. 이제 이 컴포넌트를 [다른 컴포넌트](/docs/building-with-components#non-page-components) 같이 더 큰 페이지의 JSX 컴포넌트 및 HTML 마크 업으로 가져 와서 사용할 수 있습니다.
 
-### Querying data with the useStaticQuery hook
+### `useStaticQuery` 훅을 사용하여 데이터 쿼리하기
 
 Since Gatsby v2.1.0, you can use the `useStaticQuery` hook to query data with a JavaScript function instead of a component. The syntax removes the need for a `<StaticQuery>` component to wrap everything, which some people find simpler to write.
 
-The `useStaticQuery` hook takes a GraphQL query and returns the requested data. It can be stored in a variable and used later in your JSX templates.
+Gatsby v2.1.0 부터 `useStaticQuery` 훅을 사용하여 컴포넌트 대신 JavaScript 함수로 데이터를 쿼리 할 수 있습니다. 이 구문은 모든 것을 감싸기위한 필요했던 `<StaticQuery>` 컴포넌트를 제거하며, 코드 작성을 더 간단하게 할 수 있습니다.
+
+`useStaticQuery` 훅은 GraphQL 쿼리를 가져와 요청 된 데이터를 반환합니다. 이는 변수에 저장되어 나중에 JSX 템플릿에서 사용할 수 있습니다.
 
 #### 사전 준비
 
-- You'll need React and ReactDOM 16.8.0 or later (keeping Gatsby updated handles this)
-- Recommended reading: the [Rules of React Hooks](https://reactjs.org/docs/hooks-rules.html)
+- React 및 ReactDOM 16.8.0 이상이 필요 (Gatsby를 최신 버전으로 유지하면 해결됩니다)
+- 추천 자료: [React Hooks 규칙](https://reactjs.org/docs/hooks-rules.html)
 
 #### 지시 사항
 
-1. Import `useStaticQuery` and `graphql` from `gatsby` in order to use the hook query the data.
+1. 데이터를 쿼리하는 훅을 사용하기 위해 `gatsby`에서 `useStaticQuery`와 `graphql`을 임포트합니다.
 
-2. In the start of a stateless functional component, assign a variable to the value of `useStaticQuery` with your `graphql` query passed as an argument.
+2. Stateless function 컴포넌트를 시작할 때, `graphql` 쿼리를 `useStaticQuery` 의 인수로 전달하여 사용하고 변수에 할당합니다.
 
-3. In the JSX code returned from your component, you can reference that variable to handle the returned data.
+3. 컴포넌트에서 리턴되는 JSX 코드에서, 반환된 데이터를 사용하기 위해 해당 변수를 참조 할 수 있습니다.
 
 ```jsx:title=src/components/NonPageComponent.js
 import React from "react"
@@ -1310,10 +1312,10 @@ export default NonPageComponent
 
 #### 추가 정보
 
-- [More on Static Query for querying data in components](/docs/static-query/)
-- [The difference between a static query and a page query](/docs/static-query/#how-staticquery-differs-from-page-query)
-- [More on the useStaticQuery hook](/docs/use-static-query/)
-- [Visualize your data with GraphiQL](/docs/introducing-graphiql/)
+- [컴포넌트에서 데이터를 쿼리하기위한 Static Query에 대한 추가 정보](/docs/static-query/)
+- [Static query 와 page query의 차이점](/docs/static-query/#how-staticquery-differs-from-page-query)
+- [useStaticQuery 훅에 대한 추가 정보](/docs/use-static-query/)
+- [GraphiQL로 데이터 시각화](/docs/introducing-graphiql/)
 
 ### Limiting with GraphQL
 
