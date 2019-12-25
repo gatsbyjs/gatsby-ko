@@ -6,7 +6,7 @@ disableTableOfContents: true
 
 [**지난 섹션**](/tutorial/part-zero/)에서, 필수 소프트웨어를 설치하고 [**“hello world” 스타터**](https://github.com/gatsbyjs/gatsby-starter-hello-world)를 사용하여 처음으로 Gatsby 사이트를 만들어보면서 여러분은 local 개발 환경을 준비해보았습니다. 이제 그 스타터에 의해 만들어진 코드를 더 자세히 살펴봅시다. 
 
-## Using Gatsby starters
+## Gatsby 스타터를 이용하기
 
 [**튜토리얼 파트 zero**](/tutorial/part-zero/)에서, 여러분은 “hello world” 스타터를 기반한 사이트를 다음과 같은 명령어를 사용하여 만들어 보았습니다:
 
@@ -17,43 +17,41 @@ gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world
 새로운 Gatsby 사이트를 만들 때, 여러분은 다음 명령어 스트럭쳐를 사용해서 존재하는 Gatsby 스타터를 기반한 사이트를 만들 수 있습니다:
 
 ```shell
-gatsby new [SITE_DIRECTORY_NAME] [URL_OF_STARTER_GITHUB_REPO]
+gatsby new [사이트_디렉토리_이름] [스타터_깃허브_리포_URL]
 ```
 
-만약 마지막에 적는 URL을 빼먹은다면, Gatsby는 자동으로 [**default 스타터**](https://github.com/gatsbyjs/gatsby-starter-default)
+만약 마지막의 URL을 적지않는다면, Gatsby는 자동으로 [**default 스타터**](https://github.com/gatsbyjs/gatsby-starter-default)를 이용하여 만듭니다. 이전 튜토리얼 파트 0에서 만든 “Hello World” 사이트를 이번 튜토리얼에서도 사용하겠습니다.
 
-If you omit a URL from the end, Gatsby will automatically generate a site for you based on the [**default starter**](https://github.com/gatsbyjs/gatsby-starter-default). For this section of the tutorial, stick with the “Hello World” site you already created in tutorial part zero.
+### ✋ 코드 열어보기
 
-### ✋ Open up the code
+여러분의 코드 에디터에서, “Hello World” 사이트를 위해 만들어진 코드를 열어보고 ‘hello-world’ 디렉토리안에 있는 디렉토리와 파일들의 한번 살펴봅시다. 다음과 같을 것입니다:
 
-In your code editor, open up the code generated for your “Hello World” site and take a look at the different directories and files contained in the ‘hello-world’ directory. It should look something like this:
+![VS Code에서의 Hello World 프로젝트](01-hello-world-vscode.png)
 
-![Hello World project in VS Code](01-hello-world-vscode.png)
+_Note: 다시말하지만, 비주얼 스튜디오 코드입니다. 다른 에디터를 사용하고 있다면 약간 다르게 보일 것입니다._
 
-_Note: Again, the editor shown here is Visual Studio Code. If you’re using a different editor, it will look a little different._
+이제 홈페이지를 구동하는 코드를 살펴봅시다.
 
-Let’s take a look at the code that powers the homepage.
+> 💡 이전 섹션에서 `gatsby develop` 이후에 개발 서버를 멈췄다면, 다시 작동 시켜주세요 — hello-world 사이트를 변경할 시간입니다!
 
-> 💡 If you stopped your development server after running `gatsby develop` in the previous section, start it up again now — time to make some changes to the hello-world site!
+## Gatsby 페이지에 익숙해지기
 
-## Familiarizing with Gatsby pages
+여러분의 코드 에디터에서 `/src` 디렉토리를 열어주세요. 그 안에 `/pages` 디렉토리가 있습니다.
 
-Open up the `/src` directory in your code editor. Inside is a single directory: `/pages`.
+`src/pages/index.js` 파일을 열어주세요. div와 “Hello world!”로 구성된 컴포넌트를 만드는 코드가 있습니다.
 
-Open the file at `src/pages/index.js`. The code in this file creates a component that contains a single div and some text — appropriately, “Hello world!”
+### ✋ “Hello World” 홈페이지를 변화시켜보기
 
-### ✋ Make changes to the “Hello World” homepage
-
-1.  Change the “Hello World!” text to “Hello Gatsby!” and save the file. If your windows are side-by-side, you can see that your code and content changes are reflected almost instantly in the browser after you save the file.
+1.  Change the “Hello World!”를 “Hello Gatsby!”로 바꾸고 파일을 저장해봅시다. 여러분의 윈도우 창이 나란히 있다면, 여러분이 코드와 컨텐츠를 바꾸고 파일을 저장하면 곧바로 이가 반영되는 것을 볼 수 있을 것입니다.
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="./02-demo-hot-reloading.mp4"></source>
   <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
-> 💡 Gatsby uses **hot reloading** to speed up your development process. Essentially, when you’re running a Gatsby development server, the Gatsby site files are being “watched” in the background — any time you save a file, your changes will be immediately reflected in the browser. You don’t need to hard refresh the page or restart the development server — your changes just appear.
+> 💡 Gatsby는 여러분의 개발 속도를 높이기 위해 **hot reloading**를 사용합니다. 기본적으로, 여러분이 Gatsby 개발 서버를 사용하는 동안, Gatsby 사이트의 파일들은 백그라운드에서 “감시”되어집니다 — 여러분이 파일을 저장하면 바뀐것들이 곧바로 브아우저에 반영이 됩니다. 개발 서버를 새로 실행하거나 페이지를 새로고침을 할 필요가 없습니다 — 바뀐 것들이 그냥 반영됩니다.
 
-2.  Now you can make your changes a little more visible. Try replacing the code in `src/pages/index.js` with the code below and save again. You’ll see changes to the text — the text color will be purple and the font size will be larger.
+2.  조금 더 눈에 띄게 바꿔봅시다. `src/pages/index.js` 의 코드를 아래 코드로 바꿔봅시다. 글자 색상이 보라색이고 글자 크기도 조금 더 커져있는 것을 볼수 있을 것 입니다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -63,9 +61,9 @@ export default () => (
 )
 ```
 
-> 💡 We’ll be covering more about styling in Gatsby in [**part two**](/tutorial/part-two/) of the tutorial.
+> 💡 튜토리얼 [**파트 2**](/tutorial/part-two/)에서 Gatsby 상에서의 스타일에 대해서 좀더 자세히 알아볼 것입니다.
 
-3.  Remove the font size styling, change the “Hello Gatsby!” text to a level-one header, and add a paragraph beneath the header.
+3.  글자 크기 스타일을 지우고 “Hello Gatsby!” 글자를 1 레벨 헤더로 바꾸고 헤더 아래에 문장을 추가해봅시다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -80,9 +78,9 @@ export default () => (
 )
 ```
 
-![More changes with hot reloading](03-more-hot-reloading.png)
+![hot reloading과 변화](03-more-hot-reloading.png)
 
-4.  Add an image. (In this case, a random image from Unsplash).
+4.  이미치 추가하기. (Unsplash에서 랜덤 이미지).
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -97,13 +95,13 @@ export default () => (
 )
 ```
 
-![Add image](04-add-image.png)
+![이미지 추가](04-add-image.png)
 
-### Wait… HTML in our JavaScript?
+### 잠시… 자바스크립트 안에서 HTML?
 
-_If you’re familiar with React and JSX, feel free to skip this section._ If you haven’t worked with the React framework before, you may be wondering what HTML is doing in a JavaScript function. Or why we’re importing `react` on the first line but seemingly not using it anywhere. This hybrid “HTML-in-JS” is actually a syntax extension of JavaScript, for React, called JSX. You can follow along with this tutorial without prior experience with React, but if you’re curious, here’s a brief primer…
+_만약 여러분이 React와 JSX에 이미 익숙하다면, 이 섹션을 건너뛰어도 됩니다._ React 프레임워크를 이전에 사용해보지 않았다면, 자바스크립트 함수에서 HTML이 있는 것에 대해서 의아해할 것입니다. 혹은 첫번째 줄에 있는 `react`를 불러오지만 어디에서도 사용하지 않는지 의아해 할 것입니다. 이 두 요소가 합쳐진 “HTML-in-JS”은 React를 위해 자바스크립트의 문법을 확장한 것으로 JSX라고 불립니다. React에 대한 경험이 없더라도 튜토리얼을 진행할 수 있지만, 궁금해하는 분을 위해 간단히 소개합니다…
 
-Consider the original contents of the `src/pages/index.js` file:
+`src/pages/index.js` 파일의 원본 내용을 참고합시다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -111,35 +109,34 @@ import React from "react"
 export default () => <div>Hello world!</div>
 ```
 
-In pure JavaScript, it looks more like this:
+순수한 자바스크립트에서는 아래와 같습니다:
 
 ```javascript:title=src/pages/index.js
 import React from "react"
 
 export default () => React.createElement("div", null, "Hello world!")
 ```
+이제 `'react'` 불러오고 사용하는 것을 볼 수 있습니다! 잠깐. 여러분은 JSX를 작성하고 있지, 순수한 HTML과 자바스크립트를 작성하지 않았습니다. 어떻게 브라우저는 그것들을 읽고 있는걸까요? 간단히 답변하자면: 브라우저는 이를 읽지 않습니다. Gatsby 사이트는 도구들과 함께 설치되며, 이것들은 여러분의 소스 코드를 브라우저가 읽을 수 있게 변화시켜주게 셋팅 되어있습니다.
 
-Now you can spot the use of the `'react'` import! But wait. You’re writing JSX, not pure HTML and JavaScript. How does the browser read that? The short answer: It doesn’t. Gatsby sites come with tooling already set up to convert your source code into something that browsers can interpret.
+## 컴포넌트 작성하기
 
-## Building with components
+여러분이 방금 편집하던 홈페이지는 페이지 컴포넌트를 정의함으로써 만들어졌습니다. “component”는 무엇일까요?
 
-The homepage you were just making edits to was created by defining a page component. What exactly is a “component”?
+광범위하게 정의된, 컴포넌트는 여러분의 사이트의 빌딩 블록입니다; UI(유저 인터페이스)의 한 부분을 표현하는 코드 그 자체입니다.
 
-Broadly defined, a component is a building block for your site; It is a self-contained piece of code that describes a section of UI (user interface).
+Gatsby는 React를 기반으로 합니다. 우리가 **컴포넌트**의 사용법과 정의에 대한 이야기를 할 때, 이는 **React 컴포넌트**를 이야기합니다 — 이는 입력을 허용하고 UI 한 부분을 표현하는 React 엘리먼트를 반환하는 코드(보통 JSX로 작성됨)입니다.
 
-Gatsby is built on React. When we talk about using and defining **components**, we are really talking about **React components** — self-contained pieces of code (usually written with JSX) that can accept input and return React elements describing a section of UI.
+(만약 여러분이 이미 개발자라면) 컴포넌트를 빌드하기 시작할 때에 큰 정신적 변화 중의 하나는, 여러분의 CSS, HTML, 자바스크립트가 긴밀하게 엮여서 종종 한 파일안에서 이들이 존재하는 것입니다.
 
-One of the big mental shifts you make when starting to build with components (if you are already a developer) is that now your CSS, HTML, and JavaScript are tightly coupled and often living even within the same file.
+간단해 보이는 변화지만, 이는 사이트를 만드는 것에 대해 여러분이 어떻게 생각하는지에 대한 깊은 의미를 가지고 있습니다.
 
-While a seemingly simple change, this has profound implications for how you think about building websites.
-
-Take the example of creating a custom button. In the past, you would create a CSS class (perhaps `.primary-button`) with your custom styles and then use it whenever you want to apply those styles. For example:
-
+커스텀 버튼을 만드는 예제를 봅시다. 이전에, 여러분은 CSS 클래스(아마 `.primary-button`)와 커스텀 스타일을 만들었고 이 스타일을 적용하고 싶을 때 사용했습니다. 예를들어:
+ 
 ```html
 <button class="primary-button">Click me</button>
 ```
 
-In the world of components, you instead create a `PrimaryButton` component with your button styles and use it throughout your site like:
+컴포넌트 세계에서는, 여러분은 `PrimaryButton` 컴포넌트에 버튼 스타일을 같이 만들고 사이트에서는 다음과 같이 사용합니다:
 
 <!-- prettier-ignore -->
 ```jsx
@@ -377,14 +374,14 @@ Once this finishes running, you should see in your terminal something like:
 Open the web address listed on the bottom line (`lowly-pain.surge.sh` in this
 case) and you'll see your newly published site! Great work!
 
-## ➡️ What’s Next?
+## ➡️ 다음에 할 것?
 
-In this section you:
+이번 섹션에서 여러분이 한 것들:
 
-- Learned about Gatsby starters, and how to use them to create new projects
-- Learned about JSX syntax
-- Learned about components
-- Learned about Gatsby page components and sub-components
-- Learned about React “props” and reusing React components
+- Gatsby 스타터와, 이를 사용한 새로운 프로젝트를 만드는 법에 대한 학습
+- JSX 문법에 대한 학습
+- 컴포넌트에 대한 학습
+- Gatsby 페이지 컴포넌트와 서브 컴포넌트에 대한 학습
+- React “props”와 React 컴포넌트의 재사용에 대한 학습
 
-Now, move on to [**adding styles to your site**](/tutorial/part-two/)!
+이제 [**사이트에 스타일 추가하기**](/tutorial/part-two/)로 이동합시다!
