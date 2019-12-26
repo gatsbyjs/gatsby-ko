@@ -83,8 +83,18 @@ For links that have no equivalent (Stack Overflow, YouTube videos, etc.), just u
 
 Use this section to list how common technical terminology should be translated.
 
-| Term   | Translation |
-| ------ | ----------- |
-| Plugin | ??          |
-| Theme  | ??          |
-| Query  | ??          |
+| Term                | Translation  |
+| ------------------- | ------------ |
+| Gatsby              | Gatsby       |
+| Plugin              | 플러그인       |
+| Theme               | 테마          |
+| Query               | 쿼리          |
+| boilerplate         | 보일러 플레이트  |
+| (React)Components   | 컴포넌트       |
+| CSS Module          | CSS Module    |
+| Starter             | 문맥에 따라 스타터 또는 starter |
+| Library             | 라이브러리       |
+| guide               | 가이드          |
+| tutorial            | 튜토리얼        |
+| Data sourcing       | 데이터 소싱      |
+| source              | 문맥에 따라 source 또는 소스 |
