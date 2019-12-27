@@ -80,7 +80,7 @@ export default () => (
 
 ![hot reloading과 변화](03-more-hot-reloading.png)
 
-4.  이미치 추가하기. (Unsplash에서 랜덤 이미지).
+4.  이미지 추가하기. (Unsplash에서 가져온 랜덤 이미지).
 
 ```jsx:title=src/pages/index.js
 import React from "react"
