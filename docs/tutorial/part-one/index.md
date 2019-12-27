@@ -136,22 +136,22 @@ Gatsby는 React를 기반으로 합니다. 우리가 **컴포넌트**의 사용�
 <button class="primary-button">Click me</button>
 ```
 
-컴포넌트 세계에서는, 여러분은 `PrimaryButton` 컴포넌트에 버튼 스타일을 같이 만들고 사이트에서는 다음과 같이 사용합니다:
+컴포넌트 세계에서는, 여러분은 `PrimaryButton` 컴포넌트에 버튼 스타일을 같이 만들며 사이트에서는 다음과 같이 사용합니다:
 
 <!-- prettier-ignore -->
 ```jsx
 <PrimaryButton>Click me</PrimaryButton>
 ```
 
-Components become the base building blocks of your site. Instead of being limited to the building blocks the browser provides, e.g. `<button />`, you can easily create new building blocks that elegantly meet the needs of your projects.
+컴포넌트는 여러분의 사이트를 구성하는 빌딩 블록이 됩니다. 브라우저가 제공하는, 예를들어 `<button />`, 빌딩 블록에 국한되지않고, 프로젝트의 요구를 우아하게 충족하는 새로운 빌딩 블록을 쉽게 만들수 있습니다.
 
-### ✋ Using page components
+### ✋ 페이지 컴포넌트 사용하기
 
-Any React component defined in `src/pages/*.js` will automatically become a page. Let’s see this in action.
+`src/pages/*.js`에 정의된 React 컴포넌트는 자동으로 페이지가 됩니다. 한번 해봅시다.
 
-You already have a `src/pages/index.js` file that came with the “Hello World” starter. Let’s create an about page.
+여러분은 “Hello World” 스타터에 포함된 `src/pages/index.js`를 이미 가지고 있습니다. about 페이지를 만들어 봅시다.
 
-1.  Create a new file at `src/pages/about.js`, copy the following code into the new file, and save.
+1. `src/pages/about.js`에 새로운 파일을 만들어주고, 아래 코드를 복사하고 저장해주세요.
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -164,18 +164,18 @@ export default () => (
 )
 ```
 
-2.  Navigate to http://localhost:8000/about/.
+2.  http://localhost:8000/about/ 로 이동하기
 
-![New about page](05-about-page.png)
+![새로운 about 페이지](05-about-page.png)
 
-Just by putting a React component in the `src/pages/about.js` file, you now have a page accessible at `/about`.
+React 컴포넌트를 `src/pages/about.js` 파일에 놓는 것만으로도, `/about`로 접근 가능한 페이지가 생성되었습니다.
 
-### ✋ Using sub-components
+### ✋ 서브 컴포넌트 사용하기
 
-Let’s say the homepage and the about page both got quite large and you were rewriting a lot of things. You can use sub-components to break the UI into reusable pieces. Both of your pages have `<h1>` headers — create a component that will describe a `Header`.
+홈페이지와 about 페이지가 있고 이 두 페이지 다 꽤 커졌고 여러분은 많은 것들을 다시 작성하고 있다고 가정해 봅시다. 여러분은 서브 컴포넌트를 사용하여 UI를 재사용 가능한 조각으로 나눌수 있습니다. 두 페이지 모두 `<h1>` 헤더를 가지고 있으니 — `Header`를 표현하는 컴포넌트를 만듭시다.
 
-1.  Create a new directory at `src/components` and a file within that directory called `header.js`.
-2.  Add the following code to the new `src/components/header.js` file.
+1.  `src/components` 디렉토리를 만들고 그 안에 `heaer.js` 파일을 만드세요.
+2.  `src/components/header.js` 파일에 아래 코드를 추가하세요.
 
 ```jsx:title=src/components/header.js
 import React from "react"
@@ -183,7 +183,7 @@ import React from "react"
 export default () => <h1>This is a header.</h1>
 ```
 
-3.  Modify the `about.js` file to import the `Header` component. Replace the `h1` markup with `<Header />`:
+3.  `about.js` 파일에서 `Header` 컴포넌트를 불러오게 수정하세요. `h1` 마크업을 `<Header />`로 바꾸세요:
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -197,11 +197,11 @@ export default () => (
 )
 ```
 
-![Adding Header component](06-header-component.png)
+![헤더 컴포넌트 추가하기](06-header-component.png)
 
-In the browser, the “About Gatsby” header text should now be replaced with “This is a header.” But you don’t want the “About” page to say “This is a header.” You want it to say, “About Gatsby”.
+브라우저에서, “About Gatsby” 헤더 글이 “This is a header.”로 바뀌었습니다. 하지만 “About” 페이지에서 “This is a header.”라고 보여주고 싶지않습니다. “About Gatsby”라고 보여주고 싶습니다.
 
-4.  Head back to `src/components/header.js` and make the following change:
+4.  `src/components/header.js`로 돌아가서 아래와 같이 바꾸세요:
 
 ```jsx:title=src/components/header.js
 import React from "react"
@@ -209,7 +209,7 @@ import React from "react"
 export default props => <h1>{props.headerText}</h1> {/* highlight-line */}
 ```
 
-5.  Head back to `src/pages/about.js` and make the following change:
+5.  `src/pages/about.js`로 돌아가서 아래와 같이 바꾸세요:
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -223,37 +223,37 @@ export default () => (
 )
 ```
 
-![Passing data to header](07-pass-data-header.png)
+![헤더에 데이터 전달하기](07-pass-data-header.png)
 
-You should now see your “About Gatsby” header text again!
+이제 “About Gatsby” 헤더 글을 다시 보게되었습니다!
 
-### What are “props”?
+### “props”이란?
 
-Earlier you defined React components as reusable pieces of code describing a UI. To make these reusable pieces dynamic you need to be able to supply them with different data. You do that with input called “props". Props are (appropriately enough) properties supplied to React components.
+이전에 여러분은 React 컴포넌트를 UI를 표현하는 재사용 가능한 코드라고 정의했습니다. 이 재사용 가능한 코드를 동적으로 만들기 위해서 여러분은 각기 다른 데이터를 제공할 수 있어야 합니다. “props"이라고 불리는 입력을 통해서 제공할 수 있습니다. Props는 React 컴포넌트로 공급되는 (적절한) 속성입니다.
 
-In `about.js` you passed a `headerText` prop with the value of `"About Gatsby"` to the imported `Header` sub-component:
+`about.js`에서 여러분은 `headerText` prop와 그 값 `"About Gatsby"`를 임포트된 `Header` 서브 컴포넌트에 전달했습니다:
 
 ```jsx:title=src/pages/about.js
 <Header headerText="About Gatsby" />
 ```
 
-Over in `header.js`, the header component expects to receive the `headerText` prop (because you’ve written it to expect that). So you can access it like so:
+헤더 컴포넌트는 `headerText` prop을 받을 것을 예상합니다 (왜냐면 여러분이 그렇게 되게끔 작성했거든요). 그래서 이렇게 접근할 수 있습니다:
 
 ```jsx:title=src/components/header.js
 <h1>{props.headerText}</h1>
 ```
 
-> 💡 In JSX, you can embed any JavaScript expression by wrapping it with `{}`. This is how you can access the `headerText` property (or “prop!”) from the “props” object.
+> 💡 JSX 상에서, 여러분은 어떠한 자바스크립트 표현식도 `{}`로 감싸서 포함시킬수 있습니다. 이 방법으로 여러분은 “props” 오브젝트의 `headerText` 특성(또는 “prop!”)에 접근할 수 있습니다.
 
-If you had passed another prop to your `<Header />` component, like so...
+만약 여러분이 `<Header />` 컴포넌트에 다음과 같이 다른 prop을 전달한다면...
 
 ```jsx:title=src/pages/about.js
 <Header headerText="About Gatsby" arbitraryPhrase="is arbitrary" />
 ```
 
-...you would have been able to also access the `arbitraryPhrase` prop: `{props.arbitraryPhrase}`.
+...여러분은 이또한 `arbitraryPhrase` prop에 접근할 수 있을 것입니다: `{props.arbitraryPhrase}`.
 
-6.  To emphasize how this makes your components reusable, add an extra `<Header />` component to the about page, add the following code to the `src/pages/about.js` file, and save.
+6.  여러분의 컴포넌트를 재사용 가능하게 만드는 것을 강조하자면, 추가로 `<Header />` 컴포넌트를 about 페이지에 추가하고, `src/pages/about.js` 파일에 다음의 코드를 추가한 후 저장하세요.
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -268,23 +268,23 @@ export default () => (
 )
 ```
 
-![Duplicate header to show reusability](08-duplicate-header.png)
+![재사용성을 보여주기 위해 헤더 복제하기](08-duplicate-header.png)
 
-And there you have it; A second header — without rewriting any code — by passing different data using props.
+그게 다입니다; 두번째 헤더 — 어떤 코드도 재작성하지 않았고 — props를 사용해서 다른 데이터를 전달했습니다.
 
-### Using layout components
+### 레이아웃 컴포넌트 사용하기
 
-Layout components are for sections of a site that you want to share across multiple pages. For example, Gatsby sites will commonly have a layout component with a shared header and footer. Other common things to add to layouts include a sidebar and/or a navigation menu.
+레이아웃 컴포넌트는 여러 페이지에서 공유할 섹션을 위한 것입니다. 예를들어, Gatsby 사이트는 보통 공유하는 헤더와 풋터가 있는 레이아웃 컴포넌트 가지고 있습니다. 레이아웃에 추가하는 다른 일반적인 것들은 사이드바와 네비게이션 메뉴가 있습니다.
 
-You’ll explore layout components in [**part three**](/tutorial/part-three/).
+레이아웃 컴포넌트는 [**part three**](/tutorial/part-three/)에서 볼 수 있습니다.
 
-## Linking between pages
+## 페이지 간의 링크
 
-You'll often want to link between pages — Let's look at routing in a Gatsby site.
+여러분은 페이지와 페이지 간에 링크를 해주고 싶은 때가 자주 있습니다  — Gatsby 사이트에서의 라우팅에 대해서 봅시다.
 
-### ✋ Using the `<Link />` component
+### ✋ `<Link />` 컴포넌트 사용하기
 
-1.  Open the index page component (`src/pages/index.js`), import the `<Link />` component from Gatsby, add a `<Link />` component above the header, and give it a `to` property with the value of `"/contact/"` for the pathname:
+1.  index 페이지(`src/pages/index.js`)의 컴포넌트를 열고, Gatsby로부터 `<Link />` 컴포넌트를 불러오고, `<Link />` 컴포넌트를 헤더 위에 추가하고,  `to` 속성에 `"/contact/"` 값을 줍니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -301,13 +301,13 @@ export default () => (
 )
 ```
 
-When you click the new "Contact" link on the homepage, you should see...
+홈페이지에 있는 "Contact" 링크를 클릭하면, 여러분은 다음과 같은 것들을 볼 것입니다...
 
-![Gatsby dev 404 page](09-dev-404.png)
+![Gatsby dev 404 페이지](09-dev-404.png)
 
-...the Gatsby development 404 page. Why? Because you're attempting to link to a page that doesn't exist yet.
+...Gatsby dev 404 페이지. 왜? 아직 존재하지 않은 페이지에 링크를 걸려고 하고 있기 때문이죠.
 
-2.  Now you'll have to create a page component for your new "Contact" page at `src/pages/contact.js` and have it link back to the homepage:
+2.  이제 여러분은 `src/pages/contact.js`에 위치한 "Contact" 페이지를 위한 페이지 컴포넌트를 만들고 홈페이지로 돌아갈수 있는 링크를 추가해줘야 합니다:
 
 ```jsx:title=src/pages/contact.js
 import React from "react"
@@ -323,56 +323,56 @@ export default () => (
 )
 ```
 
-After you save the file, you should see the contact page and be able to link between it and the homepage.
+이 파일을 저장한 후에, 여러분은 contact 페이지가 보여야하고 이 페이지와 홈페이지간의 링크도 가능해야 합니다.
 
 <video controls="controls" loop="true">
   <source type="video/mp4" src="./10-linking-between-pages.mp4"></source>
   <p>Sorry! You browser doesn't support this video.</p>
 </video>
 
-The Gatsby `<Link />` component is for linking between pages within your site. For external links to pages not handled by your Gatsby site, use the regular HTML `<a>` tag.
+Gatsby `<Link />` 컴포넌트는 여러분의 사이트안에 있는 페이지간의 링크를 위한 것입니다. 여러분의 Gatsby 사이트에 의해 관리되는 링크가 아닌 외부 링크는 일반적인 HTML `<a>` 태그를 사용하세요.
 
-## Deploying a Gatsby site
+## Gatsby 사이트 배포하기
 
-Gatsby.js is a _modern site generator_, which means there are no servers to setup or complicated databases to deploy. Instead, the Gatsby `build` command produces a directory of static HTML and JavaScript files which you can deploy to a static site hosting service.
+Gatsby.js는 _모던 사이트 생성기_ 이고, 이는 배포를 위한 복잡한 데이터베이스 또는 서버 설정이 없다는 걸 의미합니다. 대신에 Gatsby `build` 명령어가 정적 사이트 호스팅 서비스로 배포할 수 있는 정적인 HTML과 자바스크립트 파일들의 디렉토리를 만들어줍니다.
 
-Try using [Surge](http://surge.sh/) for deploying your first Gatsby website. Surge is one of many "static site hosts" which make it possible to deploy Gatsby sites.
+여러분의 첫번째 Gatsby 웹사이트를 배포할 때에 [Surge](http://surge.sh/)를 시도해보세요. Surge는 "정적인 사이트 호스트" 중의 하나로 Gatsby 사이트도 배포할 수 있습니다.
 
-If you haven't previously installed &amp; set up Surge, open a new terminal window and install their command-line tool:
+만약 이전에 Surge 설치와 셋업을 하지 않았다면, 새로운 터미널 윈도우를 열고 Surge의 커맨드라인 툴을 설치하세요:
 
 ```shell
 npm install --global surge
 
-# Then create a (free) account with them
+# 이후 (무료) 계정을 만드세요
 surge login
 ```
 
-Next, build your site by running the following command in the terminal at the root of your site (tip: make sure you're running this command at the root of your site, in this case in the hello-world folder, which you can do by opening a new tab in the same window you used to run `gatsby develop`):
+그 다음, 여러분의 사이트의 루트에서 다음에 나오는 명령어를 실행하여 사이트를 빌드하세요 (팁: 꼭 사이트의 루트에서 이 명령어를 실행하세요. 이번 경우에는 hello-world 폴더이며 `gatsby develop` 를 실행했던 곳에서 새로운 탭을 열고 확인할 수 있습니다):
 
 ```shell
 gatsby build
 ```
 
-The build should take 15-30 seconds. Once the build is finished, it's interesting to take a look at the files that the `gatsby build` command just prepared to deploy.
+빌드는 15-30초 가량 소요됩니다. 빌드가 완료된 후, `gatsby build` 명령어가 배포를 위해 방금 준비한 파일들을 살펴보는 것도 흥미롭습니다.
 
-Take a look at a list of the generated files by typing in the following terminal command into the root of your site, which will let you look at the `public` directory:
+여러분의 사이트의 루트에서 다음에 나오는 터미널 명령어를 입력하여, `public` 폴더에 위치한 생성된 파일들을 살펴보세요.
 
 ```shell
 ls public
 ```
 
-Then finally deploy your site by publishing the generated files to surge.sh.
+그리고 드디어 surge.sh에 생성된 파일들을 옮겨서 사이트를 배포합니다.
 
 ```shell
 surge public/
 ```
 
-Once this finishes running, you should see in your terminal something like:
+작동 중인 것이 멈추면, 터미널에서 다음과 같은 것들을 보게될 것입니다:
 
-![Screenshot of publishing Gatsby site with Surge](surge-deployment.png)
+![Surge에 Gatsby사이트 배포하기 스크린샷](surge-deployment.png)
 
-Open the web address listed on the bottom line (`lowly-pain.surge.sh` in this
-case) and you'll see your newly published site! Great work!
+
+아래 줄에 위치한(위 경우 `lowly-pain.surge.sh`) 웹 주소를 열어보면 새로 배포한 사이트를 볼 수 있을 것입니다! 수고하셨습니다!
 
 ## ➡️ 다음에 할 것?
 
