@@ -110,7 +110,7 @@ touch gatsby-browser.js
 ```javascript:title=gatsby-browser.js
 import "./src/styles/global.css"
 
-// or:
+// 또는:
 // require('./src/styles/global.css')
 ```
 
@@ -193,11 +193,11 @@ export default () => (
 
 #### ✋ CSS 모듈을 사용한 컴포넌트의 스타일
 
-In this section, you'll create a list of people with names, avatars, and short Latin biographies. You'll create a `<User />` component and style that component using a CSS module.
+이번 섹션에서 여러분은 이름, 아바타, 짧은 소개 글을 가지는 인원 목록을 만들 것입니다. `<User />` 컴포넌트를 만들며 CSS 모듈을 사용하여 스타일링을 할 것입니다.
 
-1. Create the file for the CSS at `src/pages/about-css-modules.module.css`.
+1. `src/pages/about-css-modules.module.css`라는 CSS를 위한 파일을 만드세요.
 
-2. Paste the following into the new file:
+2. 새로 만든 파일에 아래 코드를 붙여넣기를 하세요:
 
 ```css:title=src/pages/about-css-modules.module.css
 .user {
@@ -233,7 +233,7 @@ In this section, you'll create a list of people with names, avatars, and short L
 }
 ```
 
-3. Import the new `src/pages/about-css-modules.module.css` file into the `about-css-modules.js` page you created earlier by editing the first few lines of the file like so:
+3. 이전에 만든 `about-css-modules.js`페이지에 `src/pages/about-css-modules.module.css`을 다음과 같이 불러옵니다:
 
 ```javascript:title=src/pages/about-css-modules.js
 import React from "react"
@@ -245,16 +245,15 @@ import Container from "../components/container"
 console.log(styles)
 ```
 
-The `console.log(styles)` code will log the resulting import so you can see the result of your processed `./about-css-modules.module.css` file. If you open the developer console (using e.g. Firefox or Chrome's developer tools) in your browser, you'll see:
+`console.log(styles)`코드는 임포트 결과를 기록하므로 `./about-css-modules.module.css`파일의 처리 결과를 볼 수 있을 것입니다. (파이어폭스나 크롬의 개발자 툴을 이용하여) 브라우저 상에서 개발자 콘솔을 열면, 여러분은 다음과 같은 것들을 볼 것입니다:
 
-![Import result of CSS module in console](css-modules-console.png)
+![콘솔 창에 나타난 CSS 모듈 임포트 결과](css-modules-console.png)
 
-If you compare that to your CSS file, you'll see that each class is now a key in the imported object pointing to a long string e.g. `avatar` points to `src-pages----about-css-modules-module---avatar---2lRF7`. These are the class names CSS Modules generates. They're guaranteed to be unique across your site. And because you have to import them to use the classes, there's never any question about where some CSS is being used.
+이 값을 CSS 파일과 비교해보면, 각 클래스는 긴 문자열을 가리키는 임포트한 객체의 키인 것을 알 수 있습니다. 예를들어 `avatar` 는 `src-pages----about-css-modules-module---avatar---2lRF7`를 가리킵니다. 이는 CSS 모듈이 생성한 클래스 이름입니다. 이 클래스 이름은 사이트 전체에서 고유성이 보장됩니다. 또한 여러분은 이런 클래스를 사용하기 위해서는 임포트 해야만 하기 때문에, CSS가 사용되는 위치에 대해서 전혀 의문이 없습니다.
 
-4. Create a `User` component.
+4. `User` 컴포넌트를 만드세요.
 
-Create a new `<User />` component inline in the `about-css-modules.js` page
-component. Modify `about-css-modules.js` so it looks like the following:
+`about-css-modules.js` 페이지 컴포넌트에 인라인 `<User />` 컴포넌트를 만드세요. `about-css-modules.js`를 다음과 같이 수정하세요:
 
 ```jsx:title=src/pages/about-css-modules.js
 import React from "react"
@@ -295,27 +294,27 @@ export default () => (
 )
 ```
 
-> Tip: Generally, if you use a component in multiple places on a site, it should be in its own module file in the `components` directory. But, if it's used only in one file, create it inline.
+> Tip: 일반적으로, 여러분이 컴포넌트를 여러 장소에서 사용한다면, `components` 디렉토리 안에 고유한 모듈 파일에 위치하는 게 좋습니다. 하지만 컴포넌트가 한 파일안에서만 사용된다면, 인라인으로 만드세요.
 
-The finished page should now look like:
+완성된 페이지는 다음과 같아야 합니다:
 
-![User list page with CSS modules](css-modules-userlist.png)
+![CSS 모듈이 있는 사용자 목록 페이지](css-modules-userlist.png)
 
 ### CSS-in-JS
 
-CSS-in-JS is a component-oriented styling approach. Most generally, it is a pattern where [CSS is composed inline using JavaScript](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js).
+CSS-in-JS는 컴포넌트 중심으로 스타일링을 하는 접근법입니다. 가장 일반적으로 [CSS가 자바스크립트를 사용하여 인라인으로 구성](https://reactjs.org/docs/faq-styling.html#what-is-css-in-js)되는 패턴입니다.
 
 #### Gatsby에서 CSS-in-JS 사용하기
 
-There are many different CSS-in-JS libraries and many of them have Gatsby plugins already. We won't cover an example of CSS-in-JS in this initial tutorial, but we encourage you to [explore](/docs/styling/) what the ecosystem has to offer. There are mini-tutorials for two libraries, in particular, [Emotion](/docs/emotion/) and [Styled Components](/docs/styled-components/).
+CSS-in-JS 라이브러리는 많이 있으며 이미 그 중의 다수는 Gatsby 플러그인도 가지고 있습니다. 이번 기초 튜토리얼에서는 CSS-in-JS 예제를 다루지 않지만, 에코 시스템이 제공하는 것들은 [탐험](/docs/styling/)해 보는 것을 권장합니다. 거기에는 [Emotion](/docs/emotion/)과 [Styled Components](/docs/styled-components/) 두 라이브러리를 위한 미니 튜토리얼이 있습니다.
 
-#### Suggested reading on CSS-in-JS
+#### CSS-in-JS에 대해 권장하는 읽을 것
 
-If you're interested in further reading, check out [Christopher "vjeux" Chedeau's 2014 presentation that sparked this movement](https://speakerdeck.com/vjeux/react-css-in-js) as well as [Mark Dalgleish's more recent post "A Unified Styling Language"](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660).
+더욱 자세한 내용에 관심이 있다면, 이러한 움직임을 촉발시킨 [Christopher "vjeux" Chedeau의 2014년 프레젠테이션](https://speakerdeck.com/vjeux/react-css-in-js)과 [Mark Dalgleish의 최근 포스트 "통합 스타일링 언어"](https://medium.com/seek-blog/a-unified-styling-language-d0c208de2660)를 읽어보세요.
 
 ### 그 외의 CSS 옵션
 
-Gatsby supports almost every possible styling option (if there isn't a plugin yet for your favorite CSS option, [please contribute one!](/contributing/how-to-contribute/))
+Gatsby는 거의 대부분의 가능한 스타일링 옵션을 제원합니다 (만약 여러분이 선호하는 CSS 옵션에 대한 플러그인이 없다면, [부디 기여해주세요!](/contributing/how-to-contribute/))
 
 - [Typography.js](/packages/gatsby-plugin-typography/)
 - [Sass](/packages/gatsby-plugin-sass/)
@@ -323,8 +322,8 @@ Gatsby supports almost every possible styling option (if there isn't a plugin ye
 - [Stylus](/packages/gatsby-plugin-stylus/)
 - [PostCSS](/packages/gatsby-plugin-postcss/)
 
-and more!
+그 외에도 더 있습니다!
 
 ## 다음에 할 것은?
 
-Now continue on to [part three of the tutorial](/tutorial/part-three/), where you'll learn about Gatsby plugins and layout components.
+다음은 [파트 3](/tutorial/part-three/)이며, Gatsby 플러그인과 레이아웃 컴포넌트를 배울 것입니다.
