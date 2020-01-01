@@ -1317,21 +1317,22 @@ export default NonPageComponent
 - [useStaticQuery 훅에 대한 추가 정보](/docs/use-static-query/)
 - [GraphiQL로 데이터 시각화](/docs/introducing-graphiql/)
 
-### Limiting with GraphQL
+### GraphQL 데이터 제한하기
 
-When querying for data with GraphQL, you can limit the number of results returned with a specific number. This is helpful if you only need a few pieces of data or need to [paginate data](/docs/adding-pagination/).
+GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반환되는 결과를 제한 할 수 있습니다. 이것은 몇 개의 데이터 만 필요하거나 [데이터를 페이지네이션](/docs/add-pagination/) 해야하는 경우에 유용합니다.
 
-To limit data, you'll need a Gatsby site with some nodes in the GraphQL data layer. All sites have some nodes like `allSitePage` and `sitePage` created automatically: more can be added by installing source plugins like `gatsby-source-filesystem` in `gatsby-config.js`.
+데이터를 제한하려면 GraphQL 데이터 레이어 안의 어떤 노드들이 필요합니다. 모든 사이트들은 `allSitePage` 및 `sitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js`에 `gatsby-source-filesystem`과 같은 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start/)
+- [Gatsby 사이트](/docs/quick-start/)
 
 #### 지시 사항
 
-1. Run `gatsby develop` to start the development server.
-2. Open a tab in your browser at: `http://localhost:8000/___graphql`.
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
 3. Add a query in the editor with the following fields on `allSitePage` to start off:
+3. 에디터에서 아래 필드를 가진 `allSitePage` 쿼리를 추가하세요:
 
 ```graphql
 {
@@ -1346,7 +1347,7 @@ To limit data, you'll need a Gatsby site with some nodes in the GraphQL data lay
 }
 ```
 
-4. Add a `limit` argument to the `allSitePage` field and give it an integer value `3`.
+4. allSitePage 필드에 정수 값 `3` 으로 `limit` 인수를 추가하세요.
 
 ```graphql
 {
@@ -1361,13 +1362,13 @@ To limit data, you'll need a Gatsby site with some nodes in the GraphQL data lay
 }
 ```
 
-5. Click the play button in the GraphiQL page and the data in the `edges` field will be limited to the number specified.
+5. GraphiQL 페이지에서 play 버튼을 클릭하면 `edges` 필드의 데이터가 명시한 수로 제한됩니다.
 
 #### 추가 정보
 
-- Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
-- [Gatsby GraphQL reference for limiting](/docs/graphql-reference/#limit)
-- Live example:
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대해 학습
+- [제한하기에 대한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#limit)
+- 라이브 예제:
 
 <iframe
   title="Limiting returned data"
