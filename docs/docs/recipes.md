@@ -1321,7 +1321,7 @@ export default NonPageComponent
 
 GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반환되는 결과를 제한 할 수 있습니다. 이것은 몇 개의 데이터 만 필요하거나 [데이터를 페이지네이션](/docs/add-pagination/) 해야하는 경우에 유용합니다.
 
-데이터를 제한하려면 GraphQL 데이터 레이어 안의 어떤 노드들이 필요합니다. 모든 사이트들은 `allSitePage` 및 `sitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js`에 `gatsby-source-filesystem`과 같은 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
+데이터를 제한하려면 GraphQL 데이터 레이어에서 어떤 노드들이 필요합니다. 모든 사이트들은 `allSitePage` 및 `sitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js`에 `gatsby-source-filesystem`과 같은 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
 
 #### 사전 준비
 
@@ -1331,8 +1331,7 @@ GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반�
 
 1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
 2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
-3. Add a query in the editor with the following fields on `allSitePage` to start off:
-3. 에디터에서 아래 필드를 가진 `allSitePage` 쿼리를 추가하세요:
+3. 에디터에서 아래 필드들을 가진 `allSitePage` 쿼리를 추가하세요:
 
 ```graphql
 {
@@ -1366,7 +1365,7 @@ GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반�
 
 #### 추가 정보
 
-- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대해 학습
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대한 학습
 - [제한하기에 대한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#limit)
 - 라이브 예제:
 
@@ -1377,22 +1376,22 @@ GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반�
   height="300"
 />
 
-### Sorting with GraphQL
+### GraphQL 결과 정렬하기
 
-The ordering of your results can be specified with the GraphQL `sort` argument. You can specify which fields to sort by and the order to sort in.
+`sort` 인수를 명시하여 GraphQL의 결과를 순서를 정할 수 있습니다. 어떤 필드로 정렬 할지, 어떤 순서로 정렬 할 지를 명시 할 수 있습니다.
 
-For this recipe, you'll need a Gatsby site with a collection of nodes to sort in the GraphQL data layer. All sites have some nodes like `allSitePage` created automatically: more can be added by installing source plugins.
+이 레시피를 위해서, GraphQL 데이터 레이어에서 정렬 할 노드들이 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 와 같은 자동으로 생성된 노드들을 가지고 있으며, 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
-- Queryable fields prefixed with `all`, e.g. `allSitePage`
+- [Gatsby 사이트](/docs/quick-start)
+- 접두사 `all`이 있는 쿼리 가능한 필드. 예: `allSitePage`
 
 #### 지시 사항
 
-1. Run `gatsby develop` to start the development server.
-2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
-3. Add a query in the editor with the following fields on `allSitePage` to start off:
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
+3. 에디터에서 아래 필드들을 가진 `allSitePage` 쿼리를 추가하세요:
 
 ```graphql
 {
@@ -1407,7 +1406,7 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to sort in
 }
 ```
 
-4. Add a `sort` argument to the `allSitePage` field and give it an object with the `fields` and `order` attributes. The value for `fields` can be a field or an array of fields to sort by (this example uses the `path` field), the `order` can be either `ASC` or `DESC` for ascending and descending respectively.
+4. `allSitePage` 필드에 `sort` 인수를 추가하고 `fields` 및 `order` 속성을 가진 객체를 제공해주세요. `fields`의 값은 정렬 할 필드 또는 필드의 배열 일 수 있으며 (이 예에서는 `path` 필드를 사용함) `order` 는 오름차순 및 내림차순으로 각각 `ASC` 또는 `DESC`가 될 수 있습니다.
 
 ```graphql
 {
@@ -1423,13 +1422,13 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to sort in
 
 ```
 
-5. Click the play button in the GraphiQL page and the data returned will be sorted ascending by the `path` field.
+5. GraphiQL 페이지에서 play 버튼을 클릭하면 `path` 필드에 따라 오름차순으로 정렬되어있는 데이터를 반환 받게됩니다.
 
 #### 추가 정보
 
-- [Gatsby GraphQL reference for sorting](/docs/graphql-reference/#sort)
-- Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
-- Live example:
+- [정렬을 위한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#sort)
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대한 학습
+- 라이브 예제:
 
 <iframe
   title="Sorting data"
