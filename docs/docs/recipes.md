@@ -1317,11 +1317,12 @@ export default NonPageComponent
 - [useStaticQuery 훅에 대한 추가 정보](/docs/use-static-query/)
 - [GraphiQL로 데이터 시각화](/docs/introducing-graphiql/)
 
-### GraphQL 데이터 제한하기
+### GraphQL 결과 제한하기
 
 GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반환되는 결과를 제한 할 수 있습니다. 이것은 몇 개의 데이터 만 필요하거나 [데이터를 페이지네이션](/docs/add-pagination/) 해야하는 경우에 유용합니다.
 
-데이터를 제한하려면 GraphQL 데이터 레이어에서 어떤 노드들이 필요합니다. 모든 사이트들은 `allSitePage` 및 `sitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js`에 `gatsby-source-filesystem`과 같은 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
+데이터를 제한하려면 GraphQL 데이터 레이어에 몇개의 노드가 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 및 `sitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js`에 `gatsby-source-filesystem`과 같은 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
+
 
 #### 사전 준비
 
@@ -1380,7 +1381,7 @@ GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반�
 
 `sort` 인수를 명시하여 GraphQL의 결과를 순서를 정할 수 있습니다. 어떤 필드로 정렬 할지, 어떤 순서로 정렬 할 지를 명시 할 수 있습니다.
 
-이 레시피를 위해서, GraphQL 데이터 레이어에서 정렬 할 노드들이 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 와 같은 자동으로 생성된 노드들을 가지고 있으며, 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
+이 레시피를 위해서, GraphQL 데이터 레이어에 정렬 할 노드들이 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 와 같은 자동으로 생성된 노드들을 가지고 있으며, 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
 
 #### 사전 준비
 
@@ -1437,22 +1438,22 @@ GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반�
   height="300"
 />
 
-### Filtering with GraphQL
+### GraphQL 결과 필터링하기
 
-Queried results can be filtered down with operators like `eq` (equals), `ne` (not equals), `in`, and `regex` on specified fields.
+`eq` (equals), `ne` (not equals), `in` 및 `regex`와 같은 연산자를 특정 필드에 사용하여 쿼리 결과를 필터링 할 수 있습니다.
 
-For this recipe, you'll need a Gatsby site with a collection of nodes to filter in the GraphQL data layer. All sites have some nodes like `allSitePage` created automatically: more can be added by installing source and transformer plugins like `gatsby-source-filesystem` and `gatsby-transformer-remark` in `gatsby-config.js` to produce `allMarkdownRemark`.
+이 레시피를 위해서, GraphQL 데이터 레이어에 필터 할 노드들이 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js` 파일에 `gatsby-source-filesystem` 과 `gatsby-transformer-remark` 같은 source 및 transformer 플러그인들을 설치하여 `allMarkdownRemark`를 생성하면 더 많은 노드를 추가하 수 있습니다.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
-- Queryable fields prefixed with `all`, e.g. `allSitePage` or `allMarkdownRemark`
+- [Gatsby 사이트](/docs/quick-start)
+- 접두사 `all`이 있는 쿼리 가능한 필드. 예: `allSitePage` 또는 `allMarkdownRemark`
 
 #### 지시 사항
 
-1. Run `gatsby develop` to start the development server.
-2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
-3. Add a query in the editor using a field prefixed by 'all', like `allMarkdownRemark` (meaning that it will return a list of nodes)
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
+3. `allMarkdownRemark`와 같이 'all' 접두사가 붙은 필드를 사용하여 에디터에 쿼리를 추가하세요. (노드 목록을 반환됩니다)
 
 ```graphql
 {
@@ -1469,7 +1470,7 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to filter 
 }
 ```
 
-4. Add a `filter` argument to the `allMarkdownRemark` field and give it an object with the fields you'd like to filter by. In this example, Markdown content is filtered by the `categories` attribute in frontmatter metadata. The next value is the operator: in this case `eq`, or equals, with a value of 'magical creatures'.
+4. `allMarkdownRemark` 필드에 `filter` 인수를 추가하고 필터링하려는 필드가있는 객체를 제공하세요. 이 예에서 Markdown 컨텐츠는 frontmatter 메타 데이터의 `categories` 속성으로 필터링합니다. 다음 값은 연산자이며, 'magical creatures' 이라는 값을 가진 `eq` 연산자를 사용합니다.
 
 ```graphql
 {
@@ -1486,14 +1487,14 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to filter 
 }
 ```
 
-5. Click the play button in the GraphiQL page. The data that matches the filter parameters should be returned, in this case only sourced Markdown files tagged with a category of 'magical creatures'.
+5. GraphiQL 페이지에서 play 버튼을 클릭합니다. filter 매개변수에 매치되는 데이터만 반환되는데, 이 예에서는 'magical creatures' 라는 category 값으로 태깅된 Markdown 파일 소스들의 내용만 반환됩니다.
 
 #### 추가 정보
 
-- [Gatsby GraphQL reference for filtering](/docs/graphql-reference/#filter)
-- [Complete list of possible operators](/docs/graphql-reference/#complete-list-of-possible-operators)
-- Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
-- Live example:
+- [filtering에 대한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#filter)
+- [사용 가능한 연산자 전체 목록](/docs/graphql-reference/#complete-list-of-possible-operators)
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대한 학습
+- 라이브 예제:
 
 <iframe
   title="Filtering data"
