@@ -1503,17 +1503,19 @@ GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반�
   height="300"
 />
 
-### GraphQL Query Aliases
+### GraphQL 쿼리 별칭
 
-You can rename any field in a GraphQL query with an alias.
+GraphQL 쿼리의 필드 이름을 별칭으로 바꿀 수 있습니다.
 
-If you would like to run two queries on the same datasource, you can use an alias to avoid a naming collision with two queries of the same name.
+동일한 데이터 소스에서 두 개의 쿼리를 실행하려면 동일한 이름의 두 쿼리와 이름 충돌을 피하기 위해 별명을 사용할 수 있습니다.
+
 
 #### 지시 사항
 
-1. Run `gatsby develop` to start the development server.
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
 2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
-3. Add a query in the editor using two fields of the same name like `allFile`
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하여 GraphiQL에 접속하세요.
+3. 에디터에서 `allFile` 과 같이 같은 이름을 가진 두개의 필드를 추가하세요.
 
 ```graphql
 {
@@ -1528,7 +1530,7 @@ If you would like to run two queries on the same datasource, you can use an alia
 }
 ```
 
-4. Add the name you would like to use for any field before the name of the field in your GraphQL schema, separated by a colon. (E.g. `[alias-name]: [original-name]`)
+4. GraphQL 스키마에서 필드 이름 앞에 사용할 별칭 이름을 콜론으로 구분하여 추가해주세요. (예. `[alias-name]: [original-name]`)
 
 ```graphql
 {
@@ -1543,12 +1545,12 @@ If you would like to run two queries on the same datasource, you can use an alia
 }
 ```
 
-5. Click the play button in the GraphiQL page and 2 objects with alias names you provided should be output.
+5. GraphiQL 페이지에서 play 버튼을 클릭하면 제공 한 별칭 이름을 가진 2개의 객체가 출력됩니다.
 
 #### 추가 정보
 
-- [Gatsby GraphQL reference for aliasing](/docs/graphql-reference/#aliasing)
-- Live example:
+- [Gatsby GraphQL 별칭 레퍼런스](/docs/graphql-reference/#aliasing)
+- 라이브 예제:
 
 <iframe
   title="Using aliases"
