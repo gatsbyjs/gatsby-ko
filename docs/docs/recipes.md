@@ -1559,15 +1559,17 @@ GraphQL 쿼리의 필드 이름을 별칭으로 바꿀 수 있습니다.
   height="300"
 />
 
-### GraphQL Query Fragments
+### GraphQL 쿼리 프래그먼트
 
-GraphQL fragments are shareable chunks of a query that can be reused.
+GraphQL 프래그먼트는 재사용 가능한 쿼리의 공유 가능한 청크입니다.
 
-You might want to use them to share multiple fields between queries or to colocate a component with the data it uses.
+이것을 사용하여 쿼리간에 여러 필드를 공유하거나 데이터와 함께 구성 요소를 배치 할 수 있습니다.
 
 #### 지시 사항
 
 1. Declare a `graphql` template string with a Fragment in it. The fragment should be made up of the keyword `fragment`, a name, the GraphQL type it is associated with (in this case of type `Site`, as demonstrated by `on Site`), and the fields that make up the fragment:
+
+1. 프래그먼트가 있는 `graphql` 템플릿 문자열을 선언합니다. 프래그먼트는 키워드 `fragment`, 이름, 그와 관련된 GraphQL 타입 (`Site` 타입의 경우 `on Site` 로 명시) 및 프래그먼트를 구성하는 필드로 구성되어야합니다.
 
 ```jsx
 export const query = graphql`
@@ -1580,7 +1582,7 @@ export const query = graphql`
 `
 ```
 
-2. Now, include the fragment in a query for a field of the type specified by the fragment. This includes those fields without having to declare them all independently:
+2. 자 이제, 프래그먼트로 명시한 타입의 필드 쿼리에 프래그먼트을 포함 시켜주세요. 모든 필드를 독립적으로 선언하지 않고도 해당 필드가 포함됩니다:
 
 ```diff
 export const pageQuery = graphql`
@@ -1594,16 +1596,17 @@ export const pageQuery = graphql`
 `
 ```
 
-**Note**: Fragments don't need to be imported in Gatsby. Exporting a query with a Fragment makes that Fragment available in _all_ queries in your project.
+**주의**: Gatsby에서 프래그먼트를 임포트할 필요는 없습니다. 프래그먼트를 사용하여 쿼리를 내보내면(exporting) 해당 프래그먼트를 프로젝트의 _모든_ 쿼리에서 사용할 수 있습니다.
 
-Fragments can be nested inside other fragments, and multiple fragments can be used in the same query.
+프래그먼트는 다른 프래그먼트 안에 중첩 될 수 있으며 동일한 쿼리에서 여러 프래그먼트를 사용할 수 있습니다.
 
 #### 추가 정보
 
-- [Simple example repo using fragments](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-fragments)
-- [Gatsby GraphQL reference for fragments](/docs/graphql-reference/#fragments)
-- [Gatsby image fragments](/docs/gatsby-image/#image-query-fragments)
+- [프래그먼트를 사용하는 간단한 예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-fragments)
+- [Gatsby GraphQL 프래그먼트 레퍼런스](/docs/graphql-reference/#fragments)
+- [Gatsby 이미지 쿼리 프래그먼트](/docs/gatsby-image/#image-query-fragments)
 - [Example repo with co-located data](https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram)
+- [같은 장소의 데이터를 여러곳에서 사용하는 예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram)
 
 ## 7. Working with images
 
