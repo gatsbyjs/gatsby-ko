@@ -1,43 +1,44 @@
 ---
-title: Source Plugins
+title: 소스 플러그인
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-> This tutorial is part of a series about Gatsby’s data layer. Make sure you’ve gone through [part 4](/tutorial/part-four/) before continuing here.
+> 이 튜토리얼은 Gatsby의 데이터 레이어에 대한 시리즈의 일부입니다. 계속하기 전에 [파트 4](/tutorial/part-four/)를 진행했는지 확인하세요.
 
-## What's in this tutorial?
+## 이번 튜토리얼에서 다룰 것
 
-In this tutorial, you'll be learning about how to pull data into your Gatsby site using GraphQL and source plugins. Before you learn about these plugins, however, you'll want to know how to use something called GraphiQL, a tool that helps you structure your queries correctly.
+이번 튜토리얼에서는, GraphQL과 소스 플러그인을 사용하여 Gatsby 사이트로 데이터를 가져오는 방법을 배울 것입니다. 그러나 그 플러그인들을 배우기에 앞서, 여러분은 쿼리를 바르게 구성하도록 도와주는 GraphiQL이라는 툴을 어떻게 사용하는지 알고싶을 것입니다.
 
-## Introducing GraphiQL
+## GraphiQL 소개
 
-GraphiQL is the GraphQL integrated development environment (IDE). It's a powerful (and all-around awesome) tool you'll use often while building Gatsby websites.
+GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-You can access it when your site's development server is running—normally at
-<http://localhost:8000/___graphql>.
+여러분은 사이트의 개발서버가 동작중일 때 액세스할 수 있습니다.
+<http://localhost:8000/___graphql>
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="/graphiql-explore.mp4"></source>
-  <p>Your browser does not support the video element.</p>
+  <p>브라우저가 동영상을 지원하지 않습니다.</p>
 </video>
 
 Poke around the built-in `Site` "type" and see what fields are available on it -- including the `siteMetadata` object you queried earlier. Try opening GraphiQL and play with your data! Press <kbd>Ctrl + Space</kbd> (or use <kbd>Shift + Space</kbd> as an alternate keyboard shortcut) to bring up the autocomplete window and <kbd>Ctrl + Enter</kbd> to run the GraphQL query. You'll be using GraphiQL a lot more through the remainder of the tutorial.
 
-## Using the GraphiQL Explorer
+## GraphiQL Explorer 사용하기
 
 The GraphiQL Explorer enables you to interactively construct full queries by clicking through available fields and inputs without the repetitive process of typing these queries out by hand.
+GraphiQL Explorer는 여러분이 
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-build-a-graphql-query-using-gatsby-s-graphiql-explorer"
   lessonTitle="Build a GraphQL Query using Gatsby’s GraphiQL Explorer"
 />
 
-## Source plugins
+## 소스 플러그인
 
-Data in Gatsby sites can come from anywhere: APIs, databases, CMSs, local files, etc.
+Gatsby 사이트의 데이터는 API, 데이터베이스, CMS, 로컬 파일 등 어디에서든 가져올 수 있습니다.
 
-Source plugins fetch data from their source. E.g. the filesystem source plugin knows how to fetch data from the file system. The WordPress plugin knows how to fetch data from the WordPress API.
+소스 플러그인은 소스에서 데이터를 가져옵니다. 예)filesystem 소스 플러그인은 파일 시스템에서 데이터를 가져올 수 있습니다. WordPress 플러그인은 WordPress API에서 데이터를 가져올 수 있습니다.
 
 Add [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) and explore how it works.
 
