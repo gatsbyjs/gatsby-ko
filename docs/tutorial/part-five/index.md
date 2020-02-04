@@ -41,14 +41,15 @@ Gatsby 사이트의 데이터는 API, 데이터베이스, CMS, 로컬 파일 등
 소스 플러그인은 소스에서 데이터를 가져옵니다. 예)filesystem 소스 플러그인은 파일 시스템에서 데이터를 가져올 수 있습니다. WordPress 플러그인은 WordPress API에서 데이터를 가져올 수 있습니다.
 
 Add [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) and explore how it works.
+[`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/)를 추가하고 어떻게 작동하는지 살펴봅시다.
 
-First, install the plugin at the root of the project:
+먼저, 프로젝트의 루트에 플러그인을 인스톨합니다 :
 
 ```shell
 npm install --save gatsby-source-filesystem
 ```
 
-Then add it to your `gatsby-config.js`:
+그리고 여러분의 `gatsby-config.js`에 이것을 추가하세요 :
 
 ```javascript:title=gatsby-config.js
 module.exports = {
