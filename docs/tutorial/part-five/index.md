@@ -4,7 +4,7 @@ typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-> 이 튜토리얼은 Gatsby의 데이터 레이어에 대한 시리즈의 일부입니다. 계속하기 전에 [파트 4](/tutorial/part-four/)를 진행했는지 확인하세요.
+> 이 튜토리얼은 Gatsby 데이터 레이어 시리즈의 일부입니다. 계속하기 전에 [파트 4](/tutorial/part-four/)를 진행했는지 확인하세요.
 
 ## 이번 튜토리얼에서 다룰 것
 
@@ -14,8 +14,8 @@ disableTableOfContents: true
 
 GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-여러분은 사이트의 개발서버가 동작중일 때 액세스할 수 있습니다.
-<http://localhost:8000/___graphql>
+여러분은 사이트의 개발서버가 동작중일 때 <http://localhost:8000/___graphql>로 액세스할 수 있습니다.
+
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="/graphiql-explore.mp4"></source>
@@ -38,9 +38,8 @@ GraphiQL Explorer는 여러분이
 
 Gatsby 사이트의 데이터는 API, 데이터베이스, CMS, 로컬 파일 등 어디에서든 가져올 수 있습니다.
 
-소스 플러그인은 소스에서 데이터를 가져옵니다. 예)filesystem 소스 플러그인은 파일 시스템에서 데이터를 가져올 수 있습니다. WordPress 플러그인은 WordPress API에서 데이터를 가져올 수 있습니다.
+소스 플러그인은 소스에서 데이터를 가져옵니다. 예) filesystem 소스 플러그인은 파일 시스템에서 데이터를 가져올 수 있습니다. WordPress 플러그인은 WordPress API에서 데이터를 가져올 수 있습니다.
 
-Add [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) and explore how it works.
 [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/)를 추가하고 어떻게 작동하는지 살펴봅시다.
 
 먼저, 프로젝트의 루트에 플러그인을 인스톨합니다 :
@@ -77,13 +76,13 @@ module.exports = {
 }
 ```
 
-Save that and restart the gatsby development server. Then open up GraphiQL again.
+그것을 저장하고 gatsby 개발 서버를 재시작합니다. 그런 다음 GraphiQL을 다시 여세요.
 
-In the explorer pane, you'll see `allFile` and `file` available as selections:
+여러분은 이제 탐색기에서 `allFile`과 `file`을 볼 수 있고 선택도 가능할 것입니다 :
 
 ![graphiql-filesystem](graphiql-filesystem.png)
 
-Click the `allFile` dropdown. Position your cursor after `allFile` in the query area, and then type <kbd>Ctrl + Enter</kbd>. This will pre-fill a query for the `id` of each file. Press "Play" to run the query:
+`allFile` 드롭다운을 클릭하세요. 쿼리 영역에서 `allFile` 뒤에 커서를 놓고 <kbd>Ctrl + Enter</kbd>를 누릅니다. 이것은 각 파일의 `id`에 대한 쿼리 미리채우기를 합니다. "Play"를 눌러 쿼리를 실행하세요 :
 
 ![filesystem-query](filesystem-query.png)
 
@@ -103,7 +102,7 @@ each time to re-run the query. You'll see the updated query results:
 The result is an array of `File` "nodes" (node is a fancy name for an object in a
 "graph"). Each `File` node object has the fields you queried for.
 
-## Build a page with a GraphQL query
+## GraphQL 쿼리를 이용한 페이지 빌드
 
 Building new pages with Gatsby often starts in GraphiQL. You first sketch out
 the data query by playing in GraphiQL then copy this to a React page component
