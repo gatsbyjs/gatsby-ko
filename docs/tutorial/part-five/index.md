@@ -22,12 +22,11 @@ GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사�
   <p>브라우저가 동영상을 지원하지 않습니다.</p>
 </video>
 
-Poke around the built-in `Site` "type" and see what fields are available on it -- including the `siteMetadata` object you queried earlier. Try opening GraphiQL and play with your data! Press <kbd>Ctrl + Space</kbd> (or use <kbd>Shift + Space</kbd> as an alternate keyboard shortcut) to bring up the autocomplete window and <kbd>Ctrl + Enter</kbd> to run the GraphQL query. You'll be using GraphiQL a lot more through the remainder of the tutorial.
+내장된 `사이트` "type"을 살펴보고 -이전에 쿼리했던 `siteMetadata` 오브젝트를 포함하여- 사용가능한 필드를 알아봅니다. GraphiQl을 열고 여러분의 데이터를 갖고 놀아보세요! <kbd>Ctrl + Space</kbd>(또는 대체 단축키인 <kbd>Shift + Space</kbd>)를 눌러 자동완성 창을 불러오고 <kbd>Ctrl + Enter</kbd>로 GraphQL 쿼리를 실행하십시오. 여러분은 남은 튜토리얼 동안 더 많이 GraphQL을 사용하게 될 것입니다.
 
 ## GraphiQL Explorer 사용하기
 
-The GraphiQL Explorer enables you to interactively construct full queries by clicking through available fields and inputs without the repetitive process of typing these queries out by hand.
-GraphiQL Explorer는 여러분이 
+GraphiQL Explorer는 손으로 쿼리들을 입력하는 반복적인 프로세스 없이 여러분이 사용가능한 필드를 클릭하는 것의 대화식으로 전체의 쿼리 작성을 가능하도록 해줍니다.
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-build-a-graphql-query-using-gatsby-s-graphiql-explorer"
