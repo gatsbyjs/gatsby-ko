@@ -101,14 +101,11 @@ Explorer에서 `id`가 자동으로 선택되었습니다. 필드의 해당 체�
 
 ## GraphQL 쿼리를 이용한 페이지 빌드
 
-Building new pages with Gatsby often starts in GraphiQL. You first sketch out
-the data query by playing in GraphiQL then copy this to a React page component
-to start building the UI.
+Gatsby를 사용하여 새 페이지를 만드는 것은 보통 GraphiQL에서 시작됩니다. 먼저 여러분은 GraphiQL에서 데이터 쿼리를 스케치 하고 그것을 React 페이지 컴포넌트에 복사하여 UI 빌드를 시작합니다.
 
-Let's try this.
+해봅시다.
 
-Create a new file at `src/pages/my-files.js` with the `allFile` GraphQL query you just
-created:
+만들어진 `allFile` GraphQL 쿼리를 사용하여 `src/pages/my-files.js`에 새 파일을 만듭니다 :
 
 ```jsx:title=src/pages/my-files.js
 import React from "react"
@@ -140,12 +137,9 @@ export const query = graphql`
 `
 ```
 
-The `console.log(data)` line is highlighted above. It's often helpful when
-creating a new component to console out the data you're getting from the GraphQL query
-so you can explore the data in your browser console while building the UI.
+`console.log(data)` 라인에 하이라이트 되어있습니다. 여러분이 UI를 구축하는 동안 브라우저의 콘솔에서 데이터를 탐색할 수 있도록 GraphQL 쿼리로 얻은 데이터를 콘솔에 출력하는 새 컴포넌트를 만들때 이것은 자주 도움이 됩니다.
 
-If you visit the new page at `/my-files/` and open up your browser console
-you will see something like:
+`/my-files/`의 새 페이지에 들어가 브라우저의 콘솔을 열면 다음과 같은 내용을 볼 수 있습니다 :
 
 ![data-in-console](data-in-console.png)
 
