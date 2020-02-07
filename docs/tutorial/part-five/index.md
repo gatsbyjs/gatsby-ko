@@ -14,15 +14,15 @@ disableTableOfContents: true
 
 GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-여러분은 사이트의 개발서버가 동작중일 때 <http://localhost:8000/___graphql>로 액세스할 수 있습니다.
-
+여러분은 사이트의 개발서버가 동작중일 때 다음으로 액세스할 수 있습니다.
+<http://localhost:8000/___graphql>
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="/graphiql-explore.mp4"></source>
   <p>브라우저가 동영상을 지원하지 않습니다.</p>
 </video>
 
-내장된 `사이트` "type"을 살펴보고 -이전에 쿼리했던 `siteMetadata` 오브젝트를 포함하여- 사용가능한 필드를 알아봅니다. GraphiQl을 열고 여러분의 데이터를 갖고 놀아보세요! <kbd>Ctrl + Space</kbd>(또는 대체 단축키인 <kbd>Shift + Space</kbd>)를 눌러 자동완성 창을 불러오고 <kbd>Ctrl + Enter</kbd>로 GraphQL 쿼리를 실행하십시오. 여러분은 남은 튜토리얼 동안 더 많이 GraphQL을 사용하게 될 것입니다.
+내장된 `site` "type"을 살펴보고 -이전에 쿼리했던 `siteMetadata` 오브젝트를 포함하여- 사용가능한 필드를 알아봅니다. GraphiQL을 열고 여러분의 데이터를 갖고 놀아보세요! <kbd>Ctrl + Space</kbd>(또는 대체 단축키인 <kbd>Shift + Space</kbd>)를 눌러 자동완성 창을 불러오고 <kbd>Ctrl + Enter</kbd>로 GraphQL 쿼리를 실행하십시오. 여러분은 남은 튜토리얼 동안 더 많이 GraphiQL을 사용하게 될 것입니다.
 
 ## GraphiQL Explorer 사용하기
 
@@ -77,7 +77,7 @@ module.exports = {
 
 그것을 저장하고 gatsby 개발 서버를 재시작합니다. 그런 다음 GraphiQL을 다시 여세요.
 
-여러분은 이제 탐색기에서 `allFile`과 `file`을 볼 수 있고 선택도 가능할 것입니다:
+여러분은 이제 탐색창에서 `allFile`과 `file`을 볼 수 있고 선택도 가능할 것입니다:
 
 ![graphiql-filesystem](graphiql-filesystem.png)
 
