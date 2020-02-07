@@ -26,7 +26,7 @@ GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사�
 
 ## GraphiQL Explorer 사용하기
 
-GraphiQL Explorer는 손으로 쿼리들을 입력하는 반복적인 프로세스 없이 여러분이 사용가능한 필드를 클릭하는 것의 대화식으로 전체의 쿼리 작성을 가능하도록 해줍니다.
+GraphiQL Explorer는 여러분이 손으로 쿼리들을 입력하는 반복적인 작업 없이 사용가능한 필드를 클릭하는 대화식으로 전체의 쿼리 작성을 가능하게 해줍니다.
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-build-a-graphql-query-using-gatsby-s-graphiql-explorer"
