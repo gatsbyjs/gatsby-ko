@@ -85,21 +85,19 @@ module.exports = {
 
 ![filesystem-query](filesystem-query.png)
 
-In the Explorer pane, the `id` field has automatically been selected. Make selections for more fields by checking the field's corresponding checkbox. Press "Play" to run the query again, with the new fields:
+Explorer에서 `id`가 자동으로 선택되었습니다. 필드의 해당 체크박스에 체크해서 더 많은 필드를 선택합니다. 새 필드를 사용하여 쿼리를 다시 실행하려면 "Play"를 누르세요 :
 
 ![filesystem-explorer-options](filesystem-explorer-options.png)
 
-Alternatively, you can add fields by using the autocomplete shortcut (<kbd>Ctrl + Space</kbd>). This will show queryable fields on the `File` nodes.
+또는, 자동완성 단축키(<kbd>Ctrl + Space</kbd>)를 사용하여 필드를 추가할 수도 있습니다. 이것은 `File` 노드에서 쿼리 가능한 필드를 보여줍니다.
 
 ![filesystem-autocomplete](filesystem-autocomplete.png)
 
-Try adding a number of fields to your query, pressing <kbd>Ctrl + Enter</kbd>
-each time to re-run the query. You'll see the updated query results:
+쿼리를 재실행 할 때마다 <kbd>Ctrl + Enter</kbd>를 눌러, 여러분의 쿼리에 여러 필드를 추가해 보세요. 여러분은 업데이트된 쿼리 결과들을 볼 수 있을 겁니다 :
 
 ![allfile-query](allfile-query.png)
 
-The result is an array of `File` "nodes" (node is a fancy name for an object in a
-"graph"). Each `File` node object has the fields you queried for.
+결과는 `File` "nodes"의 배열입니다(노드는 "graph"의 오브젝트에 붙인 이름입니다). 각 `File` 노드 오브젝트에는 쿼리한 필드가 있습니다.
 
 ## GraphQL 쿼리를 이용한 페이지 빌드
 
