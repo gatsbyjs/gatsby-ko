@@ -143,9 +143,9 @@ export const query = graphql`
 
 ![data-in-console](data-in-console.png)
 
-The shape of the data matches the shape of the GraphQL query.
+데이터의 형태는 GraphQL 쿼리의 형태와 일치합니다.
 
-Add some code to your component to print out the File data.
+여러분의 컴포넌트에 코드를 추가해서 파일 데이터를 출력하세요.
 
 ```jsx:title=src/pages/my-files.js
 import React from "react"
@@ -201,7 +201,7 @@ export const query = graphql`
 `
 ```
 
-And now visit [http://localhost:8000/my-files](http://localhost:8000/my-files)… 😲
+그리고 이제 [http://localhost:8000/my-files](http://localhost:8000/my-files)에 들어가보세요… 😲
 
 ![my-files-page](my-files-page.png)
 
