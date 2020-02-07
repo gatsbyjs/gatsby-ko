@@ -14,7 +14,7 @@ disableTableOfContents: true
 
 GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-여러분은 사이트의 개발서버가 동작중일 때 다음으로 액세스할 수 있습니다.
+여러분은 사이트의 개발서버가 정상 작동 중일 때 다음으로 액세스할 수 있습니다.
 <http://localhost:8000/___graphql>
 
 <video controls="controls" autoplay="true" loop="true">
