@@ -26,13 +26,12 @@ _**노트**: 종종 데이터 소스는 컨텐츠에 대한 slug나 path이름�
 
 마크다운 페이지를 만들기 위해, 다음의 두가지 Gatsby API 사용하는 방법을 배웁니다:
 [`onCreateNode`](/docs/node-apis/#onCreateNode)와
-[`createPages`](/docs/node-apis/#createPages)입니다. 이것은 많은 사이트와 플러그인에서 사용되는 두 가지 주요 API입니다.
+[`createPages`](/docs/node-apis/#createPages)입니다. 이 두가지는 많은 사이트와 플러그인에서 사용되는 주요 API입니다.
 
-We do our best to make Gatsby APIs simple to implement. To implement an API, you export a function
-with the name of the API from `gatsby-node.js`.
+우리는 Gatsby API를 쉽게 구현할 수 있도록 최선을 다하고 있습니다.
+API를 구현하려면, `gatsby-node.js`에서 API 이름으로 함수를 export합니다.
 
-So, here's where you'll do that. In the root of your site, create a file named
-`gatsby-node.js`. Then add the following.
+그러므로 여러분도 그렇게 할 것입니다. 사이트의 루트에서 `gatsby-node.js`라는 파일을 만듭니다. 그리고 다음을 추가하세요.
 
 ```javascript:title=gatsby-node.js
 exports.onCreateNode = ({ node }) => {
@@ -40,15 +39,13 @@ exports.onCreateNode = ({ node }) => {
 }
 ```
 
-This `onCreateNode` function will be called by Gatsby whenever a new node is created (or updated).
+이 `onCreateNode` 함수는 새로운 노드가 생성(또는 업데이트) 될 때마다 Gatsby에 의해 호출됩니다.
 
-Stop and restart the development server. As you do, you'll see quite a few newly
-created nodes get logged to the terminal console.
+개발서버를 중지하고 다시 시작하세요. 여러분이 한 것처럼, 새로 생성된 노드가 터미널 콘솔에 출력되는 것을 볼 수 있습니다.
 
-Use this API to add the slugs for your markdown pages to `MarkdownRemark`
-nodes.
+이 API를 사용하여 마크다운 페이지의 slug를 `MarkdownRemark` 노드에 추가하세요.
 
-Change your function so it now only logs `MarkdownRemark` nodes.
+이제 MarkdownRemark 노드만 출력하도록 함수를 변경하십시오.
 
 ```javascript:title=gatsby-node.js
 exports.onCreateNode = ({ node }) => {
@@ -60,11 +57,7 @@ exports.onCreateNode = ({ node }) => {
 }
 ```
 
-You want to use each markdown file name to create the page slug. So
-`pandas-and-bananas.md` will become `/pandas-and-bananas/`. But how do you get
-the file name from the `MarkdownRemark` node? To get it, you need to _traverse_
-the "node graph" to its _parent_ `File` node, as `File` nodes contain data you
-need about files on disk. To do that, modify your function again:
+여러분은 각 마크다운 파일명을 페이지 slug로 만들고 싶을 것입니다. 따라서 `pandas-and-bananas.md`는 `/pandas-and-bananas/`이 됩니다. 하지만 `MarkdownRemark` 노드에서 어떻게 파일명을 얻을까요? `File` 노드는 디스크의 파일에 대해 필요한 데이터를 포함하므로, 파일명을 얻기 위해서는 "node graph"를 _상위_ `File` 노드로 _이동_ 해야 합니다. 그러려면, 함수를 다시 수정하세요:
 
 ```javascript:title=gatsby-node.js
 // highlight-next-line
