@@ -15,19 +15,18 @@ disableTableOfContents: true
 
 시작해 봅시다.
 
-## Creating slugs for pages
+## 페이지용 slug 만들기
 
-Creating new pages has two steps:
+새 페이지를 만들 때는 두 단계가 있습니다:
 
-1.  Generate the "path" or "slug" for the page.
-2.  Create the page.
+1. 페이지의 "path" 또는 "slug"를 생성합니다.
+2. 페이지를 만듭니다.
 
-_**Note**: Often data sources will directly provide a slug or pathname for content — when working with one of those systems (e.g. a CMS), you don't need to create the slugs yourself as you do with markdown files._
+_**노트**: 종종 데이터 소스는 컨텐츠에 대한 slug나 path이름을 직접 제공합니다 - 이러한 시스템 중 하나(예: CMS)를 사용하는 경우, 마크다운 파일을 사용하여 slug를 직접 만들 필요가 없습니다._
 
-To create your markdown pages, you'll learn to use two Gatsby APIs:
-[`onCreateNode`](/docs/node-apis/#onCreateNode) and
-[`createPages`](/docs/node-apis/#createPages). These are two workhorse APIs
-you'll see used in many sites and plugins.
+마크다운 페이지를 만들기 위해, 다음의 두가지 Gatsby API 사용하는 방법을 배웁니다:
+[`onCreateNode`](/docs/node-apis/#onCreateNode)와
+[`createPages`](/docs/node-apis/#createPages)입니다. 이것은 많은 사이트와 플러그인에서 사용되는 두 가지 주요 API입니다.
 
 We do our best to make Gatsby APIs simple to implement. To implement an API, you export a function
 with the name of the API from `gatsby-node.js`.
