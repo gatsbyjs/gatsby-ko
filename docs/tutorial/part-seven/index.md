@@ -1,25 +1,19 @@
 ---
-title: Programmatically create pages from data
+title: 데이터를 이용해 프로그래밍식으로 페이지 만들기
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-> This tutorial is part of a series about Gatsby’s data layer. Make sure you’ve gone through [part 4](/tutorial/part-four/), [part 5](/tutorial/part-five/), and [part 6](/tutorial/part-six/) before continuing here.
+이 튜토리얼은 Gatsby 데이터 레이어 시리즈의 일부입니다. 계속하기 전에 [파트 4](/tutorial/part-four/), [파트 5](/tutorial/part-five/), and [파트 6](/tutorial/part-six/)를 진행했는지 확인하세요.
 
-## What's in this tutorial?
+## 이번 튜토리얼에서 다룰 것
 
-In the previous tutorial, you created a nice index page that queries markdown
-files and produces a list of blog post titles and excerpts. But you don't want to just see excerpts, you want actual pages for your
-markdown files.
+여러분은 이전 튜토리얼에서, 마크다운 파일을 쿼리하고 블로그 포스트 제목 및 발췌의 리스트를 생성하는 멋진 인덱스 페이지를 만들었습니다. 그러나 여러분은 발췌 내용만이 아닌, 실제 페이지를 원할 것 입니다.
 
-You could continue to create pages by placing React components in `src/pages`. However, you'll
-now learn how to _programmatically_ create pages from _data_. Gatsby is _not_
-limited to making pages from files like many static site generators. Gatsby lets
-you use GraphQL to query your _data_ and _map_ the query results to _pages_—all at build
-time. This is a really powerful idea. You'll be exploring its implications and
-ways to use it for the remainder of this part of the tutorial.
+여러분은 계속해서 `src/pages`에 React 컴포넌트를 배치하여 페이지를 생성할 수 있습니다.
+그러나, 여러분은 이제 _데이터_ 에서 페이지를 _프로그래밍적_ 으로 작성하는 방법을 배웁니다. Gatsby는 많은 정적 사이트 생성기처럼 파일을 페이지로 만드는 것에 제한되지 않습니다. Gatsby에서는 빌드 중에는 언제나 GraphQL을 사용하여 _데이터_ 를 쿼리하고 쿼리 결과를 _페이지_ 에 _매핑_ 할 수 있습니다. 이것은 정말 강력한 아이디어입니다. 여러분은 앞으로 이 튜토리얼에서 이것의 의미와 사용법을 살펴 볼 것입니다.
 
-Let's get started.
+시작해 봅시다.
 
 ## Creating slugs for pages
 
