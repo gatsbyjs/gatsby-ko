@@ -341,7 +341,6 @@ export default ({ children }) => {
 왜 두개의 다른 쿼리를 사용했을까요? 이 예제를 통해 쿼리 유형과 포멧 방법 그리고 어디서 사용되는지에 대한 간단히 소개했습니다. 우선은 페이지만 페이지 쿼리를 만들수 있다고 기억하세요. 레이아웃과 같은 페이지가 아닌 컴포넌트는 StaticQuery를 사용할 수 있고요. [파트 7](/tutorial/part-seven/)에서 더 자세히 설명할 것입니다.
 
 이제 진짜 제목을 복원해봅시다.
-But let's restore the real title.
 
 Gatsby의 핵심 원칙 중의 하나는 _만드는 사람은 만드는 것에 즉각적으로 연결되어야 한다는 것입니다_ ([hat tip to Bret Victor](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)). 즉, 여러분의 코드가 바뀌면 여러분은 바로 바뀐 것이 어떤 영향을 주었는지 볼수 있어야 한다는 이야기입니다. Gatsby에 입력하는 것들을 조작하면, 화면에 새로운 출력이 나타납니다.
 
