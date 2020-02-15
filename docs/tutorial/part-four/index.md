@@ -342,7 +342,7 @@ export default ({ children }) => {
 
 이제 진짜 제목을 복원해봅시다.
 
-Gatsby의 핵심 원칙 중의 하나는 _만드는 사람은 만드는 것에 즉각적으로 연결되어야 한다는 것입니다_ ([hat tip to Bret Victor](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)). 즉, 여러분의 코드가 바뀌면 여러분은 바로 바뀐 것이 어떤 영향을 주었는지 볼수 있어야 한다는 이야기입니다. Gatsby에 입력하는 것들을 조작하면, 화면에 새로운 출력이 나타납니다.
+Gatsby의 핵심 원칙 중의 하나는 _만드는 사람은 만드는 것에 즉각적으로 연결되어야 한다는 것입니다_ ([Bret Victor의 글](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)). 즉, 여러분의 코드가 바뀌면 여러분은 바로 바뀐 것이 어떤 영향을 주었는지 볼수 있어야 한다는 이야기입니다. Gatsby에 입력하는 것들을 조작하면, 화면에 새로운 출력이 나타납니다.
 
 거의 대부분의 장소에서, 변경 사항은 즉시 적용됩니다. `gatsby-config.js`파일 안의 `title`을 "Panda Eating Lots"로 되돌리세요. 사이트에서 바로 바뀐 것을 볼 수 있을것입니다.
 
