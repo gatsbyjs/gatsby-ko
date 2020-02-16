@@ -1,28 +1,27 @@
 ---
-title: Adding a 404 Page
+title: 404 페이지 추가
 ---
 
-To create a 404 page create a page whose path matches the regex
-`^\/?404\/?$` (`/404/`, `/404`, `404/` or `404`). Most often you'll want to create a React component page at
+404 페이지를 만들려면 경로가 정규식과 일치하는 페이지를 만드십시오.
+`^\/?404\/?$` (`/404/`, `/404`, `404/` or `404`).대부분의 경우 React 컴포넌트 페이지를 작성하려고합니다.
 `src/pages/404.js`.
 
-Gatsby ensures that your 404 page is built as `404.html` as many static hosting
-platforms default to using this as your 404 error page. If you're hosting your
-site another way, you'll need to set up a custom rule to serve this file for 404
-errors.
+Gatsby는 404 페이지가 많은 정적 호스팅만큼 `404.html`로 빌드되도록합니다.
+플랫폼은 기본적으로 이것을 404 오류 페이지로 사용합니다 Gatsby는 404 페이지입니다.
+플랫폼은 기본적으로 404 오류 페이지로 사용합니다.
 
-Because Gatsby creates this page for you by default, there is no need to configure
-it in your `gatsby-node.js` file.
+Gatsby는 기본적으로이 페이지를 생성하므로 구성 할 필요가 없습니다.
+`gatsby-node.js` 파일에 있습니다.
 
-When developing using `gatsby develop`, Gatsby uses a default 404 page that
-overrides your custom 404 page. However, you can still preview your 404 page by
-clicking "Preview custom 404 page" to verify that it's working as expected. This is
-useful when you're developing so that you can see all the available pages.
+`gatsby develop`을 사용하여 개발할 때 Gatsby는 기본 404 페이지를 사용합니다.
+사용자 정의 404 페이지를 대체합니다. 그러나 여전히 404 페이지를 미리 볼 수 있습니다
+'맞춤형 404 페이지 미리보기'를 클릭하여 예상대로 작동하는지 확인합니다. 이것은
+사용 가능한 모든 페이지를 볼 수 있도록 개발할 때 유용합니다.
 
-The screenshot below shows the default 404 page that Gatsby creates.
-It also lists out all the pages on your website. Clicking the "Preview custom 404
-page" button will allow you to view the 404 page you created.
+아래 스크린 샷은 Gatsby가 생성 한 기본 404 페이지를 보여줍니다.
+또한 웹 사이트의 모든 페이지를 나열합니다. "미리보기 사용자 정의 404 클릭
+페이지 "버튼을 사용하면 생성 한 404 페이지를 볼 수 있습니다.
 ![Gatsby Default 404 Page](images/gatsby-default-404.png)
 
-The screenshot below shows the custom 404 page.
+아래 스크린 샷은 사용자 정의 404 페이지를 보여줍니다.
 ![Gatsby Custom 404 Page](images/gatsby-custom-404.png)
