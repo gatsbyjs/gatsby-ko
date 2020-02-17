@@ -4,7 +4,7 @@ typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-> 이 튜토리얼은 Gatsby의 데이터 계층의 일부입니다. 이 단계를 진행하기 전에 [파트 4](/tutorial/part-four/)와 [파트 5](/tutorial/part-five/)를 완료했는지 확인해주세요.
+> 이 튜토리얼은 Gatsby 데이터 레이어 시리즈 중 하나입니다. 이 단계를 진행하기 전에 [파트 4](/tutorial/part-four/)와 [파트 5](/tutorial/part-five/)를 완료했는지 확인해주세요.
 
 ## 이번 튜토리얼에서는 무엇을 다루나요?
 
