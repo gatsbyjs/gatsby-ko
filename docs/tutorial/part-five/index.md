@@ -14,7 +14,7 @@ disableTableOfContents: true
 
 GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-여러분은 사이트의 개발서버가 정상 작동 중일 때 다음으로 액세스할 수 있습니다.
+여러분의 사이트의 개발 서버가 정상 작동 중이라면 다음의 주소를 통해 GraphiQL에 접속할 수 있습니다.
 <http://localhost:8000/___graphql>
 
 <video controls="controls" autoplay="true" loop="true">
@@ -41,7 +41,7 @@ Gatsby 사이트의 데이터는 API, 데이터베이스, CMS, 로컬 파일 등
 
 [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/)를 추가하고 어떻게 작동하는지 살펴봅시다.
 
-먼저, 프로젝트의 루트에 플러그인을 인스톨합니다:
+먼저, 프로젝트의 루트에 플러그인을 설치합니다:
 
 ```shell
 npm install --save gatsby-source-filesystem
