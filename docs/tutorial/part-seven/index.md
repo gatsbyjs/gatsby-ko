@@ -71,14 +71,11 @@ exports.onCreateNode = ({ node, getNode }) => {
 }
 ```
 
-After restarting your development server, you should see the relative paths for your two markdown
-files print to the terminal screen.
+개발 서버를 다시 시작하면, 두 마크다운 파일의 상대 경로가 터미널 화면에 출력되는 것을 볼 수 있습니다.
 
 ![markdown-relative-path](markdown-relative-path.png)
 
-Now you'll have to create slugs. As the logic for creating slugs from file names can get
-tricky, the `gatsby-source-filesystem` plugin ships with a function for creating
-slugs. Let's use that.
+이제 여러분은 slug를 만들어야 합니다. 파일 이름에서 slug를 만드는 것이 까다로울 수 있으므로, `gatsby-source-filesystem` 플러그인은 slug 생성 함수를 제공합니다. 그것을 써봅시다.
 
 ```javascript:title=gatsby-node.js
 const { createFilePath } = require(`gatsby-source-filesystem`) // highlight-line
