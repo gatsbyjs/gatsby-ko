@@ -105,7 +105,7 @@ Gatsby를 사용하여 새 페이지를 만드는 것은 보통 GraphiQL에서 �
 
 해봅시다.
 
-만들어진 `allFile` GraphQL 쿼리를 사용하여 `src/pages/my-files.js`에 새 파일을 만듭니다:
+`src/pages/my-files.js`에 새 파일을 만들고 아래의 `allFile` GraphQL 쿼리를 사용해봅시다:
 
 ```jsx:title=src/pages/my-files.js
 import React from "react"
