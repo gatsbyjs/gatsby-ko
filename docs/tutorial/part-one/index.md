@@ -327,7 +327,7 @@ export default () => (
 
 <video controls="controls" loop="true">
   <source type="video/mp4" src="./10-linking-between-pages.mp4"></source>
-  <p>Sorry! You browser doesn't support this video.</p>
+  <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
 Gatsby `<Link />` 컴포넌트는 여러분의 사이트안에 있는 페이지간의 링크를 위한 것입니다. 여러분의 Gatsby 사이트에 의해 관리되는 링크가 아닌 외부 링크는 일반적인 HTML `<a>` 태그를 사용하세요.
