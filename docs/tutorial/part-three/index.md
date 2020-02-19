@@ -269,7 +269,7 @@ export default ({ children }) => (
 )
 ```
 
-![with-navigation2](with-navigation2.png)
+![with-navigation2](with-navigation.png)
 
 짜잔! 기본 전역 네비게이션이 있는 세 페이지로 된 사이트가 만들어졌습니다.
 

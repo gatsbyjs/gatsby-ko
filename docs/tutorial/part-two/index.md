@@ -150,7 +150,7 @@ Gatsby는 CSS 모듈을 별도의 설치나 설정없이 바로 함께 작동합
 
 1. `src/components`에 디렉토리를 만든 후, 새로 만든 디렉토리 안에서, `container.js`를 만든 후에 다음 것들을 붙여넣기 하세요:
 
-```javascript:title=src/components/container.js
+```jsx:title=src/components/container.js
 import React from "react"
 import containerStyles from "./container.module.css"
 
@@ -174,7 +174,7 @@ export default ({ children }) => (
 
 3.  `src/pages/about-css-modules.js` 파일을 만들어서 새로운 페이지 컴포넌트를 만드세요:
 
-```javascript:title=src/pages/about-css-modules.js
+```jsx:title=src/pages/about-css-modules.js
 import React from "react"
 
 import Container from "../components/container"
