@@ -269,11 +269,15 @@ export default ({ children }) => (
 )
 ```
 
-![with-navigation2](with-navigation2.png)
+![with-navigation2](with-navigation.png)
 
 짜잔! 기본 전역 네비게이션이 있는 세 페이지로 된 사이트가 만들어졌습니다.
 
+<<<<<<< HEAD
 _Challenge:_ 새로 익힌 "레이아웃 컴포넌트"를 사용해서, 헤더, 풋터, 전역 네비게이션, 사이드바 등을 여러분의 Gatsby 사이트에 추가해보세요!
+=======
+_Challenge:_ With your new "layout component" powers, try adding headers, footers, global navigation, sidebars, etc. to your Gatsby sites!
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 다음에 할 것은?
 

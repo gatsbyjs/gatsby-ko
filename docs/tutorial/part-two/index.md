@@ -114,7 +114,11 @@ import "./src/styles/global.css"
 // require('./src/styles/global.css')
 ```
 
+<<<<<<< HEAD
 > Note: CommonJS (`require`)와 ES 모듈 (`import`) 문법 둘다 작동합니다. 어떤 것을 고를지 모르겠다면, 우리는 대부분 `import`를 사용합니다.
+=======
+> Note: Both CommonJS (`require`) and ES Module (`import`) syntax work here. If you’re not sure which to choose, `import` is usually a good default. When working with files that are only run in a Node.js environment however (like `gatsby-node.js`), `require` will need to be used.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 3. 개발 서버를 작동시키세요:
 
@@ -150,7 +154,7 @@ Gatsby는 CSS 모듈을 별도의 설치나 설정없이 바로 함께 작동합
 
 1. `src/components`에 디렉토리를 만든 후, 새로 만든 디렉토리 안에서, `container.js`를 만든 후에 다음 것들을 붙여넣기 하세요:
 
-```javascript:title=src/components/container.js
+```jsx:title=src/components/container.js
 import React from "react"
 import containerStyles from "./container.module.css"
 
@@ -174,7 +178,7 @@ export default ({ children }) => (
 
 3.  `src/pages/about-css-modules.js` 파일을 만들어서 새로운 페이지 컴포넌트를 만드세요:
 
-```javascript:title=src/pages/about-css-modules.js
+```jsx:title=src/pages/about-css-modules.js
 import React from "react"
 
 import Container from "../components/container"
@@ -245,15 +249,24 @@ import Container from "../components/container"
 console.log(styles)
 ```
 
+<<<<<<< HEAD
 `console.log(styles)`코드는 임포트 결과를 기록하므로 `./about-css-modules.module.css`파일의 처리 결과를 볼 수 있을 것입니다. (파이어폭스나 크롬의 개발자 툴을 이용하여) 브라우저 상에서 개발자 콘솔을 열면, 여러분은 다음과 같은 것들을 볼 것입니다:
+=======
+The `console.log(styles)` code will log the resulting import so you can see the result of your processed `./about-css-modules.module.css` file. If you open the developer console (using e.g. Firefox or Chrome's developer tools, often by the F12 key) in your browser, you'll see:
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![콘솔 창에 나타난 CSS 모듈 임포트 결과](css-modules-console.png)
 
 이 값을 CSS 파일과 비교해보면, 각 클래스는 긴 문자열을 가리키는 임포트한 객체의 키인 것을 알 수 있습니다. 예를들어 `avatar` 는 `src-pages----about-css-modules-module---avatar---2lRF7`를 가리킵니다. 이는 CSS 모듈이 생성한 클래스 이름입니다. 이 클래스 이름은 사이트 전체에서 고유성이 보장됩니다. 또한 여러분은 이런 클래스를 사용하기 위해서는 임포트 해야만 하기 때문에, CSS가 사용되는 위치에 대해서 전혀 의문이 없습니다.
 
+<<<<<<< HEAD
 4. `User` 컴포넌트를 만드세요.
 
 `about-css-modules.js` 페이지 컴포넌트에 인라인 `<User />` 컴포넌트를 만드세요. `about-css-modules.js`를 다음과 같이 수정하세요:
+=======
+4. Create a new `<User />` component inline in the `about-css-modules.js` page
+   component. Modify `about-css-modules.js` so it looks like the following:
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ```jsx:title=src/pages/about-css-modules.js
 import React from "react"

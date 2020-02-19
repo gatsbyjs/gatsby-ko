@@ -20,7 +20,11 @@ gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world
 gatsby new [사이트_디렉토리_이름] [스타터_깃허브_리포_URL]
 ```
 
+<<<<<<< HEAD
 만약 마지막의 URL을 적지않는다면, Gatsby는 자동으로 [**default 스타터**](https://github.com/gatsbyjs/gatsby-starter-default)를 이용하여 만듭니다. 이전 튜토리얼 파트 0에서 만든 “Hello World” 사이트를 이번 튜토리얼에서도 사용하겠습니다.
+=======
+If you omit a URL from the end, Gatsby will automatically generate a site for you based on the [**default starter**](https://github.com/gatsbyjs/gatsby-starter-default). For this section of the tutorial, stick with the “Hello World” site you already created in tutorial part zero. You can learn more about [modifying starters](/docs/modifying-a-starter) in the docs.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ### ✋ 코드 열어보기
 
@@ -164,7 +168,11 @@ export default () => (
 )
 ```
 
+<<<<<<< HEAD
 2.  http://localhost:8000/about/ 로 이동하기
+=======
+2.  Navigate to `http://localhost:8000/about/`
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![새로운 about 페이지](05-about-page.png)
 
@@ -229,7 +237,11 @@ export default () => (
 
 ### “props”이란?
 
+<<<<<<< HEAD
 이전에 여러분은 React 컴포넌트를 UI를 표현하는 재사용 가능한 코드라고 정의했습니다. 이 재사용 가능한 코드를 동적으로 만들기 위해서 여러분은 각기 다른 데이터를 제공할 수 있어야 합니다. “props"이라고 불리는 입력을 통해서 제공할 수 있습니다. Props는 React 컴포넌트로 공급되는 (적절한) 속성입니다.
+=======
+Earlier, you defined React components as reusable pieces of code describing a UI. To make these reusable pieces dynamic you need to be able to supply them with different data. You do that with input called "props". Props are (appropriately enough) properties supplied to React components.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 `about.js`에서 여러분은 `headerText` prop와 그 값 `"About Gatsby"`를 임포트된 `Header` 서브 컴포넌트에 전달했습니다:
 
@@ -323,20 +335,30 @@ export default () => (
 )
 ```
 
+<<<<<<< HEAD
 이 파일을 저장한 후에, 여러분은 contact 페이지가 보여야하고 이 페이지와 홈페이지간의 링크도 가능해야 합니다.
+=======
+After you save the file, you should see the contact page and be able to follow the link to the homepage.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 <video controls="controls" loop="true">
   <source type="video/mp4" src="./10-linking-between-pages.mp4"></source>
-  <p>Sorry! You browser doesn't support this video.</p>
+  <p>Sorry! Your browser doesn't support this video.</p>
 </video>
 
 Gatsby `<Link />` 컴포넌트는 여러분의 사이트안에 있는 페이지간의 링크를 위한 것입니다. 여러분의 Gatsby 사이트에 의해 관리되는 링크가 아닌 외부 링크는 일반적인 HTML `<a>` 태그를 사용하세요.
 
 ## Gatsby 사이트 배포하기
 
+<<<<<<< HEAD
 Gatsby.js는 _모던 사이트 생성기_ 이고, 이는 배포를 위한 복잡한 데이터베이스 또는 서버 설정이 없다는 걸 의미합니다. 대신에 Gatsby `build` 명령어가 정적 사이트 호스팅 서비스로 배포할 수 있는 정적인 HTML과 자바스크립트 파일들의 디렉토리를 만들어줍니다.
 
 여러분의 첫번째 Gatsby 웹사이트를 배포할 때에 [Surge](http://surge.sh/)를 시도해보세요. Surge는 "정적인 사이트 호스트" 중의 하나로 Gatsby 사이트도 배포할 수 있습니다.
+=======
+Gatsby.js is a _modern site generator_, which means there are no servers to set up or complicated databases to deploy. Instead, the Gatsby `build` command produces a directory of static HTML and JavaScript files which you can deploy to a static site hosting service.
+
+Try using [Surge](http://surge.sh/) for deploying your first Gatsby website. Surge is one of many "static site hosts" which makes it possible to deploy Gatsby sites.
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 만약 이전에 Surge 설치와 셋업을 하지 않았다면, 새로운 터미널 윈도우를 열고 Surge의 커맨드라인 툴을 설치하세요:
 
@@ -367,9 +389,15 @@ ls public
 surge public/
 ```
 
+<<<<<<< HEAD
 작동 중인 것이 멈추면, 터미널에서 다음과 같은 것들을 보게될 것입니다:
 
 ![Surge에 Gatsby사이트 배포하기 스크린샷](surge-deployment.png)
+=======
+> Note that you will have to press the `enter` key after you see the `domain: some-name.surge.sh` information on your command-line interface.
+
+Once this finishes running, you should see in your terminal something like:
+>>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 
 아래 줄에 위치한(위 경우 `lowly-pain.surge.sh`) 웹 주소를 열어보면 새로 배포한 사이트를 볼 수 있을 것입니다! 수고하셨습니다!
