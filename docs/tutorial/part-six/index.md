@@ -8,7 +8,7 @@ disableTableOfContents: true
 
 ## 이번 튜토리얼에서는 무엇을 다루나요?
 
-이전 튜토리얼에서는 source 플러그인이 데이터를 Gatsby의 데이터 시스템 내부로 넣는지 보여주었습니다. 이 튜토리얼에서는, 여러분은 transformer 플러그인이 source 플러그인으로부터 가져온 가공되지 않은 내용물을 변환시키는지 배울 것입니다. source 플러그인과 transformer 플러그인의 결합은 Gatsby 사이트를 만들 때 필요할지 모를 모든 데이터소싱과 데이터 변환을 지원합니다.
+이전 튜토리얼에서는 source 플러그인이 어떻게 데이터를 Gatsby의 데이터 시스템 내부로 넣는지 알아보았습니다. 이번 튜토리얼에서는, 여러분은 transformer 플러그인이 source 플러그인으로부터 가져온 가공되지 않은 내용물을 변환시키는지 배울 것입니다. source 플러그인과 transformer 플러그인의 조합은 Gatsby 사이트를 만들 때 필요할 수 있는 모든 데이터 소싱과 데이터 변환을 처리할 수 있습니다.
 
 ## Transformer 플러그인
 
