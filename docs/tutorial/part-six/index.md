@@ -181,7 +181,7 @@ Try opening GraphiQL and playing with different sort options. You can sort the
 
 ## 도전
 
-블로그 포스트를 포함한 새로운 페이지를 만드는걸 시도해보고 홈페이지에 있는 블로그 포스트 리스트에 어떤 일이 일어나는지 보세요!
+블로그 포스트를 포함한 새로운 페이지를 만들어보고 홈페이지에 있는 블로그 포스트 리스트에 어떤 일이 일어나는지 보세요!
 
 ## 이 다음에는?
 
