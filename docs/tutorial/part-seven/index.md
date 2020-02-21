@@ -396,10 +396,10 @@ export const query = graphql`
 
 ## 다음에 할 것은?
 
-Now that you've built a Gatsby site, where do you go next?
+Gatsby 사이트를 만들었으니 다음에는 무엇을 할까요?
 
-- Share your Gatsby site on Twitter and see what other people have created by searching for #gatsbytutorial! Make sure to mention @gatsbyjs in your Tweet and include the hashtag #gatsbytutorial :)
-- You could take a look at some [example sites](https://github.com/gatsbyjs/gatsby/tree/master/examples#gatsby-example-websites)
-- Explore more [plugins](/docs/plugins/)
-- See what [other people are building with Gatsby](/showcase/)
-- Check out the documentation on [Gatsby's APIs](/docs/api-specification/), [nodes](/docs/node-interface/), or [GraphQL](/docs/graphql-reference/)
+- 트위터에서 Gatsby 사이트를 공유하고 #gatsbytutorial를 검색하여 다른 사람들이 만든 것을 살펴보세요! 트윗에 @gatsbyjs를 멘션하고 해시태그 #gatsbytutorial를 포함하는 걸 잊지마세요 :)
+- 여러분은 일부 [예제 사이트](https://github.com/gatsbyjs/gatsby/tree/master/examples#gatsby-example-websites)를 볼 수도 있습니다.
+- 더 많은 [플러그인](/docs/plugins/) 알아보기
+- [다른 사람들이 Gatsby로 어떤 것을 빌드하는지](/showcase/) 알아보기
+- [Gatsby's APIs](/docs/api-specification/), [nodes](/docs/node-interface/), or [GraphQL](/docs/graphql-reference/)의 설명서를 확인해보기
