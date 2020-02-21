@@ -87,20 +87,11 @@ exports.onCreateNode = ({ node, getNode }) => {
 }
 ```
 
-The function handles finding the parent `File` node along with creating the
-slug. Run the development server again and you should see logged to the terminal
-two slugs, one for each markdown file.
+이 함수는 slug 생성과 함께 부모 `File` 노드를 찾아줍니다. 개발 서버를 다시 실행하면 각 마크다운 파일마다 하나씩, 두 개의 슬러그가 터미널에 출력 된 것을 볼 수 있습니다.
 
-Now you can add your new slugs directly onto the `MarkdownRemark` nodes. This is
-powerful, as any data you add to nodes is available to query later with GraphQL.
-So, it'll be easy to get the slug when it comes time to create the pages.
+이제 새 slug를 `MarkdownRemark` 노드에 직접 추가 할 수 있습니다. 이것은 노드에 추가 한 모든 데이터를 나중에 GraphQL로 쿼리 할 수 있으므로 강력합니다. 따라서 페이지를 만들 때 slug를 쉽게 얻을 수 있습니다.
 
-To do so, you'll use a function passed to your API implementation called
-[`createNodeField`](/docs/actions/#createNodeField). This function
-allows you to create additional fields on nodes created by other plugins. Only
-the original creator of a node can directly modify the node—all other plugins
-(including your `gatsby-node.js`) must use this function to create additional
-fields.
+이를 위해 API 구현으로 전달 받은 [`createNodeField`](/docs/actions/#createNodeField) 함수를 사용합니다. 이 함수를 사용하면 다른 플러그인으로 작성된 노드에 추가적으로 필드를 만들 수 있습니다. 노드의 원래 작성자만 노드를 직접 수정할 수 있습니다. 다른 모든 플러그인(`gatsby-node.js` 포함)은 이 함수를 사용하여 추가 필드를 작성해야합니다.
 
 ```javascript:title=gatsby-node.js
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -120,8 +111,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 ```
 
-Restart the development server and open or refresh GraphiQL. Then run this
-GraphQL query to see your new slugs.
+개발 서버를 재시작하고 GraphiQL을 열거나 새로고침합니다. 그런 다음 이 GraphQL 쿼리를 실행하여 새 slug를 확인하세요.
 
 ```graphql
 {
@@ -137,11 +127,11 @@ GraphQL query to see your new slugs.
 }
 ```
 
-Now that the slugs are created, you can create the pages.
+이제 slug가 생성되었으므로, 페이지를 만들 수 있습니다.
 
-## Creating pages
+## 페이지 만들기
 
-In the same `gatsby-node.js` file, add the following.
+같은 `gatsby-node.js` 파일에서 다음을 추가하세요.
 
 ```javascript:title=gatsby-node.js
 const { createFilePath } = require(`gatsby-source-filesystem`)
@@ -181,14 +171,13 @@ exports.createPages = async ({ graphql, actions }) => {
 // highlight-end
 ```
 
-You've added an implementation of the
-[`createPages`](/docs/node-apis/#createPages) API which Gatsby calls so plugins can add
-pages.
+여러분은 플러그인이 페이지를 추가 할 수 있도록 Gatsby가 호출하는 [`createPages`](/docs/node-apis/#createPages) API의 구현을 추가했습니다.
 
 As mentioned in the intro to this part of the tutorial, the steps to programmatically creating pages are:
+이 튜토리얼 파트 소개에서 언급했듯이, 프로그래밍식으로 페이지를 작성하는 단계는 다음과 같습니다:
 
-1.  Query data with GraphQL
-2.  Map the query results to pages
+1.  GraphQL로 데이터 쿼리
+2.  쿼리 결과를 페이지에 매핑
 
 The above code is the first step for creating pages from your markdown as you're
 using the supplied `graphql` function to query the markdown slugs you created.
