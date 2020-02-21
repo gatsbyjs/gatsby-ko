@@ -151,7 +151,7 @@ export const query = graphql`
 
 ![frontpage](frontpage.png)
 
-하지만 당신의 한 블로그 포스트는 좀 외로워 보이네요 그러니 `src/pages/pandas-and-bananas.md`에 하나를 추가해봅시다. 
+하지만 블로그 포스트 하나는 좀 허전해 보이네요. 그러니 `src/pages/pandas-and-bananas.md`에 하나를 추가해봅시다. 
 
 
 ```markdown:title=src/pages/pandas-and-bananas.md
