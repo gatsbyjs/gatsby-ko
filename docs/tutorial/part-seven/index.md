@@ -173,7 +173,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
 여러분은 플러그인이 페이지를 추가 할 수 있도록 Gatsby가 호출하는 [`createPages`](/docs/node-apis/#createPages) API의 구현을 추가했습니다.
 
-As mentioned in the intro to this part of the tutorial, the steps to programmatically creating pages are:
 이 튜토리얼 파트 소개에서 언급했듯이, 프로그래밍식으로 페이지를 작성하는 단계는 다음과 같습니다:
 
 1.  GraphQL로 데이터 쿼리
@@ -181,16 +180,13 @@ As mentioned in the intro to this part of the tutorial, the steps to programmati
 
 The above code is the first step for creating pages from your markdown as you're
 using the supplied `graphql` function to query the markdown slugs you created.
-Then you're logging out the result of the query which should look like:
+그러면 쿼리 결과가 다음과 같이 출력됩니다:
 
 ![query-markdown-slugs](query-markdown-slugs.png)
 
-You need one additional thing beyond a slug to create pages: a page template
-component. Like everything in Gatsby, programmatic pages are powered by React
-components. When creating a page, you need to specify which component to use.
+여러분이 페이지를 만들기 위해서는 slug 외에 추가적으로 페이지 템플릿 컴포넌트가 필요합니다. Gatsby의 모든 것과 마찬가지로 프로그래밍식 페이지는 React 컴포넌트에 의해 구동됩니다. 페이지를 만들 때, 사용할 컴포넌트를 지정해야합니다.
 
-Create a directory at `src/templates`, and then add the following in a file named
-`src/templates/blog-post.js`.
+`src/templates` 디렉토리를 만들고, `src/templates/blog-post.js`라는 파일에 다음을 추가합니다.
 
 ```jsx:title=src/templates/blog-post.js
 import React from "react"
@@ -205,7 +201,7 @@ export default () => {
 }
 ```
 
-Then update `gatsby-node.js`
+그런 다음 'gatsby-node.js'를 업데이트하세요.
 
 ```javascript:title=gatsby-node.js
 const path = require(`path`) // highlight-line
@@ -255,19 +251,17 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 ```
 
-Restart the development server and your pages will be created! An easy way to
-find new pages you create while developing is to go to a random path where
-Gatsby will helpfully show you a list of pages on the site. If you go to
-<http://localhost:8000/sdf>, you'll see the new pages you created.
+개발 서버를 다시 시작하면 페이지가 생성됩니다! 개발 중에 생성 한 새 페이지를 쉽게 찾을 수있는 방법은 Gatsby가 유용하게 사이트의 페이지 목록을 보여주는 아무 경로로 이동하는 것입니다. <http://localhost:8000/sdf>로 이동하면 여러분이 만든 새 페이지들이 표시됩니다.
 
 ![new-pages](new-pages.png)
 
-Visit one of them and you see:
+그 중 하나에 들어가면 다음을 볼 수 있어요:
 
 ![hello-world-blog-post](hello-world-blog-post.png)
 
 Which is a bit boring and not what you want. Now you can pull in data from your markdown post. Change
 `src/templates/blog-post.js` to:
+이건 조금 따분하고 여러분이 원하는게 아니에요. 여러분은 이제 마크다운 포스트에서 데이터를 가져올 수 있을겁니다. 바꿉시다.
 
 ```jsx:title=src/templates/blog-post.js
 import React from "react"
@@ -304,16 +298,15 @@ export const query = graphql`
 // highlight-end
 ```
 
-And…
+그리고...
 
 ![blog-post](blog-post.png)
 
-Sweet!
+좋아요!
 
-The last step is to link to your new pages from the index page.
+마지막 단계는 인덱스 페이지에서 새 페이지들에 연결하는 것입니다.
 
-Return to `src/pages/index.js`, query for your markdown slugs, and create
-links.
+`src/pages/index.js`로 돌아가, 마크다운 slug를 쿼리하고, 링크를 만듭니다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -393,20 +386,15 @@ export const query = graphql`
 `
 ```
 
-And there you go! A working, albeit small, blog!
+됐습니다! 작지만 작동하는 블로그!
 
-## Challenge
+## 도전
 
-Try playing more with the site. Try adding some more markdown files. Explore
-querying other data from the `MarkdownRemark` nodes and adding them to the
-frontpage or blog posts pages.
+사이트를 더 많이 가지고 놀아보세요. 마크다운 파일을 더 추가해보세요. `MarkdownRemark` 노드에서 다른 데이터를 쿼리하여 첫 페이지 또는 블로그 포스트 페이지에 추가하세요.
 
-In this part of the tutorial, you've learned the foundations of building with
-Gatsby's data layer. You've learned how to _source_ and _transform_ data using
-plugins, how to use GraphQL to _map_ data to pages, and then how to build _page
-template components_ where you query for data for each page.
+이번 파트에서는, Gatsby의 데이터 레이어로 구축하는 기초를 배웠습니다. 플러그인을 사용하여 데이터를 _소싱_ 및 _변환_ 하는 방법, GraphQL을 사용하여 데이터를 페이지에 _매핑_ 하는 방법 및 각 페이지의 데이터를 조회하는 _페이지 템플릿 컴포넌트_ 를 구축하는 방법에 대해 배웠습니다.
 
-## What's coming next?
+## 다음에 할 것은?
 
 Now that you've built a Gatsby site, where do you go next?
 
