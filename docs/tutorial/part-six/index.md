@@ -75,7 +75,7 @@ module.exports = {
 
 ![markdown-query](markdown-query.png)
 
-좋습니다! 기초적인 것들이 앞뒤가 맞아가고 있습니다. source 플러그인들은 Gatsby의 데이터 시스템 안으로 데이터를 가져오고 transformer 플러그인들은 source 플러그인이 가져온 가공되지 않은 컨텐츠를 변환합니다. 이 패턴은 여러분이 Gatsby 사이트를 만들때 필요할 모든 데이터 소싱과 데이터 변환을 처리할 수 있습니다. 
+좋습니다! 기본적인 것들은 잘 맞아들어가고 있어요. source 플러그인들은 Gatsby의 데이터 시스템 안으로 데이터를 가져오고 transformer 플러그인들은 source 플러그인이 가져온 가공되지 않은 컨텐츠를 변환합니다. 이 패턴은 여러분이 Gatsby 사이트를 만들때 필요할 모든 데이터 소싱과 데이터 변환을 처리할 수 있습니다. 
 
 ## `src/pages/index.js`안에 사이트의 마크다운 파일 리스트 만들기
 
