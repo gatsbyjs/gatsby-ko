@@ -1711,7 +1711,7 @@ Gatsby는 GraphQL로 쿼리하여 Gatsby의 image 컴포넌트로 전달할 수 
 #### 사전 준비
 
 - `gatsby-image`, `gatsby-transformer-sharp`, 및 `gatsby-plugin-sharp` 패키지 설치 및  `gatsby-config`의 plugins 배열에 추가
-- `gatsby-source-filesystem`과 같은 플러그인을 사용하여 `gatsby-config`에 [소스로 제공되는 이미지](/packages/gatsby-image/#install)
+- `gatsby-source-filesystem`과 같은 플러그인을 사용하여 `gatsby-config`에서 [소스로 제공되는 이미지](/packages/gatsby-image/#install)
 
 #### 지시 사항
 
@@ -1904,22 +1904,20 @@ return (
 - [Gatsby에서 이미지 사용에 대한 추가 정보](/docs/working-with-images/)
 - [여기 내용을 단계별로 설명하는 무료 egghead.io 영상](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e)
 
-### Optimizing and querying images in post frontmatter with gatsby-image
+### gatsby-image를 사용하여 post frontmatter에서 이미지 최적화 및 쿼리
+블로그 게시물의 추천 이미지와 같은 사용 사례에서도 `gatsby-image`를 사용할 수 있습니다. `Img` 컴포넌트는 가공된 이미지 데이터가 필요한데, 이 이미지 데이터는 frontmatter에 URL을 가지고 있는 `.md` 또는 `.mdx` 파일로부터 로컬(또는 원격) 파일에서 가져올 수 있습니다.
 
-For use cases like a featured image in a blog post, you can _still_ use `gatsby-image`. The `Img` component needs processed image data, which can come from a local (or remote) file, including from a URL in the frontmatter of a `.md` or `.mdx` file.
-
-To inline images in markdown (using the `![]()` syntax), consider using a plugin like [`gatsby-remark-images`](/packages/gatsby-remark-images/)
+마크다운의 인라인 이미지(`![]()` 문법을 사용하는)를 위해서는 [`gatsby-remark-images`](/packages/gatsby-remark-images/) 같은 플러그인 사용을 고려하세요.
 
 #### 사전 준비
-
-- The `gatsby-image`, `gatsby-transformer-sharp`, and `gatsby-plugin-sharp` packages installed and added to the plugins array in `gatsby-config`
-- [Images sourced](/packages/gatsby-image/#install) in your `gatsby-config` using a plugin like `gatsby-source-filesystem`
-- Markdown files sourced in your `gatsby-config` with image URLs in frontmatter
-- [Pages created](/docs/creating-and-modifying-pages/) from Markdown using [`createPages`](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+- `gatsby-image`, `gatsby-transformer-sharp` 및 `gatsby-plugin-sharp` 패키지가 설치 및 `gatsby-config`의 plugins 배열에 추가
+- `gatsby-source-filesystem`과 같은 플러그인을 사용하여 `gatsby-config`에서 [소스로 제공되는 이미지](/packages/gatsby-image/#install)
+- `gatsby-config`에서 소스로 제공되는 frontmatter에 image URL들을 가진 Markdown 파일들
+- [`createPages`](https://www.gatsbyjs.org/docs/node-apis/#createPages)를 사용하여 마크다운 파일로부터 생성된 페이지들
 
 #### 지시 사항
 
-1. Verify that the Markdown file has an image URL with a valid path to an image file in your project
+1. 프로젝트의 마크다운 파일이 유효한 경로의 이미지 URL을 가지고 있는지 확인하세요
 
 ```mdx:title=post.mdx
 ---
@@ -1930,7 +1928,7 @@ featuredImage: ./corgi.png // highlight-line
 Post content...
 ```
 
-2. Verify that a unique identifier (a slug in this example) is passed in context when `createPages` is called in `gatsby-node.js`, which will later be passed into a GraphQL query in the Layout component
+2. `gatsby-node.js` 에서`createPages`가 호출 될 때 컨텍스트에 고유 식별자(이 예제에서는 slug)가 전달되는지 확인하세요. 이 식별자는 나중에 Layout 컴포넌트의 GraphQL 쿼리로 전달됩니다.
 
 ```js:title=gatsby-node.js
 exports.createPages = async ({ graphql, actions }) => {
@@ -1952,7 +1950,8 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 ```
 
-3. Now, import `Img` from `gatsby-image`, and `graphql` from `gatsby` into the template component, write a [pageQuery](/docs/page-query/) to get image data based on the passed in `slug` and pass that data to the `<Img />` component:
+3. 이제 `gatsby-image`에서 `Img`를 `gatsby`에서 `graphql`을 템플릿 컴포넌트로 가져와서 
+전달된 `slug` 기반의 이미지 데이터를 얻기 위해 [pageQuery](/docs/page-query/)를 작성한 다음 그 데이터를 `<Img />`컴포넌트에 전달하세요:
 
 ```jsx:title=markdown-layout.jsx
 import React from "react"
@@ -1991,14 +1990,14 @@ export const pageQuery = graphql`
 // highlight-end
 ```
 
-4. Run `gatsby develop`, which will generate images for files sourced in the filesystem
+4. `gatsby develop`을 실행하면 파일 시스템안의 소스 파일의 이미지가 생성됩니다.
 
 #### 추가 정보
 
-- [Example repository using this recipe](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
-- [Featured images with frontmatter](/docs/working-with-images-in-markdown/#featured-images-with-frontmatter-metadata)
-- [Gatsby Image API](/docs/gatsby-image/)
-- [Using Gatsby Image](/docs/using-gatsby-image)
+- [이 레시피를 사용하는 예제 코드 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
+- [frontmatter에 추천 이미지 사용](/docs/working-with-images-in-markdown/#featured-images-with-frontmatter-metadata)
+- [Gatsby 이미지 API](/docs/gatsby-image/)
+- [gatsby-image 사용하기](/docs/using-gatsby-image)
 - [More on working with images in Gatsby](/docs/working-with-images/)
 
 ## 8. Transforming data
