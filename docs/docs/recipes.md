@@ -1998,26 +1998,25 @@ export const pageQuery = graphql`
 - [frontmatter에 추천 이미지 사용](/docs/working-with-images-in-markdown/#featured-images-with-frontmatter-metadata)
 - [Gatsby 이미지 API](/docs/gatsby-image/)
 - [gatsby-image 사용하기](/docs/using-gatsby-image)
-- [More on working with images in Gatsby](/docs/working-with-images/)
+- [Gatsby의 이미지 작업에 대한 추가 정보](/docs/working-with-images/)
 
-## 8. Transforming data
+## 8. 데이터 변환
+Gatsby에서 데이터 변환은 플러그인 중심입니다. Transformer 플러그인은 소스 플러그인을 사용하여 가져온 데이터를 더 유용한 것으로 가공합니다 (예: JSON을 JavaScript 객체 등으로).
 
-Transforming data in Gatsby is plugin-driven. Transformer plugins take data fetched using source plugins, and process it into something more usable (e.g. JSON into JavaScript objects, and more).
+### 마크다운을 HTML로 변환
 
-### Transforming Markdown into HTML
-
-The `gatsby-transformer-remark` plugin can transform Markdown files to HTML.
+`gatsby-transformer-remark` 플러그인은 마크다운 파일을 HTML로 변환 할 수 있습니다.
 
 #### 사전 준비
 
-- A Gatsby site with `gatsby-config.js` and an `index.js` page
-- A Markdown file saved in your Gatsby site `src` directory
-- A source plugin installed, such as `gatsby-source-filesystem`
-- The `gatsby-transformer-remark` plugin installed
+- `gatsby-config.js` 및 `index.js` 페이지가있는 Gatsby 사이트
+- Gatsby 사이트 `src` 디렉토리에 저장된 마크 다운 파일
+- `gatsby-source-filesystem`과 같은 소스 플러그인 설치
+- `gatsby-transformer-remark` 플러그인 설치
 
 #### 지시 사항
 
-1. Add the transformer plugin in your `gatsby-config.js`:
+1. `gatsby-config.js`에 transformer 플러그인을 추가하세요:
 
 ```js:title=gatsby-config.js
 plugins: [
@@ -2026,7 +2025,7 @@ plugins: [
 ],
 ```
 
-2. Add a GraphQL query to the `index.js` file of your Gatsby site to fetch `MarkdownRemark` nodes:
+2. `MarkdownRemark` 노드를 가져오기 위해 Gatsby 사이트의 `index.js` 파일에 GraphQL 쿼리를 추가합니다:
 
 ```jsx:title=src/pages/index.js
 export const query = graphql`
@@ -2048,35 +2047,35 @@ export const query = graphql`
 `
 ```
 
-3. Restart the development server and open GraphiQL at `http://localhost:8000/___graphql`. Explore the fields available on the `MarkdownRemark` node.
+3. 개발 서버를 재시작하고 `http://localhost:8000/___graphql`에서 GraphiQL을 엽니다. `MarkdownRemark` 노드에서 사용 가능한 필드를 탐색합니다.
 
 #### 추가 정보
 
-- [Tutorial on transforming Markdown to HTML](/tutorial/part-six/#transformer-plugins) using `gatsby-transformer-remark`
-- Browse available transformer plugins in the [Gatsby plugin library](/plugins/?=transformer)
+- `gatsby-transformer-remark`를 사용한 [마크다운을 HTML로 변환하는 방법에 대한 튜토리얼](/tutorial/part-six/#transformer-plugins)
+- [Gatsby 플러그인 라이브러리](/plugins/?=transformer)에서 사용 가능한 transformer 플러그인 탐색
 
-## 9. Deploying your site
+## 9. 사이트 배포
 
-Showtime. Once you are happy with your site, you are ready to go live with it!
+쇼타임! 사이트가 마음에 드시나요? 배포 할 준비가 되었습니다!
 
-### Preparing for deployment
+### 배포 준비
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start)
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby 사이트](/docs/quick-start)
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
 #### 지시 사항
 
-1. Stop your development server if it is running (`Ctrl + C` on your command line in most cases)
+1. 개발 서버가 실행 중이면 중지하세요 (대부분의 경우 명령줄에서 `Ctrl + C`)
 
-2. For the standard site path at the root directory (`/`), run `gatsby build` using the Gatsby CLI on the command line. The built files will now be in the `public` folder.
+2. 루트 디렉토리 (`/`)인 표준 사이트 경로에 대해서는 명령줄에서 Gatsby CLI를 사용하여 `gatsby build`를 실행하세요. 빌드 된 파일은 `public` 폴더에 생성됩니다.
 
 ```shell
 gatsby build
 ```
 
-3. To include a site path other than `/` (such as `/site-name/`), set a path prefix by adding the following to your `gatsby-config.js` and replacing `yourpathprefix` with your desired path prefix:
+3. `/` 이외의 사이트 경로 (예 :`/site-name/`)를 포함 시키려면 `gatsby-config.js`에 다음을 추가하고 `yourpathprefix`를 원하는 경로로 바꿔주세요:
 
 ```js:title=gatsby-config.js
 module.exports = {
@@ -2084,15 +2083,15 @@ module.exports = {
 }
 ```
 
-There are a few reasons to do this -- for instance, hosting a blog built with Gatsby on a domain with another site not built on Gatsby. The main site would direct to `example.com`, and the Gatsby site with a path prefix could live at `example.com/blog`.
+이렇게 하는데에는 몇 가지 이유가 있습니다. 예를 들어 Gatsby로 만들어지지 않은 다른 사이트 도메인 위에 Gatsby로 구축 된 블로그를 호스팅 할 수 있습니다. 기본 사이트는 `example.com`으로 연결되며 Gatsby 사이트는 `example.com/blog` 와 같은 경로 접두사를 사용할 수 있습니다.
 
-4. With a path prefix set in `gatsby-config.js`, run `gatsby build` with the `--prefix-paths` flag to automatically add the prefix to the beginning of all Gatsby site URLs and `<Link>` tags.
+4. `gatsby-config.js`에 경로 접두사가 설정되어 있으면 `--prefix-paths` 플래그와 함께 `gatsby build`를 실행하여 모든 Gatsby 사이트 URL과 `<Link>` 태그의 시작 부분에 접두사를 자동으로 추가하세요.
 
 ```shell
 gatsby build --prefix-paths
 ```
 
-5. Make sure that your site looks the same when running `gatsby build` as with `gatsby develop`. By running `gatsby serve` when you build your site, you can test out (and debug if necessary) the finished product before deploying it live.
+5. `gatsby build`를 실행할 때 `gatsby develop`때와 사이트가 동일하게 보이는지 확인하세요. 사이트를 빌드 할 때 `gatsby serve`를 실행하면 완성 된 제품을 실제로 배포하기 전에 테스트 (그리고 필요한 경우 디버그) 할 수 있습니다.
 
 ```shell
 gatsby build && gatsby serve
@@ -2100,61 +2099,61 @@ gatsby build && gatsby serve
 
 #### 추가 정보
 
-- Walk through building and deploying an example site in [tutorial part one](/tutorial/part-one/#deploying-a-gatsby-site)
-- Learn about [performance optimization](/docs/performance/)
-- Read about [other deployment related topics](/docs/preparing-for-deployment/)
-- Check out the [deployment docs](/docs/deploying-and-hosting/) for specific hosting platforms and how to deploy to them
+- [튜토리얼 파트1](/tutorial/part-one/#deploying-a-gatsby-site) 에서 예제 사이트 구축 및 배포를 안내합니다
+- [성능 최정화](/docs/performance/)에 대해 알아보기
+- [다른 배포 관련 주제](/docs/preparing-for-deployment/)에 대해 읽어보기
+- 특정 호스팅 플랫폼 및 배포 방법에 대해서는 [배포 문서](/docs/deploying-and-hosting/)를 확인하세요
 
-### Deploying to Netlify
+### Netlify에 배포
 
-Use [`netlify-cli`](https://www.netlify.com/docs/cli/) to deploy your Gatsby application without leaving the command-line interface.
+[`netlify-cli`](https://www.netlify.com/docs/cli/)를 사용하여 명령줄 인터페이스를 벗어나지 않고 Gatsby 애플리케이션을 배포하세요.
 
 #### 사전 준비
 
-- A [Gatsby site](/docs/quick-start) with a single component `index.js`
-- The [netlify-cli](https://www.npmjs.com/package/netlify-cli) package installed
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- 단일 `index.js` 컴포넌트가 있는 [Gatsby 사이트](/docs/quick-start)
+- [netlify-cli](https://www.npmjs.com/package/netlify-cli) 패키지 설치
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
 #### 지시 사항
 
-1. Build your gatsby application using `gatsby build`
+1. `gatsby build`를 사용하여 gatsby 애플리케이션을 빌드하세요.
 
-2. Login into Netlify using `netlify login`
+2. `netlify login`을 사용하여 Netlify에 로그인하세요.
 
-3. Run the command `netlify init`. Select the "Create & configure a new site" option.
+3. `netlify init` 명령을 실행하세요. "신규 사이트 생성 및 구성"옵션을 선택하세요.
 
-4. Choose a custom website name if you want or press enter to receive a random one.
+4. 원하는 경우 사용자 정의 웹 사이트 이름을 선택하거나 Enter 키를 눌러 임의의 웹 사이트 이름을 받으세요.
 
-5. Choose your [Team](https://www.netlify.com/docs/teams/).
+5. [팀](https://www.netlify.com/docs/teams/)을 선택하세요.
 
-6. Change the deploy path to `public/`
+6. 배포 경로를 `public/`으로 변경하세요.
 
-7. Make sure that everything looks fine before deploying to production using `netlify deploy --prod`
+7. `netlify deploy --prod`를 사용하여 프로덕션에 배포하기 전에 모든 것이 잘 보이는지 확인하세요.
 
 #### 추가 정보
 
-- [Hosting on Netlify](/docs/hosting-on-netlify)
+- [Netlify에서 호스팅](/docs/hosting-on-netlify)
 - [gatsby-plugin-netlify](/packages/gatsby-plugin-netlify)
 
-### Deploying to ZEIT Now
+### ZEIT Now에 배포
 
-Use [Now CLI](https://zeit.co/download) to deploy your Gatsby application without leaving the command-line interface.
+[Now CLI](https://zeit.co/download)를 사용하여 명령줄 인터페이스를 벗어나지 않고 Gatsby 애플리케이션을 배포하세요.
 
 #### 사전 준비
 
-- A [ZEIT Now](https://zeit.co/signup) account
-- A [Gatsby site](/docs/quick-start) with a single component `index.js`
-- [Now CLI](https://zeit.co/download) package installed
-- [Gatsby CLI](/docs/gatsby-cli) installed
+- [ZEIT Now](https://zeit.co/signup) 계정
+- 단일 `index.js` 컴포넌트가 있는 [Gatsby 사이트](/docs/quick-start)
+- [Now CLI](https://zeit.co/download) 패키지 설치
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
 #### 지시 사항
 
-1. Login into Now CLI using `now login`
+1. `now login`을 사용하여 Now CLI에 로그인
 
-2. Change to the directory of your Gatsby.js application in the Terminal if you aren't already there
+2. 터미널에서 Gatsby.js 애플리케이션 디렉토리로 이동하세요.
 
-3. Run `now` to deploy it
+3. `now`를 실행하여 배포하세요
 
 #### 추가 정보
 
-- [Deploying to ZEIT Now](/docs/deploying-to-zeit-now/)
+- [ZEIT Now에 배포하기](/docs/deploying-to-zeit-now/)
