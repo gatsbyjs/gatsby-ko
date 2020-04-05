@@ -3,21 +3,21 @@ title: "Recipes: Querying Data"
 tableOfContentsDepth: 1
 ---
 
-Gatsby lets you access your data across all sources using a single GraphQL interface.
+Gatsby에서는 GraphQL 인터페이스만으로 모든 소스들의 데이터에 접근 할 수 있습니다.
 
-## Querying data with a Page Query
+## 페이지 쿼리로 데이터 쿼리하기
 
-You can use the `graphql` tag to query data in the pages of your Gatsby site. This gives you access to anything included in Gatsby's data layer, such as site metadata, source plugins, images, and more.
+`graphql` 태그를 사용하여 Gatsby 사이트의 페이지에서 데이터를 쿼리 할 수 있습니다. 이를 통해 사이트 메타 데이터, 소스 플러그인, 이미지 등 Gatsby의 데이터 계층에 포함 된 모든 항목에 접근 할 수 있습니다.
 
-### Directions
+### 수행 절차
 
-1. Import `graphql` from `gatsby`.
+1. `gatsby`로부터 `graphql`을 임포트 하세요.
 
-2. Export a constant named `query` and set its value to be a `graphql` template with the query between two backticks.
+2. 역따옴표(`\``)를 사용하여 쿼리가있는 `graphql` 템플릿을 작성하고 `query`라는 상수 이름으로 내보내세요(export).
 
-3. Pass in `data` as a prop to the component.
+3. 컴포넌트에 `data`를 prop으로 전달하세요.
 
-4. The `data` variable holds the queried data and can be referenced in JSX to output HTML.
+4. `data` 변수는 쿼리의 결과를 가지고 있으며 JSX에서 참조되어 HTML을 생산할 수 있습니다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -49,19 +49,19 @@ const IndexPage = ({ data }) => (
 export default IndexPage
 ```
 
-### Additional resources
+### 추가 정보
 
-- [GraphQL and Gatsby](/docs/graphql/): understanding the expected shape of your data
-- [More on querying data in pages with GraphQL](/docs/page-query/)
-- [MDN on Tagged Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) like the ones used in GraphQL
+- [GraphQL과 Gatsby](/docs/graphql/): 데이터의 예상 형태 이해하기
+- [GraphQL로 페이지에서 데이터 쿼리하기에 대한 추가 정보](/docs/page-query/)
+- GraphQL에서 사용되는 [Tagged Template Literals에 대한 MDN문서](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
-## Querying data with the StaticQuery Component
+## StaticQuery 컴포넌트를 사용하여 데이터 쿼리하기
 
-`StaticQuery` is a component for retrieving data from Gatsby's data layer in [non-page components](/docs/static-query/), such as a header, navigation, or any other child component.
+`StaticQuery`는 헤더, 내비게이션 또는 기타 자식 컴포넌트와 같은 [페이지가 아닌 컴포넌트](/docs/static-query/)에서 Gatsby의 데이터 계층으로부터 데이터를 가져오기 위한 컴포넌트입니다.
 
-### Directions
+### 수행 절차
 
-1. The `StaticQuery` Component requires two render props: `query` and `render`.
+1. `StaticQuery` 컴포넌트에는 두 개의 필수 props인 `query`와 `render`가 필요합니다.
 
 ```jsx:title=src/components/NonPageComponent.js
 import React from "react"
@@ -92,26 +92,26 @@ const NonPageComponent = () => (
 export default NonPageComponent
 ```
 
-2. You can now use this component as you would [any other component](/docs/building-with-components#non-page-components) by importing it into a larger page of JSX components and HTML markup.
+2. 이제 이 컴포넌트를 [다른 컴포넌트](/docs/building-with-components#non-page-components) 같이 더 큰 페이지의 JSX 컴포넌트 및 HTML 마크 업으로 가져 와서 사용할 수 있습니다.
 
-## Querying data with the useStaticQuery hook
+## useStaticQuery 훅을 사용하여 데이터 쿼리하기
 
-Since Gatsby v2.1.0, you can use the `useStaticQuery` hook to query data with a JavaScript function instead of a component. The syntax removes the need for a `<StaticQuery>` component to wrap everything, which some people find simpler to write.
+Gatsby v2.1.0 부터 `useStaticQuery` 훅을 사용하여 컴포넌트 대신 JavaScript 함수로 데이터를 쿼리 할 수 있습니다. 이 구문은 모든 것을 감싸는(wrap) 방식으로 사용해야 했던 `<StaticQuery>` 컴포넌트를 제거하며, 더 간결한 코드 작성을 할 수 있습니다.
 
-The `useStaticQuery` hook takes a GraphQL query and returns the requested data. It can be stored in a variable and used later in your JSX templates.
+`useStaticQuery` 훅은 GraphQL 쿼리를 가져와 요청 된 데이터를 반환합니다. 이는 변수에 저장되어 나중에 JSX 템플릿에서 사용할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- You'll need React and ReactDOM 16.8.0 or later (keeping Gatsby updated handles this)
-- Recommended reading: the [Rules of React Hooks](https://reactjs.org/docs/hooks-rules.html)
+- React 및 ReactDOM 16.8.0 이상이 필요 (Gatsby를 최신 버전으로 유지하면 해결됩니다)
+- 추천 자료: [React Hooks 규칙](https://reactjs.org/docs/hooks-rules.html)
 
-### Directions
+### 수행 절차
 
-1. Import `useStaticQuery` and `graphql` from `gatsby` in order to use the hook query the data.
+1. 데이터를 쿼리하는 훅을 사용하기 위해 `gatsby`에서 `useStaticQuery`와 `graphql`을 임포트합니다.
 
-2. In the start of a stateless functional component, assign a variable to the value of `useStaticQuery` with your `graphql` query passed as an argument.
+2. Stateless function 컴포넌트를 시작할 때, `graphql` 쿼리를 `useStaticQuery` 의 인수로 전달하여 사용하고 변수에 할당합니다.
 
-3. In the JSX code returned from your component, you can reference that variable to handle the returned data.
+3. 컴포넌트에서 리턴되는 JSX 코드에서, 반환된 데이터를 사용하기 위해 해당 변수를 참조 할 수 있습니다.
 
 ```jsx:title=src/components/NonPageComponent.js
 import React from "react"
@@ -140,28 +140,28 @@ const NonPageComponent = () => {
 export default NonPageComponent
 ```
 
-### Additional resources
+### 추가 정보
 
-- [More on Static Query for querying data in components](/docs/static-query/)
-- [The difference between a static query and a page query](/docs/static-query/#how-staticquery-differs-from-page-query)
-- [More on the useStaticQuery hook](/docs/use-static-query/)
-- [Visualize your data with GraphiQL](/docs/introducing-graphiql/)
+- [컴포넌트에서 데이터를 쿼리하기위한 Static Query에 대한 추가 정보](/docs/static-query/)
+- [Static query 와 page query의 차이점](/docs/static-query/#how-staticquery-differs-from-page-query)
+- [useStaticQuery 훅에 대한 추가 정보](/docs/use-static-query/)
+- [GraphiQL로 데이터 시각화](/docs/introducing-graphiql/)
 
-## Limiting with GraphQL
+## GraphQL 결과 제한하기
 
-When querying for data with GraphQL, you can limit the number of results returned with a specific number. This is helpful if you only need a few pieces of data or need to [paginate data](/docs/adding-pagination/).
+GraphQL을 사용하여 데이터를 쿼리 할 때 숫자를 명시하여 반환되는 결과를 제한 할 수 있습니다. 이것은 몇 개의 데이터 만 필요하거나 [데이터를 페이지네이션](/docs/add-pagination/) 해야하는 경우에 유용합니다.
 
-To limit data, you'll need a Gatsby site with some nodes in the GraphQL data layer. All sites have some nodes like `allSitePage` and `sitePage` created automatically: more can be added by installing source plugins like `gatsby-source-filesystem` in `gatsby-config.js`.
+데이터를 제한하려면 GraphQL 데이터 레이어에 몇개의 노드가 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 및 `sitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js`에 `gatsby-source-filesystem`과 같은 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start/)
+- [Gatsby 사이트](/docs/quick-start/)
 
-### Directions
+### 수행 절차
 
-1. Run `gatsby develop` to start the development server.
-2. Open a tab in your browser at: `http://localhost:8000/___graphql`.
-3. Add a query in the editor with the following fields on `allSitePage` to start off:
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
+3. 에디터에서 아래 필드들을 가진 `allSitePage` 쿼리를 추가하세요:
 
 ```graphql
 {
@@ -176,7 +176,7 @@ To limit data, you'll need a Gatsby site with some nodes in the GraphQL data lay
 }
 ```
 
-4. Add a `limit` argument to the `allSitePage` field and give it an integer value `3`.
+4. allSitePage 필드에 정수 값 `3` 으로 `limit` 인수를 추가하세요.
 
 ```graphql
 {
@@ -191,13 +191,13 @@ To limit data, you'll need a Gatsby site with some nodes in the GraphQL data lay
 }
 ```
 
-5. Click the play button in the GraphiQL page and the data in the `edges` field will be limited to the number specified.
+5. GraphiQL 페이지에서 play 버튼을 클릭하면 `edges` 필드의 데이터가 지정된 수로 제한됩니다.
 
-### Additional resources
+### 추가 정보
 
-- Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
-- [Gatsby GraphQL reference for limiting](/docs/graphql-reference/#limit)
-- Live example:
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대해 배우세요
+- [제한하기에 대한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#limit)
+- 라이브 예제:
 
 <iframe
   title="Limiting returned data"
@@ -206,22 +206,22 @@ To limit data, you'll need a Gatsby site with some nodes in the GraphQL data lay
   height="300"
 />
 
-## Sorting with GraphQL
+## GraphQL 결과 정렬하기
 
-The ordering of your results can be specified with the GraphQL `sort` argument. You can specify which fields to sort by and the order to sort in.
+`sort` 인수를 사용하여 GraphQL의 결과를 순서를 정할 수 있습니다. 어떤 필드로 정렬할지, 어떤 순서로 정렬할지를 지정 할 수 있습니다.
 
-For this recipe, you'll need a Gatsby site with a collection of nodes to sort in the GraphQL data layer. All sites have some nodes like `allSitePage` created automatically: more can be added by installing source plugins.
+이 레시피를 위해서, GraphQL 데이터 레이어에 정렬할 노드들이 있는 Gatsby 사이트가 필요합니다. 모든 사이트는 `allSitePage`와 같은 자동으로 생성된 노드들을 가지고 있으며, 소스 플러그인을 설치하면 더 많은 노드를 추가 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- Queryable fields prefixed with `all`, e.g. `allSitePage`
+- [Gatsby 사이트](/docs/quick-start)
+- 접두사 `all`로 시작하는 쿼리 가능한 필드. 예: `allSitePage`
 
-### Directions
+### 수행 절차
 
-1. Run `gatsby develop` to start the development server.
-2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
-3. Add a query in the editor with the following fields on `allSitePage` to start off:
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
+3. 에디터에서 아래 필드들을 가진 `allSitePage` 쿼리를 추가하세요:
 
 ```graphql
 {
@@ -236,7 +236,7 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to sort in
 }
 ```
 
-4. Add a `sort` argument to the `allSitePage` field and give it an object with the `fields` and `order` attributes. The value for `fields` can be a field or an array of fields to sort by (this example uses the `path` field), the `order` can be either `ASC` or `DESC` for ascending and descending respectively.
+4. `allSitePage` 필드에 `sort` 인수를 추가하고 `fields` 및 `order` 속성을 가진 객체를 제공해주세요. `fields`의 값은 정렬 할 필드 또는 필드의 배열 일 수 있으며 (이 예에서는 `path` 필드를 사용함) `order` 는 오름차순 및 내림차순으로 각각 `ASC` 또는 `DESC`가 될 수 있습니다.
 
 ```graphql
 {
@@ -252,13 +252,13 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to sort in
 
 ```
 
-5. Click the play button in the GraphiQL page and the data returned will be sorted ascending by the `path` field.
+5. GraphiQL 페이지에서 play 버튼을 클릭하면 `path` 필드에 따라 오름차순으로 정렬되어있는 데이터를 반환 받게됩니다.
 
-### Additional resources
+### 추가 정보
 
-- [Gatsby GraphQL reference for sorting](/docs/graphql-reference/#sort)
-- Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
-- Live example:
+- [정렬을 위한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#sort)
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대한 학습
+- 라이브 예제:
 
 <iframe
   title="Sorting data"
@@ -267,22 +267,22 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to sort in
   height="300"
 />
 
-## Filtering with GraphQL
+## GraphQL 결과 필터링하기
 
-Queried results can be filtered down with operators like `eq` (equals), `ne` (not equals), `in`, and `regex` on specified fields.
+`eq` (equals), `ne` (not equals), `in` 및 `regex`와 같은 연산자를 특정 필드에 사용하여 쿼리 결과를 필터링 할 수 있습니다.
 
-For this recipe, you'll need a Gatsby site with a collection of nodes to filter in the GraphQL data layer. All sites have some nodes like `allSitePage` created automatically: more can be added by installing source and transformer plugins like `gatsby-source-filesystem` and `gatsby-transformer-remark` in `gatsby-config.js` to produce `allMarkdownRemark`.
+이 레시피를 위해서, GraphQL 데이터 레이어에 필터 할 노드들이 있는 Gatsby 사이트가 필요합니다. 모든 사이트들은 `allSitePage` 와 같은 자동으로 생성된 노드들을 가지고 있으며, `gatsby-config.js` 파일에 `gatsby-source-filesystem` 과 `gatsby-transformer-remark` 같은 source 및 transformer 플러그인들을 설치하여 `allMarkdownRemark`를 생성하면 더 많은 노드를 추가하 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- Queryable fields prefixed with `all`, e.g. `allSitePage` or `allMarkdownRemark`
+- [Gatsby 사이트](/docs/quick-start)
+- 접두사 `all`로 시작하는 쿼리 가능한 필드. 예: `allSitePage` 또는 `allMarkdownRemark`
 
-### Directions
+### 수행 절차
 
-1. Run `gatsby develop` to start the development server.
-2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
-3. Add a query in the editor using a field prefixed by 'all', like `allMarkdownRemark` (meaning that it will return a list of nodes)
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하세요.
+3. `allMarkdownRemark`와 같이 'all' 접두사가 붙은 필드를 사용하여 에디터에 쿼리를 추가하세요. (노드 목록을 반환됩니다)
 
 ```graphql
 {
@@ -299,7 +299,7 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to filter 
 }
 ```
 
-4. Add a `filter` argument to the `allMarkdownRemark` field and give it an object with the fields you'd like to filter by. In this example, Markdown content is filtered by the `categories` attribute in frontmatter metadata. The next value is the operator: in this case `eq`, or equals, with a value of 'magical creatures'.
+4. `allMarkdownRemark` 필드에 `filter` 인수를 추가하고 필터링하려는 필드가 있는 객체로 제공하세요. 이 예에서 마크다운 컨텐츠는 frontmatter 메타 데이터의 `categories` 속성으로 필터링 됩니다. 다음 값은 연산자이며, 'magical creatures' 이라는 값을 가진 `eq` 연산자를 사용합니다.
 
 ```graphql
 {
@@ -316,14 +316,14 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to filter 
 }
 ```
 
-5. Click the play button in the GraphiQL page. The data that matches the filter parameters should be returned, in this case only sourced Markdown files tagged with a category of 'magical creatures'.
+5. GraphiQL 페이지에서 play 버튼을 클릭합니다. filter 매개변수에 매치되는 데이터만 반환되는데, 이 예에서는 'magical creatures' 라는 category 값으로 태깅된 마크다운 파일 소스들의 내용만 반환됩니다.
 
-### Additional resources
+### 추가 정보
 
-- [Gatsby GraphQL reference for filtering](/docs/graphql-reference/#filter)
-- [Complete list of possible operators](/docs/graphql-reference/#complete-list-of-possible-operators)
-- Learn about [nodes in Gatsby's GraphQL data API](/docs/node-interface/)
-- Live example:
+- [filtering에 대한 Gatsby GraphQL 레퍼런스](/docs/graphql-reference/#filter)
+- [사용 가능한 연산자 전체 목록](/docs/graphql-reference/#complete-list-of-possible-operators)
+- [Gaysby의 GraphQL 데이터 API의 노드](/docs/node-interface/)에 대해 배우세요
+- 라이브 예제:
 
 <iframe
   title="Filtering data"
@@ -332,17 +332,17 @@ For this recipe, you'll need a Gatsby site with a collection of nodes to filter 
   height="300"
 />
 
-## GraphQL Query Aliases
+## GraphQL 쿼리 별칭
 
-You can rename any field in a GraphQL query with an alias.
+GraphQL 쿼리의 필드 이름을 별칭(alias)으로 바꿀 수 있습니다.
 
-If you would like to run two queries on the same datasource, you can use an alias to avoid a naming collision with two queries of the same name.
+동일한 데이터 소스에서 두 개의 쿼리를 실행하려면 동일한 이름의 두 쿼리와 이름 충돌을 피하기 위해 별명을 사용할 수 있습니다.
 
-### Directions
+### 수행 절차
 
-1. Run `gatsby develop` to start the development server.
-2. Open the GraphiQL explorer in a browser tab at: `http://localhost:8000/___graphql`
-3. Add a query in the editor using two fields of the same name like `allFile`
+1. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+2. 브라우저 탭을 열고 `http://localhost:8000/___graphql`에 접속하여 GraphiQL에 접속하세요.
+3. 에디터에서 `allFile` 과 같이 같은 이름을 가진 두개의 필드를 추가하세요.
 
 ```graphql
 {
@@ -357,7 +357,7 @@ If you would like to run two queries on the same datasource, you can use an alia
 }
 ```
 
-4. Add the name you would like to use for any field before the name of the field in your GraphQL schema, separated by a colon. (E.g. `[alias-name]: [original-name]`)
+4. GraphQL 스키마에서 필드 이름 앞에 사용할 별칭 이름을 콜론으로 구분하여 추가해주세요. (예. `[alias-name]: [original-name]`)
 
 ```graphql
 {
@@ -372,12 +372,12 @@ If you would like to run two queries on the same datasource, you can use an alia
 }
 ```
 
-5. Click the play button in the GraphiQL page and 2 objects with alias names you provided should be output.
+5. GraphiQL 페이지에서 play 버튼을 클릭하면 제공 한 별칭 이름을 가진 2개의 객체가 출력됩니다.
 
-### Additional resources
+### 추가 정보
 
-- [Gatsby GraphQL reference for aliasing](/docs/graphql-reference/#aliasing)
-- Live example:
+- [Gatsby GraphQL 별칭 레퍼런스](/docs/graphql-reference/#aliasing)
+- 라이브 예제:
 
 <iframe
   title="Using aliases"
@@ -386,15 +386,15 @@ If you would like to run two queries on the same datasource, you can use an alia
   height="300"
 />
 
-## GraphQL Query Fragments
+## GraphQL 쿼리 프래그먼트
 
-GraphQL fragments are shareable chunks of a query that can be reused.
+GraphQL 프래그먼트는 재사용 할 수 있는 공유 가능한 쿼리의 덩어리(chunks)입니다.
 
-You might want to use them to share multiple fields between queries or to colocate a component with the data it uses.
+이것을 사용하여 쿼리간에 여러 필드를 공유하거나 데이터와 함께 구성 요소를 배치 할 수 있습니다.
 
-### Directions
+### 수행 절차
 
-1. Declare a `graphql` template string with a Fragment in it. The fragment should be made up of the keyword `fragment`, a name, the GraphQL type it is associated with (in this case of type `Site`, as demonstrated by `on Site`), and the fields that make up the fragment:
+1. 프래그먼트가 있는 `graphql` 템플릿 문자열을 선언합니다. 프래그먼트는 키워드 `fragment`, 이름, 그와 관련된 GraphQL 타입 (`Site` 타입의 경우 `on Site`로 명시) 및 프래그먼트를 구성하는 필드로 구성되어야 합니다.
 
 ```jsx
 export const query = graphql`
@@ -407,7 +407,7 @@ export const query = graphql`
 `
 ```
 
-2. Now, include the fragment in a query for a field of the type specified by the fragment. This includes those fields without having to declare them all independently:
+2. 자 이제, 프래그먼트로 지정한 필드를 추가하기 위해 프래그먼트를 쿼리에 포함 시켜주세요. 모든 필드를 독립적으로 선언하지 않고도 해당 필드가 포함됩니다:
 
 ```diff
 export const pageQuery = graphql`
@@ -421,35 +421,35 @@ export const pageQuery = graphql`
 `
 ```
 
-**Note**: Fragments don't need to be imported in Gatsby. Exporting a query with a Fragment makes that Fragment available in _all_ queries in your project.
+**주의**: Gatsby에서 프래그먼트를 임포트할 필요는 없습니다. 프래그먼트를 사용하여 쿼리를 내보내면(export) 해당 프래그먼트를 프로젝트의 _모든_ 쿼리에서 사용할 수 있습니다.
 
-Fragments can be nested inside other fragments, and multiple fragments can be used in the same query.
+프래그먼트는 다른 프래그먼트 안에 중첩 될 수 있으며 동일한 쿼리에서 여러 프래그먼트를 사용할 수 있습니다.
 
-### Additional resources
+### 추가 정보
 
-- [Simple example repo using fragments](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-fragments)
-- [Gatsby GraphQL reference for fragments](/docs/graphql-reference/#fragments)
-- [Gatsby image fragments](/docs/gatsby-image/#image-query-fragments)
-- [Example repo with co-located data](https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram)
+- [프래그먼트를 사용하는 간단한 예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/using-fragments)
+- [Gatsby GraphQL 프래그먼트 레퍼런스](/docs/graphql-reference/#fragments)
+- [Gatsby 이미지 쿼리 프래그먼트](/docs/gatsby-image/#image-query-fragments)
+- [같은 장소의 데이터를 여러곳에서 사용하는 예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram)
 
-## Querying data client-side with `fetch`
+## fetch로 클라이언트 사이드에서 데이터 쿼리하기
 
-Data doesn't only have to be queried at build time and remain solely static. You can query data at runtime the same way you can fetch data in a regular React app.
+빌드타임에만 데이터를 쿼리해서 정적으로만 다룰 필요는 없습니다. 일반 React 앱에서 데이터를 가져오는 방식으로 런타임에 데이터를 쿼리 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- [A Gatsby Site](/docs/quick-start/)
-- A page component, such as `index.js`
+- [Gatsby 사이트](/docs/quick-start/)
+- `index.js`와 같은 페이지 컴포넌트
 
-### Directions
+### 수행 절차
 
-1. In a file with a React component defined, like a page in `src/pages` or a layout component, import React hooks for `useState` and `useEffect`.
+1. `src/page`안의 정의된 페이지나 레이아웃 컴포넌트와 같이 React 컴포넌트가 정의된 파일에서 `useState`와 `useEffect`의 React 훅을 임포트하세요.
 
 ```jsx:title=src/pages/index.js
 import React, { useState, useEffect } from "react"
 ```
 
-2. Inside the component, wrap a function to fetch data in a `useEffect` hook so it will asynchronously retrieve data when the component mounts in the browser client. Then, `await` the result with the `fetch` API, and call the set function from the `useState` hook (in this case `setStarsCount`) to save the state variable (`starsCount`) to the data returned from `fetch`.
+2. 컴포넌트 내부에서, 컴포넌트가 클라이언트의 브라우저 안에 마운트 되었을 때 비동기적으로 데이터를 가져오는(fetch) 함수를 `useEffect` 훅으로 감싸세요(wrap). 그런 다음 `fetch` API 결과를 기다린(`await`) 후 응답 받은 결과를 상태 변수(`starsCount`)로 저장하기 위해 `useState` 훅을 통해 얻은 set 함수(예제에선 `setStarsCount`) 를 호출하세요.
 
 ```jsx:title=src/pages/index.js
 import React, { useState, useEffect } from "react"
@@ -479,7 +479,7 @@ const IndexPage = () => {
 export default IndexPage
 ```
 
-### Additional resources
+### 추가 정보
 
-- Guide on [client-data fetching](/docs/data-fetching/)
-- Live [example site](https://gatsby-data-fetching.netlify.com/) using this example
+- [Client-side에서 데이터 가져오기](/docs/data-fetching/) 가이드
+- 이 예제를 사용하는 라이브 [예제 사이트](https://gatsby-data-fetching.netlify.com/)
