@@ -3,18 +3,18 @@ title: "Recipes: Styling with CSS"
 tableOfContentsDepth: 1
 ---
 
-There are so many ways to add styles to your website; Gatsby supports almost every possible option, through official and community plugins.
+웹 사이트에 스타일을 추가하는 정말 많은 방법이 있습니다. Gatsby는 공식 및 커뮤니티 플러그인을 통해 거의 모든 옵션을 지원합니다.
 
-## Using global CSS files without a Layout component
+## Layout 컴포넌트 없이 전역 CSS 파일들 사용하기
 
-### Prerequisites
+### 사전준비
 
-- An existing [Gatsby site](/docs/quick-start/) with an index page component
-- A `gatsby-browser.js` file
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
+- `gatsby-browser.js` 파일
 
-### Directions
+### 수행 절차
 
-1. Create a global CSS file as `src/styles/global.css` and paste the following into the file:
+1. `src/styles/global.css` 파일 이름으로 전역 CSS 파일을 생성하고 아래 코드를 붙여 넣습니다:
 
 ```css:title=src/styles/global.css
 html {
@@ -26,37 +26,37 @@ p {
 }
 ```
 
-2. Import the global CSS file in the `gatsby-browser.js` file such as the following:
+2. `gatsby-browser.js` 파일 안에서 아래와 같이 전역 CSS 파일을 임포트 합니다:
 
 ```javascript:title=gatsby-browser.js
 import "./src/styles/global.css"
 ```
 
-> **Note:** You can also make use of `require('./src/styles/global.css')` to import the global CSS file in your `gatsby-config.js` file.
+> **Note:** `require('./src/styles/global.css')`이런 문법을 사용하여 `gatsby-config.js` 파일 안에서 전역 CSS 파일을 임포트 할 수도 있습니다.
 
-3. Run `gatsby-develop` to observe the global styling being applied across your site.
+3. `gatsby develop`을 실행하여 사이트 곳곳에 적용된 전역 스타일을 확인해주세요.
 
-> **Note:** This approach is not the best fit if you are using CSS-in-JS for styling your site, in which case a layout page with all the shared components should be used. This is covered in the next recipe.
+> **참고:** 이 방법은 CSS-in-JS를 사용하여 스타일을 정의하는 경우 적합하지 않으며 이 경우 모든 공유 컴포넌트가 포함 된 layout 페이지를 사용해야합니다. 이것은 다음 레시피에서 다룹니다.
 
-### Additional resources
+### 추가 정보
 
-- More on [adding global styles without a layout component](/docs/global-css/#adding-global-styles-without-a-layout-component)
+- [Layout 컴포넌트 없이 전역 스타일 추가하기](/docs/global-css/#adding-global-styles-without-a-layout-component)에 대한 추가 정보
 
-## Using global styles in a layout component
+## Layout 컴포넌트에서 전역 스타일 사용하기
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start/) with an index page component
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
 
-### Directions
+### 수행 절차
 
-You can add global styles to a [shared layout component](/tutorial/part-three/#your-first-layout-component). This component is used for things that are common throughout the site, like a header or footer.
+[공유되는 layout 컴포넌트](/tutorial/part-three/#your-first-layout-component)에 전역 스타일을 추가 할 수 있습니다. 이 컴포넌트는 헤더 또는 풋터 글과 같이 사이트 전체의 공통적인 항목에 사용됩니다.
 
-1. If you don't already have one, create a new directory in your site at `/src/components`.
+1. `/src/components` 디렉토리가 없다면 디렉토리를 생성해주세요.
 
-2. Inside the components directory, create two files: `layout.css` and `layout.js`.
+2. components 디렉토리 안에 `layout.css`와 `layout.js` 두개의 파일을 생성해주세요.
 
-3. Add the following to `layout.css`:
+3. `layout.css`에 다음을 추가해주세요:
 
 ```css:title=/src/components/layout.css
 body {
@@ -64,7 +64,7 @@ body {
 }
 ```
 
-4. Edit `layout.js` to import the CSS file and output layout markup:
+4. CSS 파일을 임포트 하고 layout 마크업을 익스포트 하도록 `layout.js`를 수정합니다:
 
 ```jsx:title=/src/components/layout.js
 import React from "react"
@@ -73,7 +73,7 @@ import "./layout.css"
 export default ({ children }) => <div>{children}</div>
 ```
 
-5. Now edit your site's homepage at `/src/pages/index.js` and use the new layout component:
+5. 이제 사이트의 홈페이지인 `/src/pages/index.js`를 수정하여 새로운 layout 컴포넌트를 사용합니다:
 
 ```jsx:title=/src/pages/index.js
 import React from "react"
@@ -82,21 +82,21 @@ import Layout from "../components/layout"
 export default () => <Layout>Hello world!</Layout>
 ```
 
-### Additional resources
+### 추가 정보
 
-- [Standard Styling with Global CSS Files](/docs/global-css/)
-- [More about layout components](/tutorial/part-three)
+- [전역 CSS 파일을 사용한 표준 스타일링](/docs/global-css/)
+- [layout 컴포넌트에 대한 추가 정보](/tutorial/part-three)
 
-## Using Styled Components
+## Styled Components 사용하기
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start/) with an index page component
-- [gatsby-plugin-styled-components, styled-components, and babel-plugin-styled-components](/packages/gatsby-plugin-styled-components/) installed in `package.json`
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
+- `package.json`안에 [gatsby-plugin-styled-components, styled-components, and babel-plugin-styled-components](/packages/gatsby-plugin-styled-components/) 설치
 
-### Directions
+### 수행 절차
 
-1. Inside your `gatsby-config.js` file add `gatsby-plugin-styled-components`
+1. `gatsby-config.js` 파일 안에서 `gatsby-plugin-styled-components`를 추가하세요
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -104,11 +104,11 @@ module.exports = {
 }
 ```
 
-2. Open the index page component (`src/pages/index.js`) and import the `styled-components` package
+2. index 페이지 컴포넌트(`src/pages/index.js`)를 열고 `styled-components` 패키지를 임포트 하세요
 
-3. Style components by creating style blocks for each element type
+3. 각 구성 요소에 대한 스타일 블록을 작성하여 컴포넌트를 스타일링 하세요
 
-4. Apply to the page by including styled components in the JSX
+4. JSX 안에 스타일링된 컴포넌트를 포함시켜 페이지에 적용하세요
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -158,22 +158,22 @@ export default () => (
 )
 ```
 
-4. Run `gatsby develop` to see the changes
+4. `gatsby develop`을 실행하여 변경을 확인하세요
 
-### Additional resources
+### 추가 정보
 
-- [More on Using Styled Components](/docs/styled-components/)
-- [Egghead lesson](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
+- [styled-components 사용에 대한 추가 정보](/docs/styled-components/)
+- [Egghead 수업](https://egghead.io/lessons/gatsby-style-gatsby-sites-with-styled-components)
 
-## Using CSS Modules
+## CSS Modules 사용하기
 
-### Prerequisites
+### 사전준비
 
-- An existing [Gatsby site](/docs/quick-start/) with an index page component
+- index 페이지 컴포넌트를 가진 [Gatsby 사이트](/docs/quick-start/)
 
-### Directions
+### 수행 절차
 
-1. Create a CSS module as `src/pages/index.module.css` and paste the following into the module:
+1. `src/pages/index.module.css` 파일 이름으로 CSS module 을 생성하고 다음을 모두 모듈에 붙여 넣습니다:
 
 ```css:title=src/pages/index.module.css
 .feature {
@@ -182,7 +182,7 @@ export default () => (
 }
 ```
 
-2. Import the CSS module as a JSX object `style` in the `index.js` file by modifying the page so it looks like the following:
+2. `index.js` 파일 안에서 CSS module을 `style` 객체로 임포트 하여 다음과 같이 페이지를 수정합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -198,41 +198,41 @@ export default () => (
 // highlight-end
 ```
 
-3. Run `gatsby develop` to see the changes.
+3. `gatsby develop`을 실행하여 변경을 확인하세요.
 
-**Note:**
-Notice that the file extension is `.module.css` instead of `.css`, which tells Gatsby that this is a CSS module.
+**주의:**
+파일 확장자가 `.css` 가 아닌 `.module.css`인것에 유의해야 하는데, 이는 Gatsby에게 이것이 CSS module임을 알려줍니다.
 
-### Additional resources
+### 추가 정보
 
-- More on [Using CSS Modules](/tutorial/part-two/#css-modules)
-- [Live example on Using CSS modules](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-css-modules)
+- [CSS Modules 사용하기](/tutorial/part-two/#css-modules)에 대한 추가 정보
+- [CSS modules 사용하기 라이브 예제](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-css-modules)
 
-## Using Sass/SCSS
+## Sass/SCSS 사용하기
 
-Sass is an extension of CSS that gives you more advanced features like nested rules, variables, mixins, and more.
+Sass는 CSS의 확장으로 중첩 규칙, 변수, 믹스인 등과 같은 고급 기능을 제공합니다.
 
-Sass has 2 syntaxes. The most commonly used syntax is "SCSS", and is a superset of CSS. That means all valid CSS syntax, is valid SCSS syntax. SCSS files use the extension `.scss`
+Sass에는 2 가지 구문이 있습니다. 가장 일반적으로 사용되는 구문은 "SCSS"이며, CSS의 상위 집합입니다. 즉, 모든 유효한 CSS 구문은 유효한 SCSS 구문입니다. SCSS 파일은 .scss 확장자를 사용합니다.
 
-Sass will compile `.scss` and `.sass` files to `.css` files for you, so you can write your stylesheets with more advanced features.
+Sass는 .scss 및 .sass 파일을 .css 파일로 컴파일하므로, 이런 고급 기능들을 사용하여 스타일 시트를 작성할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start/).
+- [Gatsby 사이트](/docs/quick-start/).
 
-### Directions
+### 수행 절차
 
-1. Install the Gatsby plugin [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) and `node-sass`.
+1. [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/) Gatsby 플러그인과 `node-sass` 설치하세요.
 
 `npm install --save node-sass gatsby-plugin-sass`
 
-2. Include the plugin in your `gatsby-config.js` file.
+2. `gatsby-config.js` 파일에 이 플러그인을 추가하세요.
 
 ```javascript:title=gatsby-config.js
 plugins: [`gatsby-plugin-sass`],
 ```
 
-3.  Write your stylesheets as `.sass` or `.scss` files and import them. If you don't know how to import styles, take a look at [Styling with CSS](/docs/recipes/#2-styling-with-css)
+3. 스타일 시트를 `.sass` 또는 `.scss` 파일로 작성하고 임포트 합니다. 스타일을 가져 오는 방법을 모르는 경우 [CSS로 스타일링](/docs/recipes/#2-styling-with-css)을 살펴보세요
 
 ```css:title=styles.scss
 $font-stack: Helvetica, sans-serif;
@@ -258,30 +258,30 @@ import "./styles.scss"
 import "./styles.sass"
 ```
 
-_Note: You can use Sass/SCSS files as modules too, like mentioned in the previous recipe about CSS modules, with the difference that instead of `.css` the extensions have to be `.scss` or `.sass`_
+_주의: 이전 CSS module 레시피에서 언급했듯이 Sass/SCSS 파일도 module로 사용할 수 있습니다. 차이점은 확장자가 `.css`가 아닌 `.scss` 또는 `.sass` 여야합니다._
 
-### Additional resources
+### 추가 정보
 
-- [Difference between .sass and .scss](https://responsivedesign.is/articles/difference-between-sass-and-scss/)
-- [Sass guide from the official Sass website](https://sass-lang.com/guide)
-- [A more complete installation tutorial on Sass with some more explanations and more resources](https://www.gatsbyjs.org/docs/sass/)
+- [.sass와 .scss의 차이점](https://responsivedesign.is/articles/difference-between-sass-and-scss/)
+- [공식 Sass 웹사이트의 Sass 가이드](https://sass-lang.com/guide)
+- [더 많은 설명과 더 많은 리소스를 제공하는 더 완전한 Sass 설치 튜토리얼](https://www.gatsbyjs.org/docs/sass/)
 
-## Adding a Local Font
+## 로컬 폰트 파일 적용하기
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start/)
-- A font file: `.woff2`, `.ttf`, etc.
+- [Gatsby 사이트](/docs/quick-start/)
+- `.woff2`, `.ttf` 등의 폰트 파일
 
-### Directions
+### 수행 절차
 
-1. Copy a font file into your Gatsby project, such as `src/fonts/fontname.woff2`.
+1. 폰트 파일을 Gatsby 프로젝트에 `src/fonts/fontname.woff2`와 같은 경로에 복사하세요.
 
 ```text
 src/fonts/fontname.woff2
 ```
 
-2. Import the font asset into a CSS file to bundle it into your Gatsby site:
+2. Gatsby 사이트의 번들로 포함시키기 위해 CSS 파일에서 폰트를 임포트 하세요:
 
 ```css:title=src/css/typography.css
 @font-face {
@@ -290,7 +290,7 @@ src/fonts/fontname.woff2
 }
 ```
 
-**Note:** Make sure the font name is referenced from the relevant CSS, e.g.:
+**주의:** "Font Name" 이 관련 CSS에서 참조되는지 확인하세요. 예:
 
 ```css:title=src/components/layout.css
 body {
@@ -298,31 +298,31 @@ body {
 }
 ```
 
-By targeting the HTML `body` element, your font will apply to most text on the page. Additional CSS can target other elements, such as `button` or `textarea`.
+HTML `body` 요소를 대상으로하면 글꼴이 페이지의 대부분의 텍스트에 적용됩니다. 추가 CSS는 `button` 또는 `textarea`와 같은 다른 요소를 대상으로 할 수 있습니다.
 
-If fonts are not updating following steps above, make sure to replace the existing font-family in relevant CSS.
+위의 단계에 따라 폰트가 업데이트되지 않으면 관련 CSS에서 기존 font-family가 교체 되었는지 확인하세요.
 
-### Additional resources
+### 추가 정보
 
-- More on [importing assets into files](/docs/importing-assets-into-files/)
+- [파일로 에셋 임포트 하기](/docs/importing-assets-into-files/)에 대한 추가 정보
 
-## Using Emotion
+## Emotion 사용하기
 
-[Emotion](https://emotion.sh) is a powerful CSS-in-JS library that supports both inline CSS styles and styled components. You can use each styling feature individually or together in the same file.
+[Emotion](https://emotion.sh)은 인라인 CSS 스타일과 styled components 를 모두 지원하는 강력한 CSS-in-JS 라이브러리입니다. 각 스타일링 기능을 개별적으로 또는 동일한 파일에서 함께 사용할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
+- [Gatsby 사이트](/docs/quick-start)
 
-### Directions
+### 수행 절차
 
-1. Install the [Gatsby Emotion plugin](/packages/gatsby-plugin-emotion/) and Emotion packages.
+1. [Gatsby Emotion 플러그인](/packages/gatsby-plugin-emotion/)과 Emotion 패키지 설치.
 
 ```shell
 npm install --save gatsby-plugin-emotion @emotion/core @emotion/styled
 ```
 
-2. Add the `gatsby-plugin-emotion` plugin to your `gatsby-config.js` file:
+2. `gatsby-plugin-emotion` 을 `gatsby-config.js` 파일에 추가하세요:
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -330,9 +330,9 @@ module.exports = {
 }
 ```
 
-3. If you don't already have one, create a page in your Gatsby site at `src/pages/emotion-sample.js`.
+3. Gatsby 사이트의 페이지가 아직 없다면 `src/pages/emotion-sample.js`로 페이지를 하나 만드세요.
 
-Import Emotion's `css` core package. You can then use the `css` prop to add [Emotion object styles](https://emotion.sh/docs/object-styles) to any element inside a component:
+Emotion의 `css` core 패키지를 임포트 합니다. 그런 다음 `css` prop을 사용하여 컴포넌트 내의 모든 요소에 [Emotion object styles](https://emotion.sh/docs/object-styles)를 추가 할 수 있습니다:
 
 ```jsx:title=src/pages/emotion-sample.js
 import React from "react"
@@ -352,7 +352,7 @@ export default () => (
 )
 ```
 
-4. To use Emotion's [styled components](https://emotion.sh/docs/styled), import the package and define them using the `styled` function.
+4. Emotion의 [styled components](https://emotion.sh/docs/styled)를 사용하려면 패키지를 임포트하고 `styled` 함수를 사용하여 정의하세요.
 
 ```jsx:title=src/pages/emotion-sample.js
 import React from "react"
@@ -373,35 +373,35 @@ export default () => (
 )
 ```
 
-### Additional resources
+### 추가 정보
 
-- [Using Emotion in Gatsby](/docs/emotion/)
-- [Emotion website](https://emotion.sh)
-- [Getting started with Emotion and Gatsby](https://egghead.io/lessons/gatsby-getting-started-with-emotion-and-gatsby)
+- [Gatsby에서 Emotion 사용하기](/docs/emotion/)
+- [Emotion 웹사이트](https://emotion.sh)
+- [Emotion과 Gatsby 시작하기](https://egghead.io/lessons/gatsby-getting-started-with-emotion-and-gatsby)
 
-## Using Google Fonts
+## Google Fonts 사용하기
 
-Hosting your own [Google Fonts](https://fonts.google.com/) locally within a project means they won't have to be fetched over the network when your site loads, increasing your site's speed index by up to ~300 milliseconds on desktop and 1+ seconds on 3G. It's also recommended to limit custom font usage to only the essential for performance.
+프로젝트 번들에 자신만의 [Google Fonts](https://fonts.google.com/)를 포함시켜 호스팅하면 사이트가 로드 될 때 네트워크를 통해 추가적으로 가져 오지 않아도되므로 데스크톱에서 최대 300ms, 3G에서 1초 이상 사이트 로딩 속도가 개선됩니다. 성능을 위해 이런 사용자 정의 글꼴 사용은 오직 필수적인 것으로만 제한하는 것이 좋습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- The [Gatsby CLI](/docs/gatsby-cli/) installed
-- Choosing a font package from [the typefaces project](https://github.com/KyleAMathews/typefaces)
+- [Gatsby 사이트](/docs/quick-start)
+- [Gatsby CLI](/docs/gatsby-cli/) 설치
+- [typefaces 프로젝트](https://github.com/KyleAMathews/typefaces)에서 폰트 패키지 선택하기
 
-### Directions
+### 수행 절차
 
-1. Run `npm install --save typeface-your-chosen-font`, replacing `your-chosen-font` with the name of the font you want to install from [the typefaces project](https://github.com/KyleAMathews/typefaces).
+1. `npm install --save typeface-your-chosen-font`에서, `your-chosen-font` 부분을 [typefaces 프로젝트](https://github.com/KyleAMathews/typefaces)에서 찾은 원하는 폰트이름으로 변경하여 실행하세요.
 
-An example to load the popular 'Source Sans Pro' font would be: `npm install --save typeface-source-sans-pro`.
+예를들어 인기있는 'Source Sans Pro' 폰트를 로드하려면: `npm install --save typeface-source-sans-pro`.
 
-2. Add `import "typeface-your-chosen-font"` to a layout template, page component, or `gatsby-browser.js`.
+2. layout 템플릿, 페이지 컴포넌트 또는 `gatsby-browser.js` 에 `import "typeface-your-chosen-font"` 를 추가하세요.
 
 ```jsx:title=src/components/layout.js
 import "typeface-your-chosen-font"
 ```
 
-3. Once it's imported, you can reference the font name in a CSS stylesheet, CSS Module, or CSS-in-JS.
+3. 임포트 한 후에, CSS stylesheet, CSS Module 또는 CSS-in-JS에서 폰트 이름을 사용 할 수 있습니다.
 
 ```css:title=src/components/layout.css
 body {
@@ -409,10 +409,10 @@ body {
 }
 ```
 
-_NOTE: So for the above example, the relevant CSS declaration would be `font-family: 'Source Sans Pro';`_
+_참고: 위의 예에서 관련 CSS 선언은 `font-family: 'Source Sans Pro';` 입니다._
 
-### Additional resources
+### 추가 정보
 
-- [Typography.js](/docs/typography-js/) - Another option for using Google fonts on a Gatsby site
-- [The Typefaces Project Docs](https://github.com/KyleAMathews/typefaces/blob/master/README.md)
-- [Live example on Kyle Mathews' blog](https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/)
+- [Typography.js](/docs/typography-js/) - Gatsby 사이트에서 Google 폰트를 사용하는 또 다른 옵션
+- [Typefaces 프로젝트 문서](https://github.com/KyleAMathews/typefaces/blob/master/README.md)
+- [Live Kyle Mathews의 블로그의 라이브 예제](https://www.bricolage.io/typefaces-easiest-way-to-self-host-fonts/)
