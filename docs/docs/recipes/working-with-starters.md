@@ -3,36 +3,37 @@ title: "Recipes: Working with Starters"
 tableOfContentsDepth: 1
 ---
 
-[Starters](/docs/starters/) are boilerplate Gatsby sites maintained officially, or by the community.
+[스타터(Starters)](/docs/starters/)는 공식적으로 또는 커뮤니티에서 유지보수되는 Gatsby 사이트의 보일러 플레이트입니다.
 
-## Using a starter
+## 스타터 사용하기
 
-### Prerequisites
+### 사전준비
 
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
-### Directions
+### 수행 절차
 
-1. Find the starter you'd like to use. (_The [Starter Library](/starters/?v=2) is a good place to look!_)
+1. 사용하고 싶은 스타터를 찾으세요. (_[스타터 라이브러리](/starters/?v=2)에서 찾기 좋습니다!_)
 
-2. Generate a new site based on the starter. In the terminal, run:
+2. 스타터를 기반으로 새 사이트를 생성하기 위해 터미널에서 실행하세요:
 
 ```shell
 gatsby new {your-project-name} {link-to-starter}
 ```
 
-> _Don't run the above command as-is -- remember to replace {your-project-name} and {link-to-starter}!_
+> _위의 명령을 그대로 실행하면 안됩니다. {your-project-name}과 {link-to-starter}를 변경해야하는 것을 잊지마세요!_
 
-3. Run your new site:
+3. 새 사이트를 실행하세요:
 
 ```shell
 cd {your-project-name}
 gatsby develop
 ```
 
-### Additional resources
+### 추가 정보
 
-- Follow a [more detailed guide](/docs/starters/) on using Gatsby starters.
-- Learn how to use the [Gatsby CLI](/docs/gatsby-cli) tool to use starters in [tutorial part one](/tutorial/part-one/#using-gatsby-starters)
-- Browse the [Starter Library](/starters/?v=2)
-- Check out Gatsby's [official default starter](https://github.com/gatsbyjs/gatsby-starter-default)
+- Gatsby 스타터 사용에 대한 [더 자세한 가이드](/docs/starters/)를 확인하세요.
+- [튜토리얼 파트1](/tutorial/part-one/#using-gatsby-starters)에서 스타터 사용을 위한 [Gatsby CLI](/docs/gatsby-cli) 사용법을 배우세요.
+- [스타터 라이브러리](/starters/?v=2)를 둘러보세요.
+- Gatsby의 [공식 기본 스타터](https://github.com/gatsbyjs/gatsby-starter-default)를 확인하세요.
+
