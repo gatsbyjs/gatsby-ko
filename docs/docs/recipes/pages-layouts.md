@@ -51,7 +51,7 @@ Gatsby 코어는 `src/pages` 내부의 React 컴포넌트들을 URL이 있는 �
 ### 수행 절차
 
 1. 프로젝트에 `src/pages` 디렉토리가 없다면 생성해 주세요.
-2. pages 디렉토리에 컴포넌토 파일을 추가해 주세요:
+2. pages 디렉토리에 컴포넌트 파일을 추가해 주세요:
 
 ```jsx:title=src/pages/about.js
 import React from "react"
