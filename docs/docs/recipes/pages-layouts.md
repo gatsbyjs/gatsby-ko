@@ -99,7 +99,6 @@ export default () => (
 )
 ```
 
-2. Run `gatsby develop` and navigate to the index page. You should have a link that takes you to the contact page when clicked!
 2. `gatsby develop`을 실행하고 index 페이지로 이동하세요. 클릭시 contact 페이지로 연결되는 링크가 있어야 합니다!
 
 > **주의**: Gatsby의 `<Link />`는 [`@reach/router`의 Link 컴포넌트](https://reach.tech/router/api/Link)의 래퍼(wrapper) 컴포넌트 입니다. Gatsby의 `<Link />` 컴포넌트에 대한 자세한 정보는 [`<Link />` API 레퍼런스](/docs/gatsby-link/) 문서를 참고하세요.
