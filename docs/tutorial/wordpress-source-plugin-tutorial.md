@@ -40,13 +40,9 @@ npm install gatsby-source-wordpress
 ```js:title=gatsby-config.js
 module.exports = {
   siteMetadata: {
-<<<<<<< HEAD
-    title: "Gatsby WordPress Tutorial"
-=======
     title: `Gatsby WordPress Tutorial`,
     description: `An example to learn how to source data from WordPress.`,
     author: `@gatsbyjs`,
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
   },
   plugins: [
     // https://public-api.wordpress.com/wp/v2/sites/gatsbyjsexamplewordpress.wordpress.com/pages/
@@ -59,29 +55,16 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         /*
-<<<<<<< HEAD
          * 프로토콜과 마지막의 /를 제외한 워드프레스 사이트의 base URL는 필수 항목입니다.
-         * 예 : 'dev-gatbsyjswp.pantheonsite.io' 또는 'www.example-site.com'
+         * 예 : 'demo.wp-api.org' 또는 'www.example-site.com'
          */
-        baseUrl: `dev-gatbsyjswp.pantheonsite.io`,
+        baseUrl: `live-gatbsyjswp.pantheonsite.io`,
         // 프로토콜: http나 https입니다.
         protocol: `http`,
         // wordpress.com에 의해 호스팅 되는 사이트 인지 아닌지 명시.
         // false이면, 자체 호스팅되는 사이트라고 판단합니다.
         // true이면, 플러그인은 JSON REST API V2를 사용해서 wordpress.com의 컨텐츠를 가져옵니다.
         // 만약 여러분의 사이트가 wordpress.org 상에서 호스팅된다면 false로 설정하세요.
-=======
-         * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
-         * Example : 'demo.wp-api.org' or 'www.example-site.com'
-         */
-        baseUrl: `live-gatbsyjswp.pantheonsite.io`,
-        // The protocol. This can be http or https.
-        protocol: `https`,
-        // Indicates whether the site is hosted on wordpress.com.
-        // If false, then the assumption is made that the site is self hosted.
-        // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
-        // If your site is hosted on wordpress.org, then set this to false.
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
         hostingWPCOM: false,
         // useACF가 true이면, source 플러그인은 Wordpress ACF 플러그인 컨텐츠를 가져올 것입니다.
         // 이 기능은 WordPress.com에서 호스팅되는 사이트는 아직 테스트되지 않았습니다.
@@ -89,9 +72,6 @@ module.exports = {
       }
     }
     // highlight-end
-<<<<<<< HEAD
-  ]
-=======
     /**
      * The following plugins aren't required for gatsby-source-wordpress,
      * but we need them so the default starter we installed above will keep working.
@@ -119,7 +99,6 @@ module.exports = {
       },
     },
   ],
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 }
 ```
 
@@ -133,11 +112,7 @@ module.exports = {
 gatsby develop
 ```
 
-<<<<<<< HEAD
-브라우저 상에서 localhost:8000에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 localhost:8000/\_\_\_graphql로 접속하세요.
-=======
-In your browser, open `http://localhost:8000` to see your site, and open `http://localhost:8000/___graphql` so that you can create your GraphQL queries.
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+브라우저 상에서 `http://localhost:8000`에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 `http://localhost:8000/___graphql`로 접속하세요.
 
 연습삼아 다음 쿼리를 GraphQL explorer에 작성해보세요. 이 첫번째 쿼리는 Wordpress로부터 블로그 포스트 컨텐츠를 가져올 것입니다.
 
@@ -175,11 +150,7 @@ query {
 
 ## 블로그 포스트들을 `index.js`에 출력하기
 
-<<<<<<< HEAD
-이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. 여러분의 `index.js`는 다음과 같아야 합니다:
-=======
-Now that you've created GraphQL queries that pull in the data you want, you'll use that second query to create a list of sorted blogpost titles on your site's homepage. Here's what your home page component in `src/pages/index.js` should look like:
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. `src/pages/index.js`에 있는 여러분의 홈페이지 컴포넌트는 다음과 같아야 합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -223,11 +194,7 @@ export const pageQuery = graphql`
 //highlight-end
 ```
 
-<<<<<<< HEAD
-바꾼 것들을 저장하고 localhost:8000에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
-=======
-Save these changes and look at `http://localhost:8000` to see your new homepage with a list of sorted blog posts!
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+바꾼 것들을 저장하고 `http://localhost:8000`에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
 
 ![WordPress home after query](./images/wordpress-source-plugin-home.jpg)
 
@@ -274,11 +241,7 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-<<<<<<< HEAD
-다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다:
-=======
-Next, [stop and restart](https://www.gatsbyjs.org/tutorial/part-zero/#view-your-site-locally) the `gatsby develop` environment. As you watch the terminal you should see two Post objects log to the terminal:
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+다음으로, `gatsby develop` 환경을 [멈추고 다시 시작](https://www.gatsbyjs.org/tutorial/part-zero/#view-your-site-locally)하세요. 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다:
 
 ![Two posts logged to the terminal](./images/wordpress-source-plugin-log.jpg)
 
@@ -358,11 +321,7 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-<<<<<<< HEAD
-`gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, [http://localhost:8000/asdf](http://localhost:8001/asdf)같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
-=======
-You will need to stop and start your environment again using `gatsby develop`. When you do, you will not see a change on the index page of the site, but if you navigate to a 404 page, like `http://localhost:8000/asdf`, you should see the two sample posts created and be able to click on them to go to the sample posts:
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+`gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, `http://localhost:8000/asdf` 같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
 
 ![Sample post links](./images/wordpress-source-plugin-sample-post-links.gif)
 
@@ -372,11 +331,7 @@ You will need to stop and start your environment again using `gatsby develop`. W
 
 `index.js` 페이지에 이미 여러분의 구조와 쿼리를 완료했기에, `Link` 컴포넌트를 사용해서 타이틀을 감싸기만 하면 모든 준비가 완료됩니다.
 
-<<<<<<< HEAD
-`index.js` 파일을 열고 다음의 내용을 추가하세요:
-=======
-Open up `src/pages/index.js` again and add the following:
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+`src/pages/index.js` 파일을 다시 열고 다음의 내용을 추가하세요:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
