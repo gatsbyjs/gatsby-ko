@@ -10,48 +10,7 @@ disableTableOfContents: true
 
 커맨드라인은 여러분의 컴퓨터에서 명령을 실행하는데 사용되는 텍스트 기반 인터페이스입니다. 터미널이라고 부르기도 하죠. 이 튜토리얼에선 두 용어가 같다고 생각하시면 됩니다. Mac에서 Finder를 사용하거나 Windows에서 탐색기를 사용하는 것과 비슷합니다. Finder와 탐색기는 그래픽 기반 인터페이스(Graphical user interfaces, GUI)의 예시이며, 커맨드라인은 강력한 텍스트 기반의 방법으로 여러분이 컴퓨터와 상호작용할 수 있게 해줍니다.
 
-<<<<<<< HEAD
-여러분의 컴퓨터에서 커맨드라인 인터페이스(Command line interface, CLI)를 찾아서 열어보세요. 여러분의 운영체제에 따라서 [**Mac 사용자를 위한 설명**](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/), [**Windows 사용자를 위한 설명**](https://www.quora.com/How-do-I-open-terminal-in-windows) 또는 [**Linux 사용자를 위한 설명**](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)을 참고해주세요.
-
-## Homebrew 설치하기
-
-Gatsby와 Node.js를 설치하기 위해선 [Homebrew](https://brew.sh/)를 사용하시는 것을 추천드립니다. 처음에 해 놓는 설정들이 나중에 여러분들에게 편하게 다가오니까요!
-
-Homebrew를 설치하고 확인하는 방법은 다음과 같습니다:
-
-1. 터미널을 실행하세요.
-1. Homebrew가 설치되어 있는지 `brew -v`를 통해 확인해보세요. "Homebrew"와 버전 번호가 있다면 설치되어 있다는 뜻입니다.
-1. 위와 같지 않다면, [Homebrew 설치하기](https://docs.brew.sh/Installation)를 통해 여러분의 운영체제(Mac, Linux 또는 Windows)에 맞게 설치해주세요.
-1. Homebrew를 설치하셨다면, 2번으로 돌아가서 확인해주세요.
-
-### Mac 사용자만: Xcode Command Line Tools 설치하기
-
-1. 터미널을 실행하세요.
-1. `xcode-select --install`를 실행해 Xcode Command line tools를 설치해주세요.
-   1. 정상적으로 설치되지 않는다면 Apple 개발자 계정으로 가입 한 후[Apple 사이트에서 직접 다운로드](https://developer.apple.com/download/more/) 해주세요.
-1. 설치가 진행된다는 알림이 뜬 이후 일부 개발자 도구 다운로드를 위해 소프트웨어 라이센스에 동의하는지에 대한 확인 알림이 뜰 것입니다.
-
-## ⌚ Node.js와 npm 설치하기
-
-Node.js는 웹 브라우저 밖에서 JavaScript를 실행할 수 있게 해주는 환경입니다. Gatsby는 Node.js 기반으로 만들어졌습니다. Gatsby를 설치하고 실행하기 위해서 여러분의 컴퓨터에는 Node.js의 최신 버전이 설치되어 있어야 합니다.
-
-_참고: Gatsby는 최소 Node 8에서 작동하지만, 더 높은 버전을 사용하셔도 무방합니다._
-
-1. 터미널을 실행하세요.
-1. `brew update`를 통해 최신 Homebrew가 설치되어 있도록 해주세요.
-1. `brew install node`를 통해 Node.js와 npm을 한 번에 설치하세요.
-
-지금까지의 설치 과정을 모두 진행하셨다면, 이제 모든 것들이 잘 설치되어있는지 확인해볼까요:
-
-### Node.js 설치 확인하기
-
-1.  터미널을 실행하세요.
-2.  `node --version` 커맨드를 실행하세요. (혹시 커맨드라인에 익숙치 않으시다면, “`커맨드`를 실행하라”는 말은 “`node --version` 를 치고, 엔터 키를 누르라”는 뜻입니다. “`커맨드`를 실행하라”는 말은 앞으로도 같은 의미로 쓰입니다).
-3.  `npm --version`를 실행하세요.
-
-각각의 커맨드에 따라 버전 번호가 출력될 것입니다. 아래 사진에서의 버전 번호와 같지 않을 수도 있습니다! 만일 커맨드를 실행해도 버전 번호가 출력되지 않는다면, 돌아가서 Node.js가 정상적으로 설치되었는지 다시 확인해주세요.
-=======
-Take a moment to locate and open up the command line interface (CLI) for your computer. Depending on which operating system you are using, see [**instructions for Mac**](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/), [**instructions for Windows**](https://www.lifewire.com/how-to-open-command-prompt-2618089) or [**instructions for Linux**](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/).
+여러분의 컴퓨터에서 커맨드라인 인터페이스(Command line interface, CLI)를 찾아서 열어보세요. 여러분의 운영체제에 따라서 [**Mac 사용자를 위한 설명**](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/), [**Windows 사용자를 위한 설명**](https://www.lifewire.com/how-to-open-command-prompt-2618089) 또는 [**Linux 사용자를 위한 설명**](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)을 참고해주세요.
 
 _Note: If you’re new to the command line, "running" a command, means "writing a given set of instructions in your command prompt, and hitting the Enter key". Commands will be shown in a highlighted box, something like `node --version`, but not every highlighted box is a command! If something is a command it will be mentioned as something you have to run/execute._
 
@@ -65,22 +24,22 @@ To install Gatsby and Node.js on a Mac, it is recommended to use [Homebrew](http
 
 #### How to install or verify Homebrew on your computer:
 
-1. Open your Terminal.
-2. See if Homebrew is installed by running `brew -v`. You should see "Homebrew" and a version number.
-3. If not, download and install [Homebrew with the instructions](https://docs.brew.sh/Installation).
-4. Once you've installed Homebrew, repeat step 2 to verify.
+1. 터미널을 실행하세요.
+2. Homebrew가 설치되어 있는지 `brew -v`를 통해 확인해보세요. "Homebrew"와 버전 번호가 있다면 설치되어 있다는 뜻입니다.
+3. 위와 같지 않다면, [Homebrew 설치하기](https://docs.brew.sh/Installation)를 통해 설치해주세요.
+4. Homebrew를 설치하셨다면, 2번으로 돌아가서 확인해주세요.
 
-#### Install Xcode Command Line Tools:
+### Xcode Command Line Tools 설치하기
 
-1. Open your Terminal.
-2. Install Xcode Command line tools by running `xcode-select --install`.
-   - If that fails, download it [directly from Apple's site](https://developer.apple.com/download/more/), after signing-in with an Apple developer account
-3. After being prompted to start the installation, you'll be prompted again to accept a software license for the tools to download.
+1. 터미널을 실행하세요.
+2. `xcode-select --install`를 실행해 Xcode Command line tools를 설치해주세요.
+   1. 정상적으로 설치되지 않는다면 Apple 개발자 계정으로 가입 한 후[Apple 사이트에서 직접 다운로드](https://developer.apple.com/download/more/) 해주세요.
+3. 설치가 진행된다는 알림이 뜬 이후 일부 개발자 도구 다운로드를 위해 소프트웨어 라이센스에 동의하는지에 대한 확인 알림이 뜰 것입니다.
 
-#### Install Node
+## ⌚ Node 설치하기
 
-1. Open your Terminal
-2. Run `brew install node`
+1. 터미널을 실행하세요.
+2. `brew install node`를 실행하세요.
    - If you don't want to install it through Homebrew, download the latest Node.js version from [the official Node.js website](https://nodejs.org/en/), double click on the downloaded file and go through the installation process.
 
 ### Windows Instructions
@@ -129,17 +88,12 @@ nvm use 10
 ```
 
 To confirm that this worked, you can run `npm --version` and `node --version`. The output should look similar to the screenshot below, showing version numbers in response to the commands.
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![터미널에서 Node와 npm 버전 확인하기](01-node-npm-versions.png)
 
-<<<<<<< HEAD
-## Git 설치하기
-=======
 Once you have followed the installation steps and you have checked everything is installed properly, you can continue to the next step.
 
-## Install Git
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+## Git 설치하기
 
 Git은 무료 오픈소스로 배포된 버전 관리 시스템으로 규모가 작거나 큰 모든 프로젝트들을 빠르고 효율적으로 관리할 수 있게 해줍니다. 여러분이 Gatsby "스타터" 사이트를 설치할 때, Gatsby는 실제로는 Git을 사용하여 여러분들의 사이트에 필요한 파일들을 다운로드하고 설치합니다. 여러분의 첫번째 Gatsby 사이트를 만들기 위해서는 Git이 설치되어있어야 합니다.
 
@@ -174,11 +128,7 @@ _**참고**: Gatsby를 설치하고 처음 실행하게 되면 Gatsby 명령어�
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="./03-create-site.mp4" />
-<<<<<<< HEAD
   <p>죄송합니다, 브라우저에서 이 영상을 지원하지 않습니다.</p>
-=======
-  <p>Sorry! Your browser doesn't support this video.</p>
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 </video>
 
 금방 무슨 일이 일어난 것일까요?
@@ -205,25 +155,15 @@ gatsby develop
 
 ### 로컬 환경에서 여러분의 사이트 보기
 
-<<<<<<< HEAD
-브라우저의 새 탭을 열고 [**http://localhost:8000**](http://localhost:8000/)로 접속하시기 바랍니다.
-=======
-Open up a new tab in your browser and navigate to `http://localhost:8000/`
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+브라우저의 새 탭을 열고 `http://localhost:8000`로 접속하시기 바랍니다.
 
 ![홈페이지 확인하기](04-home-page.png)
 
 축하합니다! 여러분의 첫번째 Gatsby 사이트 개발을 드디어 시작했습니다! 🎉
 
-<<<<<<< HEAD
-개발용 서버가 켜져 있는 동안 로컬 환경에서 [**_http://localhost:8000_**](http://localhost:8000/)를 통해 사이트에 방문할 수 있습니다. 이는 `gatsby develop` 커맨드에 의해 실행되어 작동 중인 프로세스 입니다. 프로세스를 종료하기 위해선 (또는 “개발용 서버를 중단”하기 위해선), 터미널로 돌아가서 “control” 키를 누른 상태로, “c”를 누르세요. (ctrl-c). 다시 시작하기 위해선 `gatsby develop`를 실행하면 됩니다.
+개발용 서버가 켜져 있는 동안 로컬 환경에서 `http://localhost:8000`를 통해 사이트에 방문할 수 있습니다. 이는 `gatsby develop` 커맨드에 의해 실행되어 작동 중인 프로세스 입니다. 프로세스를 종료하기 위해선 (또는 “개발용 서버를 중단”하기 위해선), 터미널로 돌아가서 “control” 키를 누른 상태로, “c”를 누르세요. (ctrl-c). 다시 시작하기 위해선 `gatsby develop`를 실행하면 됩니다.
 
-**참고:** 만일 `vagrant`와 같은 가상환경을 이용하고 있고 여러분의 로컬 IP 주소에서 접속하고 싶다면, `gatsby develop -- --host=0.0.0.0`를 실행하세요. 이 방법을 통해 개발용 서버는 'localhost'와 여러분의 로컬 IP 주소 양쪽 모두에 전달됩니다.
-=======
-You’ll be able to visit the site locally at `http://localhost:8000/` for as long as your development server is running. That’s the process you started by running the `gatsby develop` command. To stop running that process (or to “stop running the development server”), go back to your terminal window, hold down the “control” key, and then hit “c” (ctrl-c). To start it again, run `gatsby develop` again!
-
-**Note:** If you are using VM setup like `vagrant` and/or would like to listen on your local IP address, run `gatsby develop --host=0.0.0.0`. Now, the development server listens on both `http://localhost` and your local IP.
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+**참고:** 만일 `vagrant`와 같은 가상환경을 이용하고 있고 여러분의 로컬 IP 주소에서 접속하고 싶다면, `gatsby develop --host=0.0.0.0`를 실행하세요. 이 방법을 통해 개발용 서버는 `http://localhost`와 여러분의 로컬 IP 주소 양쪽 모두에 전달됩니다.
 
 ## 코드 에디터 설치하기
 
@@ -239,15 +179,9 @@ Gatsby 문서에는 VS Code에서 찍힌 스크린샷이 간간히 포함되어 
 
 [Prettier VS Code plugin](https://github.com/prettier/prettier-vscode)를 통해 에디터에서 바로 사용할 수 있습니다:
 
-<<<<<<< HEAD
 1. VS Code의 플러그인 창을 열어주세요 (보기 => 확장).
 2. "Prettier - Code formatter"를 검색해주세요.
 3. "Install"을 눌러주세요. (설치 이후 플러그인을 적용하기 위해 VS Code를 재시작해야한다는 확인 알림이 뜰 것입니다. 최신 버전의 VS Code에서는 다운로드 이후 자동으로 플러그인을 적용할 것입니다.)
-=======
-1.  Open the extensions view on VS Code (View => Extensions).
-2.  Search for "Prettier - Code formatter".
-3.  Click "Install". (After installation, you'll be prompted to restart VS Code to enable the extension. Newer versions of VS Code will automatically enable the extension after download.)
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 > 💡 만일 VS Code를 사용하지 않으신다면, Prettier 문서의 [설치 가이드](https://prettier.io/docs/en/install.html) 또는 [다른 에디터에 통합하기](https://prettier.io/docs/en/editors.html)를 참고해주세요.
 
