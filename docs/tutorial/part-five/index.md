@@ -14,13 +14,8 @@ disableTableOfContents: true
 
 GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-<<<<<<< HEAD
 여러분의 사이트의 개발 서버가 정상 작동 중이라면 다음의 주소를 통해 GraphiQL에 접속할 수 있습니다.
 <http://localhost:8000/___graphql>
-=======
-You can access it when your site's development server is running—normally at
-`http://localhost:8000/___graphql`.
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="/graphiql-explore.mp4"></source>
@@ -98,12 +93,7 @@ Explorer에서 `id`가 자동으로 선택되었습니다. 필드의 해당 체�
 
 ![filesystem-autocomplete](filesystem-autocomplete.png)
 
-<<<<<<< HEAD
 쿼리를 재실행 할 때마다 <kbd>Ctrl + Enter</kbd>를 눌러, 여러분의 쿼리에 여러 필드를 추가해 보세요. 여러분은 업데이트된 쿼리 결과들을 볼 수 있을 겁니다:
-=======
-Try adding a number of fields to your query, press <kbd>Ctrl + Enter</kbd>
-each time to re-run the query. You'll see the updated query results:
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ![allfile-query](allfile-query.png)
 
@@ -211,11 +201,7 @@ export const query = graphql`
 `
 ```
 
-<<<<<<< HEAD
-그리고 이제 [http://localhost:8000/my-files](http://localhost:8000/my-files)에 들어가보세요… 😲
-=======
-And now visit `http://localhost:8000/my-files`… 😲
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
+그리고 이제 `http://localhost:8000/my-files`에 들어가보세요… 😲
 
 ![my-files-page](my-files-page.png)
 
