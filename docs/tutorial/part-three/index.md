@@ -51,7 +51,7 @@ npm install --save gatsby-plugin-typography react-typography typography typograp
 ```
 
 > Note: Typography.js는 몇가지 추가적인 패키지가 필요하며, 이는 설명서에 포함되어 있습니다. 이러한 필수적인 것들은 각 플러그인의 "install" 지시에 나열 되어있습니다.
- 
+
 2. 프로젝트 루트에 위치한 `gatsby-config.js`파일을 다음과 같이 변경하세요:
 
 ```javascript:title=gatsby-config.js
@@ -230,7 +230,7 @@ export default ({ children }) => (
 )
 ```
 
-만약 세 페이지 중의 하나라도(예를들어 `/about` 페이지) 가보면, 같은 타이틀이 추가되어있는 것을 볼 수 있습니다. 
+만약 세 페이지 중의 하나라도(예를들어 `/about` 페이지) 가보면, 같은 타이틀이 추가되어있는 것을 볼 수 있습니다.
 
 ![with-title](with-title.png)
 
@@ -273,11 +273,7 @@ export default ({ children }) => (
 
 짜잔! 기본 전역 네비게이션이 있는 세 페이지로 된 사이트가 만들어졌습니다.
 
-<<<<<<< HEAD
 _Challenge:_ 새로 익힌 "레이아웃 컴포넌트"를 사용해서, 헤더, 풋터, 전역 네비게이션, 사이드바 등을 여러분의 Gatsby 사이트에 추가해보세요!
-=======
-_Challenge:_ With your new "layout component" powers, try adding headers, footers, global navigation, sidebars, etc. to your Gatsby sites!
->>>>>>> 90932a06db2e297cf416552b84e48b4b82e56fbc
 
 ## 다음에 할 것은?
 
