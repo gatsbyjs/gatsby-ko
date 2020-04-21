@@ -20,6 +20,8 @@ title: 빠른 시작
 npm install -g gatsby-cli
 ```
 
+> 위의 명령어는 여러분의 컴퓨터 전역에 Gatsby CLI를 설치합니다.
+
 ### 새로운 프로젝트 생성
 
 ```shell

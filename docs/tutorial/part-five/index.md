@@ -201,7 +201,7 @@ export const query = graphql`
 `
 ```
 
-그리고 이제 [http://localhost:8000/my-files](http://localhost:8000/my-files)에 들어가보세요… 😲
+그리고 이제 `http://localhost:8000/my-files`에 들어가보세요… 😲
 
 ![my-files-page](my-files-page.png)
 

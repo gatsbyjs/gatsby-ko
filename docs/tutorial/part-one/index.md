@@ -4,7 +4,7 @@ typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-[**지난 섹션**](/tutorial/part-zero/)에서, 필수 소프트웨어를 설치하고 [**“hello world” 스타터**](https://github.com/gatsbyjs/gatsby-starter-hello-world)를 사용하여 처음으로 Gatsby 사이트를 만들어보면서 여러분은 local 개발 환경을 준비해보았습니다. 이제 그 스타터에 의해 만들어진 코드를 더 자세히 살펴봅시다. 
+[**지난 섹션**](/tutorial/part-zero/)에서, 필수 소프트웨어를 설치하고 [**“hello world” 스타터**](https://github.com/gatsbyjs/gatsby-starter-hello-world)를 사용하여 처음으로 Gatsby 사이트를 만들어보면서 여러분은 local 개발 환경을 준비해보았습니다. 이제 그 스타터에 의해 만들어진 코드를 더 자세히 살펴봅시다.
 
 ## Gatsby 스타터를 이용하기
 
@@ -20,7 +20,7 @@ gatsby new hello-world https://github.com/gatsbyjs/gatsby-starter-hello-world
 gatsby new [사이트_디렉토리_이름] [스타터_깃허브_리포_URL]
 ```
 
-만약 마지막의 URL을 적지않는다면, Gatsby는 자동으로 [**default 스타터**](https://github.com/gatsbyjs/gatsby-starter-default)를 이용하여 만듭니다. 이전 튜토리얼 파트 0에서 만든 “Hello World” 사이트를 이번 튜토리얼에서도 사용하겠습니다.
+만약 마지막의 URL을 적지않는다면, Gatsby는 자동으로 [**default 스타터**](https://github.com/gatsbyjs/gatsby-starter-default)를 이용하여 만듭니다. 이전 튜토리얼 파트 0에서 만든 “Hello World” 사이트를 이번 튜토리얼에서도 사용하겠습니다. [스타터를 수정하는 방법](/docs/modifying-a-starter)에 대해서는 해당 문서를 통해 더 배우실 수 있습니다.
 
 ### ✋ 코드 열어보기
 
@@ -131,7 +131,7 @@ Gatsby는 React를 기반으로 합니다. 우리가 **컴포넌트**의 사용�
 간단해 보이는 변화지만, 이는 사이트를 만드는 것에 대해 여러분이 어떻게 생각하는지에 대한 깊은 의미를 가지고 있습니다.
 
 커스텀 버튼을 만드는 예제를 봅시다. 이전에, 여러분은 CSS 클래스(아마 `.primary-button`)와 커스텀 스타일을 만들었고 이 스타일을 적용하고 싶을 때 사용했습니다. 예를 들어:
- 
+
 ```html
 <button class="primary-button">Click me</button>
 ```
@@ -367,10 +367,11 @@ ls public
 surge public/
 ```
 
+> 커맨드라인 인터페이스에서 `domain: some-name.surge.sh`라는 정보를 보신 후에 `enter` 키를 눌러주세요.
+
 작동 중인 것이 멈추면, 터미널에서 다음과 같은 것들을 보게될 것입니다:
 
 ![Surge에 Gatsby사이트 배포하기 스크린샷](surge-deployment.png)
-
 
 아래 줄에 위치한(위 경우 `lowly-pain.surge.sh`) 웹 주소를 열어보면 새로 배포한 사이트를 볼 수 있을 것입니다! 수고하셨습니다!
 
