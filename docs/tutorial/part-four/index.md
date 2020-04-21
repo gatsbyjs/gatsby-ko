@@ -1,106 +1,86 @@
 ---
-title: Data in Gatsby
+title: Gatsby에서 데이터 다루기
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-Welcome to Part Four of the tutorial! Halfway through! Hope things are starting
-to feel pretty comfortable 😀
+파트 4에 오신 것을 환영합니다. 튜토리얼의 절반이나 지나왔네요! 이제 점점 익숙해져가고 있기를 바랍니다 😀
 
-## Recap of the first half of the tutorial
+## 튜토리얼 전반부 요점 정리
 
-So far, you've been learning how to use React.js—how powerful it is to be able to
-create your _own_ components to act as custom building blocks for websites.
+지금까지 여러분은 React.js를 사용하는 방법을 배웠습니다. 웹사이트의 커스텀 빌딩 블럭 역할을 하는 컴포넌트가 얼마나 강력한지 알 수 있었습니다.
 
-You’ve also explored styling components using CSS Modules.
+CSS 모듈을 사용하여 컴포넌트를 스타일링하는 것도 해봤습니다.
 
-## What's in this tutorial?
+## 이번 튜토리얼에서 다룰 것
 
-In the next four parts of the tutorial (including this one), you'll be diving into the Gatsby data layer, which is a powerful feature of Gatsby that lets you easily build sites from Markdown, WordPress, headless CMSs, and other data sources of all flavors.
+이번 튜토리얼을 포함한 네개의 튜토리얼 파트에서, 마크다운, 워드프레스, headless CMS, 그 외의 다양한 데이터 소스로부터 여러분의 사이트를 손쉽게 만들수 있게 해주는 Gatsby의 강력한 특성인 Gatsby 데이터 레이어에 대해서 알아볼 것입니다.
 
-**NOTE:** Gatsby’s data layer is powered by GraphQL. For an in-depth tutorial on
-GraphQL, we recommend [How to GraphQL](https://www.howtographql.com/).
+**NOTE:** Gatsby 데이터 레이어는 GraphQL에 의해 작동합니다. GraphQL에 더 자세한 내용을 알고 싶다면, [GraphQL의 사용법](https://www.howtographql.com/)을 보는 것을 권장합니다.
 
-## Data in Gatsby
+## Gatsby에서의 데이터
 
-A website has four parts: HTML, CSS, JS, and data. The first half of the
-tutorial focused on the first three. Now let’s learn how to use data in Gatsby
-sites.
+웹사이트는 4 파트로 구성됩니다: HTML, CSS, JS, 데이터. 튜토리얼 전반부에서는 앞의 3개에 집중했었습니다. 이제 Gatsby 사이트에서 데이터를 어떻게 사용하는지 배워봅시다.
 
-**What is data?**
+**데이터란?**
 
-A very computer science-y answer would be: data is things like `"strings"`,
-integers (`42`), objects (`{ pizza: true }`), etc.
+컴퓨터 사이언스 측면에서 데이터란 `"문자열"`, 정수 (`42`), 객체 (`{ pizza: true }`) 같은 것들입니다.
 
-For the purpose of working in Gatsby, however, a more useful answer is
-"everything that lives outside a React component".
+하지만 Gatsby를 사용하기위한 측면에서 바라본 더욱 유용한 답변은 "React 컴포넌트 밖에 있는 모든 것" 입니다.
 
-So far, you've been writing text and adding images _directly_ in components.
-Which is an _excellent_ way to build many websites. But, often you want to store
-data _outside_ components and then bring the data _into_ the component as
-needed.
+지금까지 여러분은 _직접_ 컴포넌트 안에 글을 적고 이미지를 추가하였습니다.
+사이트를 만드는 _훌륭한_ 방법입니다. 하지만 데이터를 컴포넌트 _밖_에 저장한 후 컴포넌트 _안_에 불러와야하는 경우가 자주 있습니다.
 
-If you're building a site with WordPress (so other contributors
-have a nice interface for adding & maintaining content) and Gatsby, the _data_
-for the site (pages and posts) are in WordPress and you _pull_ that data, as
-needed, into your components.
+만약 여러분이 사이트를 워드프레스(컨텐츠를 추가 및 유지보수하기 좋은 좋은 인터페이스를 기여자들이 사용할 수 있겠습니다.) 와 Gatsby를 사용해서 만든다면, 워드프레스에 사이트의 _데이터_  가 있고 이 데이터를 여러분의 컴포넌트안에 _가져올 것_ 입니다.
 
-Data can also live in file types like Markdown, CSV, etc. as well as databases
-and APIs of all sorts.
+데이터는 Markdown, CSV와 같은 파일 형식과 모든 종류의 데이터베이스와 API에 존재할 수 있습니다.
 
-**Gatsby's data layer lets you pull data from these (and any other source)
-directly into your components**—in the shape and form you want.
+**Gatsby의 데이터 레이어는 여러분이 데이터를 직접적으로 컴포넌트에 여러분이 원하는 형태로 가져올 수 있게 해줍니다.**
 
-## Using Unstructured Data vs GraphQL
+## 구조화 되지 않은 데이터 사용하기 vs GraphQL 사용하기
 
-### Do I have to use GraphQL and source plugins to pull data into Gatsby sites?
+### Gatsby 사이트는 데이터를 가져오기 위해서 GraphQL과 source 플러그인을 꼭 사용해야하나요?
 
-Absolutely not! You can use the node `createPages` API to pull unstructured data into Gatsby pages directly, rather than through the GraphQL data layer. This is a great choice for small sites, while GraphQL and source plugins can help save time with more complex sites.
+절대로 그렇지 않습니다! GraphQL 데이터 레이어를 통하지 않고, `createPages` API를 사용하여 구조화되지 않은 데이터를 Gatsby 페이지에 직접 통합할 수 있습니다. 소규모의 사이트에는 좋은 선택이며, 더 복잡한 사이트를 만드는데 GraphQL과 소스 플러그인을 사용하면 시간을 절약할 수 있습니다.
 
-See the [Using Gatsby without GraphQL](/docs/using-gatsby-without-graphql/) guide to learn how to pull data into your Gatsby site using the node `createPages` API and to see an example site!
 
-### When do I use unstructured data vs GraphQL?
+[GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/) 가이드에서 `createPages` API를 사용해서 어떻게 Gatsby 사이트에 데이터를 통합하는지도 배울수 있고, 예제 사이트도 볼수 있습니다!
 
-If you're building a small site, one efficient way to build it is to pull in unstructured data as outlined in this guide, using `createPages` API, and then if the site becomes more complex later on, you move on to building more complex sites, or you'd like to transform your data, follow these steps:
+### 구조화 되지 않은 데이터를 사용할 때와 GraphQL을 사용할 때
 
-1.  Check out the [Plugin Library](/plugins/) to see if the source plugins and/or transformer plugins you'd like to use already exist
-2.  If they don't exist, read the [Plugin Authoring](/docs/creating-plugins/) guide and consider building your own!
+만약 소규모 사이트를 만든다면, 이번 가이드에서 설명했듯이 `createPages` API를 사용하여 구조화되지 않은 데이터를 가져오는 것이 효과적인 방법입니다. 그런 다음 나중에 사이트가 더 복잡해지면 더 복잡한 사이트를 만들거나 다음의 단계를 따라 여러분의 데이터를 변환하세요:
 
-### How Gatsby's data layer uses GraphQL to pull data into components
+1.  [플러그인 라이브러리](/plugins/)에서 소스 플러그인 및 변환 플러그인이 있는지 확인하세요.
+2.  만약 존재하지 않다면,  [플러그인 작성](/docs/creating-plugins/) 가이드를 읽고 여러분의 플러그인을 만드는 것을 고려해보세요!
 
-There are many options for loading data into React components. One of the most
-popular and powerful of these is a technology called
-[GraphQL](http://graphql.org/).
+### 어떻게 Gatsby 데이터 레이어가 GraphQL을 사용해서 컴포넌트에 데이터를 가져오는가
 
-GraphQL was invented at Facebook to help product engineers _pull_ needed data into
-components.
+React 컴포넌트에 데이터를 불러오는 방법은 여러가지가 있습니다. 그 중에 가장 인기있고 강력한 것은 [GraphQL](http://graphql.org/)입니다.
 
-GraphQL is a **q**uery **l**anguage (the _QL_ part of its name). If you're
-familiar with SQL, it works in a very similar way. Using a special syntax, you describe
-the data you want in your component and then that data is given
-to you.
+GraphQL은 Facebook에서 제품 엔지니어들이 필요한 데이터를 컴포넌트에 불러오는데에 도움을 주기위해서 개발되었습니다.
 
-Gatsby uses GraphQL to enable components to declare the data they need.
+GraphQL은 **쿼**리 **언**어(이름의 _QL_부분) 입니다. SQL에 익숙하다면, 매우 유사한 방식으로 작동함을 알 수 있습니다. 특별한 문법을 사용하여 여러분의 컴포넌트에 필요한 데이터를 기술하면 그대로 데이터가 제공됩니다.
 
-## Create a new example site
+Gatsby는 GraphQL을 사용하여 컴포넌트가 필요한 데이터를 선언할 수 있게 합니다.
 
-Create another new site for this part of the tutorial. You're going to build a Markdown blog called "Pandas Eating Lots". It's dedicated to showing off the best pictures and videos of pandas eating lots of food. Along the way, you'll be dipping your toes into GraphQL and Gatsby's Markdown support.
+## 새 예제 사이트 만들기
 
-Open a new terminal window and run the following commands to create a new Gatsby site in a directory called `tutorial-part-four`. Then navigate to the new directory:
+이번 튜토리얼을 위해서 새로운 사이트를 만드세요. "Pandas Eating Lots"라는 마크다운을 사용하는 블로그를 만들 것입니다. 팬더가 많이 먹는 모습이 담긴 사진과 비디오를 보여주기 위해 만들어진 사이트입니다. 만들면서 GraphQL과 Gatsby의 마크타운 지원에 살짝 발을 담궈볼 것입니다.
+
+새로운 터미널 윈도우를 열고 다음 명령어를 입력해서 Gatsby 사이트를 `tutorial-part-four` 폴더에 생성한 후에 이동합시다:
 
 ```shell
 gatsby new tutorial-part-four https://github.com/gatsbyjs/gatsby-starter-hello-world
 cd tutorial-part-four
 ```
 
-Then install some other needed dependencies at the root of the project. You'll use the Typography theme
-"Kirkham", and you'll try out a CSS-in-JS library, ["Emotion"](https://emotion.sh/):
+프로젝트 루트에 필요한 라이브러리를 설치합시다. Typhography 테마인 "Kirkham"와 CSS-in-JS 라이브러리인 ["Emotion"](https://emotion.sh/)을 사용할 것입니다:
 
 ```shell
 npm install --save gatsby-plugin-typography typography react-typography typography-theme-kirkham gatsby-plugin-emotion @emotion/core
 ```
 
-Set up a site similar to what you ended with in [Part Three](/tutorial/part-three). This site will have a layout component and two page components:
+[파트 3](/tutorial/part-three)에서 했던 것과 비슷한 사이트 설정을 합니다. 이 사이트는 1개의 레이아웃 컴포넌트와 2개의 페이지 컴포넌트를 가질 예정입니다:
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -184,7 +164,7 @@ export default typography
 export const rhythm = typography.rhythm
 ```
 
-`gatsby-config.js` (must be in the root of your project, not under src)
+`gatsby-config.js` (src 디렉토리가 아니라 꼭 프로젝트 루트 디렉토리여야 합니다.)
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -200,21 +180,21 @@ module.exports = {
 }
 ```
 
-Add the above files and then run `gatsby develop`, per usual, and you should see the following:
+위의 파일을 추가하고, `gatsby develop`를 실행하면 다음과 같은 것을 볼 수 있습니다:
 
 ![start](start.png)
 
-You have another small site with a layout and two pages.
+이제 여러분은 1개의 레이아웃과 2개의 페이지를 가진 소규모 사이트를 만들었습니다.
 
-Now you can start querying 😋
+이제 쿼리를 시작해봅시다 😋
 
-## Your first GraphQL query
+## GraphQL 쿼리 첫걸음
 
-When building sites, you'll probably want to reuse common bits of data -- like the _site title_ for example. Look at the `/about/` page. You'll notice that you have the site title (`Pandas Eating Lots`) in both the layout component (the site header) as well as in the `<h1 />` of the `about.js` page (the page header).
+여러분이 사이트를 만들 때, _사이트 제목_ 같은 일반적인 데이터를 재사용할 수 있습니다. `/about/` 페이지를 봅시다. `about.js` 페이지의 페이지 헤더에서 `<h1 />`과 레이아웃 컴포넌트에서 사이트 제목 `Pandas Eating Lots`가 사용되는 것을 알 수 있습니다.
 
-But what if you want to change the site title in the future? You'd have to search for the title across all your components and edit each instance. This is both cumbersome and error-prone, especially for larger, more complex sites. Instead, you can store the title in one location and reference that location from other files; change the title in a single place, and Gatsby will _pull_ your updated title into files that reference it.
+만약 사이트 제목을 바꾸는 일이 생긴다면 어떻게 해야할까요? 컴포넌트를 일일이 찾아서 하나하나 바꿔줘야할 것입니다. 번거롭고 에러를 유발할 수있으며 대규모 사이트거나 구성이 복잡한 사이트라면 특히나 더 문제가 될 것입니다. 그러지말고, 제목을 한 곳에 두고 다른 파일에서 이를 참조하면, 하나만 바꾸면 Gatsby가 업데이트된 제목을 참조한 파일로 _가져옵니다._
 
-The place for these common bits of data is the `siteMetadata` object in the `gatsby-config.js` file. Add your site title to the `gatsby-config.js` file:
+공용 데이터를 위한 장소는 `gatsby-config.js`파일의 `siteMetadata` 객체입니다. `gatsby-config.js`에 여러분의 사이트 제목을 추가하세요:
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -235,11 +215,11 @@ module.exports = {
 }
 ```
 
-Restart the development server.
+개발 서버를 재시작하세요.
 
-### Use a page query
+### 페이지 쿼리 다루기
 
-Now the site title is available to be queried; Add it to the `about.js` file using a [page query](/docs/page-query):
+이제 사이트 제목이 쿼리로 사용 가능합니다; [페이지 쿼리](/docs/page-query)를 사용해서 `about.js` 파일에 제목을 추가하세요:
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -270,11 +250,11 @@ export const query = graphql`
 // highlight-end
 ```
 
-It worked! 🎉
+잘 작동하네요! 🎉
 
-![Page title pulling from siteMetadata](site-metadata-title.png)
+![siteMetadata에서 페이지 제목 가져오기](site-metadata-title.png)
 
-The basic GraphQL query that retrieves the `title` in your `about.js` changes above is:
+`about.js`에 `title`을 불러오는 GraphQL은 다음과 같습니다:
 
 ```graphql:title=src/pages/about.js
 {
@@ -286,16 +266,16 @@ The basic GraphQL query that retrieves the `title` in your `about.js` changes ab
 }
 ```
 
-> 💡 In [part five](/tutorial/part-five/#introducing-graphiql), you'll meet a tool that lets us interactively explore the data available through GraphQL, and help formulate queries like the one above.
+> 💡 [파트 5](/tutorial/part-five/#introducing-graphiql)에서 여러분은 GraphQL을 통해서 가져올 수 있는 데이터를 대화형으로 탐색하고 위와 같은 쿼리를 작성할 수 있는 툴을 만날 것입니다.
 
-Page queries live outside of the component definition -- by convention at the end of a page component file -- and are only available on page components.
+페이지 쿼리는 컴포넌트 정의 밖에서만 존재할 수 있으며 -- 보통 페이지 컴포넌트의 끝에 두는게 관례 -- 페이지 컴포넌트에서만 가능합니다.
 
-### Use a StaticQuery
+### StaticQuery 다루기
 
-[StaticQuery](/docs/static-query/) is a new API introduced in Gatsby v2 that allows non-page components (like your `layout.js` component), to retrieve data via GraphQL queries.
-Let's use its newly introduced hook version — [`useStaticQuery`](/docs/use-static-query/).
+[StaticQuery](/docs/static-query/)는 Gatsby v2에서 소개된 새로운 API로서 페이지가 아닌 컴포넌트에서 (예를들어 `layout.js` 컴포넌트) GraphQL 쿼리를 통해 데이터를 검색하게 해줍니다.
+새롭게 소개된 훅 버전을 사용해봅시다. — [`useStaticQuery`](/docs/use-static-query/).
 
-Go ahead and make some changes to your `src/components/layout.js` file to use the `useStaticQuery` hook and a `{data.site.siteMetadata.title}` reference that uses this data. When you are done, your file will look like this:
+`src/components/layout.js` 파일을 수정해서 `useStaticQuery` 훅과 이 데이터를 사용하는 `{data.site.siteMetadata.title}` 참조를 사용합시다. 작업을 마치면 파일은 다음과 같을 것입니다:
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -354,26 +334,20 @@ export default ({ children }) => {
 // highlight-end
 ```
 
-Another success! 🎉
+또 해냈네요! 🎉
 
-![Page title and layout title both pulling from siteMetadata](site-metadata-two-titles.png)
+![siteMetadata로부터 페이지 제목과 레이아웃 제목을 가져오기](site-metadata-two-titles.png)
 
-Why use two different queries here? These examples were quick introductions to
-the query types, how they are formatted, and where they can be used. For now,
-keep in mind that only pages can make page queries. Non-page components, such as
-Layout, can use StaticQuery. [Part 7](/tutorial/part-seven/) of the tutorial explains these in greater
-depth.
+왜 두개의 다른 쿼리를 사용했을까요? 이 예제를 통해 쿼리 유형과 포멧 방법 그리고 어디서 사용되는지에 대한 간단히 소개했습니다. 우선은 페이지만 페이지 쿼리를 만들수 있다고 기억하세요. 레이아웃과 같은 페이지가 아닌 컴포넌트는 StaticQuery를 사용할 수 있고요. [파트 7](/tutorial/part-seven/)에서 더 자세히 설명할 것입니다.
 
-But let's restore the real title.
+이제 진짜 제목을 복원해봅시다.
 
-One of the core principles of Gatsby is that _creators need an immediate connection to what they're creating_ ([hat tip to Bret Victor](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)). In other words, when you make any change to code you should immediately see the effect of that change. You manipulate an input of Gatsby and you see the new output showing up on the screen.
+Gatsby의 핵심 원칙 중의 하나는 _만드는 사람은 만드는 것에 즉각적으로 연결되어야 한다는 것입니다_ ([Bret Victor의 글](http://blog.ezyang.com/2012/02/transcript-of-inventing-on-principle/)). 즉, 여러분의 코드가 바뀌면 여러분은 바로 바뀐 것이 어떤 영향을 주었는지 볼수 있어야 한다는 이야기입니다. Gatsby에 입력하는 것들을 조작하면, 화면에 새로운 출력이 나타납니다.
 
-So almost everywhere, changes you make will immediately take effect. Edit the `gatsby-config.js` file again, this time changing the `title` back to "Pandas Eating Lots". The change should show up very quickly in your site pages.
+거의 대부분의 장소에서, 변경 사항은 즉시 적용됩니다. `gatsby-config.js`파일 안의 `title`을 "Panda Eating Lots"로 되돌리세요. 사이트에서 바로 바뀐 것을 볼 수 있을것입니다.
 
-![Both titles say Pandas Eating Lots](pandas-eating-lots-titles.png)
+![두 제목 모두 Pandas Eating Lots라고 표시](pandas-eating-lots-titles.png)
 
-## What's coming next?
+## 다음에 할 것은?
 
-Next, you'll be learning about how to pull data into your Gatsby site using
-GraphQL with source plugins in [part five](/tutorial/part-five/) of the
-tutorial.
+[파트 5](/tutorial/part-five/)에서는 GraphQL과 소스 플러그인을 사용해서 여러분의 Gatsby 사이트에 데이터를 불러오는 방법에 대해서 배웁니다.
