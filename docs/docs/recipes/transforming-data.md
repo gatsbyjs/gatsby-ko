@@ -3,22 +3,22 @@ title: "Recipes: Transforming Data"
 tableOfContentsDepth: 1
 ---
 
-Transforming data in Gatsby is plugin-driven. Transformer plugins take data fetched using source plugins, and process it into something more usable (e.g. JSON into JavaScript objects, and more).
+Gatsby에서 데이터 변환은 플러그인 중심입니다. Transformer 플러그인은 소스 플러그인을 사용하여 가져온 데이터를 더 유용한 것으로 가공합니다 (예: JSON을 JavaScript 객체 등으로).
 
-## Transforming Markdown into HTML
+## 마크다운을 HTML로 변환
 
-The `gatsby-transformer-remark` plugin can transform Markdown files to HTML.
+`gatsby-transformer-remark` 플러그인은 마크다운 파일을 HTML로 변환 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A Gatsby site with `gatsby-config.js` and an `index.js` page
-- A Markdown file saved in your Gatsby site `src` directory
-- A source plugin installed, such as `gatsby-source-filesystem`
-- The `gatsby-transformer-remark` plugin installed
+- `gatsby-config.js` 및 `index.js` 페이지가 있는 Gatsby 사이트
+- Gatsby 사이트 `src` 디렉토리에 저장된 마크다운 파일
+- `gatsby-source-filesystem`과 같은 소스 플러그인 설치
+- `gatsby-transformer-remark` 플러그인 설치
 
-### Directions
+### 수행 절차
 
-1. Add the transformer plugin in your `gatsby-config.js`:
+1. `gatsby-config.js`에 transformer 플러그인을 추가하세요:
 
 ```js:title=gatsby-config.js
 plugins: [
@@ -27,7 +27,7 @@ plugins: [
 ],
 ```
 
-2. Add a GraphQL query to the `index.js` file of your Gatsby site to fetch `MarkdownRemark` nodes:
+2. `MarkdownRemark` 노드를 가져오기 위해 Gatsby 사이트의 `index.js` 파일에 GraphQL 쿼리를 추가하세요:
 
 ```jsx:title=src/pages/index.js
 export const query = graphql`
@@ -49,25 +49,25 @@ export const query = graphql`
 `
 ```
 
-3. Restart the development server and open GraphiQL at `http://localhost:8000/___graphql`. Explore the fields available on the `MarkdownRemark` node.
+3. 개발 서버를 재시작하고 `http://localhost:8000/___graphql`에서 GraphiQL을 엽니다. `MarkdownRemark` 노드에서 사용 가능한 필드를 탐색하세요.
 
-### Additional resources
+### 추가 정보
 
-- [Tutorial on transforming Markdown to HTML](/tutorial/part-six/#transformer-plugins) using `gatsby-transformer-remark`
-- Browse available transformer plugins in the [Gatsby plugin library](/plugins/?=transformer)
+- `gatsby-transformer-remark`를 사용한 [마크다운을 HTML로 변환하는 방법에 대한 튜토리얼](/tutorial/part-six/#transformer-plugins)
+- [Gatsby 플러그인 라이브러리](/plugins/?=transformer)에서 사용 가능한 transformer 플러그인 탐색하세요
 
-## Transforming images into grayscale using GraphQL
+## GraphQL을 사용하여 이미지를 그레이 스케일로 변환하기
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start) with a `gatsby-config.js` file and an `index.js` page
-- The `gatsby-image`, `gatsby-transformer-sharp`, and `gatsby-plugin-sharp` packages installed
-- A source plugin installed, such as `gatsby-source-filesystem`
-- An image (`.jpg`, `.png`, `.gif`, `.svg`, etc.) in the `src/images` folder
+- `gatsby-config.js` 및 `index.js` 페이지가 있는 [Gatsby 사이트](/docs/quick-start)
+- `gatsby-image`, `gatsby-transformer-sharp` 및 `gatsby-plugin-sharp` 패키지 설치
+- `gatsby-source-filesystem`와 같은 소스 플러그인 설치
+- `src/images` 폴더 안의 이미지(`.jpg`, `.png`, `.gif`, `.svg`, etc.)
 
-### Directions
+### 수행 절차
 
-1. Edit your `gatsby-config.js` file to source images and configure plugins for Gatsby's GraphQL data layer. A common approach is to source them from an images directory using the `gatsby-source-filesystem` plugin:
+1. `gatsby-config.js` 파일을 수정하여 이미지를 소싱하고 Gatsby의 GraphQL 데이터 레이어에 대한 플러그인을 구성하세요. 일반적인 접근법은 `gatsby-source-filesystem` 플러그인을 사용하여 이미지 디렉토리에서 직접 소스를 얻는 것입니다:
 
 ```javascript:title=gatsby-config.js
 
@@ -84,7 +84,7 @@ export const query = graphql`
  ],
 ```
 
-2.  Query your image using GraphQL and apply a grayscale transformation to the image inline. The `relativePath` should be relative to the path you configured in `gatsby-source-filesystem`.
+2. GraphQL을 사용하여 이미지를 쿼리하고 인라인으로 그레이 스케일 변환을 적용하세요. `relativePath`는`gatsby-source-filesystem`에서 설정한 경로의 상대 경로여야만 합니다.
 
 ```graphql
   query {
@@ -99,9 +99,9 @@ export const query = graphql`
    }
 ```
 
-Note: You can find these and other parameters in your GraphQL playground located at `http://localhost:8000/__graphql`
+참고: GraphQL playground인 `http://localhost:8000/___graphql`에서 이러한 매개 변수를 포함한 다른 매개 변수들을 찾을 수 있습니다.
 
-3. Next import the `Img` component from "gatsby-image". You'll use this inside your JSX to display the image.
+3. 다음으로 "gatsby-image"로부터 `Img` 컴포넌트를 가져옵니다. JSX 내부에서 이를 사용하여 이미지를 표시합니다.
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -137,12 +137,12 @@ export default () => {
 }
 ```
 
-4. Run `gatsby develop` to start the development server.
+4. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
 
-5. View your image in the browser: `http://localhost:8000/`
+5. 브라우저에서 이미지를 확인하세요: `http://localhost:8000/`
 
-### Additional resources
+### 추가 정보
 
-- [API docs, including grayscale and duotone query tips](/docs/gatsby-image/#shared-query-parameters)
-- [Gatsby Image docs](/docs/gatsby-image/)
-- [Image processing examples](https://github.com/gatsbyjs/gatsby/tree/master/examples/image-processing)
+- [grayscale 과 duotone 쿼리 팁이 포함된 API 문서](/docs/gatsby-image/#shared-query-parameters)
+- [Gatsby 이미지 문서](/docs/gatsby-image/)
+- [이미지 프로세싱 예제](https://github.com/gatsbyjs/gatsby/tree/master/examples/image-processing)

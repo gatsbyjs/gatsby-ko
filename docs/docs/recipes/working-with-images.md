@@ -3,25 +3,25 @@ title: "Recipes: Working with Images"
 tableOfContentsDepth: 1
 ---
 
-Access images as static resources, or automate the process of optimizing them through powerful plugins.
+정적 리소스로써 이미지를 액세스하거나 강력한 플러그인을 통해 이미지 최적화 프로세스를 자동화 하세요.
 
-## Import an image into a component with webpack
+## 웹팩을 사용하여 컴포넌트에서 이미지 임포트하기
 
-Images can be imported right into a JavaScript module with webpack. This process automatically minifies and copies the image to your site's `public` folder, providing a dynamic image URL for you to pass to an HTML `<img>` element like a regular file path.
+웹팩을 사용하여 이미지를 JavaScript 모듈로 바로 임포트 할 수 있습니다. 이 프로세스는 이미지를 자동으로 축소하고 사이트의 `public` 폴더에 복사하여 일반 파일 경로와 같은 HTML `<img>` 요소에 전달할 수 있는 동적 이미지 URL을 제공합니다.
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-import-a-local-image-into-a-gatsby-component-with-webpack"
   lessonTitle="Import a Local Image into a Gatsby Component with webpack"
 />
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby Site](/docs/quick-start) with a `.js` file exporting a React component
-- an image (`.jpg`, `.png`, `.gif`, `.svg`, etc.) in the `src` folder
+- React 컴포넌트를 내보내기(export) 하는 `.js` 파일을 가진 [Gatsby 사이트](/docs/quick-start)
+- `src` 폴더안의 이미지 파일 (`.jpg`, `.png`, `.gif`, `.svg` 등)
 
-### Directions
+### 수행 절차
 
-1. Import your file from its path in the `src` folder:
+1. `src` 폴더의 경로에서 파일을 가져옵니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -29,7 +29,7 @@ import React from "react"
 import FiestaImg from "../assets/fiesta.jpg" // highlight-line
 ```
 
-2. In `index.js`, add an `<img>` tag with the `src` as the name of the import you used from webpack (in this case `FiestaImg`), and add an `alt` attribute [describing the image](https://webaim.org/techniques/alttext/):
+2. `index.js` 안에서, `src` 속성이 있는 `<img>` 태그를 webpack으로부터 가져온 변수로 (예제에선 `FiestaImg`) 추가하고 `alt` 속성을 추가합니다. [이미지 태그 설명 참고](https://webaim.org/techniques/alttext/):
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -41,33 +41,33 @@ export default () => (
 )
 ```
 
-3. Run `gatsby develop` to start the development server.
-4. View your image in the browser: `http://localhost:8000/`
+3. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+4. 브라우저에서 이미지를 확인하세요: `http://localhost:8000/`
 
-### Additional resources
+### 추가 정보
 
-- [Example repo importing an image with webpack](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-webpack-image)
-- [More on all image techniques in Gatsby](/docs/images-and-files/)
+- [webpack으로 이미지를 가져오는 예제 코드 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-webpack-image)
+- [Gatsby의 모든 이미지 사용 기법에 대한 추가 정보](/docs/images-and-files/)
 
-## Reference an image from the `static` folder
+## `static` 폴더의 이미지 참조하기
 
-As an alternative to importing assets with webpack, the `static` folder allows access to content that gets automatically copied into the `public` folder when built.
+webpack을 통해 자원을 임포트하는 대신 빌드 할 때 자동으로 `public` 폴더에 복사되는 `static` 폴더의 컨텐츠를 사용 할 수 있습니다.
 
-This is an **escape route** for [specific use cases](/docs/static-folder/#when-to-use-the-static-folder), and other methods like [importing with webpack](#import-an-image-into-a-component-with-webpack) are recommended to leverage optimizations made by Gatsby.
+이는 [특정 사용 사례](/docs/static-folder/#when-to-use-the-static-folder)에 대한 **예외적인 방법**이며 Gatsby의 최적화를 활용하려면 [웹팩을 사용하여 컴포넌트에서 이미지 임포트하기](#import-an-image-into-a-component-with-webpack)와 같은 다른 방법을 사용하는 것이 좋습니다.
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-use-a-local-image-from-the-static-folder-in-a-gatsby-component"
   lessonTitle="Use a local image from the static folder in a Gatsby component"
 />
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby Site](/docs/quick-start) with a `.js` file exporting a React component
-- An image (`.jpg`, `.png`, `.gif`, `.svg`, etc.) in the `static` folder
+- React 컴포넌트를 내보내기(export) 하는 `.js` 파일을 가진 [Gatsby 사이트](/docs/quick-start)
+- `static` 폴더안의 이미지 파일 (`.jpg`, `.png`, `.gif`, `.svg` 등)
 
-### Directions
+### 수행 절차
 
-1. Ensure that the image is in your `static` folder at the root of the project. Your project structure might look something like this:
+1. 이미지가 프로젝트 루트 밑 `static` 폴더에 있는지 확인하세요. 프로젝트 구조는 다음과 같습니다:
 
 ```text
 ├── gatsby-config.js
@@ -78,7 +78,7 @@ This is an **escape route** for [specific use cases](/docs/static-folder/#when-t
 │       └── fiesta.jpg
 ```
 
-2. In `index.js`, add an `<img>` tag with the `src` as the relative path of the file from the `static` folder, and add an `alt` attribute [describing the image](https://webaim.org/techniques/alttext/):
+2. `index.js` 안에서, `src` 속성이 있는 `<img>` 태그를 `static` 폴더로 부터의 상태경로로 명시하고, `alt` 속성을 추가합니다. [이미지 태그 설명 참고](https://webaim.org/techniques/alttext/):
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -88,40 +88,40 @@ export default () => (
 )
 ```
 
-3. Run `gatsby develop` to start the development server.
-4. View your image in the browser: `http://localhost:8000/`
+3. `gatsby develop`을 실행하여 개발 서버를 시작하세요.
+4. 브라우저에서 이미지를 확인하세요: `http://localhost:8000/`
 
-### Additional resources
+### 추가 정보
 
-- [Example repo referencing an image from the static folder](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-static-image)
-- [Using the Static Folder](/docs/static-folder/)
-- [More on all image techniques in Gatsby](/docs/images-and-files/)
+- [static 폴더에서 이미지를 참조하는 예제 코드 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-static-image)
+- [static 폴더 사용하기](/docs/static-folder/)
+- [Gatsby의 모든 이미지 사용 기법에 대한 추가 정보](/docs/images-and-files/)
 
-## Optimizing and querying local images with gatsby-image
+## gatsby-image를 사용하여 로컬 이미지 최적화 및 쿼리하기
 
-The `gatsby-image` plugin can relieve much of the pain associated with optimizing images in your site.
+`gatsby-image` 플러그인은 사이트의 이미지 최적화와 관련된 많은 고통을 덜어줍니다.
 
-Gatsby will generate optimized resources which can be queried with GraphQL and passed into Gatsby's image component. This takes care of the heavy lifting including creating several image sizes and loading them at the right time.
+Gatsby는 GraphQL로 쿼리하여 Gatsby의 image 컴포넌트로 전달할 수 있는 최적화 된 리소스를 생성합니다. 이렇게하면 여러 사이즈의 이미지 만들어 적시에 로딩시키는 것과 같은 어려운 작업을 처리 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- The `gatsby-image`, `gatsby-transformer-sharp`, and `gatsby-plugin-sharp` packages installed and added to the plugins array in `gatsby-config`
-- [Images sourced](/packages/gatsby-image/#install) in your `gatsby-config` using a plugin like `gatsby-source-filesystem`
+- `gatsby-image`, `gatsby-transformer-sharp` 및 `gatsby-plugin-sharp` 패키지 설치 후 `gatsby-config`의 plugins 배열에 추가
+- `gatsby-source-filesystem`과 같은 플러그인을 사용하여 `gatsby-config`를 통해 [소스로 제공되는 이미지](/packages/gatsby-image/#install)
 
-### Directions
+### 수행 절차
 
-1. First, import `Img` from `gatsby-image`, as well as `graphql` and `useStaticQuery` from `gatsby`
+1. 먼저 `gatsby-image`에서 `Img`와, `gatsby`에서 `graphql` 및 `useStaticQuery`를 가져옵니다.
 
 ```jsx
 import { useStaticQuery, graphql } from "gatsby" // to query for image data
 import Img from "gatsby-image" // to take image data and render it
 ```
 
-2. Write a query to get image data, and pass the data into the `<Img />` component:
+2. 이미지 데이터를 얻기위한 쿼리를 작성하고 데이터를 `<Img />` 구성 요소에 전달합니다:
 
-Choose any of the following options or a combination of them.
+다음 옵션 중 하나 또는 여러개의 조합을 선택하세요.
 
-a. a single image queried by its file [path](/docs/content-and-data/) (Example: `images/corgi.jpg`)
+a. 파일 [경로](/docs/content-and-data/)로 쿼리 된 단일 이미지 (예: `images/corgi.jpg`)
 
 ```jsx
 const data = useStaticQuery(graphql`
@@ -145,7 +145,7 @@ return (
 )
 ```
 
-b. using a [GraphQL fragment](/docs/using-fragments/), to query for the necessary fields more tersely
+b. [GraphQL fragment](/docs/using-fragments/)를 사용하여 필요한 필드를 더 간결하게 쿼리
 
 ```jsx
 const data = useStaticQuery(graphql`
@@ -165,7 +165,7 @@ return (
 )
 ```
 
-c. several images from a directory (Example: `images/dogs`) [filtered](/docs/graphql-reference/#filter) by the `extension` and `relativeDirectory` fields, and then mapped into `Img` components
+c. 디렉토리(예: `images/dogs`)로 부터 여러 이미지를 `extension` 및 `relativeDirectory` 필드로 [필터링](/docs/graphql-reference/#filter) 한 다음 `Img` 구성 요소에 매핑
 
 ```jsx
 const data = useStaticQuery(graphql`
@@ -206,9 +206,9 @@ return (
 )
 ```
 
-**Note**: This method can make it difficult to match images with `alt` text for accessibility. This example uses images with `alt` text included in the filename, like `dog in a party hat.jpg`.
+**주의**: 이 방법은 접근성을 위한 `alt` 텍스트를 이미지와 일치시키기 어려울 수 있습니다. 이 예제에서는 `hat in a party hat.jpg`와 같이 파일 이름에 `alt` 텍스트가 포함 된 이미지를 사용합니다.
 
-d. an image of a fixed size using the `fixed` field instead of `fluid`
+d. `fluid` 대신 `fixed` 필드를 사용한 고정 크기의 이미지
 
 ```jsx
 const data = useStaticQuery(graphql`
@@ -227,7 +227,7 @@ return (
 )
 ```
 
-e. an image of a fixed size with a `maxWidth`
+e. `maxWidth`를 사용한 고정 크기의 이미지
 
 ```jsx
 const data = useStaticQuery(graphql`
@@ -246,7 +246,7 @@ return (
 )
 ```
 
-f. an image filling a fluid container with a max width (in pixels) and a higher quality (the default value is 50 i.e. 50%)
+f. maxWidth(픽셀)와 quality(기본값은 50, 즉 50%)를 가진 컨테이너를 채우는 이미지
 
 ```jsx
 const data = useStaticQuery(graphql`
@@ -266,7 +266,7 @@ return (
 )
 ```
 
-3. (Optional) Add inline styles to the `<Img />` like you would to other components
+3. (선택사항) 다른 컴포넌트와 마찬가지로 `<Img />`에 인라인 스타일을 추가합니다
 
 ```jsx
 <Img
@@ -276,7 +276,7 @@ return (
 />
 ```
 
-4. (Optional) Force an image into a desired aspect ratio by overriding the `aspectRatio` field returned by the GraphQL query before it is passed into the `<Img />` component
+4. (선택사항) GraphQL 쿼리가 반환 한 `aspectRatio` 필드를 `<Img />` 컴포넌트에 전달하기 전에 이미지를 원하는 종횡비로 강제 재정의 합니다
 
 ```jsx
 <Img
@@ -288,32 +288,32 @@ return (
 />
 ```
 
-5. Run `gatsby develop`, to generate images from files in the filesystem (if not done already) and cache them
+5. `gatsby develop`을 실행하여 파일 시스템으로부터 (아직 수행하지 않은 경우)이미지를 생성하고 생성된 이미지를 캐시하세요
 
-### Additional resources
+### 추가 정보
 
-- [Example repository illustrating these examples](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
+- [여기의 예제를 설명하는 코드 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
 - [Gatsby Image API](/docs/gatsby-image/)
-- [Using Gatsby Image](/docs/using-gatsby-image)
-- [More on working with images in Gatsby](/docs/working-with-images/)
-- [Free egghead.io videos explaining these steps](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e)
+- [Gatsby Image 사용하기](/docs/using-gatsby-image)
+- [Gatsby에서 이미지 사용에 대한 추가 정보](/docs/working-with-images/)
+- [여기 내용을 단계별로 설명하는 무료 egghead.io 영상](https://egghead.io/playlists/using-gatsby-image-with-gatsby-ea85129e)
 
-## Optimizing and querying images in post frontmatter with gatsby-image
+## gatsby-image를 사용하여 post frontmatter의 이미지 최적화 및 쿼리하기
 
-For use cases like a featured image in a blog post, you can _still_ use `gatsby-image`. The `Img` component needs processed image data, which can come from a local (or remote) file, including from a URL in the frontmatter of a `.md` or `.mdx` file.
+블로그 게시물의 추천 이미지와 같은 사용 사례에서도 _여전히_ `gatsby-image`를 사용할 수 있습니다. `Img` 컴포넌트는 가공된 이미지 데이터가 필요한데, 이 이미지 데이터는 frontmatter에 이미지 URL을 가지고 있는 `.md` 또는 `.mdx` 로컬(또는 원격) 파일에서 가져올 수 있습니다.
 
-To inline images in markdown (using the `![]()` syntax), consider using a plugin like [`gatsby-remark-images`](/packages/gatsby-remark-images/)
+마크다운의 인라인 이미지(`![]()` 문법을 사용하는)를 위해서는 [`gatsby-remark-images`](/packages/gatsby-remark-images/) 같은 플러그인 사용을 고려하세요
 
-### Prerequisites
+### 사전준비
 
-- The `gatsby-image`, `gatsby-transformer-sharp`, and `gatsby-plugin-sharp` packages installed and added to the plugins array in `gatsby-config`
-- [Images sourced](/packages/gatsby-image/#install) in your `gatsby-config` using a plugin like `gatsby-source-filesystem`
-- Markdown files sourced in your `gatsby-config` with image URLs in frontmatter
-- [Pages created](/docs/creating-and-modifying-pages/) from Markdown using [`createPages`](https://www.gatsbyjs.org/docs/node-apis/#createPages)
+- `gatsby-image`, `gatsby-transformer-sharp` 및 `gatsby-plugin-sharp` 패키지 설치 후 `gatsby-config`의 plugins 배열에 추가
+- `gatsby-source-filesystem`과 같은 플러그인을 사용하여 `gatsby-config`를 통해 [소스로 제공되는 이미지](/packages/gatsby-image/#install)
+- `gatsby-config`를 통해 소스로 제공되는 frontmatter에 image URL을 가진 마크다운 파일들
+- [`createPages`](https://www.gatsbyjs.org/docs/node-apis/#createPages)를 사용하여 마크다운 파일로부터 생성된 페이지들
 
-### Directions
+### 수행 절차
 
-1. Verify that the Markdown file has an image URL with a valid path to an image file in your project
+1. 프로젝트의 마크다운 파일이 유효한 경로의 이미지 URL을 가지고 있는지 확인하세요
 
 ```mdx:title=post.mdx
 ---
@@ -324,7 +324,7 @@ featuredImage: ./corgi.png // highlight-line
 Post content...
 ```
 
-2. Verify that a unique identifier (a slug in this example) is passed in context when `createPages` is called in `gatsby-node.js`, which will later be passed into a GraphQL query in the Layout component
+2. `gatsby-node.js` 에서`createPages`가 호출 될 때 컨텍스트에 고유 식별자(이 예제에서는 slug)가 전달되는지 확인하세요. 이 식별자는 나중에 Layout 컴포넌트의 GraphQL 쿼리로 전달됩니다.
 
 ```js:title=gatsby-node.js
 exports.createPages = async ({ graphql, actions }) => {
@@ -346,7 +346,7 @@ exports.createPages = async ({ graphql, actions }) => {
 }
 ```
 
-3. Now, import `Img` from `gatsby-image`, and `graphql` from `gatsby` into the template component, write a [pageQuery](/docs/page-query/) to get image data based on the passed in `slug` and pass that data to the `<Img />` component:
+3. 이제 `gatsby-image`에서 `Img`를 `gatsby`에서 `graphql`을 템플릿 컴포넌트로 임포트 하고 전달된 `slug` 기반의 이미지 데이터를 얻기 위해 [pageQuery](/docs/page-query/)를 작성한 다음 그 데이터를 `<Img />` 컴포넌트에 전달하세요:
 
 ```jsx:title=markdown-layout.jsx
 import React from "react"
@@ -385,12 +385,12 @@ export const pageQuery = graphql`
 // highlight-end
 ```
 
-4. Run `gatsby develop`, which will generate images for files sourced in the filesystem
+4. `gatsby develop`을 실행하면 소싱된 파일의 이미지들이 파일 시스템안에 생성됩니다.
 
-### Additional resources
+### 추가 정보
 
-- [Example repository using this recipe](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
-- [Featured images with frontmatter](/docs/working-with-images-in-markdown/#featured-images-with-frontmatter-metadata)
-- [Gatsby Image API](/docs/gatsby-image/)
-- [Using Gatsby Image](/docs/using-gatsby-image)
-- [More on working with images in Gatsby](/docs/working-with-images/)
+- [이 레시피를 사용하는 예제 코드 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipes-gatsby-image)
+- [frontmatter에 피처드 이미지 사용](/docs/working-with-images-in-markdown/#featured-images-with-frontmatter-metadata)
+- [Gatsby 이미지 API](/docs/gatsby-image/)
+- [gatsby-image 사용하기](/docs/using-gatsby-image)
+- [Gatsby의 이미지 작업에 대한 추가 정보](/docs/working-with-images/)

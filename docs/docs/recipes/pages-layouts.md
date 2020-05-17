@@ -7,7 +7,7 @@ Add pages to your Gatsby site, and use layouts to manage common page elements.
 
 ## Project structure
 
-Inside a Gatsby project, you may see some or all of the following folders and files:
+Gatsby 프로젝트로 들어가면, 아래와 같은 폴더와 파일들을 볼 수 있습니다:
 
 ```
 |-- /.cache
@@ -24,33 +24,33 @@ Inside a Gatsby project, you may see some or all of the following folders and fi
 |-- gatsby-browser.js
 ```
 
-Some notable files and their definitions:
+몇 가지 중요한 파일들에 대한 설명입니다:
 
-- `gatsby-config.js` — configure options for a Gatsby site, with metadata for project title, description, plugins, etc.
-- `gatsby-node.js` — implement Gatsby’s Node.js APIs to customize and extend default settings affecting the build process
-- `gatsby-browser.js` — customize and extend default settings affecting the browser, using Gatsby’s browser APIs
-- `gatsby-ssr.js` — use Gatsby’s server-side rendering APIs to customize default settings affecting server-side rendering
+- `gatsby-config.js` — 프로젝트 제목, 설명, 플러그들을 위한 메타데이터와 Gatsby 사이트의 옵션을 구성합니다.
+- `gatsby-node.js` — 빌드 과정에 영향을 주는 Gatsby Node.js API들의 기본 설정을 커스터마이징하고 확장합니다.
+- `gatsby-browser.js` — 브라우저에 영향을 주는 Gatsby browser API들의 기본 설정을 커스터마이징하고 확장합니다.
+- `gatsby-ssr.js` — 서버 사이드 렌더링에 영향을 주는 Gatsby server-side rendering API들의 기본 설정을 커스터마이징하고 확장합니다.
 
-### Additional resources
+### 추가 정보
 
-- For a tour of all the common folders and files, read the docs on [Gatsby's Project Structure](/docs/gatsby-project-structure/)
-- For common commands, check out the [Gatsby CLI docs](/docs/gatsby-cli)
-- Check out the [Gatsby Cheat Sheet](/docs/cheat-sheet/) for downloadable info at a glance
+- 모든 일반 폴더들과 파일들에 대해 알아보려면, [Gatsby의 프로젝트 구조](/docs/gatsby-project-structure/) 문서를 읽으세요.
+- 일반 명령어들을 알아보려면, [Gatsby CLI 문서](/docs/gatsby-cli)를 확인하세요.
+- 한눈에 보기 좋은 다운로드 가능한 [Gatsby 치트 시트](/docs/cheat-sheet/)를 확인하세요.
 
-## Creating pages automatically
+## 자동으로 페이지 생성하기
 
-Gatsby core automatically turns React components in `src/pages` into pages with URLs.
-For example, components at `src/pages/index.js` and `src/pages/about.js` would automatically create pages from those filenames for the site's index page (`/`) and `/about`.
+Gatsby 코어는 `src/pages` 내부의 React 컴포넌트들을 URL이 있는 페이지들로 자동으로 바꿉니다.
+예를 들어, `src/pages/index.js`와 `src/pages/about.js` 의 컴포넌트들은 파일 이름들로부터 사이트의 index 페이지와 `/about` 페이지를 자동으로 생성합니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby 사이트](/docs/quick-start)
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
-### Directions
+### 수행 절차
 
-1. Create a directory for `src/pages` if your site doesn't already have one.
-2. Add a component file to the pages directory:
+1. 프로젝트에 `src/pages` 디렉토리가 없다면 생성해 주세요.
+2. pages 디렉토리에 컴포넌트 파일을 추가해 주세요:
 
 ```jsx:title=src/pages/about.js
 import React from "react"
@@ -65,26 +65,26 @@ const AboutPage = () => (
 export default AboutPage
 ```
 
-3. Run `gatsby develop` to start the development server.
-4. Visit your new page in the browser: `http://localhost:8000/about`
+3. 개발 서버를 시작하기 위해 `gatsby develop` 명령을 실행하세요.
+4. 브라우저로 새 페이지에 방문하세요: `http://localhost:8000/about`
 
-### Additional resources
+### 추가 정보
 
-- [Creating and modifying pages](/docs/creating-and-modifying-pages/)
+- [페이지 생성 및 수정하기](/docs/creating-and-modifying-pages/)
 
-## Linking between pages
+## 페이지 간 연결하기
 
-Routing in Gatsby relies on the `<Link />` component.
+Gatsby에서 라우팅은 `<Link />` 컴포넌트에 의존합니다.
 
-### Prerequisites
+### 사전준비
 
-- A Gatsby site with two page components: `index.js` and `contact.js`
-- The Gatsby `<Link />` component
-- The [Gatsby CLI](/docs/gatsby-cli/) to run `gatsby develop`
+- `index.js` 와 `contact.js` 두 페이지 컴포넌트가 있는 Gatsby 사이트
+- Gatsby `<Link />` 컴포넌트
+- `gatsby develop`을 실행하기 위한 [Gatsby CLI](/docs/gatsby-cli/)
 
-### Directions
+### 수행 절차
 
-1. Open the index page component (`src/pages/index.js`), import the `<Link />` component from Gatsby, add a `<Link />` component above the header, and give it a `to` property with the value of `"/contact/"` for the pathname:
+1. index 페이지 컴포넌트(`src/pages/index.js`)를 열고, Gatsby로부터 `<Link />` 컴포넌트를 임포트 한 다음, 헤더 위에 `<Link />` 컴포넌트를 추가하고, `to` 프로퍼티에 `"/contact/"` 라는 경로명을 지정해줍니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -98,21 +98,21 @@ export default () => (
 )
 ```
 
-2. Run `gatsby develop` and navigate to the index page. You should have a link that takes you to the contact page when clicked!
+2. `gatsby develop`을 실행하고 index 페이지로 이동하세요. 클릭시 contact 페이지로 연결되는 링크가 있어야 합니다!
 
-> **Note**: Gatsby's `<Link />` component is a wrapper around [`@reach/router`'s Link component](https://reach.tech/router/api/Link). For more information about Gatsby's `<Link />` component, consult the [API reference for `<Link />`](/docs/gatsby-link/).
+> **주의**: Gatsby의 `<Link />`는 [`@reach/router`의 Link 컴포넌트](https://reach.tech/router/api/Link)의 래퍼(wrapper) 컴포넌트 입니다. Gatsby의 `<Link />` 컴포넌트에 대한 자세한 정보는 [`<Link />` API 레퍼런스](/docs/gatsby-link/) 문서를 참고하세요.
 
-## Creating a layout component
+## 레이아웃 컴포넌트 생성하기
 
-It's common to wrap pages with a React layout component, which makes it possible to share markup, styles, and functionality across multiple pages.
+React layout 컴포넌트로 페이지들을 감싸는 것이 일반적이므로 여러 페이지 간 마크업, 스타일 및 기능을 공유 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- [A Gatsby Site](/docs/quick-start/)
+- [Gatsby 사이트](/docs/quick-start/)
 
-### Directions
+### 수행 절차
 
-1. Create a layout component in `src/components`, where child components will be passed in as props:
+1. `src/components` 안에 자식 컴포넌트를 props로 전달받는 layout 컴포넌트를 생성합니다:
 
 ```jsx:title=src/components/layout.js
 import React from "react"
@@ -124,7 +124,7 @@ export default ({ children }) => (
 )
 ```
 
-2. Import and use the layout component in a page:
+2. 페이지에서 layout 컴포넌트를 임포트하여 사용합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -139,23 +139,23 @@ export default () => (
 )
 ```
 
-### Additional resources
+### 추가 정보
 
-- Create a layout component in [tutorial part three](/tutorial/part-three/#your-first-layout-component)
-- Styling with [Layout Components](/docs/layout-components/)
+- [튜토리얼 파트3](/tutorial/part-three/#your-first-layout-component)에서 layout 컴포넌트를 생성하세요
+- [Layout 컴포넌트](/docs/layout-components/) 스타일링
 
-## Creating pages programmatically with createPage
+## createPage를 사용하여 프로그래밍으로 페이지 생성하기
 
-You can create pages programmatically in the `gatsby-node.js` file with helper methods Gatsby provides.
+Gatsby가 제공하는 헬퍼 메소드를 사용하여 `gatsby-node.js` 파일에 페이지를 생성하는 코드를 작성 할 수 있습니다.
 
-### Prerequisites
+### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- A `gatsby-node.js` file
+- [Gatsby 사이트](/docs/quick-start)
+- `gatsby-node.js` 파일
 
-### Directions
+### 수행 절차
 
-1. In `gatsby-node.js`, add an export for `createPages`
+1. `gatsby-node.js` 파일 안에, `createPages` 추가하고 내보냅니다(export)
 
 ```javascript:title=gatsby-node.js
 // highlight-start
@@ -165,7 +165,7 @@ exports.createPages = ({ actions }) => {
 // highlight-end
 ```
 
-2. Destructure the `createPage` action from the available actions so it can be called by itself, and add or get data
+2. actions로부터 `createPage` 액션을 뽑아내어 자체적으로 호출하고, 데이터를 추가하거나 가져올 수 있습니다
 
 ```javascript:title=gatsby-node.js
 exports.createPages = ({ actions }) => {
@@ -186,7 +186,7 @@ exports.createPages = ({ actions }) => {
 }
 ```
 
-3. Loop through the data in `gatsby-node.js` and provide the path, template, and context (data that will be passed in the props' pageContext) to `createPage` for each invocation
+3. `gatsby-node.js`의 데이터로 반복하고 매 반복 단계에서 `createPage`에 경로, 템플릿 및 컨텍스트 (props안의 pageContext로 전달 될 데이터)를 제공하세요
 
 ```javascript:title=gatsby-node.js
 exports.createPages = ({ actions }) => {
@@ -214,7 +214,7 @@ exports.createPages = ({ actions }) => {
 }
 ```
 
-4. Create a React component to serve as the template for your page that was used in `createPage`
+4. `createPage`에 제공된 페이지의 템플릿으로 사용할 React 컴포넌트를 생성하세요
 
 ```jsx:title=src/templates/dog-template.js
 import React from "react"
@@ -226,10 +226,10 @@ export default ({ pageContext: { dog } }) => (
 )
 ```
 
-5. Run `gatsby develop` and navigate to the path of one of the pages you created (like at `http://localhost:8000/Fido`) to see the data you passed it displayed on the page
+5. `gatsby develop`을 실행하고 생성된 페이지 중 하나(예: `http://localhost:8000/Fido`)로 이동하여 페이지에 표시되는 데이터를 확인하세요
 
-### Additional resources
+### 추가 정보
 
-- Tutorial section on [programmatically creating pages from data](/tutorial/part-seven/)
-- Reference guide on [using Gatsby without GraphQL](/docs/using-gatsby-without-graphql/)
-- [Example repo](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-createPage) for this recipe
+- [데이터로부터 페이지 생성하는 프로그램 작성](/tutorial/part-seven/)에 대한 튜토리얼 섹션
+- [GraphQL 없이 Gatsby 사용하기](/docs/using-gatsby-without-graphql/) 레퍼런스 가이드
+- 이 레시피의 [예제 저장소](https://github.com/gatsbyjs/gatsby/tree/master/examples/recipe-createPage)
