@@ -66,7 +66,7 @@ module.exports = {
 
 ## 테마 스타터를 사용하여 새 사이트 생성하기
 
-테마가 구성된 스타터를 기반으로 사이트를 만드는 것은 테마가 **구성되지 않은** 스타터를 기반으로 사이트를 만드는 것과 동일한 프로세스를 따릅니다. 이 예에서는 [새 사이트를 만들기 위한 공식 Gatsby 블로그 starter](https://github.com/gatsbyjs/gatsby-starter-blog-theme)를 사용할 수 있습니다.
+테마가 구성된 스타터를 기반으로 사이트를 만드는 것은 테마가 **구성되지 않은** 스타터를 기반으로 사이트를 만드는 것과 동일한 프로세스를 따릅니다. 이 예에서는 [새 사이트를 만들기 위한 공식 Gatsby 블로그 스타터](https://github.com/gatsbyjs/gatsby-starter-blog-theme)를 사용할 수 있습니다.
 
 ### 사전준비
 
@@ -105,7 +105,7 @@ gatsby develop
 
 ### 수행 절차
 
-1. [Gatsby 테마 워크스페이스 스타터](https://github.com/gatsbyjs/gatsby-starter-theme-workspace)를 사용하여 새 테마 워크스페이스를 생성하세요:
+1. [Gatsby 테마 작업 환경 스타터](https://github.com/gatsbyjs/gatsby-starter-theme-workspace)를 사용하여 새 테마 워크스페이스를 생성하세요:
 
 ```shell
 gatsby new {your-project-name} https://github.com/gatsbyjs/gatsby-starter-theme-workspace
@@ -119,5 +119,5 @@ yarn workspace example develop
 
 ### 추가 정보
 
-- Gatsby 테마 워크스페이스 스터타에 대한 [더 자세한 가이드](/docs/themes/building-themes/)를 확인하세요.
--[Egghead의 Gatsby 테마 작성 영상 강좌](https://egghead.io/courses/gatsby-theme-authoring) 또는 [영상 강좌의 문서 버전 튜토리얼](/tutorial/building-a-theme)에서 자신만의 테마 만드는 방법을 배우세요.
+- Gatsby 테마 작업 환경 스타터에 대한 [더 자세한 가이드](/docs/themes/building-themes/)를 확인하세요.
+- [Egghead의 Gatsby 테마 작성 영상 강좌](https://egghead.io/courses/gatsby-theme-authoring) 또는 [영상 강좌의 문서 버전 튜토리얼](/tutorial/building-a-theme)에서 자신만의 테마 만드는 방법을 배우세요.

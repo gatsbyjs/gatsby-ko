@@ -46,7 +46,7 @@ gatsby build && gatsby serve
 
 ### 추가 정보
 
-- [튜토리얼 파트1](/tutorial/part-one/#deploying-a-gatsby-site) 에서 예제 사이트 구축 및 배포에 대해 알아보세요
+- [튜토리얼 파트1](/tutorial/part-one/#deploying-a-gatsby-site)에서 예제 사이트 구축 및 배포에 대해 알아보세요
 - [성능 최정화](/docs/performance/)에 대해 배우세요
 - [다른 배포 관련 주제](/docs/preparing-for-deployment/)에 대해 읽어보세요
 - 특정 호스팅 플랫폼 및 배포 방법에 대해서는 [배포 문서](/docs/deploying-and-hosting/)를 확인하세요

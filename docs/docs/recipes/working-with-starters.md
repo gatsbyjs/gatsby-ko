@@ -3,7 +3,7 @@ title: "Recipes: Working with Starters"
 tableOfContentsDepth: 1
 ---
 
-[스타터(Starters)](/docs/starters/)는 공식적으로 또는 커뮤니티에서 유지보수되는 Gatsby 사이트의 보일러 플레이트입니다.
+[스타터(Starters)](/docs/starters/)는 공식적으로 또는 커뮤니티에서 유지 보수되는 Gatsby 사이트의 보일러플레이트입니다.
 
 ## 스타터 사용하기
 

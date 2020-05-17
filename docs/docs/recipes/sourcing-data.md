@@ -539,7 +539,7 @@ export default ({ pageContext: { allPokemon } }) => (
 - When and how to [query data with GraphQL](/docs/querying-with-graphql/) for more complex Gatsby sites
 - 더 복잡한 Gatsby 사이트에서 언제 어떻게 [GraphQL로 데이터를 쿼리 해야하나요](/docs/querying-with-graphql/)
 
-## Drupal로 부터 콘텐츠 소싱하기
+## Drupal로부터 콘텐츠 소싱하기
 
 ### 사전준비
 

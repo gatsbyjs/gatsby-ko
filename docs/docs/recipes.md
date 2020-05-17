@@ -56,7 +56,7 @@ Gatsby 웹사이트에 페이지를 추가하고, 페이지의 공통 요소를 
 
 ## [3. 스타터로 작업하기](/docs/recipes/working-with-starters)
 
-[스타터](/docs/starters/)는 공식적으로 또는 커뮤니티에서 유지 보수되는 개츠비 사이트의 보일러 플레이트입니다.
+[스타터](/docs/starters/)는 공식적으로 또는 커뮤니티에서 유지 보수되는 Gatsby 사이트의 보일러플레이트입니다.
 
 - [스타터 사용하기](/docs/recipes/working-with-starters#using-a-starter)
 
@@ -77,7 +77,7 @@ Gatsby 테마는 웹사이트의 look-and-feel을 중앙에서 관리 할 수 �
 - [WordPress로부터 소싱하기](/docs/recipes/sourcing-data#sourcing-from-wordpress)
 - [Contentful 데이터 소싱하기](/docs/recipes/sourcing-data#sourcing-data-from-contentful)
 - [외부 데이터 소싱으로 GraphQL없이 페이지 만들기](/docs/recipes/sourcing-data#pulling-data-from-an-external-source-and-creating-pages-without-graphql)
-- [Drupal로 부터 콘텐츠 소싱하기](/docs/recipes/sourcing-data#sourcing-content-from-drupal)
+- [Drupal로부터 콘텐츠 소싱하기](/docs/recipes/sourcing-data#sourcing-content-from-drupal)
 
 ## [6. 데이터 쿼리하기](/docs/recipes/querying-data)
 
@@ -100,7 +100,7 @@ Gatsby에서는 GraphQL 인터페이스만으로 모든 소스들의 데이터�
 - [웹팩을 사용하여 컴포넌트에서 이미지 임포트하기](/docs/recipes/working-with-images#import-an-image-into-a-component-with-webpack)
 - [static 폴더의 이미지 참조하기](/docs/recipes/working-with-images#reference-an-image-from-the-static-folder)
 - [gatsby-image를 사용하여 로컬 이미지 최적화 및 쿼리하기](/docs/recipes/working-with-images#optimizing-and-querying-local-images-with-gatsby-image)
-- [gatsby-image를 사용하여 post frontmatter의 이미지 최적화 및 쿼리하기](/docs/recipes/working-with-images#optimizing-and-querying-images-in-post-frontmatter-with-gatsby-image)
+- [gatsby-image를 사용하여 포스트 전문(frontmatter)의 이미지 최적화 및 쿼리하기](/docs/recipes/working-with-images#optimizing-and-querying-images-in-post-frontmatter-with-gatsby-image)
 
 ## [8. 데이터 변환](/docs/recipes/transforming-data)
 

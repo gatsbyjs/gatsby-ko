@@ -27,10 +27,9 @@ Gatsby 프로젝트로 들어가면, 아래와 같은 폴더와 파일들을 볼
 몇 가지 중요한 파일들에 대한 설명입니다:
 
 - `gatsby-config.js` — 프로젝트 제목, 설명, 플러그들을 위한 메타데이터와 Gatsby 사이트의 옵션을 구성합니다.
-- `gatsby-node.js` — 빌드 과정에 영향을 주는 Gatsby의 Node.js API 들의 기본 설정을 커스터마이징하고 확장합니다.
-- `gatsby-node.js` — implement Gatsby’s Node.js APIs to customize and extend default settings affecting the build process
-- `gatsby-browser.js` — 브라우저에 영향을 주는 Gatsby의 browser API 들의 기본 설정을 커스터마이징하고 확장합니다.
-- `gatsby-ssr.js` — 서버 사이드 렌더링에 영향을 주는 Gatsby의 server-side rendering API 들의 기본 설정을 커스터마이징하고 확장합니다.
+- `gatsby-node.js` — 빌드 과정에 영향을 주는 Gatsby Node.js API들의 기본 설정을 커스터마이징하고 확장합니다.
+- `gatsby-browser.js` — 브라우저에 영향을 주는 Gatsby browser API들의 기본 설정을 커스터마이징하고 확장합니다.
+- `gatsby-ssr.js` — 서버 사이드 렌더링에 영향을 주는 Gatsby server-side rendering API들의 기본 설정을 커스터마이징하고 확장합니다.
 
 ### 추가 정보
 
@@ -45,8 +44,8 @@ Gatsby 코어는 `src/pages` 내부의 React 컴포넌트들을 URL이 있는 �
 
 ### 사전준비
 
-- A [Gatsby site](/docs/quick-start)
-- The [Gatsby CLI](/docs/gatsby-cli) installed
+- [Gatsby 사이트](/docs/quick-start)
+- [Gatsby CLI](/docs/gatsby-cli) 설치
 
 ### 수행 절차
 
