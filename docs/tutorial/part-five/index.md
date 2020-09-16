@@ -1,53 +1,53 @@
 ---
-title: Source Plugins
+title: 소스 플러그인
 typora-copy-images-to: ./
 disableTableOfContents: true
 ---
 
-> This tutorial is part of a series about Gatsby’s data layer. Make sure you’ve gone through [part 4](/tutorial/part-four/) before continuing here.
+> 이 튜토리얼은 Gatsby 데이터 레이어 시리즈의 일부입니다. 계속하기 전에 [파트 4](/tutorial/part-four/)를 진행했는지 확인하세요.
 
-## What's in this tutorial?
+## 이번 튜토리얼에서 다룰 것
 
-In this tutorial, you'll be learning about how to pull data into your Gatsby site using GraphQL and source plugins. Before you learn about these plugins, however, you'll want to know how to use something called GraphiQL, a tool that helps you structure your queries correctly.
+이번 튜토리얼에서는, GraphQL과 소스 플러그인을 사용하여 Gatsby 사이트로 데이터를 가져오는 방법을 배울 것입니다. 그러나 그 플러그인들을 배우기에 앞서, 여러분은 쿼리를 바르게 구성하도록 도와주는 GraphiQL이라는 툴을 어떻게 사용하는지 알고싶을 것입니다.
 
-## Introducing GraphiQL
+## GraphiQL 소개
 
-GraphiQL is the GraphQL integrated development environment (IDE). It's a powerful (and all-around awesome) tool you'll use often while building Gatsby websites.
+GraphiQL은 GraphQL 통합 개발 환경(IDE)입니다. 이것은 Gatsby 웹사이트를 구축할 때 자주 사용하는 강력한(그리고 놀랍도록 만능의) 툴입니다.
 
-You can access it when your site's development server is running—normally at
-<http://localhost:8000/___graphql>.
+여러분의 사이트의 개발 서버가 정상 작동 중이라면 다음의 주소를 통해 GraphiQL에 접속할 수 있습니다.
+<http://localhost:8000/___graphql>
 
 <video controls="controls" autoplay="true" loop="true">
   <source type="video/mp4" src="/graphiql-explore.mp4"></source>
-  <p>Your browser does not support the video element.</p>
+  <p>브라우저가 동영상을 지원하지 않습니다.</p>
 </video>
 
-Poke around the built-in `Site` "type" and see what fields are available on it -- including the `siteMetadata` object you queried earlier. Try opening GraphiQL and play with your data! Press <kbd>Ctrl + Space</kbd> (or use <kbd>Shift + Space</kbd> as an alternate keyboard shortcut) to bring up the autocomplete window and <kbd>Ctrl + Enter</kbd> to run the GraphQL query. You'll be using GraphiQL a lot more through the remainder of the tutorial.
+내장된 `site` "type"을 살펴보고 -이전에 쿼리했던 `siteMetadata` 오브젝트를 포함하여- 사용가능한 필드를 알아봅니다. GraphiQL을 열고 여러분의 데이터를 갖고 놀아보세요! <kbd>Ctrl + Space</kbd>(또는 대체 단축키인 <kbd>Shift + Space</kbd>)를 눌러 자동완성 창을 불러오고 <kbd>Ctrl + Enter</kbd>로 GraphQL 쿼리를 실행하십시오. 여러분은 남은 튜토리얼 동안 더 많이 GraphiQL을 사용하게 될 것입니다.
 
-## Using the GraphiQL Explorer
+## GraphiQL Explorer 사용하기
 
-The GraphiQL Explorer enables you to interactively construct full queries by clicking through available fields and inputs without the repetitive process of typing these queries out by hand.
+GraphiQL Explorer는 여러분이 손으로 쿼리들을 입력하는 반복적인 작업 없이 사용가능한 필드를 클릭하는 대화식으로 전체의 쿼리 작성을 가능하게 해줍니다.
 
 <EggheadEmbed
   lessonLink="https://egghead.io/lessons/gatsby-build-a-graphql-query-using-gatsby-s-graphiql-explorer"
   lessonTitle="Build a GraphQL Query using Gatsby’s GraphiQL Explorer"
 />
 
-## Source plugins
+## 소스 플러그인
 
-Data in Gatsby sites can come from anywhere: APIs, databases, CMSs, local files, etc.
+Gatsby 사이트의 데이터는 API, 데이터베이스, CMS, 로컬 파일 등 어디에서든 가져올 수 있습니다.
 
-Source plugins fetch data from their source. E.g. the filesystem source plugin knows how to fetch data from the file system. The WordPress plugin knows how to fetch data from the WordPress API.
+소스 플러그인은 소스에서 데이터를 가져옵니다. 예) filesystem 소스 플러그인은 파일 시스템에서 데이터를 가져올 수 있습니다. WordPress 플러그인은 WordPress API에서 데이터를 가져올 수 있습니다.
 
-Add [`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/) and explore how it works.
+[`gatsby-source-filesystem`](/packages/gatsby-source-filesystem/)를 추가하고 어떻게 작동하는지 살펴봅시다.
 
-First, install the plugin at the root of the project:
+먼저, 프로젝트의 루트에 플러그인을 설치합니다:
 
 ```shell
 npm install --save gatsby-source-filesystem
 ```
 
-Then add it to your `gatsby-config.js`:
+그리고 여러분의 `gatsby-config.js`에 이것을 추가하세요:
 
 ```javascript:title=gatsby-config.js
 module.exports = {
@@ -75,42 +75,37 @@ module.exports = {
 }
 ```
 
-Save that and restart the gatsby development server. Then open up GraphiQL again.
+그것을 저장하고 gatsby 개발 서버를 재시작합니다. 그런 다음 GraphiQL을 다시 여세요.
 
-In the explorer pane, you'll see `allFile` and `file` available as selections:
+여러분은 이제 탐색창에서 `allFile`과 `file`을 볼 수 있고 선택도 가능할 것입니다:
 
 ![graphiql-filesystem](graphiql-filesystem.png)
 
-Click the `allFile` dropdown. Position your cursor after `allFile` in the query area, and then type <kbd>Ctrl + Enter</kbd>. This will pre-fill a query for the `id` of each file. Press "Play" to run the query:
+`allFile` 드롭다운을 클릭하세요. 쿼리 영역에서 `allFile` 뒤에 커서를 놓고 <kbd>Ctrl + Enter</kbd>를 누릅니다. 이것은 각 파일의 `id`에 대한 쿼리 미리채우기를 합니다. "Play"를 눌러 쿼리를 실행하세요:
 
 ![filesystem-query](filesystem-query.png)
 
-In the Explorer pane, the `id` field has automatically been selected. Make selections for more fields by checking the field's corresponding checkbox. Press "Play" to run the query again, with the new fields:
+Explorer에서 `id`가 자동으로 선택되었습니다. 필드의 해당 체크박스에 체크해서 더 많은 필드를 선택합니다. 새 필드를 사용하여 쿼리를 다시 실행하려면 "Play"를 누르세요:
 
 ![filesystem-explorer-options](filesystem-explorer-options.png)
 
-Alternatively, you can add fields by using the autocomplete shortcut (<kbd>Ctrl + Space</kbd>). This will show queryable fields on the `File` nodes.
+또는, 자동완성 단축키(<kbd>Ctrl + Space</kbd>)를 사용하여 필드를 추가할 수도 있습니다. 이것은 `File` 노드에서 쿼리 가능한 필드를 보여줍니다.
 
 ![filesystem-autocomplete](filesystem-autocomplete.png)
 
-Try adding a number of fields to your query, pressing <kbd>Ctrl + Enter</kbd>
-each time to re-run the query. You'll see the updated query results:
+쿼리를 재실행 할 때마다 <kbd>Ctrl + Enter</kbd>를 눌러, 여러분의 쿼리에 여러 필드를 추가해 보세요. 여러분은 업데이트된 쿼리 결과들을 볼 수 있을 겁니다:
 
 ![allfile-query](allfile-query.png)
 
-The result is an array of `File` "nodes" (node is a fancy name for an object in a
-"graph"). Each `File` node object has the fields you queried for.
+결과는 `File` "nodes"의 배열입니다(노드는 "graph"의 오브젝트에 붙인 이름입니다). 각 `File` 노드 오브젝트에는 쿼리한 필드가 있습니다.
 
-## Build a page with a GraphQL query
+## GraphQL 쿼리를 이용한 페이지 빌드
 
-Building new pages with Gatsby often starts in GraphiQL. You first sketch out
-the data query by playing in GraphiQL then copy this to a React page component
-to start building the UI.
+Gatsby를 사용하여 새 페이지를 만드는 것은 보통 GraphiQL에서 시작됩니다. 먼저 여러분은 GraphiQL에서 데이터 쿼리를 스케치 하고 그것을 React 페이지 컴포넌트에 복사하여 UI 빌드를 시작합니다.
 
-Let's try this.
+해봅시다.
 
-Create a new file at `src/pages/my-files.js` with the `allFile` GraphQL query you just
-created:
+`src/pages/my-files.js`에 새 파일을 만들고 아래의 `allFile` GraphQL 쿼리를 사용해봅시다:
 
 ```jsx:title=src/pages/my-files.js
 import React from "react"
@@ -142,18 +137,15 @@ export const query = graphql`
 `
 ```
 
-The `console.log(data)` line is highlighted above. It's often helpful when
-creating a new component to console out the data you're getting from the GraphQL query
-so you can explore the data in your browser console while building the UI.
+`console.log(data)`가 중요한 라인입니다. 여러분이 UI를 구축하는 동안 브라우저의 콘솔에서 데이터를 탐색할 수 있도록 GraphQL 쿼리로 얻은 데이터를 콘솔에 출력하는 새 컴포넌트를 만들때 이것은 자주 도움이 됩니다.
 
-If you visit the new page at `/my-files/` and open up your browser console
-you will see something like:
+`/my-files/`의 새 페이지에 들어가 브라우저의 콘솔을 열면 다음과 같은 내용을 볼 수 있습니다:
 
 ![data-in-console](data-in-console.png)
 
-The shape of the data matches the shape of the GraphQL query.
+데이터의 형태는 GraphQL 쿼리의 형태와 일치합니다.
 
-Add some code to your component to print out the File data.
+여러분의 컴포넌트에 코드를 추가해서 파일 데이터를 출력하세요.
 
 ```jsx:title=src/pages/my-files.js
 import React from "react"
@@ -209,10 +201,10 @@ export const query = graphql`
 `
 ```
 
-And now visit [http://localhost:8000/my-files](http://localhost:8000/my-files)… 😲
+그리고 이제 `http://localhost:8000/my-files`에 들어가보세요… 😲
 
 ![my-files-page](my-files-page.png)
 
-## What's coming next?
+## 다음에 할 것은?
 
-Now you've learned how source plugins bring data _into_ Gatsby’s data system. In the next tutorial, you'll learn how transformer plugins _transform_ the raw content brought by source plugins. The combination of source plugins and transformer plugins can handle all data sourcing and data transformation you might need when building a Gatsby site. Learn about transformer plugins in [part six of the tutorial](/tutorial/part-six/).
+이제 여러분은 소스 플러그인이 Gatsby의 _데이터 시스템으로_ 데이터를 가져오는 방법을 배웠습니다. 다음 튜토리얼에서는 트랜스포머 플러그인이 소스 플러그인에서 가져온 raw 데이터를 _변환_ 하는 방법을 배울 것입니다. 소스 플러그인과 트랜스포머 플러그인의 조합은 Gatsby 사이트를 구축할 때 필요한 모든 데이터 소싱과 데이터 변환을 처리할 수 있습니다. [튜토리얼의 파트 6](/tutorial/part-six/)에서 트랜스포머 플러그인에 대해 알아보세요.

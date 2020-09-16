@@ -10,47 +10,88 @@ disableTableOfContents: true
 
 커맨드라인은 여러분의 컴퓨터에서 명령을 실행하는데 사용되는 텍스트 기반 인터페이스입니다. 터미널이라고 부르기도 하죠. 이 튜토리얼에선 두 용어가 같다고 생각하시면 됩니다. Mac에서 Finder를 사용하거나 Windows에서 탐색기를 사용하는 것과 비슷합니다. Finder와 탐색기는 그래픽 기반 인터페이스(Graphical user interfaces, GUI)의 예시이며, 커맨드라인은 강력한 텍스트 기반의 방법으로 여러분이 컴퓨터와 상호작용할 수 있게 해줍니다.
 
-여러분의 컴퓨터에서 커맨드라인 인터페이스(Command line interface, CLI)를 찾아서 열어보세요. 여러분의 운영체제에 따라서 [**Mac 사용자를 위한 설명**](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/), [**Windows 사용자를 위한 설명**](https://www.quora.com/How-do-I-open-terminal-in-windows) 또는 [**Linux 사용자를 위한 설명**](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)을 참고해주세요.
+여러분의 컴퓨터에서 커맨드라인 인터페이스(Command line interface, CLI)를 찾아서 열어보세요. 여러분의 운영체제에 따라서 [**Mac 사용자를 위한 설명**](http://www.macworld.co.uk/feature/mac-software/how-use-terminal-on-mac-3608274/), [**Windows 사용자를 위한 설명**](https://www.lifewire.com/how-to-open-command-prompt-2618089) 또는 [**Linux 사용자를 위한 설명**](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)을 참고해주세요.
 
-## Homebrew 설치하기
+_Note: If you’re new to the command line, "running" a command, means "writing a given set of instructions in your command prompt, and hitting the Enter key". Commands will be shown in a highlighted box, something like `node --version`, but not every highlighted box is a command! If something is a command it will be mentioned as something you have to run/execute._
 
-Gatsby와 Node.js를 설치하기 위해선 [Homebrew](https://brew.sh/)를 사용하시는 것을 추천드립니다. 처음에 해 놓는 설정들이 나중에 여러분들에게 편하게 다가오니까요!
+## Install Node.js for your appropriate operating system
 
-Homebrew를 설치하고 확인하는 방법은 다음과 같습니다:
+Node.js is an environment that can run JavaScript code outside of a web browser. Gatsby is built with Node.js. To get up and running with Gatsby, you’ll need to have a recent version installed on your computer. npm comes bundled with Node.js so if you don't have npm, chances are that you don't have Node.js either.
+
+### Mac instructions
+
+To install Gatsby and Node.js on a Mac, it is recommended to use [Homebrew](https://brew.sh/). A little set-up in the beginning can save you from some headaches later on!
+
+#### How to install or verify Homebrew on your computer:
 
 1. 터미널을 실행하세요.
-1. Homebrew가 설치되어 있는지 `brew -v`를 통해 확인해보세요. "Homebrew"와 버전 번호가 있다면 설치되어 있다는 뜻입니다.
-1. 위와 같지 않다면, [Homebrew 설치하기](https://docs.brew.sh/Installation)를 통해 여러분의 운영체제(Mac, Linux 또는 Windows)에 맞게 설치해주세요.
-1. Homebrew를 설치하셨다면, 2번으로 돌아가서 확인해주세요.
+2. Homebrew가 설치되어 있는지 `brew -v`를 통해 확인해보세요. "Homebrew"와 버전 번호가 있다면 설치되어 있다는 뜻입니다.
+3. 위와 같지 않다면, [Homebrew 설치하기](https://docs.brew.sh/Installation)를 통해 설치해주세요.
+4. Homebrew를 설치하셨다면, 2번으로 돌아가서 확인해주세요.
 
-### Mac 사용자만: Xcode Command Line Tools 설치하기
+### Xcode Command Line Tools 설치하기
 
 1. 터미널을 실행하세요.
-1. `xcode-select --install`를 실행해 Xcode Command line tools를 설치해주세요.
+2. `xcode-select --install`를 실행해 Xcode Command line tools를 설치해주세요.
    1. 정상적으로 설치되지 않는다면 Apple 개발자 계정으로 가입 한 후[Apple 사이트에서 직접 다운로드](https://developer.apple.com/download/more/) 해주세요.
-1. 설치가 진행된다는 알림이 뜬 이후 일부 개발자 도구 다운로드를 위해 소프트웨어 라이센스에 동의하는지에 대한 확인 알림이 뜰 것입니다.
+3. 설치가 진행된다는 알림이 뜬 이후 일부 개발자 도구 다운로드를 위해 소프트웨어 라이센스에 동의하는지에 대한 확인 알림이 뜰 것입니다.
 
-## ⌚ Node.js와 npm 설치하기
-
-Node.js는 웹 브라우저 밖에서 JavaScript를 실행할 수 있게 해주는 환경입니다. Gatsby는 Node.js 기반으로 만들어졌습니다. Gatsby를 설치하고 실행하기 위해서 여러분의 컴퓨터에는 Node.js의 최신 버전이 설치되어 있어야 합니다.
-
-_참고: Gatsby는 최소 Node 8에서 작동하지만, 더 높은 버전을 사용하셔도 무방합니다._
+## ⌚ Node 설치하기
 
 1. 터미널을 실행하세요.
-1. `brew update`를 통해 최신 Homebrew가 설치되어 있도록 해주세요.
-1. `brew install node`를 통해 Node.js와 npm을 한 번에 설치하세요.
+2. `brew install node`를 실행하세요.
+   - If you don't want to install it through Homebrew, download the latest Node.js version from [the official Node.js website](https://nodejs.org/en/), double click on the downloaded file and go through the installation process.
 
-지금까지의 설치 과정을 모두 진행하셨다면, 이제 모든 것들이 잘 설치되어있는지 확인해볼까요:
+### Windows Instructions
 
-### Node.js 설치 확인하기
+- Download and install the latest Node.js version from [the official Node.js website](https://nodejs.org/en/)
 
-1.  터미널을 실행하세요.
-2.  `node --version` 커맨드를 실행하세요. (혹시 커맨드라인에 익숙치 않으시다면, “`커맨드`를 실행하라”는 말은 “`node --version` 를 치고, 엔터 키를 누르라”는 뜻입니다. “`커맨드`를 실행하라”는 말은 앞으로도 같은 의미로 쓰입니다).
-3.  `npm --version`를 실행하세요.
+### Linux Instructions
 
-각각의 커맨드에 따라 버전 번호가 출력될 것입니다. 아래 사진에서의 버전 번호와 같지 않을 수도 있습니다! 만일 커맨드를 실행해도 버전 번호가 출력되지 않는다면, 돌아가서 Node.js가 정상적으로 설치되었는지 다시 확인해주세요.
+Install nvm (Node Version Manager) and needed dependencies. nvm is used to manage Node.js and all its associated versions.
+
+_💡 If when installing a package, it asks for confirmation, type `y` and press enter._
+
+#### Ubuntu, Debian, and other `apt` based distros:
+
+1. Run `sudo apt update` and then `sudo apt -y upgrade` to make sure your Linux distribution is ready to go.
+2. Run `sudo apt-get install curl` to install curl which allows you to transfer data and download additional dependencies.
+3. After it finishes installing, run `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash` to download the latest nvm version.
+4. To confirm this has worked, use the following command. `nvm --version`. The output should be a version number.
+5. [Set default Node.js version](#set-default-nodejs-version)
+
+#### Arch, Manjaro and other `pacman` based distros:
+
+1. Run `sudo pacman -Sy` to make sure your distribution is ready to go.
+2. These distros come installed with curl, so you can use that to download nvm.
+   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash`
+3. Before using nvm, you need to install additional dependencies by running `sudo pacman -S grep awk tar`.
+4. To confirm this has worked, use the following command. `nvm --version`. The output should be a version number.
+5. [Set default Node.js version](#set-default-nodejs-version)
+
+#### Fedora, RedHat, and other `dnf` based distros:
+
+1. These distros come installed with curl, so you can use that to download nvm.
+   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash`
+2. To confirm this has worked, use the following command. `nvm --version`. The output should be a version number.
+3. [Set default Node.js version](#set-default-nodejs-version)
+
+If the Linux distribution you are using is not listed here, please find instructions on the web.
+
+#### Set default Node.js version
+
+When nvm is installed, it does not default to a particular node version. You’ll need to install the version you want and give nvm instructions to use it. This example uses the latest release of version 10, but more recent version numbers can be used instead.
+
+```shell
+nvm install 10
+nvm use 10
+```
+
+To confirm that this worked, you can run `npm --version` and `node --version`. The output should look similar to the screenshot below, showing version numbers in response to the commands.
 
 ![터미널에서 Node와 npm 버전 확인하기](01-node-npm-versions.png)
+
+Once you have followed the installation steps and you have checked everything is installed properly, you can continue to the next step.
 
 ## Git 설치하기
 
@@ -114,15 +155,15 @@ gatsby develop
 
 ### 로컬 환경에서 여러분의 사이트 보기
 
-브라우저의 새 탭을 열고 [**http://localhost:8000**](http://localhost:8000/)로 접속하시기 바랍니다.
+브라우저의 새 탭을 열고 `http://localhost:8000`로 접속하시기 바랍니다.
 
 ![홈페이지 확인하기](04-home-page.png)
 
 축하합니다! 여러분의 첫번째 Gatsby 사이트 개발을 드디어 시작했습니다! 🎉
 
-개발용 서버가 켜져 있는 동안 로컬 환경에서 [**_http://localhost:8000_**](http://localhost:8000/)를 통해 사이트에 방문할 수 있습니다. 이는 `gatsby develop` 커맨드에 의해 실행되어 작동 중인 프로세스 입니다. 프로세스를 종료하기 위해선 (또는 “개발용 서버를 중단”하기 위해선), 터미널로 돌아가서 “control” 키를 누른 상태로, “c”를 누르세요. (ctrl-c). 다시 시작하기 위해선 `gatsby develop`를 실행하면 됩니다.
+개발용 서버가 켜져 있는 동안 로컬 환경에서 `http://localhost:8000`를 통해 사이트에 방문할 수 있습니다. 이는 `gatsby develop` 커맨드에 의해 실행되어 작동 중인 프로세스 입니다. 프로세스를 종료하기 위해선 (또는 “개발용 서버를 중단”하기 위해선), 터미널로 돌아가서 “control” 키를 누른 상태로, “c”를 누르세요. (ctrl-c). 다시 시작하기 위해선 `gatsby develop`를 실행하면 됩니다.
 
-**참고:** 만일 `vagrant`와 같은 가상환경을 이용하고 있고 여러분의 로컬 IP 주소에서 접속하고 싶다면, `gatsby develop -- --host=0.0.0.0`를 실행하세요. 이 방법을 통해 개발용 서버는 'localhost'와 여러분의 로컬 IP 주소 양쪽 모두에 전달됩니다.
+**참고:** 만일 `vagrant`와 같은 가상환경을 이용하고 있고 여러분의 로컬 IP 주소에서 접속하고 싶다면, `gatsby develop --host=0.0.0.0`를 실행하세요. 이 방법을 통해 개발용 서버는 `http://localhost`와 여러분의 로컬 IP 주소 양쪽 모두에 전달됩니다.
 
 ## 코드 에디터 설치하기
 
