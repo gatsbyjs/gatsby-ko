@@ -1,8 +1,8 @@
 ---
-title: Custom Configuration
+title: 사용자 정의 설정
 overview: true
 ---
 
-Sometimes you may find yourself in a situation where Gatsby's default configuration just isn't quite what you need for your site. If you should find yourself in this situation, have no fear my friend, you can customize Gatsby's config for `babel` and `webpack`. You can also customize `html.js`, the React component used to generate the initial HTML file of your build. You'll also find guides on how to get custom environment variables into your website, as well how to proxy API requests in development so your API calls aren't interpreted by your server as static assets.
+때때로 여러분은 Gatsby의 기본 구성이 여러분의 사이트에 필요한 것이 아니라는 것을 알게 될 수도 있습니다. 만약 그렇더라도 두려워하지 마세요, Gatsby의 `babel`과 `webpack`에 대한 구성을 사용자 정의할 수 있습니다. 빌드의 초기 HTML 파일을 생성하는 데 사용되는 React 구성 요소인 `html.js`를 사용자 정의할 수도 있습니다. 또한 사용자 지정 환경 변수를 웹 사이트로 가져오는 방법과 개발 중인 API 요청을 프록시 처리하여 서버가 API 호출을 정적 에셋으로 해석하지 않도록 하는 방법에 대한 안내서도 볼 수 있습니다.
 
 <GuideList slug={props.slug} />

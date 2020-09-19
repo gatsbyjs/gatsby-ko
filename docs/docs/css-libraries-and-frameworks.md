@@ -1,10 +1,10 @@
 ---
-title: CSS Libraries and Frameworks
+title: CSS 라이브러리와 프레임워크
 overview: true
 ---
 
-There are many other CSS style libraries and frameworks that you can use in your Gatsby project.
+Gatsby 프로젝트에서 사용할 수 있는 많은 CSS 스타일 라이브러리와 프레임워크가 있습니다.
 
-These libraries are not full-on approaches to styling, and generally work no matter which [styling approach](/docs/styling/) you've chosen for your website. They require installing third-party libraries, often with the help of Gatsby community plugins.
+이러한 라이브러리는 스타일링에 대한 완전한 접근 방식이 아니며, 일반적으로 웹 사이트에 대해 선택한 [스타일링 접근법](/docs/스타일링/)에 관계없이 작동합니다. 이들은 종종 Gatsby 커뮤니티 플러그인의 도움을 받아 써드파티 라이브러리를 설치해야 합니다.
 
 <GuideList slug={props.slug} />

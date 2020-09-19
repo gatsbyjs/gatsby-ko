@@ -1,25 +1,25 @@
 ---
-title: Enhancing Styles with CSS-in-JS
+title: CSS-in-JS를 사용하여 스타일 향상시키기
 overview: true
 ---
 
-CSS-in-JS refers to an approach where styles are written in JavaScript instead of in external CSS files to easily scope styles in components, eliminate dead code, encourage faster performance and dynamic styling, and more.
+CSS-in-JS는 외부 CSS 파일이 아닌 JavaScript로 스타일을 작성하여 컴포넌트의 스타일을 쉽게 범위화하고, 사용하지않는 코드를 제거하며, 성능을 향상시키고, 동적으로 스타일을 적용하는 등의 접근 방식을 말합니다.
 
-CSS-in-JS bridges the gap between CSS and JavaScript:
+CSS-in-JS는 CSS와 JavaScript 사이의 간격을 메웁니다:
 
-1. **Components**: you'll style your site with components, which integrates well with React's "everything is a component" philosophy.
-2. **Scoped**: this is a side effect of the first. Just like [CSS Modules](/docs/css-modules/), CSS-in-JS is scoped to components by default.
-3. **Dynamic**: style your site dynamically based on component state by integrating JavaScript variables.
-4. **Bonuses**: many CSS-in-JS libraries generate unique class names which can help with caching, automatic vendor prefixes, timely loading of critical CSS, and implementing many other features, depending on the library you choose.
+1. **컴포넌트**: 모든 것이 구성요소라는 React의 개념과 잘 통합되어 컴포넌트로 사이트를 스타일링할 수 있습니다.
+2. **범위**: 이것은 첫 번째 부가 요소입니다. [CSS 모듈](/docs/css-modules/)과 마찬가지로 CSS-in-JS는 기본적으로 컴포넌트에 범위가 지정됩니다.
+3. **동적**: JavaScript 변수를 통합하여 컴포넌트 상태에 따라 동적으로 사이트를 스타일링합니다
+4. **보너스**: 대부분의 CSS-in-JS 라이브러리는 선택한 라이브러리에 따라 캐싱, 자동 벤더 접두사, 중요 CSS를 적시에 로드하고 다른 많은 기능을 구현하는 데 도움이 되는 고유한 클래스 이름을 생성합니다.
 
-CSS-in-JS, while not required in Gatsby, is very popular among JavaScript developers for the reasons listed above. For more context, read Max Stoiber's (creator of CSS-in-JS library [styled-components](/docs/styled-components/)) article [_Why I write CSS in JavaScript_](https://mxstbr.com/thoughts/css-in-js/). However, you should also consider whether CSS-in-JS is necessary, as not relying on it can encourage more inclusive frontend skill-sets. It is also more difficult to port styles from JSX to and from CSS.
+CSS-in-JS는 Gatsby에서는 필요하지 않지만 위에 나열된 이유로 JavaScript 개발자들 사이에서 매우 인기가 있습니다. 자세한 내용은 Max Stoiber의 (CSS-in-JS 라이브러리 [styled-class](/docs/styled-components/)를 만든이) 기사 [_JavaScript에서 CSS를 쓰는 이유_](https://mxstbr.com/thoughts/css-in-js/)를 읽어보세요. 그러나 CSS-in-JS에 의존하지 않는 것이 더 포괄적인 프런트엔드 스킬 세트를 장려할 수 있으므로 CSS-in-JS가 필요한지도 고려해야 합니다. 또한 JSX나 CSS로부터 스타일을 포트하는 것이 어렵습니다.
 
-_Note that this functionality is not a part of React or Gatsby, and requires using any of the many [third-party CSS-in-JS libraries](https://github.com/MicheleBertoli/css-in-js#css-in-js)._
+_이 기능은 React 또는 Gatsby의 일부가 아니며, 많은 [써드파티 CSS-in-JS 라이브러리](https://github.com/MicheleBertoli/css-in-js#css-in-js)를 사용해야 합니다._
 
-> Adding a stable CSS class to your JSX markup along with your CSS-in-JS can make it easier to users to include [User Stylesheets](https://www.viget.com/articles/inline-styles-user-style-sheets-and-accessibility/) for accessibility. See [Styled Components](/docs/styled-components#enabling-user-stylesheets-with-a-stable-class-name) example.
+> 안정적인 CSS 클래스를 CSS-in-JS와 함께 JSX 마크업에 추가하면 접근성을 위해 [User Stylesheets](https://www.viget.com/articles/inline-styles-user-style-sheets-and-accessibility/)를 쉽게 포함할 수 있습니다. [Styled Components](/docs/styled-components#enabling-user-stylesheets-with-a-stable-class-name) 예제를 참조하세요.
 
-Keep in mind that styles aren't applied until the JavaScript loads hence a plugin to extract the styles is necessary to prevent flash of unstyled content (FOUC). To cater for this, every CSS-in-JS library has a Gatsby plugin which you need to extract styles and insert them into the HTML during builds and this prevents FOUC.
+JavaScript가 로드될 때까지 스타일이 적용되지 않으므로 스타일을 추출하는 플러그인은 스타일이 적용되지않은 컨텐츠의 플래시를 방지(FOUC)하는 데 필요합니다. 이를 충족하기 위해 모든 CSS-in-JS 라이브러리에는 스타일을 추출하여 빌드하는 동안 HTML에 삽입하는 Gatsby 플러그인이 있으며, 이는 FOUC를 방지합니다.
 
-This section contains guides for styling your site with some of the most popular CSS-in-JS libraries, including how to set up global styles using each library.
+이 섹션에는 각 라이브러리를 사용하여 글로벌 스타일을 설정하는 방법을 비롯하여 가장 인기 있는 CSS-in-JS 라이브러리를 사용하여 사이트를 스타일링하는 방법에 대한 가이드가 포함되어 있습니다.
 
 <GuideList slug={props.slug} />
