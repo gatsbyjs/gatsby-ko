@@ -32,7 +32,7 @@ cd wordpress-tutorial-site
 `gatsby-source-wordpress` 플러그인을 설치하세요. 이번 튜토리얼에 포함되어있지 않은 이 플러그인의 특징과 GraphQL 쿼리 예제에 대한 추가적인 정보가 보고 싶다면 [`gatsby-source-wordpress` plugin’s README file](/packages/gatsby-source-wordpress/?=wordpress)를 봐주세요.
 
 ```shell
-npm install --save gatsby-source-wordpress
+npm install gatsby-source-wordpress
 ```
 
 `gatsby-config.js`에 다음 코드를 사용하여 `gatsby-source-wordpress` 플러그인을 추가해주세요. 이 역시 [demo site’s source code](https://github.com/gatsbyjs/gatsby/blob/master/examples/using-wordpress/gatsby-config.js)에서 찾을 수 있습니다.
@@ -40,7 +40,9 @@ npm install --save gatsby-source-wordpress
 ```js:title=gatsby-config.js
 module.exports = {
   siteMetadata: {
-    title: "Gatsby WordPress Tutorial"
+    title: `Gatsby WordPress Tutorial`,
+    description: `An example to learn how to source data from WordPress.`,
+    author: `@gatsbyjs`,
   },
   plugins: [
     // https://public-api.wordpress.com/wp/v2/sites/gatsbyjsexamplewordpress.wordpress.com/pages/
@@ -54,9 +56,9 @@ module.exports = {
       options: {
         /*
          * 프로토콜과 마지막의 /를 제외한 워드프레스 사이트의 base URL는 필수 항목입니다.
-         * 예 : 'dev-gatbsyjswp.pantheonsite.io' 또는 'www.example-site.com'
+         * 예 : 'demo.wp-api.org' 또는 'www.example-site.com'
          */
-        baseUrl: `dev-gatbsyjswp.pantheonsite.io`,
+        baseUrl: `live-gatbsyjswp.pantheonsite.io`,
         // 프로토콜: http나 https입니다.
         protocol: `http`,
         // wordpress.com에 의해 호스팅 되는 사이트 인지 아닌지 명시.
@@ -70,7 +72,33 @@ module.exports = {
       }
     }
     // highlight-end
-  ]
+    /**
+     * The following plugins aren't required for gatsby-source-wordpress,
+     * but we need them so the default starter we installed above will keep working.
+     **/
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+  ],
 }
 ```
 
@@ -84,7 +112,7 @@ module.exports = {
 gatsby develop
 ```
 
-브라우저 상에서 localhost:8000에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 localhost:8000/\_\_\_graphql로 접속하세요.
+브라우저 상에서 `http://localhost:8000`에 접속해서 사이트를 보고, GraphQL 쿼리를 작성할 수 있는 `http://localhost:8000/___graphql`로 접속하세요.
 
 연습삼아 다음 쿼리를 GraphQL explorer에 작성해보세요. 이 첫번째 쿼리는 Wordpress로부터 블로그 포스트 컨텐츠를 가져올 것입니다.
 
@@ -122,7 +150,7 @@ query {
 
 ## 블로그 포스트들을 `index.js`에 출력하기
 
-이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. 여러분의 `index.js`는 다음과 같아야 합니다:
+이제까지 여러분은 원하는 데이터를 가져오는 GraphQL 쿼리들을 작성했습니다. 두번째 쿼리를 사용해서 여러분의 사이트 홈페이지에 정렬된 블로그의 제목 리스트를 보여주겠습니다. `src/pages/index.js`에 있는 여러분의 홈페이지 컴포넌트는 다음과 같아야 합니다:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -166,9 +194,9 @@ export const pageQuery = graphql`
 //highlight-end
 ```
 
-바꾼 것들을 저장하고 localhost:8000에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
+바꾼 것들을 저장하고 `http://localhost:8000`에 접속해서, 정렬된 블로그 포스트 목록이 보이는 여러분의 새로운 홈페이지를 보세요.
 
-![WordPress home after query](/images/wordpress-source-plugin-home.jpg)
+![WordPress home after query](./images/wordpress-source-plugin-home.jpg)
 
 > **NOTE:** 미래의 에디터들에게: 블로그 포스트를 각각의 페이지로 불러오는 예제가 있었으면 도움이 될거 같습니다. 그리고 최종 결과물의 스크린샷을 추가하면 도움이 될거 같습니다.
 
@@ -213,9 +241,9 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-다음으로, `gatsby develop` 환경을 멈추고 다시 시작하세요. 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다:
+다음으로, `gatsby develop` 환경을 [멈추고 다시 시작](https://www.gatsbyjs.org/tutorial/part-zero/#view-your-site-locally)하세요. 터미널에 두개의 Post 오브젝트 로그가 표시되어야 합니다:
 
-![Two posts logged to the terminal](/images/wordpress-source-plugin-log.jpg)
+![Two posts logged to the terminal](./images/wordpress-source-plugin-log.jpg)
 
 훌륭합니다! 튜토리얼 파트 7에서 설명했다시피, `createPages` export가 Gatsby의 "일꾼" 중의 하나이고, 워드프레스로부터 블로그 포스트(또는 페이지, 커스텀 포스트 타입, 기타등등)를 만들게 해줍니다.
 
@@ -223,7 +251,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 `src` 디렉토리안에, `templates` 디렉토리를 만들고, 그 안에 `blog-post.js` 파일을 만드세요. 그 파일에 다음 내용을 붙여넣기하세요:
 
-```jsx:title=src/tempates/blog-post.js
+```jsx:title=src/templates/blog-post.js
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
@@ -293,9 +321,9 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-`gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, [http://localhost:8000/asdf](http://localhost:8001/asdf)같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
+`gatsby develop` 를 사용해서 환경을 재 시작해줘야 하고요. 그렇게 했을 때, index 페이지는 바뀌지 않았지만, `http://localhost:8000/asdf` 같은 404 페이지로 가보면, 두개의 예제 포스트를 볼 수 있고 클릭해서 그 포스트로 갈 수 있을 것입니다:
 
-![Sample post links](/images/wordpress-source-plugin-sample-post-links.gif)
+![Sample post links](./images/wordpress-source-plugin-sample-post-links.gif)
 
 하지만 누구도 블로그 글을 찾기위해 404 페이지로 가고 싶어하지 않잖아요! 그러니 홈페이지에서 링크를 걸어봅시다.
 
@@ -303,7 +331,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 `index.js` 페이지에 이미 여러분의 구조와 쿼리를 완료했기에, `Link` 컴포넌트를 사용해서 타이틀을 감싸기만 하면 모든 준비가 완료됩니다.
 
-`index.js` 파일을 열고 다음의 내용을 추가하세요:
+`src/pages/index.js` 파일을 다시 열고 다음의 내용을 추가하세요:
 
 ```jsx:title=src/pages/index.js
 import React from "react"
@@ -318,7 +346,7 @@ export default ({ data }) => {
       <h1>My WordPress Blog</h1>
       <h4>Posts</h4>
       {data.allWordpressPost.edges.map(({ node }) => (
-        <div>
+        <div key={node.slug}>
           //highlight-start
           <Link to={node.slug}>
             <p>{node.title}</p>
@@ -348,7 +376,7 @@ export const pageQuery = graphql`
 
 이게 전부입니다~ `Link` 컴포넌트로 타이틀을 감싸고 포스트의 slug를 참조하면, Gatsby가 마법과도 같이 link를 추가하고, 미리 로딩하고, 완전 빠르게 페이지 간의 전환을 만들어줍니다:
 
-![Final product with links from the home page to the blog posts](/images/wordpress-source-plugin-home-to-post-links.gif)
+![Final product with links from the home page to the blog posts](./images/wordpress-source-plugin-home-to-post-links.gif)
 
 ### 마무리
 
